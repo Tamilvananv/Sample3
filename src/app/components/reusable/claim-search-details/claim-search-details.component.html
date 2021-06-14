@@ -1,0 +1,58 @@
+<form #ClaimSearchDetailsForm="ngForm" (change)="sendClaimDetails()">
+    <table class="table text-center tendertable p-4 form-container form-group">
+        <tbody>
+            <tr>
+                <td class="tendertable">{{'Contract Number' | translate}} <br>
+                    <input type="text" class="form-control" name="claimSearchDetailData.contractNumber"
+                        [(ngModel)]="claimSearchDetailData.contractNumber">
+                </td>
+                <td class="tdborder tendertable">{{'Claim Submitted Date' | translate}}<br>
+                    <input type="date" class="form-control" name="claimSearchDetailData.claimSubmittedDate"
+                        [(ngModel)]="claimSearchDetailData.claimSubmittedDate" onkeydown="return false">
+                </td>
+                <td class="tdborder tendertable text-left" colspan="3"> {{'claim category' | translate}}<br>
+                    <select class="form-control" name="claimSearchDetailData.claimCategory"
+                        [(ngModel)]="claimSearchDetailData.claimCategory">
+                        <option [ngValue]="null" [disabled]="true">
+                           {{'claim category' | translate}}
+                        </option>
+                        <option *ngFor="let type  of claimCategoryDropdownValues" value="{{type.lovId}}">{{type.lovName}}</option>
+                    </select> 
+                </td>
+                <td class="tdborder tendertable text-left" colspan="3">  {{'Priority' | translate}}<br>
+                    <select class="form-control" name="claimSearchDetailData.claimPriority"
+                        [(ngModel)]="claimSearchDetailData.claimPriority">
+                        <option [ngValue]="null" [disabled]="true">
+                            Priority
+                        </option>
+                        <option *ngFor="let priority of claimPriorityDropdownValues" value="{{priority.lovId}}">{{priority.lovName}}</option>
+                    </select> </td>
+    
+            </tr>
+            <tr>
+                <td colspan="2" class="tendertable">{{'Claim type' | translate}}<br>
+                    <select class="form-control" name="claimSearchDetailData.claimType"
+                        [(ngModel)]="claimSearchDetailData.claimType">
+                        <option [ngValue]="null" [disabled]="true">
+                            Claim type
+                        </option>
+                        <option *ngFor="let claimType of claimTypeDropdownValues" value="{{claimType.lovId}}">{{claimType.lovName}}</option>
+                    </select> </td>
+                <td class="tdborder tendertable">
+                    {{'Total Claimed Time (Calendar Days)' | translate}}<br>
+                    <input type="text" class="form-control" name="claimSearchDetailData.totalClaimedTime"
+                        [(ngModel)]="claimSearchDetailData.totalClaimedTime"></td>
+                <td class="tdborder tendertable text-left" colspan="3">   {{'Total Claimed Amount' | translate}}
+                    (AED)<br>
+                    <input type="text" class="form-control" name="claimSearchDetailData.totalClaimedAmount"
+                        [(ngModel)]="claimSearchDetailData.totalClaimedAmount"> </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="tendertable"> {{'Claim type' | translate}}<br>
+                    <textarea cols="40" name="claimSearchDetailData.claimTypeText"
+                        [(ngModel)]="claimSearchDetailData.claimTypeText"></textarea> </td>
+                <td> </td>
+            </tr>
+        </tbody>
+    </table>
+    </form>

@@ -1,0 +1,103 @@
+<div class="data-details form-container form-group box-shadow-none">
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top">
+      <div class="col-sm-3">
+        <strong>{{'Document Category' | translate}}</strong><br>
+        <div *ngIf="supplierInformationDropdownList">
+          <select class="form-control" [(ngModel)]="documentCategory" name="documentCategory">
+            <option *ngFor="let type  of supplierInformationDropdownList.attachmentSectionDocCategory"
+              value="{{type.lovId}}">{{type.lovName}}</option>
+            <option value="Others">{{'Others' | translate}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <strong>{{'Document Description' | translate}}</strong><br>
+        <div>
+          <input class="form-control inputText" [(ngModel)]="documentDesc" name="documentDesc" type="text"
+            #supplierAttachmentDocumentDesc="ngModel" required>
+          <div [hidden]="supplierAttachmentDocumentDesc.valid || supplierAttachmentDocumentDesc.pristine">
+            <span class="validation-msg">{{'Please select the document description' | translate}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <strong>{{'Upload Document' | translate}}</strong><br>
+        <!-- <div class="col-sm-12 col-md-6 col-lg-3 pb-3"> -->
+          <div class="attach-btn file ">
+            <span class="btn btn-secondary pt-2 pb-2">{{'Select files here to upload' | translate}}</span>
+            <input type="file" name="file" (change)="uploadDocument($event,documentDesc,documentCategory)" />
+          </div>
+  
+          <div>
+            {{ fileName }}
+          </div>
+        <!-- </div> -->
+      </div>
+    </div>
+    <div class="d-flex table-area mt-2">
+  
+      <div class="table-responsive table-box">
+        <h1>{{'Uploaded Documents' | translate}}</h1>
+        <!-- <table class="table table-striped">
+          <thead>
+            <tr>
+    
+              <th>{{'Name' | translate}}</th>
+              <th>{{'Description' | translate}}</th>
+              <th>{{'Download Centre' | translate}}</th>
+              <th>{{'Uploaded By' | translate}}</th>
+              <th>{{'Uploaded Date & Time' | translate}}</th>
+              <th>{{'Action' | translate}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let supplierinfo of supplierAttachmentSection">
+              <th >{{ supplierinfo.documentType }}</th>
+              <td class="d-flex justify-content-lg-between">
+                <a style="color: #1daeec"
+                  (click)="downloadDocument(supplierinfo.documentName)">{{ supplierinfo.documentName }}</a>
+                <a style="color: #1daeec" (click)="deleteSelectedAttachmentDetails($event, supplierinfo)"><i
+                    class="fa fa-trash"></i></a>
+              </td>
+              <td>{{ supplierinfo.userName }}</td>
+              <td>{{ supplierinfo.uploadDate }}</td>
+            </tr>
+          </tbody>
+        </table> -->
+    
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th >{{'Category' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+                <th > {{'File Name' | translate}}<img class="pl-2" src="assets/img/filter-icon.png">
+                </th>
+                <th >{{'Uploaded By' | translate}}<img class="pl-2" src="assets/img/filter-icon.png">
+                </th>
+                <th >{{'Uploaded Date' | translate}}<img class="pl-2"
+                    src="assets/img/filter-icon.png"></th>
+                    <th >{{'Action' | translate}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let contractAttachment of contractAttachmentSection">
+                <td [attr.data-title]="'Category' | translate">{{ contractAttachment.documentType }}</td>
+                <td [attr.data-title]="'File Name' | translate" class="justify-content-lg-between">
+                  <!-- <a style="color: #1daeec"
+                    (click)="downloadDocument(contractAttachment.documentName)"> 
+                    {{ contractAttachment.documentName }}</a> -->
+                    {{ contractAttachment.documentName }}
+                  
+                </td>
+                <td [attr.data-title]="'Uploaded By' | translate">{{ contractAttachment.userName }}</td>
+                <td [attr.data-title]="'Uploaded Date' | translate">{{ contractAttachment.uploadDate }}</td>
+                <td [attr.data-title]="'Action' | translate"><a  (click)="downloadDocument(contractAttachment.documentName)"> 
+                  <i class="fa fa-download mr-3"></i></a> <a  (click)="deleteSelectedAttachmentDetails($event, contractAttachment)"> 
+                  <i class="fa fa-trash"></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  
+  

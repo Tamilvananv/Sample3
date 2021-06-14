@@ -1,0 +1,156 @@
+
+
+    <!-- --------------- breadcrumb ---------------- -->
+    
+     <div class="d-flex">
+      <div class="col-sm-6 pr-0 pl-0 ">
+          <nav aria-label="breadcrumb" id="breadcrumb">
+              <ol class="breadcrumb pl-0 mt-0">
+                  <li class="breadcrumb-item active" aria-current="page">{{'Entity Assignment' | translate}}</li>
+              </ol>
+          </nav>
+      </div>
+  </div>
+     <div class="d-flex">
+        <div class="form-container">
+          <div class="col-md-12 pl-4 pr-4 pt-4">
+            <div class="row ">
+              <div class="input-checkbox pl-3 pr-3 pb-3">
+                <span class='blocking-span'>
+                  <input type="checkbox" > <span class="check-space">{{'Assign to All' | translate}}</span>
+                </span>
+              </div>
+            </div>
+            <div class="row ">
+              <div class="input-checkbox pl-3 pr-3 pb-3">
+                <span class='blocking-span'>
+                  <input type="checkbox" > <span class="check-space">{{'Select Entity' | translate}}</span>
+                </span>
+              </div>
+            </div>
+          <div class="row ">
+            <div class="col-sm-6 pb-3">
+                <div class="floating-label">  
+                <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);" value="" 
+                  required>
+                  <option  value=""> </option>
+                  <option  value=""> 1</option>
+                </select>
+                <span class="highlight"></span>
+                <label>{{'Select Entities' | translate}}</label>
+                
+              </div>
+              </div>
+              <div class="col-md-4 pb-4 ar-align">
+               <div class="align-vertical">
+                <a href="">{{'Add' | translate}}</a>
+              </div>
+            </div>
+        </div>
+        <div class="d-flex table-area mt-3">
+           <!--  <div class="col-sm-12 pb-3">
+
+                <ul>
+                    <li>1. Company 1</li>
+                    <li>2. Company 2</li>
+                    <li>3. Company 3</li>
+                    <li>4. Company 4</li>
+                    <li>5. Company 5</li>
+                    <li>6. Company 6</li>
+                    <li>7. Company 7</li>
+                    <li>8. Company 8</li>
+                    <li>9. Company 9</li>
+                    <li>10. Company 10</li>
+                    <li>11. Company 11 </li>
+                    <li>12. Company 12</li>
+                </ul>
+                  
+            </div> -->
+            <div class="table-responsive table-box">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th class="w-75" >{{'Entity Name' | translate}}</th>                      
+                      <th class="w-25" >{{'Action' | translate}}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td [attr.data-title]="'Entity Name' | translate">1. Company 1</td>  
+                      <td [attr.data-title]="'Action' | translate">                       
+                        <a><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td [attr.data-title]="'Entity Name' | translate">2. Company 2</td>  
+                      <td [attr.data-title]="'Action' | translate">                       
+                        <a><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td [attr.data-title]="'Entity Name' | translate">3. Company 3</td>  
+                      <td [attr.data-title]="'Action' | translate">                       
+                        <a><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td [attr.data-title]="'Entity Name' | translate">4. Company 5</td>  
+                      <td [attr.data-title]="'Action' | translate">                       
+                        <a><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td [attr.data-title]="'Entity Name' | translate">5. Company 5</td>  
+                      <td [attr.data-title]="'Action' | translate">                       
+                        <a><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td [attr.data-title]="'Entity Name' | translate">6. Company 6</td>  
+                      <td [attr.data-title]="'Action' | translate">                       
+                        <a><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td [attr.data-title]="'Entity Name' | translate">7. Company 7</td>  
+                      <td [attr.data-title]="'Action' | translate">                       
+                        <a><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td [attr.data-title]="'Entity Name' | translate">8. Company 8</td>  
+                      <td [attr.data-title]="'Action' | translate">                       
+                        <a><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td [attr.data-title]="'Entity Name' | translate">9. Company 9</td>  
+                      <td [attr.data-title]="'Action' | translate">                       
+                        <a><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td [attr.data-title]="'Entity Name' | translate">10. Company 10</td>  
+                      <td [attr.data-title]="'Action' | translate">                       
+                        <a><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td [attr.data-title]="'Entity Name' | translate">11. Company 11</td>  
+                      <td [attr.data-title]="'Action' | translate">                       
+                        <a><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td [attr.data-title]="'Entity Name' | translate">12. Company 12</td>  
+                      <td [attr.data-title]="'Action' | translate">                       
+                        <a><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+        
+                
+          </div>
+        </div>
+  

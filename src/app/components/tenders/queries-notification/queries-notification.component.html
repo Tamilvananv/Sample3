@@ -1,0 +1,160 @@
+<div class="container">
+    <div class="df-flex pt-4 pb-3">
+        <h2  class="page-title">{{'Queries/Notification Search' | translate}}</h2>
+    </div>
+     <!-- ---------------------- Notification ------------------------------ -->
+     <div class="d-flex">
+        <div class="form-container">
+          <div class="col-sm-12 col-md-12 pt-2 pb-2">
+            <h1 class="p-2">{{'Queries/Notification Search' | translate}}</h1>
+          </div>
+  
+          <div class="d-flex">
+            <div class="col-md-12 pl-4 pr-4 pb-3">
+  
+              <div class="form-group row ">
+  
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                  <div class="floating-label">               
+                    <input type="text" class="form-control floating-input" placeholder=" "
+                    name=""
+                    autocomplete="off" required  />
+                    <span class="highlight"></span>
+                    <label>{{'Tender Number' | translate}}<sup>*</sup></label>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                  <div class="floating-label"> 
+                    <input dir="rtl" type="text" class="form-control floating-input" placeholder=" "
+                    name=""
+                    autocomplete="off"  required />
+                    <span class="highlight"></span>
+                    <label>{{'Tender Name' | translate}}<sup>*</sup></label>
+                  </div>
+                 
+                </div>
+  
+                <div  class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                  <div class="floating-label">  
+                  <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);" value="" name="ownerTypeValue"
+                    required>
+                    <option  value="Notification Type">
+                     </option>
+                  </select>
+                  <span class="highlight"></span>
+                  <label>{{'Type of Ownership' | translate}}</label>
+              
+                </div>
+                </div>
+               
+              </div>
+
+              <div class="row justify-content-start form-container bg-none box-shadow-none mt-4">
+                <div class="col-sm-3">
+                    <div class="floating-label">
+                        <input type="text" onclick="(this.type='date')"  name="fromdate" 
+                        placeholder=" " class="form-control floating-input bg-none" required >
+                      <span class="highlight"></span>
+                      <label>{{'Last Date for Raising Queries- from Date' | translate}}</label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="floating-label">
+                        <input type="text" onclick="(this.type='date')"  name="todate" 
+                        placeholder=" " class="form-control floating-input bg-none" required >
+                      <span class="highlight"></span>
+                      <label>{{'Last Date for Raising Queries - to Date' | translate}}</label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="floating-label">
+                        <input type="text" onclick="(this.type='date')"  name="fromdate" 
+                        placeholder=" " class="form-control floating-input bg-none" required >
+                      <span class="highlight"></span>
+                      <label>{{'Latest Notification for Tenders- from Date' | translate}}</label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="floating-label">
+                        <input type="text" onclick="(this.type='date')"  name="todate" 
+                        placeholder=" " class="form-control floating-input bg-none" required >
+                      <span class="highlight"></span>
+                      <label>{{'Latest Notification for Tenders -to Date' | translate}}</label>
+                    </div>
+                </div>
+            </div>
+          
+  
+            </div>
+          </div>
+        </div>
+      </div>
+      <section id="pagination" class="pagination-area mt-1">
+        <div class="container">
+            <div class="d-flex">
+                <span class="mr-auto">&nbsp;</span>
+              
+                        <a routerLink="/public-tenders"><button type="submit" class="save-btn">
+                           {{'SEARCH' | translate}} </button></a>
+                          
+                <a routerLink="/public-tenders"><button type="submit" class="clear-btn ml-4">
+                       {{'CLEAR' | translate}} </button></a>
+            </div>
+        </div>
+    </section>
+
+    <div class="d-flex table-area">
+        <div class="table-responsive">
+            <form>
+
+
+                <table class="table table-striped" id="queriesNotificationTable">
+                  <thead>
+                    <tr>
+        
+                      <th  (click)="sortTable(0)">
+                        {{'Tender Number' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+                      <th  (click)="sortTable(1)">
+                        {{'Tender Name' | translate}}<img class="pl-2" src="assets/img/filter-icon.png">
+                      </th>
+                      <th  (click)="sortTable(2)">{{'Last date for Raising Queries' | translate}}<img
+                          class="pl-2" src="assets/img/filter-icon.png"></th>
+                      <th  (click)="sortTable(3)">{{'Queries' | translate}}<img
+                          class="pl-2" src="assets/img/filter-icon.png"></th>
+                      <th  (click)="sortTable(4)">{{'Notifications' | translate}}<img class="pl-2"
+                          src="assets/img/filter-icon.png"></th>
+                          <th  (click)="sortTable(5)">{{'Clarification' | translate}}<img class="pl-2"
+                            src="assets/img/filter-icon.png"></th>
+                    </tr>
+                  
+                  </thead>
+                  <tbody>
+                  
+                    <tr>
+                      <td [attr.data-title]="'Tender Number' | translate" >CASS/BUF/1050 </td>
+                      <td [attr.data-title]="'Tender Name' | translate"> Improvement and Maintenance of Roads and Infrastructure Facilities at Liwa City. </td>
+                      <td [attr.data-title]="'Last date for Raising Queries' | translate"> 10-June-2017 </td>
+                      <td [attr.data-title]="'Queries' | translate"> <a href="">Post Queries</a> </td>
+                      <td [attr.data-title]="'Notifications' | translate"> <a href="">Latest Notification</a> </td>
+                      <td [attr.data-title]="'Clarification' | translate"> <a href="">View Response</a> </td>
+                    </tr>
+                  </tbody>
+                </table>
+        
+                <div class="d-flex table-area mt-5">
+                    <div class="table-responsive table-box">
+                
+                        <div *ngIf="masterData.length>0" class="d-flex justify-content-between p-2">
+                            <app-pagination-record-count [totalRec]="totalRecordsCount" (selectedGridCount)="selectedGridCountChange($event)">
+                            </app-pagination-record-count>
+                            <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount"
+                                [recordsPerPage]="recCount" (onPageChange)="displayActivePage($event)">
+                            </app-pagination>
+                        </div>
+                    </div>
+                </div>
+               
+              </form>
+        </div>
+    </div>
+</div>

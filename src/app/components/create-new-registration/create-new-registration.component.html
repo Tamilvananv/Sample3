@@ -1,0 +1,315 @@
+<div [ngClass]="'currentTheme' | translate">
+  <div class="base-align">
+
+    <div id="topbar" class="top-bg"></div>
+    <app-header></app-header>
+  </div>
+</div>
+<div class="content" style="height: auto;">
+
+  <form #createUserForm="ngForm" (ngSubmit)="createUser()" autocomplete="off">
+    <div class="container">
+
+      <!-- --------------- breadcrumb ---------------- -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb pl-0 mt-2">
+          <li class="breadcrumb-item active" aria-current="page">{{'New Registration' | translate}}</li>
+        </ol>
+      </nav>
+
+      <!-- --------------- Alert area ---------------- -->
+      <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+      <!-- ---------------------- User Details ------------------------------ -->
+      <div class="d-flex">
+        <div class="form-container">
+          <div class="col-sm-12 col-md-12 pt-3">
+            <h1 class="p-2">{{'User Details' | translate}}</h1>
+          </div>
+
+          <div class="d-flex">
+            <div class="col-md-12 pl-4 pr-4">
+
+              <div class="form-group row ">
+
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                  <div class="floating-label">
+                    <!-- ^[a-zA-Z0-9]+$ -->
+                    <input type="text" class="form-control floating-input" placeholder=" "
+                      onkeyup="this.setAttribute('value', this.value);" name="newUser.companyName"
+                      [(ngModel)]="newUser.companyName" autocomplete="off" #newUserCompanyName="ngModel"
+                      pattern="^[-.a-zA-Z0-9\s]+(.-+[a-zA-Z0-9]+)*$" maxlength="30" minlength="3" required />
+                    <label>{{'Company Name' | translate}}<sup>*</sup></label>
+                    <div [hidden]="newUserCompanyName.valid || newUserCompanyName.pristine">
+                      <span *ngIf="newUserCompanyName.errors?.required" class="validation-msg validation-msg-position">
+                        {{'Please enter the Company Name' | translate}}</span> 
+                      <span class="validation-msg validation-msg-position"
+                        *ngIf="newUserCompanyName.errors?.pattern && !newUserCompanyName.errors?.required">
+                          {{'Special characters are not allowed' | translate}}
+                      </span>
+                      <span class="validation-msg validation-msg-position"
+                        *ngIf="newUserCompanyName.errors?.minlength && !newUserCompanyName.errors?.pattern && !newUserCompanyName.errors?.required">
+                         {{'Please enter Minimum of 3 characters' | translate}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                  <div class="floating-label">
+                    <input type="text" class="form-control floating-input" placeholder=" "
+                      onkeyup="this.setAttribute('value', this.value);" name="newUser.tradeLicenseNo"
+                      [(ngModel)]="newUser.tradeLicenseNo" autocomplete="off" #newUserTradeLicense="ngModel"
+                      pattern="^[-.a-zA-Z0-9\s]+(\s.-+[a-zA-Z0-9]+)*$" maxlength="30" minlength="3" required />
+                    <label>{{'Trade License No' | translate}}<sup>*</sup></label>
+                    <div [hidden]="newUserTradeLicense.valid || newUserTradeLicense.pristine">
+                      <span *ngIf="newUserTradeLicense.errors?.required" class="validation-msg validation-msg-position">
+                        {{'Please enter the Trade License No' | translate}}</span>
+                      <span class="validation-msg validation-msg-position"
+                        *ngIf="newUserTradeLicense.errors?.pattern && !newUserTradeLicense.errors?.required">
+                        {{'Special characters are not allowed' | translate}}
+                      </span>
+                      <span class="validation-msg validation-msg-position"
+                        *ngIf="newUserTradeLicense.errors?.minlength && !newUserTradeLicense.errors?.pattern && !newUserTradeLicense.errors?.required">
+                         {{'Please enter Minimum of 3 characters' | translate}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                  <div class="floating-label">
+                    <input type="text" class="form-control floating-input" placeholder=" "
+                      onkeyup="this.setAttribute('value', this.value);" name="newUser.firstName"
+                      [(ngModel)]="newUser.firstName" autocomplete="off" #newUserFirstName="ngModel"
+                      pattern="^[-.a-zA-Z0-9\s]+(\s.-+[a-zA-Z0-9]+)*$" maxlength="30" minlength="3" required />
+                    <label>{{'First Name' | translate}}<sup>*</sup></label>
+                    <div [hidden]="newUserFirstName.valid || newUserFirstName.pristine">
+                      <span *ngIf="newUserFirstName.errors?.required" class="validation-msg validation-msg-position">
+                        {{'Please enter the First Name' | translate}}</span>
+                      <span class="validation-msg validation-msg-position"
+                        *ngIf="newUserFirstName.errors?.pattern && !newUserFirstName.errors?.required">
+                         {{'Special characters are not allowed' | translate}}
+                      </span>
+                      <span class="validation-msg validation-msg-position"
+                        *ngIf="newUserFirstName.errors?.minlength && !newUserFirstName.errors?.pattern && !newUserFirstName.errors?.required">
+                        {{'Please enter Minimum of 3 characters' | translate}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                  <div class="floating-label">
+                    <input type="text" class="form-control floating-input" placeholder=" "
+                      onkeyup="this.setAttribute('value', this.value);" name="newUser.middleName"
+                      [(ngModel)]="newUser.middleName" autocomplete="off" #newUserMiddleName="ngModel"
+                      pattern="^[-.a-zA-Z0-9\s]+(\s.-+[a-zA-Z0-9]+)*$" maxlength="30"  minlength="3"/>
+                    <label>{{'Middle Name' | translate}}</label>
+                    <div [hidden]="newUserMiddleName.valid || newUserMiddleName.pristine">
+                      <span class="validation-msg validation-msg-position" *ngIf="newUserMiddleName.errors?.pattern">
+                        {{'Special characters are not allowed' | translate}}
+                      </span>
+                      <span class="validation-msg validation-msg-position"
+                        *ngIf="newUserMiddleName.errors?.minlength && !newUserMiddleName.errors?.pattern && !newUserMiddleName.errors?.required">
+                         {{'Please enter Minimum of 3 characters' | translate}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                  <div class="floating-label">
+                    <input type="text" class="form-control floating-input" placeholder=" "
+                      onkeyup="this.setAttribute('value', this.value);" name="newUser.lastName"
+                      [(ngModel)]="newUser.lastName" autocomplete="off" #newUserLastName="ngModel"
+                      pattern="^[-.a-zA-Z0-9\s]+(\s.-+[a-zA-Z0-9]+)*$" maxlength="30"  minlength="3" required />
+                    <label>{{'Last Name' | translate}}<sup>*</sup></label>
+                    <div [hidden]="newUserLastName.valid || newUserLastName.pristine">
+                      <span *ngIf="newUserLastName.errors?.required" class="validation-msg validation-msg-position">
+                        {{'Please enter the Last Name' | translate}}</span>
+                      <span class="validation-msg validation-msg-position"
+                        *ngIf="newUserLastName.errors?.pattern && !newUserLastName.errors?.required">
+                        {{'Special characters are not allowed' | translate}}
+                      </span>
+                      <span class="validation-msg validation-msg-position"
+                        *ngIf="newUserLastName.errors?.minlength && !newUserLastName.errors?.pattern && !newUserLastName.errors?.required">                        
+                        {{'Please enter Minimum of 3 characters' | translate}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
+                  
+                  <div class="floating-label">
+                   <!-- <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);"
+                    name="newUser.designation" [(ngModel)]="newUser.designation" autocomplete="off" #newUserDesignation="ngModel"
+                    pattern="^[-.a-zA-Z0-9\s]+(\s.-+[a-zA-Z0-9]+)*$" maxlength="30" minlength="3" required>
+                    <option hidden="true" value=""></option>
+                    <option  default="true" value="">{{'Select' | translate}}</option>
+                    <option  value="">dummy </option>
+                  </select>-->
+                     <input type="text" class="form-control floating-input" placeholder=" "
+                      onkeyup="this.setAttribute('value', this.value);" name="newUser.designation"
+                      [(ngModel)]="newUser.designation" autocomplete="off" #newUserDesignation="ngModel"
+                      pattern="^[-.a-zA-Z0-9\s]+(\s.-+[a-zA-Z0-9]+)*$" maxlength="30" minlength="3" required /> 
+                    <label>{{'Job Title/Designation' | translate}}<sup>*</sup></label>
+                    <div [hidden]="newUserDesignation.valid || newUserDesignation.pristine">
+                      <span *ngIf="newUserDesignation.errors?.required" class="validation-msg validation-msg-position">
+                        {{'Please enter the designation' | translate}}</span>
+                      <span class="validation-msg validation-msg-position"
+                        *ngIf="newUserDesignation.errors?.pattern && !newUserDesignation.errors?.required">
+                        {{'Special characters are not allowed' | translate}}
+                      </span>
+                      <span class="validation-msg validation-msg-position"
+                        *ngIf="newUserDesignation.errors?.minlength && !newUserDesignation.errors?.pattern && !newUserDesignation.errors?.required">
+                        {{'Please enter Minimum of 3 characters' | translate}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
+                  <div class="floating-label">
+                    <input type="text" class="form-control floating-input" placeholder=" "
+                      onkeyup="this.setAttribute('value', this.value);" name="newUser.phoneNo"
+                      [(ngModel)]="newUser.phoneNo" autocomplete="off" #newUserPhoneNumber="ngModel" required
+                      mask="000-000000099999" prefix="+" [showMaskTyped]="true" [validation]="true" />
+                    <label>{{'Phone Number' | translate}}<sup>*</sup></label>
+                    <div [hidden]="newUserPhoneNumber.valid || newUserPhoneNumber.pristine">
+                      <span class="validation-msg validation-msg-position"
+                        *ngIf="newUserPhoneNumber?.errors?.required">
+                        {{'Please enter the Phone Number' | translate}}
+                        </span>
+                      <span class="validation-msg validation-msg-position"
+                        *ngIf="newUserPhoneNumber.invalid && !newUserPhoneNumber.errors?.required">
+                        {{'Please enter valid Phone Number' | translate}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
+                  <div class="floating-label">
+                    <input type="email" class="form-control floating-input" placeholder=" "
+                      onkeyup="this.setAttribute('value', this.value);" value="" name="newUser.email"
+                      [(ngModel)]="newUser.email" autocomplete="off" #newUserEmailId="ngModel" required
+                      pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.\b[a-zA-Z]{2,4}$" maxlength="50" />
+                    <label>
+                      {{'eMail' | translate}}<sup>*</sup></label>
+                    <div [hidden]="newUserEmailId.valid || newUserEmailId.pristine">
+                      <span class="validation-msg validation-msg-position" *ngIf="newUserEmailId?.errors?.required">
+                        Please enter the E-mail Id</span>
+                      <span class="validation-msg"
+                        *ngIf="newUserEmailId.errors?.pattern && !newUserEmailId.errors?.required">
+                        {{'eMail-alert' | translate}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------------------- Login Details ------------------------------ -->
+      <div class="d-flex mt-4">
+        <div class="form-container">
+          <div class="col-sm-12 col-md-12 pt-3">
+            <h1 class="p-2"> {{'Login Details' | translate}}</h1>
+          </div>
+          <div class="d-flex">
+            <div class="col-md-12 pl-4 pr-4 pb-2">
+
+              <div class="form-group row ">
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                  <div class="floating-label">
+                    <!-- pattern="^[-.a-zA-Z0-9\s]+(\s.-+[a-zA-Z0-9]+)*$" -->
+                    <input type="text" class="form-control floating-input" placeholder=" "
+                      onkeyup="this.setAttribute('value', this.value);" [(ngModel)]="newUser.username"
+                      autocomplete="off" name="newUser.username" #newUserId="ngModel"
+                      pattern="^[-._a-zA-Z0-9\s]+(\s.-_+[a-zA-Z0-9]+)*$" maxlength="15" minlength="6" required />
+
+                    <label>{{'User Id' | translate}}<sup>*</sup></label>
+                    <div [hidden]="newUserId.valid || newUserId.pristine">
+                      <span [hidden]="!newUserId.errors?.required" class="validation-msg validation-msg-position">
+                         {{'Please enter the User Id' | translate}}</span>
+                      <span class="validation-msg validation-msg-position"
+                        [hidden]="(!newUserId.errors?.pattern && newUserId.errors?.required) || (!newUserId.errors?.pattern && newUserId.errors?.minlength)">
+                       {{'Special characters are not allowed' | translate}}
+                      </span>
+                      <span class="validation-msg validation-msg-position"
+                        [hidden]="(!newUserId.errors?.minlength && newUserId.errors?.required) || (!newUserId.errors?.pattern && newUserId.errors?.required) || newUserId.errors?.pattern">
+                         {{'Please enter Minimum of 6 characters' | translate}}</span>
+                      <span class="validation-msg validation-msg-position"
+                        [hidden]="!((newUserId.errors?.pattern && newUserId.errors?.minlength)&&newUserId.errors?.required)">
+                        {{'Please enter Minimum of 6 characters' | translate}}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                  <div class="floating-label">
+                    <!-- pattern="^[-.a-zA-Z0-9]+(\s.-+[a-zA-Z0-9]+)*$" -->
+                    <input type="password" class="form-control floating-input" placeholder=" "
+                      onkeyup="this.setAttribute('value', this.value);" [(ngModel)]="newUser.password"
+                      autocomplete="new-password" name="newUser.password" #newUserPassword="ngModel"
+                      pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" maxlength="15"
+                      required />
+                    <label>{{'Password' | translate}}<sup>*</sup></label>
+                    <div [hidden]="newUserPassword.valid || newUserPassword.pristine">
+                      <span *ngIf="newUserPassword.errors?.required" class="validation-msg validation-msg-position">
+                        {{'Please enter the Password' | translate}}</span>
+                      <span class="validation-msg"
+                        *ngIf="newUserPassword.errors?.pattern && !newUserPassword.errors?.required">
+                        {{'s-msg' | translate}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                  <div class="floating-label">
+                    <!-- pattern="^[-.a-zA-Z0-9]+(\s.-+[a-zA-Z0-9]+)*$" -->
+                    <input type="password" class="form-control floating-input" placeholder=" "
+                      onkeyup="this.setAttribute('value', this.value);" [(ngModel)]="newUser.confirmPassword"
+                      autocomplete="off" name="newUser.confirmPassword" #newUserConfirmPassword="ngModel"
+                      pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" maxlength="15"
+                      required />
+                    <label>{{'Confirm Password' | translate}}<sup>*</sup></label>
+                    <div [hidden]="newUserConfirmPassword.valid || newUserConfirmPassword.pristine">
+                      <span *ngIf="newUserConfirmPassword.errors?.required"
+                        class="validation-msg validation-msg-position">
+                         {{'Please enter the Confirmation Password' | translate}}</span>
+                      <span class="validation-msg"
+                        *ngIf="newUserConfirmPassword.errors?.pattern && !newUserConfirmPassword.errors?.required">
+                        {{'s-msg' | translate}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- --------------- save and navigation ---------------- -->
+
+
+      <section id="pagination" class="pagination-area mt-3">
+        <div class="container">
+          <div class="d-flex">
+            <span class="mr-auto">&nbsp;</span>
+            <button type="button" class="clear-btn" (click)="createUserForm.reset()"> {{'CLEAR' | translate}}
+            </button>
+            <button type="submit" class="save-btn ml-4 page-link save"
+              [disabled]="!createUserForm.valid || !createUserForm.dirty || !createUserForm.touched"> {{'SUBMIT' |
+              translate}}</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </form>
+</div>
+<div style="clear: both"></div>
+
+<app-footer></app-footer>

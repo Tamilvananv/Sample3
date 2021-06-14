@@ -1,0 +1,61 @@
+<!-- --------------- Progress bar ---------------- -->
+<div class="preqauali-container">
+<div class="progress-area">
+    <div class="progress-container">
+
+        <div class="progress-box">
+            <div class="progress-inner-box">
+                <a routerLink="/company-score-card">
+                    <!-- <div class="circle bg-blue">
+                  <span class="icon-Supplier-Registration"></span>
+                </div> -->
+                    <div *ngIf="supplierTabName=='companyScoreCard'" class="circle bg-blue">
+                        <span class="icon-Supplier-Registration"></span>
+                    </div>
+                    <div *ngIf="supplierTabName!='companyScoreCard'" class="circle bg-green">
+                        <span class="icon-Supplier-Registration"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="progress">
+                <!-- <div class="progress-bar " role="progressbar" style="width: 50%" aria-valuenow="100" aria-valuemin="0"
+                aria-valuemax="100"></div> -->
+                <div *ngIf="supplierTabName=='companyScoreCard'" class="progress-bar " role="progressbar" style="width: 50%" aria-valuenow="100"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                <div *ngIf="supplierTabName!='companyScoreCard'" class="progress-bar " role="progressbar" style="width: 100% ; background: #19bd9d;"
+                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <!-- <span class="info-text ft-blue">Summary</span> -->
+            <span *ngIf="supplierTabName=='companyScoreCard'" class="info-text ft-blue">{{'Summary' | translate}}</span>
+            <span *ngIf="supplierTabName!='companyScoreCard'" class="info-text ft-green">{{'Summary' | translate}}</span>
+        </div>
+
+        <div class="progress-box">
+            <div class="progress-inner-box">
+                <a routerLink="/supplier-score-card-summary">
+                    <!-- <div class="circle bg-gray">
+                        <span class="icon-Preview"></span>
+                    </div> -->
+                    <div *ngIf="supplierTabName=='supplierScoreCardSummary'" class="circle bg-blue">
+                        <span class="icon-Preview"></span>
+                    </div>
+                    <!-- <div *ngIf="id>1" class="circle bg-green">
+                        <span class="icon-Preview"></span>
+                    </div> --> 
+                    <div *ngIf="supplierTabName!='supplierScoreCardSummary'" class="circle bg-gray">
+                            <span class="icon-Preview"></span>
+                        </div>
+                </a>
+            </div>
+            <!-- <div class="progress">
+                      <div class="progress-bar bg-upcoming" role="progressbar" style="width: 50%;" aria-valuenow="0"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div> -->
+            <!-- <span class="info-text ft-blue">PreQualification Scorecard</span> -->
+            <span *ngIf="supplierTabName=='supplierScoreCardSummary'" class="info-text ft-blue">{{'Prequalification Score card' | translate}}</span>
+            <span *ngIf="supplierTabName!='supplierScoreCardSummary'" class="info-text ft-gray">{{'Prequalification Score card' | translate}}</span>
+        </div>
+
+    </div>
+</div>
+</div>

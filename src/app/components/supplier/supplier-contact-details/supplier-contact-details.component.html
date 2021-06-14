@@ -1,0 +1,267 @@
+<form #contactDetailsForm="ngForm" (ngSubmit)="saveContactDetails(contactDetailsForm)">
+
+    <!-- ----------------------- Progress bar -------------------- -->
+    <app-progress-bar [isAlreadySaved]="isAlreadySaved" [disableTab]="disableProgressTab" [supplierTabName]="tabName">
+    </app-progress-bar>
+
+    <!-- --------------- breadcrumb ---------------- -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb pl-0 mt-0">
+        <li class="breadcrumb-item active" aria-current="page"> {{'Contact-Details' | translate}}</li>
+      </ol>
+    </nav>
+
+    <!-- --------------- Alert area ---------------- -->
+    <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+
+    <!-- ---------------------- company details ------------------------------ -->
+
+    <div class="d-flex">
+      <div class="form-container">
+        <div class="col-sm-12">
+          <h1 class="pt-3 pb-3">{{'Supplier Contact Information' | translate}}</h1>
+        </div>
+
+      
+          <div class="col-sm-12 form-group">
+            <div class="row row-gap">
+              <div class="input-checkbox pl-3 pr-3 pb-3">
+                <span class='blocking-span'>
+                  <input type="checkbox" data-group-cls="btn-group-sm" name="supContactDetails.primary"
+                    [(ngModel)]="supContactDetails.primary"> <span class="check-space">{{'Primary Contact' | translate}}</span>
+                </span>
+              </div>
+            </div>
+           
+            <div class="form-group row">
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" " value=""
+                    name="supContactDetails.firstName" [(ngModel)]="supContactDetails.firstName" autocomplete="off"
+                    #supplierContactFirstName="ngModel" maxlength="50" required />
+                  <span class="highlight"></span>
+                  <label>{{'First Name' | translate}}<sup>*</sup></label>
+
+                  <div [hidden]="supplierContactFirstName.valid || supplierContactFirstName.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierContactFirstName.errors?.required">
+                      {{'Please enter the First name' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" " value=""
+                    name="supContactDetails.middleName" [(ngModel)]="supContactDetails.middleName" autocomplete="off"
+                    #supplierContactMiddleName="ngModel" maxlength="50" />
+                  <span class="highlight"></span>
+                  <label>{{'Middle Name' | translate}}</label>
+                  <div [hidden]="supplierContactMiddleName.valid || supplierContactMiddleName.pristine">
+                    <span class="validation-msg validation-msg-position">
+                      {{'Please enter the Middle Name' | translate}}</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" " value=""
+                    name="supContactDetails.lastName" [(ngModel)]="supContactDetails.lastName" autocomplete="off"
+                    #supplierContactLastName="ngModel" maxlength="50" required />
+                  <span class="highlight"></span>
+                  <label>{{'Last Name' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierContactLastName.valid || supplierContactLastName.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierContactLastName.errors?.required">
+                      {{'Please enter the Last name' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" " value=""
+                    name="supContactDetails.jobTitle" [(ngModel)]="supContactDetails.jobTitle" autocomplete="off"
+                    #supplierContactJobTitle="ngModel" maxlength="50" required />
+                  <span class="highlight"></span>
+                  <label>{{'Job-Title' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierContactJobTitle.valid || supplierContactJobTitle.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierContactJobTitle.errors?.required">
+                     {{'Please enter the Job Title' | translate}}</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-3 column-gap">
+                <div class="">
+
+                  <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);"
+                    name="supContactDetails.keyRole" [(ngModel)]="supContactDetails.keyRole" onblur=""
+                    #supplierKeyRole="ngModel" required>
+                    <option hidden="true" value=""></option>
+                    <option disabled=" disabled" default="true" value="">{{'Select' | translate}}</option>
+                    <option *ngFor="let type  of supplierContactRoles" value="{{type.lovId}}">{{type.lovName}} </option>
+                  </select>
+                  <span class="highlight"></span>
+                  <label>{{'Role' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierKeyRole.valid || supplierKeyRole.pristine">
+                    <span class="validation-msg validation-msg-position" *ngIf="supplierKeyRole.errors?.required">
+                       {{'Please select the Role' | translate}}</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" " value=""
+                    name="supContactDetails.mobile" [(ngModel)]="supContactDetails.mobile" autocomplete="off"
+                    #supplierContactMobileNumber="ngModel" mask="000-000000099999" prefix="+" [showMaskTyped]="true"
+                    [validation]="true" required />
+                  <span class="highlight"></span>
+                  <label>{{'Mobile-Number' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierContactMobileNumber.valid || supplierContactMobileNumber.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierContactMobileNumber.errors?.required">Please enter the Mobile Number</span>
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierContactMobileNumber.invalid && !supplierContactMobileNumber.errors?.required">
+                       {{'Please enter valid Mobile Number' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" " value=""
+                    name="supContactDetails.phone" [(ngModel)]="supContactDetails.phone" autocomplete="off"
+                    #supplierContactWorkPhone="ngModel" mask="000-000000099999" prefix="+" [showMaskTyped]="true"
+                    [validation]="true" />
+                  <span class="highlight"></span>
+                  <label>{{'Work Phone' | translate}}</label>
+
+                  <div [hidden]="supplierContactWorkPhone.valid || supplierContactWorkPhone.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierContactWorkPhone?.errors?.required">{{'Please enter the Phone Number' | translate}}.</span>
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierContactWorkPhone.invalid && !supplierContactWorkPhone.errors?.required">
+                      {{'Please enter valid Phone Number' | translate}}</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="email" class="form-control floating-input" placeholder=" "
+                    onkeyup="this.setAttribute('value', this.value);" value="" name="supContactDetails.email"
+                    [(ngModel)]="supContactDetails.email" autocomplete="off" #supplierContactEmailId="ngModel" required
+                    pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.\b[a-zA-Z]{2,4}$" maxlength="50" />
+                  <span class="highlight"></span>
+                  <label>{{'eMail' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierContactEmailId.valid || supplierContactEmailId.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierContactEmailId.errors?.required">Please enter the Email Id</span>
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierContactEmailId.errors?.pattern && !supplierContactEmailId.errors?.required">
+                      {{'Please enter valid Email Id' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+      </div>
+    </div>
+
+
+    <!-- --------------------- Table area -------------------------------- -->
+
+    <!-- --------------------- Table area -------------------------------- -->
+
+    <div class="d-flex table-area mt-3">
+      <div class="table-responsive table-box">
+
+        <table class="table table-striped">
+          <thead>
+
+            <tr>
+              <th  class="text-center">{{'Primary Contact' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th >{{'First Name' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th >{{'Last Name' | translate}}<img class="pl-2" src="assets/img/filter-icon.png">
+              </th>
+              <th >{{'Job-Title' | translate}}<img class="pl-2" src="assets/img/filter-icon.png">
+              </th>
+              <th >{{'Role' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th > {{'eMail' | translate}}<img class="pl-2" src="assets/img/filter-icon.png">
+              </th>
+              <th >{{'Mobile-Number' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th >{{'Work Phone' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th class="text-center">{{'Action' | translate}}</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let supplierinfo of supplierContactDetails">
+              <td class="text-center" [attr.data-title]="'Primary Contact' | translate">
+                <input type="checkbox" [checked]="supplierinfo.primary" disabled="true" name="supplierinfo.isPrimary"
+                  id="name">
+                </td>
+              <td [attr.data-title]="'First Name' | translate"> {{ supplierinfo.firstName }}</td>
+              <td [attr.data-title]="'Last Name' | translate">{{ supplierinfo.lastName }}</td>
+              <td [attr.data-title]="'Job-Title' | translate">{{ supplierinfo.jobTitle }}</td>
+              <td [attr.data-title]="'Role' | translate">{{ supplierinfo.keyRole}}</td>
+              <td [attr.data-title]="'eMail' | translate">{{ supplierinfo.email}}</td>
+              <td [attr.data-title]="'Mobile-Number' | translate">{{ supplierinfo.mobile}}</td>
+              <td [attr.data-title]="'Work Phone' | translate">{{ supplierinfo.phone }}</td>
+              <td class="text-center" [attr.data-title]="'Action' | translate">
+                <a (click)="editSavedAddress($event, supplierinfo)" class="mr-2"
+                  [class.disabled]="disableButtons==true"><img class="pl-2" src="assets/img/edit.png"></a>
+                <a (click)="callFunction($event, supplierinfo)" [class.disabled]="disableButtons==true"><i
+                    class="fa fa-trash"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="d-flex justify-content-between p-2">
+
+          <!-- --------------- save and navigation ---------------- -->
+
+
+        </div>
+      </div>
+    </div>
+    <div class="d-flex table-area mt-3">
+      <div class="table-responsive table-box">
+
+        <div *ngIf="masterData.length>0" class="d-flex justify-content-between p-2">
+          <app-pagination-record-count [totalRec]="totalRecordsCount"
+            (selectedGridCount)="selectedGridCountChange($event)">
+          </app-pagination-record-count>
+          <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount" [recordsPerPage]="recCount"
+            (onPageChange)="displayActivePage($event)">
+          </app-pagination>
+        </div>
+      </div>
+    </div>
+
+    <section id="pagination" class="pagination-area mb-5">
+        <div class="d-flex">
+          <span class="mr-auto">&nbsp;</span>
+          <nav class="navigation ">
+            <ul class="pagination ">
+              <li class="page-item"><a class="page-link prev-btn" (click)="goToPreviousComponent()"><img
+                    src="./assets/img/arrow-left.png"> </a></li>
+              <button type="submit" class="page-link save"
+                [disabled]="(!contactDetailsForm.valid && !contactDetailsForm.dirty) || disableButtons==true || !contactDetailsForm.valid">
+                Save</button>
+              <li class="page-item" *ngIf="isAlreadySaved==true"><a class="page-link next-btn"
+                  (click)="goToNextComponent()"> <img src="./assets/img/arrow-right.png"> </a></li>
+            </ul>
+          </nav>
+        </div>
+    </section>
+
+</form>

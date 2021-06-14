@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+@import "../src/assets/scss/variables.scss";
+@import "../src/assets/scss/common.scss";
+@import "../src/assets/scss/accordian.scss";
+@import "../src/assets/scss/fonts.css";
+@import "../src/assets/scss/inputs.css";
+@import "../src/assets/scss/responsive.scss";
+@import "../src/assets/scss/table.css";
+@import "../src/assets/font/fonts-style.css";
+
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+.ltr {
+    @import 'themes/_en';
+  }
+  
+  
+  .rtl {
+      @import 'themes/_ar';
+  }
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

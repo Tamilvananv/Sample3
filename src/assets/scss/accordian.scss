@@ -1,0 +1,182 @@
+.panel-default {
+    margin-bottom: 10px;
+}
+.panel-default>.panel-heading {
+    color: #fff;
+    background-color: #171c8f;
+    border-color: #ddd;
+    font-family: 'Open Sans', sans-serif !important;
+    // padding-left: 10px;
+    border-radius: 0px;
+}
+
+.panel-body1{
+    padding: 0px !important;
+    background: white;
+}
+
+
+.panel-default>.panel-heading a{
+    color: #fff;
+   
+}
+.panel-default>.panel-heading h4{
+    padding: 10px;
+}
+
+.panel-heading .accordion-toggle.collapsed:after {
+	content: "\002B";
+	font-weight: 800;
+}
+
+
+.panel-heading .accordion-toggle:after {
+	content: "-";
+	
+    font-family: FontAwesome;
+    float: right;
+	color: #000;
+	font-weight: 800;
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+}
+
+.icon25 {
+    height: 25px;
+    margin-bottom: 6px;
+}
+
+
+#no-more-tables td:before { content: attr(data-title); }
+
+
+.contract-info .table>tbody>tr>td, 
+.contract-info .table>tbody>tr>th, 
+.contract-info .table>tfoot>tr>td, 
+.contract-info .table>tfoot>tr>th, 
+.contract-info .table>thead>tr>td, 
+.contract-info .table>thead>tr>th {
+    padding: 6px !important;
+    line-height: 21px !important;
+    vertical-align: middle !important;
+    // border: 1px solid #ddd !important;
+    text-align: left !important;
+    font-size: 12px;
+}
+
+.contract-info .table tr th {
+    // background-color: #e5e5e5 !important;
+    color:#000;
+}
+.maintable{
+    border: 1px solid #ccc !important;
+    font-size: 12px;
+    padding: 6px;
+    width: 99.8%;
+}
+
+.list_header {
+    font-weight: bold;
+    font-size: 12px;
+    color: #fff;
+    background-color: #53565b;
+    border: 1px solid #dadada;
+    text-align: left;
+    padding: 9px;
+}
+
+.list_table_td1 {
+	width: 10px;
+}
+.list_table_td2 {
+	width: 20px;
+}
+.list_table_td3 {
+	width: 30px;
+}
+.list_table_td4 {
+	width: 40px;
+}
+
+tr:nth-child(even) {background: #f0f5f5}
+.table-responsive table tr:nth-child(odd),
+.table-box table tr:nth-child(odd) {
+	background: transparent !important;
+  }
+  
+  tr:nth-child(odd) {
+	background: #FFF;
+  }
+  
+
+.odd td {
+	background-color: #ebebeb;
+	border-bottom: 1px solid #cfcfcf;
+	padding: 10px;
+	font-size:13px;
+	border-right: 1px solid #cfcfcf;
+	 text-align: left;
+}
+.even td {
+	background-color: #fff;
+	border-bottom: 1px solid #cfcfcf;
+	padding: 10px;
+	font-size:13px;
+	border-right: 1px solid #cfcfcf;
+	text-align: left; 
+	}
+
+.even_odd td {
+	background-color: #ebebeb;
+	border-bottom: 1px solid #cfcfcf;
+	padding: 10px;
+	font-size:13px;
+	border-right: 1px solid #cfcfcf;
+	text-align: left;
+}
+
+#mainpage-table thead tr {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+#mainpage-table tr {
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+#mainpage-table td {
+	/* Behave  like a "row" */
+	border: none;
+	border-bottom: 1px solid #eee;
+	position: relative;
+	/* padding-left: 50%; */
+	white-space: normal;
+	text-align: left;
+	word-wrap: break-word;
+	font-size: 12px;
+}
+#mainpage-table td:before {
+	
+	width: 50%;
+	padding-right: 10px;
+	white-space: nowrap;
+	text-align: left;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+#mainpage-table td:before {
+	content: attr(data-title);
+}
+
+#boqTbl input {
+    width: 150px !important;
+}
+
+#boqTbl select {
+    width: 150px !important;
+}

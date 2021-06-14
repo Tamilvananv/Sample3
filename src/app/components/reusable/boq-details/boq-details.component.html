@@ -1,0 +1,57 @@
+
+   
+
+      <div class="d-flex table-area">
+        <div class="table-responsive">
+    <form>
+  
+      <table class="table table-striped mb-0">
+        <thead>
+          <tr>
+            <th >{{'S.No' | translate}}</th>
+            <th >{{'Summary' | translate}}</th>
+            <th >{{'Description' | translate}}</th>
+            <th >{{'Quantity' | translate}}</th>
+            <th >{{'Unit' | translate}}</th>
+            <th >{{'Rate' | translate}}</th>
+            <th >{{'Amount' | translate}}</th>
+          </tr>
+          <tr *ngFor="let boq of tenderDtls?.boqDetailsList;index as i" class="form-container form-group"> 
+            <td [attr.data-title]="'S.No' | translate" class="pr-3">{{i+1}}</td>    
+            <td [attr.data-title]="'Summary' | translate" class="pr-3"><input type="text" name="summary{{i}}" [(ngModel)]="boq.summary" class="form-control" placeholder="10"></td>
+            <td [attr.data-title]="'Description' | translate" class="pr-3"><input type="text" name="description{{i}}" [(ngModel)]="boq.description" class="form-control" placeholder="10"></td>
+            <td [attr.data-title]="'Quantity' | translate" class="pr-3"><input type="text" name="quantity{{i}}" [(ngModel)]="boq.quantity" class="form-control" placeholder="10"></td>
+            <td [attr.data-title]="'Unit' | translate" class="pr-3"><input type="text" name="unit{{i}}" [(ngModel)]="boq.unit" class="form-control"  placeholder="10"></td>
+            <td [attr.data-title]="'Rate' | translate" class="pr-3"><input type="text" name="rate{{i}}" (keyup)="changeAmount(boq)" [(ngModel)]="boq.rate" class="form-control" placeholder="10"></td>
+            <td [attr.data-title]="'Amount' | translate" class="pr-3"><input type="text"  name="amount{{i}}"  [(ngModel)]="boq.amount" class="form-control"  placeholder="10"></td>     
+          </tr>
+          <!-- <tr class="form-container form-group"> 
+            <td class="pr-3">2</td>    
+            <td class="pr-3"><input type="text" class="form-control" id="Address" placeholder="20"></td>
+            <td class="pr-3"><input type="text" class="form-control" id="Address" placeholder="20"></td>
+            <td class="pr-3"><input type="text" class="form-control" id="Address" placeholder="20"></td>
+            <td class="pr-3"><input type="text" class="form-control" id="Address" placeholder="20"></td>
+            <td class="pr-3"><input type="text" class="form-control" id="Address" placeholder="20"></td>
+            <td class="pr-3"><input type="text" class="form-control" id="Address" placeholder="20"></td>     
+          </tr> -->
+        </thead>
+        <tbody>
+            <tr class="form-container form-group"> 
+                <th colspan="5"></th>    
+                <th >{{'Total Project Cost' | translate}} </th>    
+                <th><input type="text" class="form-control" name="boqProjectCost" [(ngModel)]="tenderDtls.boqProjectCost" id="totalcost" placeholder="0.00"></th>     
+              </tr>
+        </tbody>
+      </table>
+    
+      <section id="pagination" class="pagination-area mt-1">
+        <div class="container">
+            <div class="d-flex">
+            <span class="mr-auto">&nbsp;</span>
+            <button  type="submit" (click)="saveBoQDetails();"  class="page-link save"> {{'SAVE' | translate}} </button>
+            <a routerLink="/public-tenders"><button  type="submit" class="clear-btn ml-4 p-2 btn-space"> {{'CLEAR' | translate}} </button></a> 
+            </div>
+        </div>
+      </section>
+    
+    </form>

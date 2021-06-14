@@ -1,0 +1,185 @@
+<div class="container tender-search">
+    <form>
+
+        <!-- --------------- breadcrumb ---------------- -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb pl-0 mt-0">
+                <li class="breadcrumb-item active" aria-current="page">{{'Tender Search' | translate}}</li>
+            </ol>
+        </nav>
+
+        <!-- --------------- Alert area ---------------- -->
+        <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+
+
+        <!-- ---------------------- company details ------------------------------ -->
+        <div class="d-flex">
+            <div class="form-container">
+                <div class="col-sm-12 col-md-12">
+                    <h1 class="p-3">{{'Tender Search' | translate}}</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 pl-5 pr-5">
+
+                        <div class="form-group row ">
+                            <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                                <div class="field">
+                                    <input type="email" class="form-control" placeholder=""
+                                        onkeyup="this.setAttribute('value', this.value);" value="" autocomplete="off" />
+                                    <label>{{'Tender Number' | translate}}</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                                <div class="field">
+                                    <input type="email" class="form-control" placeholder=""
+                                        onkeyup="this.setAttribute('value', this.value);" value="" autocomplete="off" />
+                                    <label>{{'Tender Name' | translate}}</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                                <select class="form-control" id="open">
+                                    <option>{{'Tender Mode' | translate}}</option>
+                                    <option value="">Open for submission</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-md-12 pl-5 pr-5">
+                        <div class="form-group row ">
+                            <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                                <div class="d-flex bg-light-gray">
+                                    <span class="p-1">{{'Tender Published Date' | translate}}<br> </span>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                        <div class="input-icons">
+                                            <input type="text" name="RFI Submission Date" placeholder="from Date"
+                                                class="form-control" bsDatepicker>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="input-icons">
+                                            <input type="text" name="RFI Submission Date" placeholder="to Date"
+                                                class="form-control" bsDatepicker>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                                <div class="d-flex bg-light-gray">
+                                    <span class="p-1">{{'Tender Submission Date' | translate}}<br> </span>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="input-icons">
+                                            <input type="text" name="RFI Submission Date" placeholder="from Date"
+                                                class="form-control" bsDatepicker>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="input-icons">
+                                            <input type="text" name="RFI Submission Date" placeholder="to Date"
+                                                class="form-control" bsDatepicker>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                                <div class="d-flex">
+                                    <span class="p-1">&nbsp;<br> </span>
+                                </div>
+                                <select class="form-control" id="open">
+                                    <option>{{'Tender Status' | translate}}</option>
+                                    <option value="">Open for submission</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 pl-5 pr-5">
+                        <input type="checkbox" data-group-cls="btn-group-sm"> <span class="ml-1">Subscribed</span>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="buttons-box justify-content-end pr-5">
+                        <button type="submit" class="clear-btn mr-3"> {{'CLEAR' | translate}}</button>
+                        <button type="submit" class="save-btn"> {{'SEARCH' | translate}} </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex table-area mt-5">
+            <div class="table-responsive">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th >{{'Tender Number' | translate}}</th>
+                            <th >{{'Tender Name' | translate}}</th>
+                            <th >{{'Subscribed' | translate}}</th>
+                            <th >{{'Published Date' | translate}}</th>
+                            <th >{{'Tender Submission Date' | translate}}</th>
+                            <th >{{'Tender Mode' | translate}}</th>
+                            <th >{{'Tender Status' | translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td [attr.data-title]="'Tender Number' | translate"> <a routerLink="/public-tender-details">PTA/DA/69093/10</a></td>
+                            <td [attr.data-title]="'Tender Name' | translate">Outsourcing Manpower for Expo2020 Operations</td>
+                            <td [attr.data-title]="'Subscribed' | translate"> <input type="checkbox" data-group-cls="btn-group-sm"></td>
+                            <td [attr.data-title]="'Published Date' | translate">12-MAY-2020 00:00:00</td>
+                            <td [attr.data-title]="'Tender Submission Date' | translate">23-JUN-2020 00:00:00</td>
+                            <td [attr.data-title]="'Tender Mode' | translate">Limited</td>
+                            <td [attr.data-title]="'Tender Status' | translate">Commercial Evaluation In-Progress</td>
+                        </tr>
+                        <tr>
+                            <td [attr.data-title]="'Tender Number' | translate"> <a routerLink="/public-tender-details">PTA/DA/69093/10</a></td>
+                            <td [attr.data-title]="'Tender Name' | translate">Outsourcing Manpower for Expo2020 Operations</td>
+                            <td [attr.data-title]="'Subscribed' | translate"> <input type="checkbox" data-group-cls="btn-group-sm"></td>
+                            <td [attr.data-title]="'Published Date' | translate">12-MAY-2020 00:00:00</td>
+                            <td [attr.data-title]="'Tender Submission Date' | translate">23-JUN-2020 00:00:00</td>
+                            <td [attr.data-title]="'Tender Mode' | translate">Limited</td>
+                            <td [attr.data-title]="'Tender Status' | translate">Commercial Evaluation In-Progress</td>
+                        </tr>
+                        <tr>
+                            <td [attr.data-title]="'Tender Number' | translate"> <a routerLink="/public-tender-details">PTA/DA/69093/10</a></td>
+                            <td [attr.data-title]="'Tender Name' | translate">Outsourcing Manpower for Expo2020 Operations</td>
+                            <td [attr.data-title]="'Subscribed' | translate"> <input type="checkbox" data-group-cls="btn-group-sm"></td>
+                            <td [attr.data-title]="'Published Date' | translate">12-MAY-2020 00:00:00</td>
+                            <td [attr.data-title]="'Tender Submission Date' | translate">23-JUN-2020 00:00:00</td>
+                            <td [attr.data-title]="'Tender Mode' | translate">Limited</td>
+                            <td [attr.data-title]="'Tender Status' | translate">Commercial Evaluation In-Progress</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+        <div class="d-flex table-area mt-5">
+            <div class="table-responsive table-box">
+
+                <div *ngIf="masterData.length>0" class="d-flex justify-content-between p-2">
+                    <app-pagination-record-count [totalRec]="totalRecordsCount" (selectedGridCount)="selectedGridCountChange($event)">
+                    </app-pagination-record-count>
+                    <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount"
+                        [recordsPerPage]="recCount" (onPageChange)="displayActivePage($event)">
+                    </app-pagination>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

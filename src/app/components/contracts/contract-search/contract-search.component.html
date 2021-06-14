@@ -1,0 +1,107 @@
+
+ <div class="col-sm-12">  
+      <div class="row">
+        <div class="col-sm-6 pr-0 pl-0 ">
+          <nav aria-label="breadcrumb" id="breadcrumb">
+            <ol class="breadcrumb pl-0 mt-0">
+              <li class="breadcrumb-item active" aria-current="page">{{'Contract Search' | translate}}</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="col-sm-6 pr-0 pl-0 pt-2 expand-collapse">
+          <a routerLink="/contract-search" class="mr-2 pull-right"> <button type="button"
+              class="clear-btn pull-right ml-3">{{'CLEAR ALL FILTER' | translate}}</button></a>
+          <!-- <a routerLink="" class="mr-2"><button type="button" class="add-new-btn pull-right">Create New</button></a> -->
+        </div>
+      </div>
+    </div>
+      <div class="d-flex table-area">
+        <div class="table-responsive">
+          <form>
+
+            <table class="table table-striped" id="contractSearchTable">
+              <thead>
+                <tr>
+                  <th  (click)="sortTable(0)"> {{'Contract Number' | translate}}#<img class="pl-2"
+                      src="assets/img/filter-icon.png">
+                  </th>
+                  <th  (click)="sortTable(1)">{{'Contract Description' | translate}}<img class="pl-2"
+                      src="assets/img/filter-icon.png"></th>
+                  <th  (click)="sortTable(2)"> {{'Revision Number' | translate}}<img class="pl-2"
+                      src="assets/img/filter-icon.png"></th>
+                  <th  (click)="sortTable(3)">{{'Contract Type' | translate}}<img class="pl-2"
+                      src="assets/img/filter-icon.png"></th>
+                  <th  (click)="sortTable(4)">{{'Agency' | translate}}<img class="pl-2"
+                      src="assets/img/filter-icon.png"></th>
+                  <th  (click)="sortTable(5)">{{'Status' | translate}}<img class="pl-2"
+                      src="assets/img/filter-icon.png"></th>
+                </tr>
+                <!-- <tr class="form-container form-group">
+              <th class="pr-3"><input type="text" class="form-control" (keyup)="applyFilter($event.key)" placeholder="">
+              </th>
+              <th class="pr-3"><input type="text" class="form-control" (keyup)="applyFilter($event.key)" placeholder="">
+              </th>
+              <th class="pr-3"><input type="text" class="form-control" (keyup)="applyFilter($event.key)" placeholder="">
+              </th>
+              <th class="pr-3"><input type="text" class="form-control" (keyup)="applyFilter($event.key)" placeholder="">
+              </th>
+              <th class="pr-3"><input type="text" class="form-control" (keyup)="applyFilter($event.key)" placeholder="">
+              </th>
+              <th class="pr-3"><input type="text" class="form-control" (keyup)="applyFilter($event.key)" placeholder="">
+              </th>
+            </tr> -->
+              </thead>
+              <tbody>
+                <!--<tr *ngFor="let country of countries$ | async">
+        <th ><a routerLink="/contract-information" class="pr-2 ft-green">Create Claim</a><a routerLink="/contract-edit">Contract Edit</a></th>
+        <td>      
+          <ngb-highlight [result]="country.description" [term]="service.searchTerm"></ngb-highlight>
+        </td>
+        <td><ngb-highlight [result]="country.revisionnumber | number" [term]="service.searchTerm"></ngb-highlight></td>
+        <td><ngb-highlight [result]="country.type" [term]="service.searchTerm"></ngb-highlight></td>
+        <td><ngb-highlight [result]="country.agency" [term]="service.searchTerm"></ngb-highlight></td>
+        <td><ngb-highlight [result]="country.status" [term]="service.searchTerm"></ngb-highlight></td>
+      </tr> -->
+                <tr *ngFor="let contractList of awardedContractsList">
+                  <td [attr.data-title]="'Contract Number' | translate"><a (click)="getContractDetails(contractList)"
+                      class="pr-2 ft-green">{{contractList.contractNumber}}</a></td>
+                    <!-- routerLink="/contract-information" -->
+                    <!-- <td>
+            <ngb-highlight [result]="contractList.contractNumber" [term]="service.searchTerm"></ngb-highlight> -->
+                    <!-- {{ contractList.contractNumber }} -->
+                    <!-- </td> -->
+                  <td [attr.data-title]="'Contract Description' | translate">{{ contractList.contractDesc }}</td>
+                  <td [attr.data-title]="'Revision Number' | translate">{{ contractList.revisonNo }}</td>
+                  <td [attr.data-title]="'Contract Type' | translate">{{ contractList.contractMainType }}</td>
+                  <td [attr.data-title]="'Agency' | translate">{{ contractList.agency }}</td>
+                  <td [attr.data-title]="'Status' | translate">{{ contractList.status }}</td>
+
+                </tr>
+              </tbody>
+            </table>
+            
+            <!--   
+    <div class="d-flex justify-content-between p-2">
+      <app-pagination-record-count></app-pagination-record-count>
+        <ngb-pagination
+        [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
+      </ngb-pagination>
+      </div> -->
+
+            <div class="d-flex table-area mt-5">
+              <div class="table-responsive table-box">
+
+                <div *ngIf="masterData.length>0" class="d-flex justify-content-between p-2">
+                  <app-pagination-record-count [totalRec]="totalRecordsCount"
+                    (selectedGridCount)="selectedGridCountChange($event)">
+                  </app-pagination-record-count>
+                  <!-- <app-pagination></app-pagination> -->
+                  <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount"
+                    [recordsPerPage]="recCount" (onPageChange)="displayActivePage($event)">
+                  </app-pagination>
+                </div>
+              </div>
+            </div>
+
+          </form>
+   

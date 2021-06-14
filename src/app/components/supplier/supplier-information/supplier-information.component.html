@@ -1,0 +1,345 @@
+<form #supplierInformationDataForm="ngForm" (ngSubmit)="saveSupplierDetails()">
+
+  <div  id="top">
+
+    <!-- --------------- Progress bar ---------------- -->
+    <app-progress-bar [isAlreadySaved]="isAlreadySaved" [disableTab]="disableProgressTab" [supplierTabName]="tabName">
+    </app-progress-bar>
+    
+    <!-- --------------- breadcrumb ---------------- -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb pl-0 mt-0">
+        <li class="breadcrumb-item active" aria-current="page">{{'Supplier-Information' | translate}}</li>
+
+      </ol>
+    </nav>
+
+    <!-- --------------- Alert area ---------------- -->
+    <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+    <!-- ---------------------- company details ------------------------------ -->
+    <div class="d-flex">
+      <div class="form-container">
+        <div class="col-sm-12">
+          <h1 class="pt-3 pb-3">{{'Company-Details' | translate}}</h1>
+        </div>
+
+       
+          <div class="col-sm-12 form-group">
+            <div class="row row-gap">
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" "
+                    name="supplierInfoVO.supplierNameEn" [(ngModel)]="supplierInfoVO.supplierNameEn" autocomplete="off"
+                    required #supplierNameEn="ngModel" />
+                  <span class="highlight"></span>
+                  <label>{{'Company-name-English' | translate}}<sup>*</sup></label>
+                </div>
+                <div [hidden]="supplierNameEn.valid || supplierNameEn.pristine">
+                  <span class="validation-msg" *ngIf="supplierNameEn.errors?.required">
+                    {{'Please enter the Company name in english' | translate}}</span>
+                </div>
+                <div [hidden]="(supplierNameEn.value!==parentCompanyName.value) ||
+                   (((supplierInfoVO.supplierNameEn==null || supplierInfoVO.supplierNameEn==undefined || supplierInfoVO.supplierNameEn=='') && 
+                   (supplierInfoVO.parentCompName==null || supplierInfoVO.parentCompName==undefined || supplierInfoVO.parentCompName==''))
+                   && supplierNameEn.errors?.required)">
+                  <span class="validation-msg">{{'Company name and parent company name cannot be same' | translate}}</span>
+
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input dir="rtl" type="text" class="form-control floating-input" placeholder=" "
+                    name="supplierInfoVO.supplierNameAr" [(ngModel)]="supplierInfoVO.supplierNameAr" autocomplete="off"
+                    #supplierNameAr="ngModel" />
+                  <span class="highlight"></span>
+                  <label>{{'Company-name-Arabic' | translate}}</label>
+                </div>
+                <div [hidden]="supplierNameAr.valid || supplierNameAr.pristine">
+                  <span class="validation-msg validation-msg-position" *ngIf="supplierNameAr.errors?.required">
+                    {{'Please enter Company name in arabic' | translate}}</span>
+                </div>
+              </div>
+
+              <div *ngIf="typeOfOwnershipDropdownList" class="col-sm-3 column-gap">
+                <div class="">
+                  <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);"
+                    value=" " [(ngModel)]="supplierInfoVO.ownerType" name="ownerTypeValue" #ownerTypeValue="ngModel"
+                    required>
+                    <option hidden="true" value=""></option>
+                    <option disabled=" disabled" default="true" value="">{{'Select' | translate}}</option>
+                    <option *ngFor="let type  of typeOfOwnershipDropdownList"
+                      value="{{type.lovId}}">
+                      {{type.lovName}}</option>
+                  </select>
+                  <span class="highlight"></span>
+                  <label> {{'Type-Ownership' | translate}}<sup>*</sup></label>
+                  <div [hidden]="ownerTypeValue.valid || ownerTypeValue.pristine">
+                    <span class="validation-msg" *ngIf="ownerTypeValue.errors?.required">
+                      {{'Please select the type of ownership' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="qualificationAreaLevelDropdownList" class="col-sm-3 column-gap">
+                <div class="">
+                  <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);"
+                    value=" " [(ngModel)]="supplierInfoVO.qualAreaLevel" name="quadAreaValue"
+                    #qualificationAreaLevel="ngModel" required>
+                    <option hidden="true" value=""></option>
+                    <option disabled=" disabled" default="true" value="">{{'Select' | translate}}</option>
+                    <option *ngFor="let type  of qualificationAreaLevelDropdownList"
+                      value="{{type.lovId}}">{{type.lovName}}</option>
+                  </select>
+                  <span class="highlight"></span>
+                  <label> {{'Supplier Type' | translate}}<sup>*</sup></label>
+                  <div [hidden]="qualificationAreaLevel.valid || qualificationAreaLevel.pristine">
+                    <span class="validation-msg" *ngIf="qualificationAreaLevel.errors?.required">
+                      {{'Please select the supplier type' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row row-gap">
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" " name="supplierInfoVO.website"
+                    [(ngModel)]="supplierInfoVO.website" autocomplete="off" #organizationWebsite="ngModel" />
+                  <span class="highlight"></span>
+                  <label>{{'Organization-website' | translate}}</label>
+                </div>
+                <div [hidden]="organizationWebsite.valid || organizationWebsite.pristine">
+                  <span class="validation-msg validation-msg-position">{{'Please enter the organization website' | translate}}</span>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="date" onclick="(this.type='date')" name="supplierInfoVO.estdDate"
+                    [(ngModel)]="supplierInfoVO.estdDate" placeholder=" " class="form-control floating-input"
+                    #estdDate="ngModel" [max]="estDateMaxValue" onkeydown="return false" required>
+                  <span class="highlight"></span>
+                  <label>{{'Establishment date' | translate}}<sup>*</sup></label>
+                </div>
+                <div [hidden]="estdDate.valid || estdDate.pristine">
+                  <span class="validation-msg validation-msg-position" *ngIf="estdDate.errors?.required">
+                    {{'Please select the Establishment date' | translate}}</span>
+                  <span class="validation-msg validation-msg-position"
+                    *ngIf="futureDateError==true && !estdDate.errors?.required">
+                    {{'Please select valid date' | translate}}</span>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="" >
+                  <input type="text" class="form-control floating-input" placeholder=" "
+                    name="supplierInfoVO.parentCompName" [(ngModel)]="supplierInfoVO.parentCompName" autocomplete="off"
+                    #parentCompanyName="ngModel" />
+                  <span class="highlight"></span>
+                  <label>{{'Parent-company-name' | translate}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+       
+      </div>
+    </div>
+
+    <!-- ---------------------- Trade licence details ------------------------------ -->
+    <div class="d-flex mt-4">
+      <div class="form-container">
+        <div class="col-sm-12">
+          <h1 class="pt-3 pb-3">{{'Trade-Licence-Details' | translate}}</h1>
+        </div>
+       
+        <div class="col-sm-12 form-group">
+          <div class="row row-gap">
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" name="supplierInfoVO.tradelicenseno" [(ngModel)]="supplierInfoVO.tradelicenseno"
+                    class="form-control floating-input" placeholder=" " autocomplete="off" required
+                    #licenseNumber="ngModel" />
+                  <span class="highlight"></span>
+                  <label>{{'License Number' | translate}}<sup>*</sup></label>
+                  <div [hidden]="licenseNumber.valid || licenseNumber.pristine">
+                    <span class="validation-msg validation-msg-position" *ngIf="licenseNumber.errors?.required">
+                      {{'Please enter the License number' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" name="supplierInfoVO.issuedby"
+                    [(ngModel)]="supplierInfoVO.issuedby" placeholder=" " autocomplete="off" required
+                    #issuedBy="ngModel" />
+                  <span class="highlight"></span>
+                  <label>{{'Issued-by' | translate}}<sup>*</sup></label>
+                  <div [hidden]="issuedBy.valid || issuedBy.pristine">
+                    <span class="validation-msg validation-msg-position" *ngIf="issuedBy.errors?.required">
+                      {{'Please enter the issuer name' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="date" onclick="(this.type='date')" name="supplierInfoVO.issueddate"
+                    [(ngModel)]="supplierInfoVO.issueddate" placeholder=" " class="form-control floating-input"
+                    #supplierIssuedDate="ngModel" [max]="supplierInfoVO.expirydate" onkeydown="return false" required>
+                  <span class="highlight"></span>
+                  <label>{{'Issued Date' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierIssuedDate.valid || supplierIssuedDate.pristine">
+                    <span class="validation-msg">{{'Please select the issued date' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" " name="supplierInfoVO.location"
+                    [(ngModel)]="supplierInfoVO.location" autocomplete="off" required #supplierLocation="ngModel" />
+                  <span class="highlight"></span>
+                  <label>{{'Location' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierLocation.valid || supplierLocation.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierLocation.errors?.required">{{'Please enter the supplier location' | translate}}</span>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row row-gap">
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="date" onclick="(this.type='date')" name="supplierInfoVO.expirydate"
+                    [(ngModel)]="supplierInfoVO.expirydate" placeholder=" " class="form-control floating-input"
+                    #supplierExpiryDate="ngModel" [min]="estDateMaxValue" onkeydown="return false" required>
+                  <span class="highlight"></span>
+                  <label>{{'Expiry Date' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierExpiryDate.valid || supplierExpiryDate.pristine">
+                    <span class="validation-msg">{{'Please select the expiry date' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+       
+      </div>
+    </div>
+
+    <!-- ---------------------- Manager details ------------------------------ -->
+    <div class="d-flex mt-4">
+      <div class="form-container">
+        <div class="col-sm-12">
+          <h1 class="pt-3 pb-3">{{'Manager Details' | translate}}</h1>
+        </div>
+
+
+       
+          <div class="col-sm-12">
+            <div class="row row-gap">
+              <div class="input-checkbox pl-3 pr-3 pb-3">
+                <span class='blocking-span'>
+                  <input type="checkbox" data-group-cls="btn-group-sm" name="supplierInfoVO.isPrimary"
+                    [(ngModel)]="supplierInfoVO.isPrimary"> <span class="check-space">{{'Primary Contact' | translate}}</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group row ">
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" "
+                    name="supplierInfoVO.managerName" [(ngModel)]="supplierInfoVO.managerName" autocomplete="off"
+                    required #supplierManagerName="ngModel" />
+                  <span class="highlight"></span>
+                  <label>{{'Manager Name' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierManagerName.valid || supplierManagerName.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierManagerName.errors?.required">{{'Please enter the manager name' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);"
+                  name="supplierInfoVO.jobTitle" [(ngModel)]="supplierInfoVO.jobTitle" autocomplete="off" #jobTitle="ngModel"
+                   required>
+                  <option hidden="true" value=""></option>
+                  <option  default="true" value="">{{'Select' | translate}}</option>
+                  <option  value="dummy">dummy </option>
+                </select>
+                  <!-- <input type="text" name="supplierInfoVO.jobTitle" [(ngModel)]="supplierInfoVO.jobTitle"
+                    class="form-control floating-input" placeholder=" "
+                    onkeyup="this.setAttribute('value', this.value);" autocomplete="off" required #jobTitle="ngModel" /> -->
+                  <span class="highlight"></span>
+                  <label>{{'Job-Title' | translate}}<sup>*</sup></label>
+                  <div [hidden]="jobTitle.valid || jobTitle.pristine">
+                    <span class="validation-msg validation-msg-position" *ngIf="jobTitle.errors?.required">
+                      {{'Please enter the job title' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" name="supplierInfoVO.mobile" placeholder=" "
+                    [(ngModel)]="supplierInfoVO.mobile" autocomplete="off" required #SupplierMobNumber="ngModel"
+                    mask="000-000000099999" prefix="+" [showMaskTyped]="true" [validation]="true" />
+                  <span class="highlight"></span>
+                  <label>{{'Mobile Number' | translate}}<sup>*</sup> </label>
+                  <div [hidden]="SupplierMobNumber.valid || SupplierMobNumber.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="SupplierMobNumber.errors?.required">{{'Please enter the Mobile Number' | translate}}</span>
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="SupplierMobNumber.invalid && !SupplierMobNumber.errors?.required">
+                      {{'Please enter valid Mobile Number' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="email" class="form-control floating-input" name="supplierInfoVO.email"
+                    [(ngModel)]="supplierInfoVO.email" placeholder=" " onkeyup="this.setAttribute('value', this.value);"
+                    autocomplete="off" required #supplierEmailId="ngModel"
+                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.\b[a-zA-Z]{2,4}$" />
+                  <span class="highlight"></span>
+                  <label>{{'eMail' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierEmailId.valid || supplierEmailId.pristine">
+                    <span class="validation-msg validation-msg-position" *ngIf="supplierEmailId.errors?.required">
+                      {{'Please enter the Email Id' | translate}}</span>
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierEmailId.errors?.pattern && !supplierEmailId.errors?.required">
+                      {{'Please enter valid Email Id' | translate}} </span>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+       
+      </div>
+    </div>
+
+    <!-- --------------- save and navigation ---------------- -->
+
+
+    <section id="pagination" class="pagination-area mt-2">     
+        <div class="d-flex">
+          <span class="mr-auto">&nbsp;</span>
+
+          <nav class="navigation">
+            <ul class="pagination ">
+              <li class="page-item"><a class="page-link prev-btn" (click)="goToPreviousComponent()"><img
+                    src="./assets/img/arrow-left.png"> </a></li>
+
+              <button type="submit" class="page-link save"
+                [disabled]="!supplierInformationDataForm.valid || !supplierInformationDataForm.dirty || !supplierInformationDataForm.touched || disableButtons==true">
+                {{'Save' | translate}}
+              </button>
+              <li class="page-item" *ngIf="supplierInformationDataForm.valid && isAlreadySaved==true"><a
+                  class="page-link next-btn" (click)="goToNextComponent()"> <img src="./assets/img/arrow-right.png">
+                </a></li>
+            </ul>
+          </nav>
+        </div>
+     
+    </section>
+  </div>
+</form>

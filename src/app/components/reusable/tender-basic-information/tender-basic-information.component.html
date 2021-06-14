@@ -1,0 +1,51 @@
+<table class="table  table-align-left">
+    <tbody>
+        <tr class="border-bottom">
+            <td class="tendertable " colspan="2">
+                <span>{{'Tender Number' | translate}}</span> <br>
+                <strong>{{tenderMaster?.tender_no}}</strong>
+            </td>
+            <td class=" tendertable " colspan="2"><span>{{'Tender Name' | translate}}</span>
+                <br><strong>{{tenderMaster?.tender_name}}</strong></td>
+            <td class=" tendertable " colspan="4"><span>{{'Tender Description' | translate}}</span>
+                <br><strong>{{tenderMaster?.tenderDescription}}</strong></td>
+
+            
+        </tr>   
+        <tr class="border-bottom">
+            <td class="tendertable ">
+                <span>{{'Tender Category' | translate}}</span> <br>
+                <strong>{{tenderMaster?.tender_category}}</strong>
+            </td>
+            <td class="tendertable ">
+                <span>{{'Tender Type' | translate}}</span> <br>
+                <strong>{{tenderMaster?.tender_type}}</strong>
+            </td>
+            <td class="tendertable ">
+                <span>{{'Evaluation Method' | translate}} </span> <br>
+                <strong>{{tenderMaster?.evaluationMethod}}</strong>
+            </td>
+            <td class="tendertable ">
+                <span>{{'Submission Mode' | translate}}</span> <br>
+                <strong>{{tenderMaster?.responseMode}}</strong>
+            </td>
+            <td class="tendertable ">
+                <span>{{'RFP Download Mode' | translate}}</span> <br>
+               <!--  <strong>{{tenderMaster.}}</strong> -->
+               <strong>{{tenderMaster?.rfpTypeName}}</strong>
+            </td>
+            <td class="tendertable ">
+                <span>{{'Tender Status' | translate}}</span> <br>
+                <strong>{{tenderMaster?.tender_status_name}}</strong>
+            </td>
+            <td class="tendertable ">
+                <span>{{'Response Currency' | translate}}</span> <br>
+                <strong>{{tenderMaster?.responseCurrency}}</strong>
+            </td>
+            <td class="tendertable ">
+                <span>{{'RFP Fee' | translate}}</span> <br>
+                <strong>{{tenderMaster?.rfp_fee}}</strong>
+            </td>
+        </tr>                           
+    </tbody>
+</table>  

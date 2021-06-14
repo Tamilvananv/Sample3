@@ -1,0 +1,230 @@
+<form>
+    <div class="container temp-create">
+
+
+        <!-- --------------- breadcrumb ---------------- -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb pl-0 mt-0">
+                <li class="breadcrumb-item active" aria-current="page">{{'Template Contract' | translate}}</li>
+            </ol>
+        </nav>
+
+        <!-- --------------- Alert area ---------------- -->
+        <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+
+        <!-- ---------------------- Contract Template Creation ------------------------------ -->
+        <div class="d-flex">
+            <div class="form-container">
+                <div class="col-sm-12 col-md-12 pt-4">
+                    <h1 class="p-3">{{'Contract Template Creation' | translate}}</h1>
+                </div>
+                <div class="d-flex">
+                    <div class="col-md-12 pl-5 pr-5 pb-5">
+
+                        <div class="form-group row ">
+                            <div class="col-sm-12 col-md-6 col-lg-3 pb-3">
+                                <div class="field">
+                                    <input type="text" class="form-control" placeholder=""
+                                        onkeyup="this.setAttribute('value', this.value);" autocomplete="off" />
+                                    <label>{{'Template ID' | translate}}<sup>*</sup></label>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-3 pb-3">
+                                <div class="field">
+                                    <input type="text" class="form-control" placeholder=""
+                                        onkeyup="this.setAttribute('value', this.value);" autocomplete="off" />
+                                    <label>{{'Template Short Name' | translate}}</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-3 pb-3">
+                                <div class="field">
+                                    <input type="text" class="form-control" placeholder=""
+                                        onkeyup="this.setAttribute('value', this.value);" autocomplete="off" />
+                                    <label>{{'Template Long Name' | translate}}<sup>*</sup></label>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-3 pb-3">
+                                <div class="field">
+                                    <input type="text" class="form-control" placeholder=""
+                                        onkeyup="this.setAttribute('value', this.value);" autocomplete="off" />
+                                    <label>{{'Contract Type' | translate}}</label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row ">
+                            <div class="col-sm-12 col-md-6 col-lg-6 pb-3">
+                                <div class="d-flex bg-light-gray">
+                                    <span class="p-1">{{'Effective Date' | translate}}<br> </span>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                        <div class="input-icons">
+                                            <input type="text" name="RFI Submission Date" placeholder="from Date"
+                                                class="form-control" bsDatepicker>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="input-icons">
+                                            <input type="text" name="RFI Submission Date" placeholder="to Date"
+                                                class="form-control" bsDatepicker>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-3 pb-3 pt-4">
+                                <div class="field">
+                                    <input type="text" class="form-control" placeholder=""
+                                        onkeyup="this.setAttribute('value', this.value);" autocomplete="off" />
+                                    <label>{{'Version' | translate}}</label>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-3 pb-3 pt-4">
+                                <select class="form-control" id="open">
+                                    <option>{{'Status' | translate}}</option>
+                                    <option value="">{{'Open' | translate}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ---------------------- Mandatory Classe ------------------------------ -->
+        <div class="d-flex mt-5 ">
+            <div class="form-container pt-3 pb-3">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-12 col-md-12 pt-4">
+                            <h1>{{'Mandatory Classes' | translate}}</h1>
+                        </div>
+                        <div class="p-3">
+                            <textarea cols="50" rows="5"> </textarea>
+                            <!-- <ejs-richtexteditor id='defaultRTE' [toolbarSettings]='tools'>
+                                <ng-template #valueTemplate>
+                                    {{'Enter your text here' | translate}}
+                                </ng-template>
+                            </ejs-richtexteditor> -->
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 mt-4">
+                        <div class="col-sm-12 col-md-12 pt-4">
+                            <h1 class="p-3">{{'Optional Classes' | translate}}</h1>
+                        </div>
+                        <div class="p-3">
+                            <textarea cols="50" rows="5"> </textarea>
+                            <!-- <ejs-richtexteditor id='defaultRTE1' [toolbarSettings]='tools'>
+                                <ng-template #valueTemplate>
+                                    {{'Enter your text here' | translate}}
+                                </ng-template>
+                            </ejs-richtexteditor> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 mt-4">
+                        <section id="pagination" class="pagination-area">
+                            <div class="container">
+                                <div class="d-flex">
+                                    <span class="mr-auto">&nbsp;</span>
+                                    <a routerLink=""><button type="submit" class="page-link save mr-4">
+                                            {{'CLEAR' | translate}} </button></a>
+                                    <a routerLink=""><button type="submit" class="page-link save">
+                                            {{'SAVE' | translate}} </button></a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- --------------------- Table area -------------------------------- -->
+
+        <!-- --------------------- Table area -------------------------------- -->
+        <div class="d-flex table-area mt-4   ">
+            <div class="table-responsive table-box">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th  (click)="sortTable(0)">{{'Template ID' | translate}}</th>
+                            <th  (click)="sortTable(1)">{{'Template Short Name' | translate}}</th>
+                            <th  (click)="sortTable(2)">{{'Contract Type' | translate}}</th>
+                            <th  (click)="sortTable(3)">{{'Effective From Date' | translate}}</th>
+                            <th  (click)="sortTable(4)">{{'Effective From Date' | translate}}</th>
+                            <th  (click)="sortTable(5)">{{'Version' | translate}}</th>
+                            <th  (click)="sortTable(6)">{{'Created By' | translate}}</th>
+                            <th  (click)="sortTable(7)">{{'Created Date' | translate}}</th>
+                            <th  (click)="sortTable(8)">{{'Status' | translate}}</th>
+                            <th></th>
+                        </tr>
+                        <tr class="form-container form-group">
+                            <td> <input type="text" class="form-control" id="Address" placeholder="Template_01"></td>
+                            <td> <input type="text" class="form-control" id="Address" placeholder="Assest Management">
+                            </td>
+                            <td> <input type="text" class="form-control" id="Address" placeholder="Supply of Hardware">
+                            </td>
+                            <td> <input type="text" class="form-control" id="Address" placeholder="Data Mining"></td>
+                            <td> <input type="text" class="form-control" id="Address" placeholder="Guru"></td>
+                            <td> <input type="text" class="form-control" id="Address" placeholder="01-01-2018"></td>
+                            <td> <input type="text" class="form-control" id="Address" placeholder="01-01-2018"></td>
+                            <td> <input type="text" class="form-control" id="Address" placeholder="01-01-2018"></td>
+                            <td> <input type="text" class="form-control" id="Address" placeholder="01-01-2018"></td>
+                            <td> <input type="checkbox" name="bank" id="name"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+
+                <div class="d-flex table-area mt-5">
+                    <div class="table-responsive table-box">
+
+                        <div *ngIf="masterData.length>0" class="d-flex justify-content-between p-2">
+                            <app-pagination-record-count [totalRec]="totalRecordsCount" (selectedGridCount)="selectedGridCountChange($event)">
+                            </app-pagination-record-count>
+                            <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount"
+                                [recordsPerPage]="recCount" (onPageChange)="displayActivePage($event)">
+                            </app-pagination>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- --------------- save and navigation ---------------- -->
+
+        <div class="row">
+            <div class="col-sm-12 border-top">
+                <section id="pagination" class="pagination-area pt-3">
+                    <div class="container">
+                        <div class="d-flex">
+                            <span class="mr-auto">&nbsp;</span>
+                            <a routerLink=""><button type="submit" class="page-link save mr-4"> {{'UPDATE' | translate}}
+                                </button></a>
+                            <a routerLink=""><button type="submit" class="page-link save">
+                                    {{'DELETE' | translate}}</button></a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</form>

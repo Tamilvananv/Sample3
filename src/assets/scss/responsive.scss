@@ -1,0 +1,150 @@
+@media (max-width: 780px){
+    .rtl .base-align .justify-content-start {
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+.container-fluid{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+  .container {        
+       padding-right: 15px !important;
+       padding-left: 15px !important;
+    }
+    .page-header {
+        padding:10px !important;
+        text-align: center !important;
+        width: 100%;
+    }
+
+    .supplier-dashboard{
+        .page-header {
+          text-align: center;
+          line-height: 38px;
+          padding: 25px 0 0 0px;
+          margin: 0;
+        }
+        .rtl .form-group {
+            margin-bottom: 0px !important;
+        }
+        
+    }
+
+    .noti-info {
+        flex-direction: column;
+        .ml-4{
+            margin-left: 0 !important;
+        }
+        .mr-4{
+            margin-right: 0 !important;
+        }
+    }
+    .read-noti {
+        border: none;
+    }
+    .unread-noti {
+        border: none;
+       
+    }
+    .total-noti{
+        border: none 
+    }
+    .nav-item {
+       padding: 4px 0 !important;
+    }
+    .lang-btn {
+        padding: 0px 0 0 20px !important;
+     }
+    .sep-hide{
+        display: none;
+    }
+    .expand-collapse {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .preqauali-container {
+        .progress-container {            
+            width: 100%;
+        }
+    }
+
+    .page-btn-area{
+        .dflex{
+            width: 100% !important;
+            margin: 10px 0 !important;
+            flex-direction: column !important;
+            text-align: center !important;
+        }
+        button {
+            width: 120px;
+            margin: 5px 0;
+        }
+    }
+    .modal.fade .modal-dialog {
+        transition: transform .3s ease-out;
+        transform: translate(0,-50px);
+        margin-top: 50% !important;
+    }
+    .page-btn-area .d-flex{
+        flex-direction: column !important;
+        button {
+            margin-left: 100px !important;
+
+        }
+        span{
+            display: none;
+        }
+    }
+    
+    .table > tbody > tr > td{
+        display: block;
+    }
+  
+    .no-more-tables .table-area .table thead th {
+        display: none;
+     }
+ 
+    .table-area .table thead th {
+       display: none;
+    }
+
+    .table-area .table tbody td:before {
+        position: relative;
+        top: 0px !important;
+        left: 0px !important;
+        width: 0% !important;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        font-size: 11px;
+        content: attr(data-title);
+    }
+    .table-area .table tbody td {  
+        text-align: left !important;
+        input {            
+            width: auto;
+        }
+    }
+
+    .finicial .table-area .table tbody td {  
+        text-align: left !important;
+        input {            
+            width: 100%;
+        }
+    }
+    
+
+}
+
+
+@media only screen and (max-width: 800px){
+    #no-more-tables td {
+        text-align: left !important;
+    }
+}
+
+
+

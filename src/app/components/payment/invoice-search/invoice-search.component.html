@@ -1,0 +1,91 @@
+<div class="col-sm-12 ">
+  <div class="row">
+    <div class="col-sm-6 pr-0 pl-0 ">
+      <nav aria-label="breadcrumb" id="breadcrumb">
+        <ol class="breadcrumb pl-0 mt-0">
+          <li class="breadcrumb-item active" aria-current="page">{{'Invoice Search' | translate}}</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col-sm-6 pr-0 pl-0 pt-2 expand-collapse"> 
+      <div class="col-xl-12 pr-0 pull-right">
+        <a routerLink="/contract-search" class="mr-2"> <button type="button"
+          class="clear-btn pull-right ml-3">{{'CLEAR ALL FILTER' | translate}}</button></a>
+      <a routerLink="/invoice-contract-search" class="mr-2 ml-2">
+        <button type="button"
+          class="save-btn pull-right ml-2">{{'CREATE NEW' | translate}}</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="d-flex table-area">
+    <div class="table-responsive">
+      <form>
+        <table class="table table-striped" id="invoiceSearchTable">
+          <thead>
+            <tr>
+              <th  (click)="sortTable(0)">{{'Invoice Number' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(1)">  {{'Invoice Description' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(2)">
+                {{'Invoice submitted Date' | translate}}<img class="pl-2" src="assets/img/filter-icon.png">
+              </th>
+              <th  (click)="sortTable(3)"> {{'Contract Number' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(4)">{{'Invoice Status' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(5)"> {{'Track Voic Status' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+            </tr>
+            <!-- <tr class="form-container form-group">
+              <td> <input type="text" class="form-control" id="Address" placeholder=""></td>
+              <td> <input type="text" class="form-control" id="Address" placeholder=""></td>
+              <td> <input type="text" class="form-control" id="Address" placeholder=""></td>
+              <td> <input type="text" class="form-control" id="Address" placeholder=""></td>
+              <td> <input type="text" class="form-control" id="Address" placeholder=""></td>
+              <td> </td>
+
+            </tr> -->
+          </thead>
+          <tbody>
+          
+            <tr *ngFor="let invoiceData of invoiceList">
+              <td [attr.data-title]="'Invoice Number' | translate"><a routerLink="/invoice-view"
+                  (click)="onInvoiceNumberClick(invoiceData.invoiceNumber,invoiceData.contractNumber,invoiceData.invoiceId)">
+                  {{invoiceData.invoiceNumber}}</a></td>
+              <td [attr.data-title]="'Invoice Description' | translate"> {{ invoiceData.invoiceDesc }}</td>
+              <td [attr.data-title]="'Invoice submitted Date' | translate">{{ invoiceData.invoiceSubmitDate }}</td>
+              <td [attr.data-title]="'Contract Number' | translate">{{ invoiceData.contractNumber }}</td>
+              <td [attr.data-title]="'Invoice Status' | translate">{{ invoiceData.invoiceStatus }}</td>
+              <td [attr.data-title]="'Track Voic Status' | translate" class="text-center">
+                <a type="button" data-toggle="modal" data-target="#exampleModalLong">
+                  <i class="fa fa-eye"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <div class="d-flex justify-content-between p-2">
+          <app-pagination-record-count></app-pagination-record-count>
+          <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
+          </ngb-pagination>
+        </div> -->
+
+        <div class="d-flex table-area mt-5">
+          <div class="table-responsive table-box">
+
+            <div *ngIf="masterData.length>0" class="d-flex justify-content-between p-2">
+              <app-pagination-record-count [totalRec]="totalRecordsCount" (selectedGridCount)="selectedGridCountChange($event)">
+              </app-pagination-record-count>
+              <!-- <app-pagination></app-pagination> -->
+              <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount" [recordsPerPage]="recCount"
+                (onPageChange)="displayActivePage($event)">
+              </app-pagination>
+            </div>
+          </div>
+        </div>
+      </form>
+      <app-model-window></app-model-window>
+

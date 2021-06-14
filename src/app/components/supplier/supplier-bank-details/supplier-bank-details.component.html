@@ -1,0 +1,422 @@
+<form #bankDetailsForm="ngForm" (ngSubmit)="saveBankDetails(bankDetailsForm)" name="bankDetailsForm">
+
+    <!-- ----------------------- Progress bar -------------------- -->
+
+    <app-progress-bar [isAlreadySaved]="isAlreadySaved" [disableTab]="disableProgressTab" [supplierTabName]="tabName">
+    </app-progress-bar>
+    <!-- --------------- breadcrumb ---------------- -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb pl-0 mt-0">
+        <li class="breadcrumb-item active" aria-current="page">{{'Bank-Details' | translate}}</li>
+      </ol>
+    </nav>
+
+    <!-- --------------- Alert area ---------------- -->
+    <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+
+    <!-- ---------------------- company details ------------------------------ -->
+    <div class="d-flex">
+      <div class="form-container">
+        <div class="col-sm-12">
+          <h1 class="pt-3 pb-2">{{'Beneficiary Information' | translate}}</h1>
+        </div>
+      
+        <div class="col-sm-12 form-group">
+          <div class="row row-gap">
+            <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" "
+                    onkeyup="this.setAttribute('value', this.value);" name="supplierbank.bankName"
+                    [(ngModel)]="supplierbank.bankName" autocomplete="off" #supplierBankName="ngModel" maxlength="250"
+                    required />
+                  <span class="highlight"></span>
+                  <label>{{'Bank Name' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierBankName.valid || supplierBankName.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierBankName.errors?.required">{{'Please enter the bank name' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" " name="supplierbank.branch"
+                    [(ngModel)]="supplierbank.branch" autocomplete="off" #supplierBankBranch="ngModel" maxlength="250"
+                    required />
+                  <span class="highlight"></span>
+                  <label>{{'Branch' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierBankBranch.valid || supplierBankBranch.pristine">
+                    <span class="validation-msg validation-msg-position">{{'Please enter the branch name' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" "
+                    onkeyup="this.setAttribute('value', this.value);" name="supplierbank.currencyCode"
+                    [(ngModel)]="supplierbank.currencyCode" autocomplete="off" #supplierCurrencyCode="ngModel"
+                    required />
+                  <span class="highlight"></span>
+                  <label>{{'currency Code' | translate}} <sup>*</sup></label>
+                  <div [hidden]="supplierCurrencyCode.valid || supplierCurrencyCode.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierCurrencyCode.errors?.required">{{'Please enter the currency code' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" " name="supplierbank.city"
+                    [(ngModel)]="supplierbank.city" autocomplete="off" #supplierBankCity="ngModel" required
+                    maxlength="15" />
+                  <span class="highlight"></span>
+                  <label>{{'City' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierBankCity.valid || supplierBankCity.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierBankCity.errors?.required">{{'Please enter the city' | translate}}</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="row row-gap">
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);"
+                    id="bankCountryId" name="supplierbank.countryId" [(ngModel)]="supplierbank.countryId" onblur=""
+                    (change)="onChangeCountry(supplierbank.countryId)" #supplierBankCountry="ngModel" required>
+                    <option hidden="true" value=""></option>
+                    <option disabled=" disabled" default="true" value="">{{'Select' | translate}}</option>
+                    <option *ngFor="let type  of supplierCountryDtl" value="{{type.lovId}}">{{type.lovName}}</option>
+                  </select>
+                  <span class="highlight"></span>
+                  <label>{{'Select Country' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierBankCountry.valid || supplierBankCountry.pristine">
+                    <span class="validation-msg" *ngIf="supplierBankCountry.errors?.required">
+                      {{'Please select the country' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);"
+                    id="bankStateId" name="supplierbank.stateId" [(ngModel)]="supplierbank.stateId" onblur=""
+                    #supplierStateCountry="ngModel" required>
+                    <option hidden="true" value=""></option>
+                    <option disabled=" disabled" default="true" value="">{{'Select' | translate}}</option>
+                    <option *ngFor="let type  of supplierStatessDtl" value="{{type.lovId}}">{{type.lovName}}</option>
+                  </select>
+                  <span class="highlight"></span>
+                  <label>{{'Select State' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierStateCountry.valid || supplierStateCountry.pristine">
+                    <span class="validation-msg" *ngIf="supplierStateCountry.errors?.required">
+                      {{'Please select the state' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" "
+                    name="supplierbank.accountNumber" [(ngModel)]="supplierbank.accountNumber" autocomplete="off"
+                    #supplierBankAccountNumber="ngModel" maxlength="20" required />
+                  <span class="highlight"></span>
+                  <label>{{'Account Number' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierBankAccountNumber.valid || supplierBankAccountNumber.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierBankAccountNumber.errors?.required">{{'Please enter the Account number' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" "
+                    onkeyup="this.setAttribute('value', this.value);" name="supplierbank.swiftCode"
+                    [(ngModel)]="supplierbank.swiftCode" autocomplete="off" #supplierBankSwiftCode="ngModel"
+                    maxlength="20" />
+
+                  <span class="highlight"></span>
+                  <label>{{'Swift Code' | translate}}</label>
+                  <div [hidden]="supplierBankSwiftCode.valid || supplierBankSwiftCode.pristine">
+                    <span class="validation-msg validation-msg-position">{{'Please enter the Swift code' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row row-gap">
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);"
+                    name="supplierbank.bankRefNum" [(ngModel)]="supplierbank.bankRefNum" onblur="">
+                    <option hidden="true" value=""></option>
+                    <option disabled=" disabled" default="true" value="">{{'Select' | translate}}</option>
+                    <option *ngFor="let type  of loadBankRefDropdown" value="{{type.lovId}}">{{type.lovName}}</option>
+                  </select>
+                  <span class="highlight"></span>
+                  <label>{{'Select Bank Refrence Identifier' | translate}}</label>
+
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" " name="supplierbank.refNum"
+                    [(ngModel)]="supplierbank.refNum" autocomplete="off" #supplierBankRefNo="ngModel" maxlength="20" />
+                  <span class="highlight"></span>
+                  <label>{{'Reference Number' | translate}}</label>
+                  <div [hidden]="supplierBankRefNo.valid || supplierBankRefNo.pristine">
+                    <span class="validation-msg validation-msg-position">{{'Please enter the reference number' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="row row-gap">
+                <div class="input-checkbox pb-3">
+                  <span class='blocking-span'>
+                    <input type="checkbox" data-group-cls="btn-group-sm" name="supplierbank.correspondent"
+                    [(ngModel)]="supplierbank.correspondent"> 
+                    <span class="check-space">{{'Correspondent Bank' | translate}}</span>
+                  </span>
+                </div>
+              </div>
+          
+        
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-------------------------------Correspondent Bank--------------------------->
+    <div class="d-flex" *ngIf="supplierbank.correspondent">
+      <div class="form-container">
+        <div class="col-sm-12">
+          <h1 class="pt-3 pb-2">{{'Correspondent Bank Details' | translate}}</h1>
+        </div>
+
+       
+        <div class="col-sm-12 form-group">
+          <div class="row row-gap">
+            <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" "
+                    name="supplierbank.corresBankName" [(ngModel)]="supplierbank.corresBankName" autocomplete="off"
+                    #suppliercorresBankName="ngModel" required />
+                  <span class="highlight"></span>
+                  <label>{{'Bank Name' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierBankName.valid || supplierBankName.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="suppliercorresBankName.errors?.required">{{'Please enter the bank name' | translate}}</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" "
+                    name="supplierbank.corresBranch" [(ngModel)]="supplierbank.corresBranch" autocomplete="off"
+                    maxlength="250" #supplierCorresBankBranch="ngModel" />
+                  <span class="highlight"></span>
+                  <label>{{'Branch' | translate}}</label>
+                  <div [hidden]="supplierCorresBankBranch.valid || supplierCorresBankBranch.pristine">
+                    <span class="validation-msg validation-msg-position">{{'Please enter the branch name' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" "
+                    onkeyup="this.setAttribute('value', this.value);" name="supplierbank.corresCurrencyCode"
+                    [(ngModel)]="supplierbank.corresCurrencyCode" autocomplete="off"
+                    #supplierCorresCurrencyCode="ngModel" required />
+                  <span class="highlight"></span>
+                  <label>{{'currency Code' | translate}} <sup>*</sup></label>
+                  <div [hidden]="supplierCorresCurrencyCode.valid || supplierCorresCurrencyCode.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierCorresCurrencyCode.errors?.required">{{'Please enter the currency code' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" " name="supplierbank.corresCity"
+                    [(ngModel)]="supplierbank.corresCity" autocomplete="off" #supplierCorresBankCity="ngModel"
+                    required />
+                  <span class="highlight"></span>
+                  <label>{{'City' | translate}}<sup>*</sup></label>
+                  <div [hidden]="supplierCorresBankCity.valid || supplierCorresBankCity.pristine">
+                    <span class="validation-msg validation-msg-position"
+                      *ngIf="supplierCorresBankCity.errors?.required">{{'Please enter the city' | translate}}</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+              <div class="row row-gap">
+                <div class="col-sm-3 column-gap">
+                <div class="">
+                  <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);"
+                    id="corresCountryId" name="supplierbank.corresCountryId" [(ngModel)]="supplierbank.corresCountryId"
+                    (change)="onChangeCorresCountry(supplierbank.corresCountryId)" #supplierCorresBankCountry="ngModel"
+                    value="">
+                    <option hidden="true" value=""></option>
+                    <option disabled=" disabled" default="true" value="">{{'Select' | translate}}</option>
+                    <option *ngFor="let type  of supplierCountryDtl" value="{{type.lovId}}">{{type.lovName}}</option>
+                  </select>
+                  <span class="highlight"></span>
+                  <label>{{'Select Country' | translate}}</label>
+                  <div [hidden]="supplierCorresBankCountry.valid || supplierCorresBankCountry.pristine">
+                    <span class="validation-msg">{{'Please select the country' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);"
+                    id="coressStateId" name="supplierbank.corresState" [(ngModel)]="supplierbank.corresStateId"
+                    placeholder="Select State" #supplierCorresStateCountry="ngModel" value="">
+                    <option hidden="true" value=""></option>
+                    <option disabled=" disabled" default="true" value="">{{'Select' | translate}}</option>
+                    <option *ngFor="let type  of supplierCorresStatesDtl" value="{{type.lovId}}">{{type.lovName}}
+                    </option>
+                  </select>
+                  <span class="highlight"></span>
+                  <label>{{'Select State' | translate}}</label>
+                  <div [hidden]="supplierCorresStateCountry.valid || supplierCorresStateCountry.pristine">
+                    <span class="validation-msg">{{'Please select the state' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" "
+                    name="supplierbank.corresAccountNumber" [(ngModel)]="supplierbank.corresAccountNumber"
+                    autocomplete="off" #supplierCorresBankAccontNumber="ngModel" />
+                  <span class="highlight"></span>
+                  <label>{{'Account Number' | translate}}</label>
+                  <div [hidden]="supplierCorresBankAccontNumber.valid || supplierCorresBankAccontNumber.pristine">
+                    <span class="validation-msg validation-msg-position">Please enter the Account number</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" "
+                    name="supplierbank.corresSwiftCode" [(ngModel)]="supplierbank.corresSwiftCode" autocomplete="off"
+                    #supplierCorresBankSwiftCode="ngModel" />
+                  <span class="highlight"></span>
+                  <label>{{'Swift Code' | translate}}</label>
+                  <div [hidden]="supplierCorresBankSwiftCode.valid || supplierCorresBankSwiftCode.pristine">
+                    <span class="validation-msg validation-msg-position">{{'Please enter the Swift code' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row row-gap">
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);"
+                    value="" name="supplierbank.corresBankRefNum" [(ngModel)]="supplierbank.corresBankRefNum">
+                    <option hidden="true" value=""></option>
+                    <option disabled=" disabled" default="true" value="">{{'Select' | translate}}</option>
+                    <option *ngFor="let type  of loadBankRefDropdown" value="{{type.lovId}}">{{type.lovName}}</option>
+                  </select>
+                  <span class="highlight"></span>
+                  <label>{{'Select Bank Refrence Identifier' | translate}}</label>
+
+                </div>
+              </div>
+              <div class="col-sm-3 column-gap">
+                <div class="">
+                  <input type="text" class="form-control floating-input" placeholder=" "
+                    onkeyup="this.setAttribute('value', this.value);" name="supplierbank.corresRefNum"
+                    [(ngModel)]="supplierbank.corresRefNum" autocomplete="off" #supplierCorresBankRefNo="ngModel" />
+                  <span class="highlight"></span>
+                  <label>{{'Reference Number' | translate}}</label>
+                  <div [hidden]="supplierCorresBankRefNo.valid || supplierCorresBankRefNo.pristine">
+                    <span class="validation-msg validation-msg-position">{{'Please enter the reference number' | translate}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+         
+          </div>
+       
+      </div>
+    </div>
+
+    <!-- --------------------- Table area -------------------------------- -->
+
+    <div class="d-flex table-area mt-3">
+      <div class="table-responsive table-box">
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th  class="text-center">{{'Correspondent Bank' | translate}}<img class="pl-1" src="assets/img/filter-icon.png">
+              </th>
+              <th >{{'Bank Name' | translate}}<img class="pl-1" src="assets/img/filter-icon.png">
+              </th>
+              <th >{{'Branch' | translate}}<img class="pl-1" src="assets/img/filter-icon.png">
+              </th>
+              <th >{{'currency Code' | translate}}<img class="pl-1" src="assets/img/filter-icon.png"></th>
+              <th >{{'City' | translate}}<img class="pl-1" src="assets/img/filter-icon.png"></th>
+              <th >{{'State' | translate}}<img class="pl-1" src="assets/img/filter-icon.png"></th>
+              <th >{{'Account Number' | translate}}<img class="pl-1" src="assets/img/filter-icon.png"></th>
+              <th >{{'Swift Code' | translate}}<img class="pl-1" src="assets/img/filter-icon.png"></th>
+              <th >{{'Bank Reference Identifier' | translate}}<img class="pl-1"
+                  src="assets/img/filter-icon.png">
+              </th>
+              <th >{{'Refrence Value' | translate}}<img class="pl-1" src="assets/img/filter-icon.png"></th>
+              <th  class="text-center">{{'Action' | translate}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let supplierinfo of supplierBankDetails">
+              <td class="text-center" [attr.data-title]="'Correspondent Bank' | translate">
+                <input type="checkbox" [checked]="supplierinfo.correspondent==true" disabled="true"
+                  name="supplierinfo.correspondent" *ngIf="supplierinfo.bankName!=null">
+              </td>
+              <td [attr.data-title]="'Bank Name' | translate"> {{ supplierinfo.bankName }}</td>
+              <td [attr.data-title]="'Branch' | translate">{{ supplierinfo.branch }}</td>
+              <td [attr.data-title]="'currency Code' | translate">{{ supplierinfo.currencyCode }}</td>
+              <td [attr.data-title]="'City' | translate">{{ supplierinfo.city}}</td>
+              <td [attr.data-title]="'State' | translate"> {{ supplierinfo.state }}</td>
+              <td [attr.data-title]="'Account Number' | translate">{{ supplierinfo.accountNumber }}</td>
+              <td [attr.data-title]="'Swift Code' | translate">{{ supplierinfo.swiftCode }}</td>
+              <td [attr.data-title]="'Bank Reference Identifier' | translate">{{ supplierinfo.bankRefNumName}}</td>
+              <td [attr.data-title]="'Refrence Value' | translate">{{ supplierinfo.refNum}}</td>
+              <td class="text-center" [attr.data-title]="'Action' | translate" *ngIf="supplierinfo.bankName!=null">
+                <a (click)="editSavedBankDetails($event, supplierBankDetails)" class="mr-2"
+                  [class.disabled]="disableButtons==true"><img class="pl-2" src="assets/img/edit.png"></a>
+                <a (click)="callFunction($event, supplierinfo)" [class.disabled]="disableButtons==true"><i
+                    class="fa fa-trash"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <section id="pagination" class="pagination-area mt-2">     
+      <div class="d-flex">
+        <span class="mr-auto">&nbsp;</span>
+        <nav class="navigation">
+          <ul class="pagination ">
+            <li class="page-item"><a class="page-link prev-btn" (click)="goToPreviousComponent()"><img
+                  src="./assets/img/arrow-left.png"> </a></li>
+            <button type="submit" class="page-link save"
+              [disabled]="(!bankDetailsForm.valid && !bankDetailsForm.dirty) || disableButtons==true">
+              {{'Save' | translate}}</button>
+            <li class="page-item" *ngIf="isAlreadySaved==true"><a class="page-link next-btn"
+                (click)="goToNextComponent()"> <img src="./assets/img/arrow-right.png"> </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      </section>
+   
+</form>

@@ -1,0 +1,33 @@
+<!-- <div class="row">
+  <div class="col-lg-12"> -->
+    <!-- Success Alert -->
+    <!-- <div *ngIf="type=='success'" class="alert alert-success alert-dismissible fade show">
+      <strong><i class="fa fa-check-circle" aria-hidden="true"></i></strong> 
+      <span style="padding-left: 10px;">{{ message }}</span>
+      
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div> -->
+    <!-- Error Alert -->
+    <!-- <div *ngIf="type=='error'" class="alert alert-danger alert-dismissible fade show" #errorMsg>
+      <strong><i class="fa fa-times-circle" aria-hidden="true"></i></strong> 
+      <span style="padding-left: 10px;">{{ message }}</span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+    </div> -->
+    <!-- Warning Alert -->
+    <!-- <div *ngIf="type=='warning'" class="alert alert-warning alert-dismissible fade show">
+      <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></strong> 
+      <span style="padding-left: 10px;">{{ message }}</span>
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div> -->
+    <!-- Info Alert -->
+    <!-- <div *ngIf="type=='info'" class="alert alert-info alert-dismissible fade show">
+      <strong><i class="fa fa-info-circle" aria-hidden="true"></i></strong> 
+      <span style="padding-left: 40px;">{{ message }}</span>
+      <button type="button" class="close" style="padding-left: 40px;" data-dismiss="alert">&times;</button>
+    </div>
+  </div>
+</div> -->
+<p *ngFor="let alert of alerts">
+  <ngb-alert *ngIf="alert.type!=null || alert.type!=undefined" [type]="alert.type" (close)="close(alert)"><span class="alert-text">{{ alert.message }}</span></ngb-alert>
+</p>

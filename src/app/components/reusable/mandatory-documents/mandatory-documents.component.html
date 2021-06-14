@@ -1,0 +1,336 @@
+<div class="panel-body panel-body1 table-box">
+    <div class="table-responsive table-area">
+        <table class="table table-striped mb-0">
+            <thead>
+                <tr>
+                    <th>{{'Category' | translate}}</th>
+                    <th>{{'Description' | translate}}</th>
+                    <th>{{'File upload' | translate}}</th>
+                    <th>{{'Upload Status' | translate}}</th>
+                    <th>{{'Upload Date & Time' | translate}}</th>
+                    <th>{{'Uploaded By' | translate}}</th>
+                </tr>
+            </thead> 
+           
+            <tbody>
+                <ng-container *ngFor="let doc of tenderDtls.tenderMandDocList">
+                <tr  *ngIf="altProp != '1' || doc.docName!='BidBond'">
+                    <td> <span>{{doc?.docCategory}}</span></td>
+                    <td> <span>{{doc?.docDesc}}</span></td>
+                    <!--Doc Name cell-->
+                    <td *ngIf="doc.docName != null && doc.docName != 'BidBond'"> 
+                        <span>{{doc?.docName}}</span>                    
+                        <div class="pull-right" 
+                            *ngIf="tenderDtls?.tenderMaster?.tenderSubmissionStatusId != '3001' && tenderDtls?.tenderMaster?.tender_status != '8023'">
+                            <a  
+                                (click)="downloadDoc(doc.docId,doc.docName,doc.docFileType,doc.docType)"><i
+                                class="fa fa-download"
+                                aria-hidden="true"></i></a>
+                                &nbsp;&nbsp;&nbsp;
+                                <!-- *ngIf=" saveBidBondBtnFlag || doc.docCategoryId!=9013 " --- this was added in the below condition in case of alternate proposals -->
+                            <a 
+                                (click)="deleteDoc(doc.docId,doc.docType,doc.docFlag,'mand',doc.docDesc)">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </td>
+                    
+                    <td *ngIf="(doc.docName == null && tenderDtls.tenderMaster.tender_status != '8023' && tenderDtls.tenderMaster.dateCheckFlag==true && isPrequalified == true && isScopeOne == true && isInvited == true && tenderMode == 8012)
+                    || (doc.docName == null && tenderDtls.tenderMaster.tender_status != '8023' && tenderDtls.tenderMaster.dateCheckFlag==true && tenderMode == 8011)"> 
+                        <div class="attach-btn file" *ngIf="tenderDtls?.tenderMaster?.tenderSubmissionStatusId != '3001' && tenderDtls?.tenderMaster?.referenceNumber != null">
+                        <span class="btn btn-secondary">{{'Select files here to upload' | translate}}</span>
+                        <input type="file" name="file" 
+                        (change)="uploadDocument($event,doc.docId,doc.docSeqNo,'Information','Ok','Oops Something went Wrong. Please try again !')" />
+                        </div>
+
+                        <!--  (click)="createResponseCheck(
+                                'Information',
+                                'Ok',
+                                'Create Response To Proceed Further.');"--- Must be added in the below line-->
+                    <div *ngIf="tenderDtls.tenderMaster.referenceNumber == null">
+                        <button class="dropdisabled">
+                                {{'Select files here to upload' | translate}}
+                        </button>
+                    </div>
+                    </td>
+
+
+                    <td *ngIf="isPrequalified == true && isScopeOne == false && tenderMode == 8012 && doc.docType == 'M'">                        
+                        <div data-target="#showPopup2"
+                            data-toggle="modal">
+                            {{'Select files here to upload' | translate}}              
+                        </div>
+                    </td>
+                    <td *ngIf="isPrequalified == false && isScopeOne == false && tenderMode == 8012 && 
+                        doc.docType != null && (doc.docName == null && tenderDtls.tenderMaster.tender_status != '8023' && tenderDtls.tenderMaster.dateCheckFlag==true)"
+                        data-title="Fileupload"
+                        >
+                        <div data-target="#showPopup3"
+                            data-toggle="modal"> {{'Select files here to upload' | translate}}
+                            </div>
+                    </td>
+                    <td *ngIf="isPrequalified == true && isScopeOne == true && tenderMode == 8012 && 
+                    isInvited == false && (doc.docName == null && tenderDtls.tenderMaster.tender_status != '8023' && tenderDtls.tenderMaster.dateCheckFlag==true)"
+                    data-title="FileUpload">
+                    <div data-target="#showPopup4"
+                        data-toggle="modal"> {{'Select files here to upload' | translate}}
+                        </div>
+                </td>
+                <td data-title="FileUpload"
+                    *ngIf="doc.docName == null && tenderDtls.tenderMaster.tender_status != '8023' && tenderDtls.tenderMaster.dateCheckFlag==false"></td>
+                <td data-title="FileUpload"
+                    *ngIf="doc.docName == null && tenderDtls.tenderMaster.tender_status == '8023'"></td>
+                                   <!--enter bid bond details -->
+                    <td *ngIf="(doc.docName == 'BidBond' && doc.docCategoryId == '9013' && isPrequalified == true 
+                    && isScopeOne == true && isInvited == true && tenderMode == 8012 && tenderDtls.tenderMaster.referenceNumber != null)
+                || (doc.docName == 'BidBond' && doc.docCategoryId == '9013' && tenderMode == 8011 && tenderDtls.tenderMaster.referenceNumber != null) ">
+                   
+                        <!-- need to add this in the below code of line --- (click)="uploadBibBondFile($index+1,doc.docId,doc.docSeqNo,doc.manFile,doc.docCategory)" -->
+                        <!-- <span  class="btn btn-danger"  (click)="loadBidBondDetails()">-->
+                                <!-- data-toggle="modal" data-target="#bidBondModalForm">  -->
+                                    <!--  Enter BOQ Details
+                        </span> -->
+                        <span class="btn btn-danger" (click)="loadBidBondDetails()">{{'Enter Bidbond Details' | translate}}</span>
+                    </td>
+                    <td *ngIf="(doc.docName == 'BidBond' && doc.docCategoryId == '9013' && isPrequalified == true 
+                    && isScopeOne == true && isInvited == true && tenderMode == 8012 && tenderDtls.tenderMaster.referenceNumber == null)
+            || (doc.docName == 'BidBond' && doc.docCategoryId == '9013' && tenderMode == 8011 && tenderDtls.tenderMaster.referenceNumber == null) ">
+                        <!--  (click)="createResponseCheck(
+                                'Information',
+                                'Ok',
+                                'Create Response To Proceed Further.');"--- Must be added in the below line-->
+                        <button type="button" class="btn btn-danger">
+                            {{'Enter Bidbond Details' | translate}}
+                                </button>
+                    </td>
+                    <td *ngIf="(doc.docName == 'BidBond' && doc.docCategoryId == '9013' && isPrequalified == true && isScopeOne == false && tenderMode == 8012) ">                        
+                        <button type="button" class="btn btn-danger" data-target="#showPopup2"
+                        data-toggle="modal">
+                        {{'Enter Bidbond Details' | translate}}
+                                </button>
+                    </td>
+
+                    <td *ngIf="(doc.docName == 'BidBond' && doc.docCategoryId == '9013' && isPrequalified == false && isScopeOne == false && tenderMode == 8012)">                        
+                        <button type="button" class="btn btn-danger" data-target="#showPopup3"
+                        data-toggle="modal">
+                        {{'Enter Bidbond Details' | translate}}
+                                </button>
+                    </td>
+                    <td *ngIf="(doc.docName == 'BidBond' && doc.docCategoryId == '9013' && isPrequalified == true && isScopeOne == true && isInvited == false && tenderMode == 8012)">                        
+                        <button type="button" class="btn btn-danger" data-target="#showPopup4"
+                        data-toggle="modal">
+                        {{'Enter Bidbond Details' | translate}}
+                                </button>
+                    </td>
+                   <!-- end bid bond details -->
+                    <td *ngIf="doc?.docStatus=='Pending' && doc?.docType == 'M' " > 
+                        <button type="button" class="btn btn-primary">{{doc?.docStatus}}</button></td>
+                    <td *ngIf="doc?.docStatus=='Success' && doc?.docType == 'M' " > 
+                        <button type="button" class="btn btn-success">{{doc?.docStatus}}</button></td>
+
+                    <td *ngIf="tenderDtls?.bidBondStatus=='Success' && doc?.docType == null" > 
+                            <button type="button" class="btn btn-success">{{tenderDtls?.bidBondStatus}}</button></td>
+
+                    <td *ngIf="tenderDtls?.bidBondStatus=='Pending' && doc?.docType == null" > 
+                        <button type="button" class="btn btn-success">{{tenderDtls?.bidBondStatus}}</button></td>
+                    <td> <span>{{doc?.uploadedDate}}</span></td>
+                    <td> <span>{{doc?.uploadedBy}}</span></td>
+                </tr>
+            </ng-container>
+                <!-- <tr *ngFor="let doc of tenderMandDocList">
+                    <td> <span>{{doc?.docCategory}}</span></td>
+                    <td> <span>{{doc?.docDesc}}</span></td>
+                    <td>  <div class="attach-btn file">
+                        <span class="btn btn-secondary">{{'Select files here to upload' | translate}}</span>
+                        <input type="file" name="file" />
+                         <!-- (change)="uploadDocument($event,documentDesc,documentType)"  -->
+                  <!--  </div></td>
+                    <td *ngIf="doc?.docStatus=='Pending'" > <button type="button" class="btn btn-primary">Pending</button></td>
+                    <td *ngIf="doc?.docStatus=='Success'" > <button type="button" class="btn btn-success">Success</button></td>
+                    <td> <span>{{doc?.uploadedBy}}</span></td>
+                    <td> <span>{{doc?.uploadedDate}}</span></td>
+                </tr>
+
+                <tr *ngFor="let doc of tenderMandDocList">
+                    <td> <span>{{doc?.docCategory}}</span></td>
+                    <td> <span>{{doc?.docDesc}}</span></td>
+                    <td>  <div class="attach-btn file">
+                        <span class="btn btn-secondary">{{'Select files here to upload' | translate}}</span>
+                        <input type="file" name="file" />
+                         <!-- (change)="uploadDocument($event,documentDesc,documentType)"  -->
+                  <!--  </div></td>
+                    <td *ngIf="doc?.docStatus=='Pending'" > <button type="button" class="btn btn-danger">Failed</button></td>
+                    <td *ngIf="doc?.docStatus=='Success'" > <button type="button" class="btn btn-success">Success</button></td>
+                    <td> <span>{{doc?.uploadedBy}}</span></td>
+                    <td> <span>{{doc?.uploadedDate}}</span></td>
+                </tr>
+
+                <tr *ngFor="let doc of tenderMandDocList">
+                    <td> <span>{{doc?.docCategory}}</span></td>
+                    <td> <span>{{doc?.docDesc}}</span></td>
+                    <td>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                            Enter BOQ Details
+                          </button></td>
+                    <td *ngIf="doc?.docStatus=='Pending'" > <button type="button" class="btn btn-danger">Failed</button></td>
+                    <td *ngIf="doc?.docStatus=='Success'" > <button type="button" class="btn btn-success">Success</button></td>
+                    <td> <span>{{doc?.uploadedBy}}</span></td>
+                    <td> <span>{{doc?.uploadedDate}}</span></td>
+                </tr> -->
+                <!-- <tr>
+                    <td> <span>Technical Document</span></td>
+                    <td> <span>Tehcincal Document</span></td>
+                    <td> <span><button type="button" class="btn btn-danger">Enter Bid Bond Details</button></span></td>
+                    <td> <button type="button" class="btn btn-success">Success</button></td>
+                    <td> <span></span></td>
+                    <td> <span></span></td>
+                </tr>
+ -->
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade table-model" id="bidBondModalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{'Bid Bond Details' | translate}}</h5>           
+        </div>
+        <div class="modal-body">
+            <!-- --------------- Alert area ---------------- -->
+            <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+            <!-- ---------------------- company details ------------------------------ -->
+
+            <div class="form-container form-group box-shadow-none">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>{{'Bid Bond Fee' | translate}}</td><td>  <input type="text" class="form-control"
+                            [(ngModel)]="bidBondDetails.bbAmount"  name="bbAmount" required></td>
+                    </tr>
+                    <tr>
+                        <td>{{'Bank Name' | translate}}</td><td>  
+                            <select class="form-control" [(ngModel)]="bidBondDetails.bankName" name="bankName">
+                            <option value="">{{'Select' | translate}}</option>
+                            <option *ngFor="let bank  of bankList"
+                              value="{{bank.lovId}}">{{bank.lovName}}</option>
+                            
+                          </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{'BB Type' | translate}}</td><td> <!-- <select class="form-control">
+                            <option>1</option>
+                            <option>1</option>
+                            <option>1</option>
+                        </select>  -->
+                        <select class="form-control" [(ngModel)]="bidBondDetails.bbType" name="bbType">
+                            <option value="">{{'Select' | translate}}</option>
+                            <option *ngFor="let bbType  of bbTypeList"
+                              value="{{bbType.lovId}}">{{bbType.lovName}}</option>
+                            
+                          </select>
+                    
+                    </td>
+                    </tr>
+                    <tr>
+                        <td>{{'BB Reference No' | translate}}</td><td>  <input type="text" class="form-control" [(ngModel)]="bidBondDetails.bbReferenceNo" 
+                             name="bbReferenceNo" required></td>
+                    </tr>
+                    <tr>
+                        <td>{{'Valid From' | translate}}</td><td> 
+                             <!-- <input type="text" class="form-control" 
+                             [(ngModel)]="bidBondDetails.validFrom" name="validFrom" bsDatepicker required> -->
+                            
+                             <input type="text" class="form-control" onclick="(this.type='date')" 
+                             [(ngModel)]="bidBondDetails.validFrom"  name="bidBondDetails.validFrom" required >
+                            </td>
+                    </tr>
+                    <tr>
+                        <td>{{'Expires on' | translate}}</td><td>  <input type="text"  onclick="(this.type='date')" 
+                            class="form-control" [(ngModel)]="bidBondDetails.expiresOn"  name="bidBondDetails.expiresOn" required></td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        </div>
+        <section id="pagination" class="pagination-area mt-1">
+            <div class="container">
+                <div class="d-flex">
+                <span class="mr-auto">&nbsp;</span>
+
+                <!-- removed the condition -- saveBidBondBtnFlag && --from the below element ngif as it was related to alternate proposals
+                 and may be required when alternate proposals are introduced in this project..
+                -->
+                <button  type="submit"
+                *ngIf=" tenderDtls?.tenderMaster?.tenderSubmissionStatusId != '3001' && tenderDtls?.tenderMaster?.tender_status != '8023' && tenderDtls?.tenderMaster?.dateCheckFlag==true"
+                (click)="saveBidBondDetails()"   class="save-btn"> {{'SAVE' | translate}}</button>
+                <a routerLink="/tender-submission"><button  data-dismiss="modal" aria-label="Close"  type="submit" class="clear-btn ml-3"> {{'BACK' | translate}} </button></a> 
+                </div>
+            </div>
+          </section>
+        
+      </div>
+    </div>
+  </div>
+  <app-tender-submission-modal></app-tender-submission-modal>
+
+
+<!--   <div class="modal fade" id="showPopup2" tabindex="-1" role="dialog" aria-labelledby="titlePopup2" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="titlePopup2">Information</h5>       
+        </div>
+        <div class="modal-body">
+            You are not Pre-qualified to participate in this Tender submission.<br>
+            Please submit the required documents at ePQ system and follow the process to complete pre-qualification process.<br>
+            Please fulfill pre-qualification process to further participate in this Tender.<br>
+        </div>
+        <div class="modal-footer">
+            <button  data-dismiss="modal" aria-label="Close"  type="submit" class="clear-btn ml-3"> {{'Ok' | translate}} </button>
+        </div>
+        
+    </div>
+    </div>
+</div>
+<div class="modal fade" id="showPopup3" tabindex="-1" role="dialog" aria-labelledby="titlePopup3" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="titlePopup3">Information</h5>       
+        </div>
+        <div class="modal-body">
+            Please fulfill pre-qualification process to further participate in this Tender.<br>
+            Please submit the required documents at ePQ system and follow the process to complete pre-qualification process.<br>
+            Please contact Vendor affairs section [VAS] for further information.<br>
+            
+        </div>
+        <div class="modal-footer">
+            <button  data-dismiss="modal" aria-label="Close"  type="submit" class="clear-btn ml-3"> {{'Ok' | translate}} </button>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="modal fade" id="showPopup4" tabindex="-1" role="dialog" aria-labelledby="titlePopup4" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="titlePopup4">Information</h5>       
+        </div>
+        <div class="modal-body">
+            Not shortlisted to participate for this Tender.<br>
+            Please contact Vendor affairs section [VAS] for further information.<br>                       
+        </div>
+        <div class="modal-footer">
+            <button  data-dismiss="modal" aria-label="Close"  type="submit" class="clear-btn ml-3"> {{'Ok' | translate}} </button>
+        </div>
+    </div>
+    </div>
+</div> -->
+

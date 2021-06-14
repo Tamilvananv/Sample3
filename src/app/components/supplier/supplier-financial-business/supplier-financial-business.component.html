@@ -1,0 +1,411 @@
+
+<form #financeDetailsForm="ngForm" (ngSubmit)="saveFinanceDetails()">
+  <div  id="topView" #topView>
+    <!-- ----------------------- Progress bar -------------------- -->
+
+    <app-progress-bar [isAlreadySaved]="isAlreadySaved" [disableTab]="disableProgressTab" [supplierTabName]="tabName">
+    </app-progress-bar>
+
+    <!-- --------------- breadcrumb ---------------- -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb pl-0 mt-0">
+        <li class="breadcrumb-item active" aria-current="page">{{'Financial-Business' | translate}}</li>
+      </ol>
+    </nav>
+
+    <!-- --------------- Alert area ---------------- -->
+    <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+
+
+<div class="finicial">
+    <!-- ---------------------- Business Capacity ------------------------------ -->
+    <div class="d-flex">
+      <div class="form-container">
+        <div class="col-sm-12">
+          <h1 class="pt-3">{{'Business Capability' | translate}}</h1>
+        </div>
+
+
+        <div class="d-flex table-area mt-3 pb-0">
+          <div class="table-responsive table-box ">
+
+            <table class="table table-striped mb-0">
+
+              <thead>
+                <tr>
+                  <th  class="text-center border-left border-right">{{'Date Established' | translate}}</th>
+                  <th  class="text-center border-left border-right">{{'Experience History - Locally' |
+                    translate}}<sup>*</sup>
+                  </th>
+                  <th  class="text-center border-left border-right"> {{'Total Value of Projects at
+                    Hand' | translate}}<sup>*</sup></th>
+                  <th  class="text-center border-left border-right">{{'Max Value of Projects that you can
+                    undertake' | translate}}<sup>*</sup></th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <td  [attr.data-title]="'Date Established' | translate" class="text-center border-left border-right" style="padding-bottom: 20px"><strong>
+                      {{ supplierFinancialInfoVO?.finDtl?.dateEstd}}</strong>
+                  </td>
+
+                  <td [attr.data-title]="'Experience History - Locally' | translate">
+                    <div>
+                      <select class="form-control inputText" onclick="this.setAttribute('value', this.value);"
+                        value="" name="supplierFinancialInfoVO.finDtl.expHistory"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.expHistory" #supplierExperienceHistory="ngModel"
+                        required>
+                        <option hidden="true" value=""></option>
+                        <option disabled=" disabled" default="true" value=""></option>
+                        <option *ngFor="let type of supplierInformationDropdownList" value="{{type.lovId}}">
+                          {{type.lovName}}</option>
+                      </select>
+                      <span class="highlight"></span>
+                      <div [hidden]="supplierExperienceHistory.valid || supplierExperienceHistory.pristine">
+                        <span class="validation-msg" *ngIf="supplierExperienceHistory.errors?.required">
+                          {{'Please enter the' | translate}} {{ 'Experience History - Locally' | translate}}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td [attr.data-title]="'Total Value of Projects at Hand' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" mask="separator" thousandSeparator=","
+                        class="form-control inputText text-right"
+                        name="supplierFinancialInfoVO.finDtl.totalProjectVal"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.totalProjectVal" placeholder=" "
+                        #supplierTotalProjectValue="ngModel" suffix=".00" required>
+                      <span class="highlight"></span>
+                      <div [hidden]="supplierTotalProjectValue.valid || supplierTotalProjectValue.pristine">
+                        <span class="validation-msg" *ngIf="supplierTotalProjectValue.errors?.required">
+                          {{'Please enter the Value of Projects at Hand' | translate}}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td [attr.data-title]="'Max Value of Projects that you can undertake' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" mask="separator" thousandSeparator=","
+                        class="form-control inputText text-right"
+                        name="supplierFinancialInfoVO.finDtl.maxProjectVal"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.maxProjectVal" placeholder=" "
+                        #supplierMaximumProjectValue="ngModel" suffix=".00" required>
+                      <span class="highlight"></span>
+                      <div [hidden]="supplierMaximumProjectValue.valid || supplierMaximumProjectValue.pristine">
+                        <span class="validation-msg" *ngIf="supplierMaximumProjectValue.errors?.required">
+                          {{'Please enter the maximum project value' | translate}}</span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ---------------------- Current & Pre Projects - Completed ------------------------------ -->
+    <div class="d-flex mt-4">
+      <div class="form-container">
+        <div class="col-sm-12">
+          <h1 class="pt-3">{{'Current-Completed' | translate}}</h1>
+        </div>
+
+        <div class="d-flex table-area mt-3">
+          <div class="table-responsive table-box">
+
+            <table class="table table-striped">
+
+              <thead>
+                <tr>
+                  <th  class="text-center border-left border-right">{{'Completed' | translate}}</th>
+                  <th  class="text-center border-left border-right">{{'Customer Name' | translate}}</th>
+                  <th  class="text-center border-left border-right">{{'Project Name' | translate}}</th>
+                  <th  class="text-center border-left border-right">{{'Location' | translate}}</th>
+                  <th  class="text-center border-left border-right">{{'Value in AED' | translate}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td  class="border-left"><strong class="ar-r-align20 en-l-align20">{{ 'Previous Project' | translate}} :</strong>
+                  </td>
+                  <td [attr.data-title]="'Customer Name' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" class="form-control inputText" name="PreviousProjectcustomerName"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.financeProjectDtl[0].customerName" placeholder=""
+                        #supplierFinancialCustomerName="ngModel">
+                      <div [hidden]="supplierFinancialCustomerName.valid || supplierFinancialCustomerName.pristine">
+                        <span class="validation-msg">{{ 'Please enter the customer name' | translate}}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td [attr.data-title]="'Project Name' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" class="form-control inputText"
+                        name="supplierFinancialInfoVO.finDtl.financeProjectDtl[0].projectName"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.financeProjectDtl[0].projectName" placeholder=""
+                        #supplierFinancialProjectName="ngModel">
+                      <div [hidden]="supplierFinancialProjectName.valid || supplierFinancialProjectName.pristine">
+                        <span class="validation-msg">{{ 'Please enter the project name' | translate}}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td [attr.data-title]="'Location' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" class="form-control inputText"
+                        name="supplierFinancialInfoVO.finDtl.financeProjectDtl[0].location"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.financeProjectDtl[0].location" placeholder=""
+                        #supplierFinancialLocation="ngModel">
+                      <div [hidden]="supplierFinancialLocation.valid || supplierFinancialLocation.pristine">
+                        <span class="validation-msg">{{ 'Please enter the location' | translate}}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td [attr.data-title]="'Value' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" mask="separator" thousandSeparator=","
+                        class="form-control inputText text-right"
+                        name="supplierFinancialInfoVO.finDtl.financeProjectDtl[0].value"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.financeProjectDtl[0].value" placeholder=""
+                        #supplierFinancialProjectValue="ngModel" suffix=".00">
+                      <div [hidden]="supplierFinancialProjectValue.valid || supplierFinancialProjectValue.pristine">
+                        <span class="validation-msg">{{ 'Please enter the value' | translate}}</span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border-left"><strong class="ar-r-align20 en-l-align20">{{ 'Ongoing Project' | translate}} :</strong>
+                  </td>
+                  <td [attr.data-title]="'Customer Name' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" class="form-control inputText" name="ongoingProjectcustomerName"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.financeProjectDtl[1].customerName" placeholder=""
+                        #supplierFinancialOngoingCustomerName="ngModel">
+                      <div
+                        [hidden]="supplierFinancialOngoingCustomerName.valid || supplierFinancialOngoingCustomerName.pristine">
+                        <span class="validation-msg">{{ 'Please enter the customer name' | translate}} </span>
+                      </div>
+                    </div>
+                  </td>
+                  <td [attr.data-title]="'Project Name' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" class="form-control inputText"
+                        name="supplierFinancialInfoVO.finDtl.financeProjectDtl[1].projectName"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.financeProjectDtl[1].projectName" placeholder=""
+                        #supplierFinancialOngoingProjectName="ngModel">
+                      <div
+                        [hidden]="supplierFinancialOngoingProjectName.valid || supplierFinancialOngoingProjectName.pristine">
+                        <span class="validation-msg">{{ 'Please enter the project name' | translate}}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td [attr.data-title]="'Location' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" class="form-control inputText"
+                        name="supplierFinancialInfoVO.finDtl.financeProjectDtl[1].location"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.financeProjectDtl[1].location" placeholder=""
+                        #supplierFinancialOngoingLocation="ngModel">
+                      <div
+                        [hidden]="supplierFinancialOngoingLocation.valid || supplierFinancialOngoingLocation.pristine">
+                        <span class="validation-msg">{{ 'Please enter the location' | translate}}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td [attr.data-title]="'Value' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" mask="separator" thousandSeparator=","
+                        class="form-control inputText text-right"
+                        name="supplierFinancialInfoVO.finDtl.financeProjectDtl[1].value"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.financeProjectDtl[1].value" placeholder=""
+                        #supplierFinancialOngoingProjectValue="ngModel" suffix=".00">
+                      <div
+                        [hidden]="supplierFinancialOngoingProjectValue.valid || supplierFinancialOngoingProjectValue.pristine">
+                        <span class="validation-msg">{{ 'Please enter the value' | translate}}</span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ---------------------- Financial  ------------------------------ -->
+    <div class="d-flex mt-4">
+      <div class="form-container">
+        <div class="col-sm-12">
+          <h1 class="pt-3">{{'Financial' | translate}}</h1>
+        </div>
+
+        <div class="d-flex pt-3">
+          <div class="form-group row">
+            <div class="input-checkbox pl-3 pr-3" *ngIf="supplierFinancialInfoVO">
+              <div class="col-sm-12 ">
+                <input type="checkbox" data-group-cls="btn-group-sm ml-1" (change)="onChange($event.target.checked)"
+                  [attr.checked]="supplierFinancialInfoVO.finDtl.isNetProfit=='1'?true:null"
+                  name="supplierFinancialInfoVO.finDtl.isNetProfit"> <span class="check-space">
+                  {{'Did you make Net Profit in the last 3 Years?' | translate}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex pb-3">
+          <div class="form-group row row-gap">
+            <div class="custom-control pl-3 mr-3">
+              <span class="pl-3 pr-3"> {{'Financial-Audited' | translate}}</span>
+            </div>
+            <div class="attach-btn file pl-4 ml-5 mr-5" *ngIf="attachedFileList==null || attachedFileList==undefined ">
+              <span class="btn btn-secondary">{{'Select File Here to Upload' | translate}}</span>
+              <input type="file" name="file" (change)="uploadDocument($event,null,null)"
+                [class.disabled]="disableButtons==true" required #supplierFinancialAuditFile />
+              <div class="pl-4 pr-4" [hidden]="supplierFinancialAuditFile.valid || supplierFinancialAuditFile.pristine">
+                <span class="validation-msg validation-msg-position"
+                  *ngIf="supplierFinancialAuditFile.errors?.required">{{'Please upload the file here' | translate}}</span>
+              </div>
+              <div class="pl-4 pr-4">
+              <span *ngIf="!(attachedFileList==null || attachedFileList==undefined)" >{{ fileName }}</span>
+            </div>
+            </div>
+            <div *ngFor="let fileNames of attachedFileList" class="ml-5 mr-5"><strong>{{ fileNames.documentName}}</strong>
+              <i class="fa fa-download fa-fw mr-2 ml-4" style="color: #1daeec"
+                (click)="downloadDocument(fileNames.documentName)" [class.disabled]="disableButtons==true"></i>&nbsp;
+              <i class="fa fa-trash fa-fw ml-2 mr-2" style="color: #1daeec"
+                (click)="deleteSelectedAttachmentDetails($event, fileNames)"
+                [class.disabled]="disableButtons==true"></i>&nbsp;
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- ---------------------- Total Assets and Liabilities------------------------------ -->
+    <div class="d-flex mt-4">
+      <div class="form-container">
+        <div class="col-sm-12">
+          <h1 class="pt-3"> {{'Total Assets and Liabilities' | translate}} </h1>
+        </div>
+        <div class="d-flex table-area mt-3">
+          <div class="table-responsive table-box">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th  class="text-center">({{'Value in AED' | translate}})</th>
+                  <th  class="text-center border-left border-right">
+                    <strong>{{'Year 1' | translate}}<sup>*</sup></strong>
+                  </th>
+                  <th  class="text-center border-left border-right">
+                    <strong>{{'Year 2' | translate}}</strong>
+                  </th>
+                  <th  class="text-center border-left border-right">
+                    <strong>{{'Year 3' | translate}}</strong>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td  class="border-left"><strong class="ml-2 mr-2"> {{'Total Assets' | translate}}:</strong>
+                  </td>
+                  <td [attr.data-title]="'Year 1' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" mask="separator" thousandSeparator="," class="form-control text-right"
+                        name="supplierFinancialInfoVO.finDtl.financeAssetDtl[0].yearOne"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.financeAssetDtl[0].yearOne" placeholder="" required
+                        #yearOneTotalAssets="ngModel" suffix=".00">
+                      <div [hidden]="yearOneTotalAssets.valid || yearOneTotalAssets.pristine">
+                        <span class="validation-msg validation-msg-position"
+                          *ngIf="yearOneTotalAssets.errors?.required">
+                          {{'Please enter the Year 1 total assets' | translate}}</span>
+                      </div>
+
+                    </div>
+                  </td>
+                  <td [attr.data-title]="'Year 2' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" mask="separator" thousandSeparator="," class="form-control text-right"
+                        name="supplierFinancialInfoVO.finDtl.financeAssetDtl[0].yearTwo"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.financeAssetDtl[0].yearTwo" placeholder=""
+                        suffix=".00">
+                    </div>
+                  </td>
+                  <td [attr.data-title]="'Year 3' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" mask="separator" thousandSeparator="," class="form-control text-right"
+                        name="supplierFinancialInfoVO.finDtl.financeAssetDtl[0].yearThree"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.financeAssetDtl[0].yearThree" placeholder=""
+                        suffix=".00">
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td  class="border-left"><strong  class="ml-2 mr-2">{{'Total Liabilites' | translate}}:</strong></td>
+                  <td [attr.data-title]="'Year 1' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" mask="separator" thousandSeparator="," class="form-control text-right"
+                        name="supplierFinancialInfoVO.finDtl.financeAssetDtl[1].yearOne"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.financeAssetDtl[1].yearOne" placeholder=""
+                        #yearOneTotalLiabilities="ngModel" required suffix=".00">
+                      <div [hidden]="yearOneTotalLiabilities.valid || yearOneTotalLiabilities.pristine">
+                        <span class="validation-msg validation-msg-position"
+                          *ngIf="yearOneTotalLiabilities.errors?.required">{{'Please enter the Year 1 total liabilities' | translate}}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td [attr.data-title]="'Year 2' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" mask="separator" thousandSeparator="," class="form-control text-right"
+                        name="supplierFinancialInfoVO.finDtl.financeAssetDtl[1].yearTwo"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.financeAssetDtl[1].yearTwo" placeholder=""
+                        suffix=".00">
+                    </div>
+                  </td>
+                  <td [attr.data-title]="'Year 3' | translate">
+                    <div *ngIf="supplierFinancialInfoVO">
+                      <input type="text" mask="separator" thousandSeparator="," class="form-control text-right"
+                        name="supplierFinancialInfoVO.finDtl.financeAssetDtl[1].yearThree"
+                        [(ngModel)]="supplierFinancialInfoVO.finDtl.financeAssetDtl[1].yearThree" placeholder=""
+                        suffix=".00">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- --------------------- Table area -------------------------------- -->
+
+    <section id="pagination" class="pagination-area mb-3 mt-2">
+      <div class="d-flex">
+        <span class="mr-auto">&nbsp;</span>
+      <nav class="navigation">
+        <ul class="pagination ">
+          <li class="page-item"><a class="page-link prev-btn" (click)="goToPreviousComponent()"><img
+                src="./assets/img/arrow-left.png"> </a></li>
+          <button type="submit" class="page-link save"
+            [disabled]="!financeDetailsForm.valid && !financeDetailsForm.dirty || disableButtons==true">
+            {{'Save' | translate}}</button>
+          <li class="page-item" *ngIf="isAlreadySaved==true"><a class="page-link next-btn"
+              (click)="goToNextComponent()">
+              <img src="./assets/img/arrow-right.png"> </a>
+          </li>
+        </ul>
+      </nav>
+      </div>
+    </section>
+
+      <!-- --------------- save and navigation ---------------- -->
+    </div>
+  </div>
+ 
+</form>

@@ -1,0 +1,223 @@
+        <div class="df-flex pt-4">
+            <h2 class="page-title">Invoice Details</h2>
+        </div>
+        <!-- --------------- Alert area ---------------- -->
+
+        <div class="d-flex m-2">
+            <div class="col-xl-12 pr-0">
+                <app-collapse-expand-btn class="pull-right"></app-collapse-expand-btn>
+            </div>
+          </div>
+        <div class="panel-group " id="accordion">
+   <!-----------------  Technical Assessment of Building Life Cycle Expectancy  ------------------------------ -->
+            <!-- <div class="panel-default"> -->
+                <div class="panel panel-default contract-info">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <div class="row">
+    
+                                <div class="col-sm-12">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse2" style="text-decoration: none;">
+                                        <span> {{'Invoice Details' | translate}}</span>
+                                    </a>
+                                </div>
+                            </div>
+    
+                        </h4>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse in show">
+                        <div class="panel-body panel-body1 p-3">
+                            <div id="no-more-tables contract-info">
+                                <div class="panel-body panel-body1 table-box">
+                                    <div class="data-details">
+                                        <div class="row ml-2 mr-2 pt-2 pb-2 border-top">
+                                            <div class="col-sm-4">
+                                                <span>Vendor Invoice Number</span><br>
+                                                <strong>12323</strong>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <span>Invoice Date</span><br>
+                                                <strong>12-June-2017</strong>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <span>Final Payment</span><br>
+                                                <strong>Yes
+                                                </strong>
+                                            </div>
+                                           
+                                        </div>
+                                    
+                                        <div class="row ml-2 mr-2 pt-2 pb-2 border-top even-row-bg">
+                                            <div class="col-sm-4">
+                                                <span>Invoice Description</span><br>
+                                                <strong>Maintenance</strong>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <span>Work Completed Date</span><br>
+                                                <strong>12-June-2018</strong>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <span>Payment Type</span><br>
+                                                <strong>Advance</strong>
+                                            </div>
+                                           
+                                        </div>
+                                    
+                                        <div class="row ml-2 mr-2 pt-2 pb-2 border-top">
+                                            <div class="col-sm-4">
+                                                <span>Invoice Amount (AED)</span><br>
+                                                <strong>100,000.00</strong>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <span>VAT Amount (AED)</span><br>
+                                                <strong>1,500.00</strong>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <span>Total Amount (AED)</span><br>
+                                                <strong>1,000,000.00</strong>
+                                            </div>
+                                        </div>
+                                   
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-----------------  Bus on Demand  ------------------------------ -->
+            <!-- <div class="panel-default"> -->
+            <div class="panel panel-default contract-info">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion"
+                                    href="#collapse1" style="text-decoration: none;">
+                                    <span> {{'Contract Information' | translate}}</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in show">
+                    <div class="panel-body panel-body1 p-3">
+                        <div id="no-more-tables ">
+                            <app-contract-information-details></app-contract-information-details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+               <!----------------- Expo TVM and TOM ------------------------------ -->
+            <!-- <div class="panel-default"> -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse5" style="text-decoration: none;">
+                                        <span> {{'Completion Certificate' | translate}} </span>
+                                    </a>
+                                </div>
+                            </div>
+    
+                        </h4>
+                    </div>
+                    <div id="collapse5" class="panel-collapse collapse in show">
+                        <div class="panel-body panel-body1 p-3">
+                            <div id="no-more-tables">
+                                <div class="d-flex table-area">
+    
+                                    <div class="table-responsive table-box">
+                                
+                                      <table class="table table-striped">
+                                        <thead>
+                                          <tr>
+                                            <th style="width: 40px;">   
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <div class="row">
+                                                            <div class="col-sm-3">
+                                                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+                                                                    href="#collapse7" style="text-decoration: none; font-size: 24px; font-weight: bold;">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                
+                                                    </h4>
+                                                </div>
+                                        </th>
+                                            <th >{{'CC No' | translate}}</th>
+                                            <th > {{'CC Description' | translate}}</th>
+                                            <th >{{'CC Date' | translate}}</th>
+                                            <th >{{'CC Amount' | translate}}</th>
+                                            <th >{{'Status' | translate}}</th>
+                                            <!-- <th >{{'Select' | translate}}</th> -->
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr class="bg-white">
+                                            <td [attr.data-title]="'Claim' | translate"> 3</td>
+                                            <td [attr.data-title]="'CC No' | translate"> 1</td>
+                                            <td [attr.data-title]="'CC Description' | translate"> 1</td>
+                                            <td [attr.data-title]="'CC Date' | translate"> 2</td>
+                                            <td [attr.data-title]="'CC Amount' | translate">3</td>
+                                            <td [attr.data-title]="'Status' | translate"> 3</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                
+                                
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div id="collapse7" class="panel-collapse collapse in ">
+                            <div class="panel-body panel-body1 p-3">
+                                <div id="no-more-tables ">
+                                    <div id="no-more-tables">
+                                        <h4 class="pb-2 ft-18 ft-b">Payment Milestone/BOQ</h4>
+                                        <div class="data-details">
+                                        <app-payment-milestone-boq></app-payment-milestone-boq>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+         
+
+   <!-- Attachment section -->
+
+   <div class=" panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse6"
+                style="text-decoration: none;"><img class="icon25 pr-2"
+                    src="assets/img/Attachments-icon.png"> {{'Attachment Section' | translate}} </a> </h4>
+    </div>
+    <div id="collapse6" class="panel-collapse collapse in show">
+        <div class="panel-body panel-body1 pt-3 pb-1 pl-3 pr-3">
+         <div id="no-more-tables">
+             <app-attach-section></app-attach-section>
+            </div>
+        </div>
+
+        </div>
+    </div>
+         
+
+        </div>
+        <section id="pagination" class="pagination-area mt-1">
+                <div class="d-flex">
+                    <span class="mr-auto">&nbsp;</span>
+                    <a routerLink="/public-tenders"><button type="submit" class="clear-btn ml-4">
+                            {{'BACK' | translate}} </button></a>
+                </div>
+        </section>

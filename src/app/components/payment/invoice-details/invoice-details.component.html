@@ -1,0 +1,119 @@
+
+
+    <!-- --------------- breadcrumb ---------------- -->
+
+      <div class="d-flex">
+        <div class="col-sm-6 pr-0 pl-0 ">
+          <nav aria-label="breadcrumb" id="breadcrumb">
+            <ol class="breadcrumb pl-0 mt-0">
+              <li class="breadcrumb-item active" aria-current="page">{{'Invoice Details' | translate}}</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="col-sm-6 pr-0 pl-0 pt-2 expand-collapse"> 
+          <div class="col-xl-12 pr-0 pull-right">
+            <app-collapse-expand-btn class="pull-right"></app-collapse-expand-btn>
+          </div>
+        </div>
+      </div>
+
+    <div class="panel-group " id="accordion">
+
+        <!-- 
+       -----------------------  claim Details  ------------------------------ -->
+        <!-- <div class="panel-default"> -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse4"
+                        style="text-decoration: none;"><img class="icon25"
+                            src="assets/img/details-icon.png">
+                            {{'Invoice Details' | translate}}
+                        </a>
+                </h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse in show">
+                <div class="panel-body panel-body1 p-3">
+                    <div id="no-more-tables">
+                        <app-invoicedetails [invoiceDetails]="invoiceDetails"></app-invoicedetails>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 
+       -----------------------  Contract Details  ------------------------------ -->
+        <!-- <div class="panel-default"> -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+                        style="text-decoration: none;"><img class="icon25"
+                            src="assets/img/Contract-Information.png">
+                              {{'Contract Information' | translate}} </a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in show">
+                <div class="panel-body panel-body1 p-3">
+                    <div id="no-more-tables">
+                        <app-contract-information-details></app-contract-information-details>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+  
+
+ <!-- 
+       -----------------------  Payment section  ------------------------------ -->
+
+        <div class=" panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse5"
+                        style="text-decoration: none;"><img class="icon25"
+                            src="assets/img/details-icon.png">   {{'Completion Certificate' | translate}}</a> </h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse in show">
+                <div class="panel-body panel-body1 p-3">
+                    <div class="d-flex table-area">
+                        <div class="table-responsive table-box">
+                    <app-completion-certificate-detail></app-completion-certificate-detail>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 
+       -----------------------  attachment section  ------------------------------ -->
+       <div class="panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse2"
+                    style="text-decoration: none;"><img class="icon25"
+                        src="assets/img/Attachments-icon.png">
+                        {{'Attachments' | translate}}
+                </a>
+            </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse in show">
+            <div class="panel-body panel-body1 p-3">
+                <div class="d-flex table-area mt-4">
+                    <div class="table-responsive">
+                    <app-attach-section [moduleName]="moduleName" [moduleTxnId]="moduleTxnId"></app-attach-section>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <section id="pagination" class="pagination-area mt-1 mb-5">
+                <div class="d-flex">
+                <span class="mr-auto">&nbsp;</span>
+                <a routerLink="/payment"><button  type="submit" class="clear-btn"> 	{{'BACK' | translate}} </button></a>               
+                </div>
+        </section>
+
+        <!-- </div> -->
+    </div>

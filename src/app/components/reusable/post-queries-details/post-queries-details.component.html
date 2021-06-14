@@ -1,0 +1,64 @@
+<div class="panel-body panel-body1 table-box">
+    <div class="table-responsive table-area">
+        <div class="d-flex table-area mt-2">
+            <div class="table-responsive table-box">
+            
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>{{'S.No' | translate}}</th>
+                      <th> {{'Category' | translate}}</th>
+                      <th> {{'RFP Document Reference' | translate}}</th>
+                      <th>{{'Question' | translate}}</th>
+                      <th>{{'Reference Document' | translate}}</th>
+                      <th>{{'Action' | translate}}</th>
+                    </tr>
+                    <tr class="form-container form-group"  *ngFor="let queryDetails of postQueriesDetails; let i = index">     
+                      <td [attr.data-title]="'S.No' | translate">  <input type="text" class="form-control" >{{i+1}}</td>
+                      <!-- <td>  <select class="form-control">
+                          <option>1</option>
+                          <option>2</option>
+                      </select></td> -->
+                      <td [attr.data-title]="'Category' | translate"><select class="form-control" name="postQueriesCategory" [(ngModel)]="queryDetails.postQueriesCategory">
+                          <!-- <option [ngValue]="null" [disabled]="true" ></option> -->
+                          <option *ngFor="let type  of categoryDropdown" value="{{type.lovId}}">{{type.lovName}}</option>
+                        </select></td>
+                      <td [attr.data-title]="'RFP Document Reference' | translate">  <input type="text" class="form-control" placeholder="Supply of Hardware"
+                        name="postQueriesCategory" [(ngModel)]="queryDetails.rfpDocumentRef"></td>
+                      <td [attr.data-title]="'Question' | translate">  <input type="text" class="form-control" placeholder="Data Mining"
+                        name="postQueriesCategory" [(ngModel)]="queryDetails.question"></td>
+                      <!-- <td>  <span class="pr-3">Technicaldoc.pdf</span><i class="fa fa-download pr-3 ft-blue"></i><i class="fa fa-trash ft-blue"></i></td> -->
+                      <td [attr.data-title]="'Reference Document' | translate" class="d-flex justify-content-lg-between" *ngIf="queryDetails.documentName">{{ queryDetails.documentName }}<a><i
+                        class="fa fa-download" aria-hidden="true"
+                        (click)="downloadDocument(queryDetails.documentName)"></i></a></td>
+                        <td>  <div class="attach-btn file ">
+                            <span class="btn btn-secondary pt-2 pb-2">Select files here to upload</span>
+                            <input type="file" name="file"  />
+                          </div></td>
+                      <td [attr.data-title]="'Action' | translate"><a (click)="deleteSelectedQueryDetails($event, queryDetails)"> <i class="fa fa-trash ft-blue"></i></a></td>
+                  </tr>
+                  <!-- <tr class="form-container form-group">     
+                    <td>  <input type="text" class="form-control" id="Address" placeholder="Template_01"></td>
+                    <td>  <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                    </select></td>
+                    <td>  <input type="text" class="form-control" id="Address" placeholder="Supply of Hardware"></td>
+                    <td>  <input type="text" class="form-control" id="Address" placeholder="Data Mining"></td>
+                    <td>  <div class="attach-btn file ">
+                        <span class="btn btn-secondary pt-2 pb-2">Select files here to upload</span>
+                        <input type="file" name="file"  />
+                      </div></td>
+                    <td> <i class="fa fa-trash ft-blue"></i></td>
+                </tr> -->
+                    </thead>
+              
+                  </table>
+          
+                
+              </div>   
+            </div>
+           
+    </div>
+
+</div>

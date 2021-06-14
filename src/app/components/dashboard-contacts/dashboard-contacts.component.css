@@ -1,0 +1,128 @@
+.page-header {
+  padding-left: 100px !important;
+}
+
+.menu-items-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.menu-items-container .menu-item {
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 200px;
+  height: 180px;
+  margin: 25px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.menu-items-container .menu-item:hover {
+  background: #02b993;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+
+.menu-items-container .menu-item:hover .icon-Variation-Order .path1:before,
+.menu-items-container .menu-item:hover .icon-Variation-Order .path2:before,
+.menu-items-container .menu-item:hover .icon-Variation-Order .path3:before,
+.menu-items-container .menu-item:hover .icon-Claims .path1:before,
+.menu-items-container .menu-item:hover .icon-Claims .path2:before,
+.menu-items-container .menu-item:hover .icon-Claims .path3:before,
+.menu-items-container .menu-item:hover .icon-Claims .path4:before,
+.menu-items-container .menu-item:hover .icon-Claims .path5:before,
+.menu-items-container .menu-item:hover .icon-Claims .path6:before,
+.menu-items-container .menu-item:hover .icon-Claims .path7:before,
+.menu-items-container .menu-item:hover .icon-Claims .path8:before,
+.menu-items-container .menu-item:hover .icon-Claims .path9:before,
+.menu-items-container .menu-item:hover .icon-Claims .path10:before,
+.menu-items-container .menu-item:hover .icon-Claims .path11:before,
+.menu-items-container .menu-item:hover .icon-Claims .path12:before,
+.menu-items-container .menu-item:hover .icon-Claims .path13:before,
+.menu-items-container .menu-item:hover .icon-Claims .path14:before,
+.menu-items-container .menu-item:hover .icon-Contracts .path1:before,
+.menu-items-container .menu-item:hover .icon-Contracts .path2:before,
+.menu-items-container .menu-item:hover .icon-Contracts .path3:before,
+.menu-items-container .menu-item:hover .icon-Contracts .path4:before,
+.menu-items-container .menu-item:hover .icon-Contracts .path5:before,
+.menu-items-container .menu-item:hover .icon-Contracts .path6:before,
+.menu-items-container .menu-item:hover .icon-Contracts .path7:before {
+  color: #fff !important;
+}
+
+.menu-items-container .menu-item:hover .menu-name {
+  color: white;
+}
+
+.menu-items-container .icon-container {
+  display: block;
+  text-align: center;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.menu-items-container .icon-container .icon-Variation-Order .path1:before,
+.menu-items-container .icon-container .icon-Variation-Order .path2:before,
+.menu-items-container .icon-container .icon-Variation-Order .path3:before,
+.menu-items-container .icon-container .icon-Claims .path1:before,
+.menu-items-container .icon-container .icon-Claims .path2:before,
+.menu-items-container .icon-container .icon-Claims .path3:before,
+.menu-items-container .icon-container .icon-Claims .path4:before,
+.menu-items-container .icon-container .icon-Claims .path5:before,
+.menu-items-container .icon-container .icon-Claims .path6:before,
+.menu-items-container .icon-container .icon-Claims .path7:before,
+.menu-items-container .icon-container .icon-Claims .path8:before,
+.menu-items-container .icon-container .icon-Claims .path9:before,
+.menu-items-container .icon-container .icon-Claims .path10:before,
+.menu-items-container .icon-container .icon-Claims .path11:before,
+.menu-items-container .icon-container .icon-Claims .path12:before,
+.menu-items-container .icon-container .icon-Claims .path13:before,
+.menu-items-container .icon-container .icon-Claims .path14:before,
+.menu-items-container .icon-container .icon-Contracts .path1:before,
+.menu-items-container .icon-container .icon-Contracts .path2:before,
+.menu-items-container .icon-container .icon-Contracts .path3:before,
+.menu-items-container .icon-container .icon-Contracts .path4:before,
+.menu-items-container .icon-container .icon-Contracts .path5:before,
+.menu-items-container .icon-container .icon-Contracts .path6:before,
+.menu-items-container .icon-container .icon-Contracts .path7:before {
+  color: #02b993 !important;
+  font-size: 40px;
+}
+
+.menu-items-container .menu-name {
+  font-size: 18px;
+  line-height: 22px;
+  color: #000;
+  padding: 10px 25px;
+}
+
+.menu-items-container .menu-name:hover {
+  color: white;
+}
+
+.menu-items-container a:hover {
+  text-decoration: none !important;
+  color: white;
+}
+/*# sourceMappingURL=dashboard-contacts.component.css.map */

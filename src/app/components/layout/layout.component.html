@@ -1,0 +1,17 @@
+<div [ngClass]="'currentTheme' | translate">
+    <div class="base-align">
+        <!-- ------------------- top menu start ----------------------- -->
+        <div id="topbar" class="top-bg"></div>
+        <!-- ------------------- Header Area Start ----------------------- -->
+        <app-header></app-header>
+        <!-- ------------------- Content Area Start ----------------------- -->
+        <div class="container-fluid">
+            <div class="container">
+                <router-outlet></router-outlet>
+            </div>
+
+        </div>
+        <!-- ------------------- Footer Area Start ----------------------- -->
+        <app-footer></app-footer>
+    </div>
+</div>

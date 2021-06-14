@@ -1,0 +1,60 @@
+   
+    <div class="d-flex">
+        <div class="col-sm-6 pr-0 pl-0 ">
+          <nav aria-label="breadcrumb" id="breadcrumb">
+            <ol class="breadcrumb pl-0 mt-0">
+              <li class="breadcrumb-item active" aria-current="page">{{'Contract Search' | translate}}</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    <div class="panel-heading-area form-container bg-none box-shadow-none">
+        <div class="row">
+            
+            <div class="col-sm-6">
+                <div class="floating-label">
+                    <input type="text" class="form-control floating-input" placeholder=" " name="" autocomplete="off"
+                        required />
+                    <span class="highlight"></span>
+                    <label>{{'Contract Number' | translate}}</label>
+                </div>
+            </div>
+        
+        <div class="col-sm-6">
+            <div class="floating-label">
+                <input type="text" class="form-control floating-input" placeholder=" " name="" autocomplete="off"
+                    required />
+                <span class="highlight"></span>
+                <label>{{'Contract Description' | translate}}</label>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="form-container bg-none box-shadow-none">
+        <div class="row border-bottom p-3" *ngFor="let contract of awardedContractsList">
+            <div class="col-sm-6 ar-align">
+                <a (click)="getContractDetails(contract)" routerLink="/milestone-completion-details">
+                    {{contract.contractNo}}</a>
+            </div>
+            <div class="col-sm-6 ar-align">
+                <span>{{ contract.contractDes}}</span>  
+            </div>
+        </div>
+        <!-- <div class="row border-bottom p-3">
+            <div class="col-sm-6">
+                <a routerLink="/milestone-completion-details">TRA/ITS/472621/50</a>
+            </div>
+            <div class="col-sm-6">
+                <span>Decommisioning of old PC's and Monitors</span>
+            </div>
+        </div>
+     
+        <div class="row border-bottom p-3">
+            <div class="col-sm-6">
+                <a routerLink="/milestone-completion-details">TRA/ITS/472621/50</a>
+            </div>
+            <div class="col-sm-6">
+                <span>Decommisioning of old PC's and Monitors</span>
+            </div>
+        </div> -->
+    </div>

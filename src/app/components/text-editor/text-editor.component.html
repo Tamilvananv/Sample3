@@ -1,0 +1,49 @@
+<div class="container text-editor">
+    <form>
+
+        <!-- --------------- breadcrumb ---------------- -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb pl-0 mt-0">
+                <li class="breadcrumb-item active" aria-current="page">{{'Text Editor' | translate}}</li>
+            </ol>
+        </nav>
+
+
+
+        <!-- ---------------------- company details ------------------------------ -->
+     
+            <div class="row">
+                <div class="col-sm-12">
+                    <span>{{'Summary' | translate}}<sup>*</sup></span>
+                    <input type="email" class="form-control" placeholder="" />
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-12 mt-4">
+                    <!-- <ejs-richtexteditor></ejs-richtexteditor> -->
+                    <span>{{'Description' | translate}}</span>
+                    <textarea cols="50" rows="5"> </textarea>
+                    <!-- <ejs-richtexteditor id='defaultRTE' [toolbarSettings]='tools'>
+                        <ng-template #valueTemplate>
+                            {{'Enter your text here' | translate}}
+                        </ng-template>
+                    </ejs-richtexteditor> -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 mt-5">
+                    <section id="pagination" class="pagination-area mt-1">
+                        <div class="container">
+                            <div class="d-flex">
+                                <span class="mr-auto">&nbsp;</span>
+                                <a routerLink=""><button type="submit" class="page-link save">  {{'Submit' | translate}}</button></a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+      
+    </form>
+</div>

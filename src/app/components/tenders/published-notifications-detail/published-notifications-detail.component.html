@@ -1,0 +1,151 @@
+<!-- --------------------- progress bar --------------------- -->
+
+<app-tender-progress-bar [tabName]="tabName"></app-tender-progress-bar>
+        <!-- --------------- Alert area ---------------- -->
+      <!-- --------------- breadcrumb ---------------- -->
+     
+
+      <div class="d-flex">
+        <div class="col-sm-6 pr-0 pl-0 ">
+          <nav aria-label="breadcrumb" id="breadcrumb">
+            <ol class="breadcrumb pl-0 mt-0">
+              <li class="breadcrumb-item active" aria-current="page">{{'Published Notification Details' | translate}}</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="col-sm-6 pr-0 pl-0 pt-2 expand-collapse">
+          <app-collapse-expand-btn class="pull-right"></app-collapse-expand-btn>
+        </div>
+      </div>  
+      <!-- <div class="row pb-2">
+          <div class="col-sm-3 d-inline subscribe-input">          
+              <i class="fa fa-check-circle ft-green pr-2"></i><span class="pr-2 ft-size12">Subscribe</span><input type="checkbox" data-group-cls="btn-group-sm"> 
+          </div>
+          <div class="col-sm-3">
+              <span class="ft-size12"> Pre-Qualified</span>
+              <span class="ft-size12 pl-2"> <strong>Yes</strong></span>
+          </div>
+      </div> -->
+
+<div class="panel-group " id="accordion">
+
+    <!-----------------  Bus on Demand  ------------------------------ -->
+    <!-- <div class="panel-default"> -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+              <div class="row">
+                  <div class="col-sm-12">
+                    <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+                    style="text-decoration: none;">
+                    <span>{{'Published Notification Details' | translate}}</span>
+                  </a>
+                  </div>
+              </div>
+          
+          </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse in show">
+          <div class="panel-body panel-body1 p-3">
+            <div class="d-flex table-area mt-3">
+              <div class="table-responsive table-box">
+                    <table class="table table-striped table-box">
+                        <thead>
+                            <tr>
+                                <th>{{'Reference Number' | translate}}</th>
+                                <th>{{'Tender Number' | translate}}</th>
+                                <th width="40%">{{'Tender Name' | translate}}</th>
+                                <th>{{'Published Date' | translate}}</th>
+                                <th>{{'Submission Due Date' | translate}}</th>
+                                <th>{{'Submission Status' | translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td [attr.data-title]="'Reference Number' | translate"> <span>{{publishedNotifyDetails?.tender_no}}   </span></td>
+                                <td [attr.data-title]="'Tender Number' | translate"> <span>{{publishedNotifyDetails?.tender_no}}</span></td>
+                                <td [attr.data-title]="'Tender Name' | translate"> <span>{{publishedNotifyDetails?.tender_name}}</span></td>
+                                <td [attr.data-title]="'Published Date' | translate"> <span>{{publishedNotifyDetails?.tender_publish_dt}}</span></td>
+                                <td [attr.data-title]="'Submission Due Date' | translate"> <span>{{publishedNotifyDetails?.tender_submission_dt}}</span></td>
+                                <td [attr.data-title]="'Submission Status' | translate"> <span>{{publishedNotifyDetails?.tender_vendor_status}}</span></td>
+                            </tr>
+            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+   <!-----------------  Technical Assessment of Building Life Cycle Expectancy  ------------------------------ -->
+    <!-- <div class="panel-default"> -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                  <div class="row">
+                     
+                      <div class="col-sm-12">
+                        <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse2"
+                        style="text-decoration: none;">
+                        <span>  {{'Notification Document Details' | translate}}</span>
+                      </a>
+                      </div>
+                  </div>
+              
+              </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse in show">
+              <div class="panel-body panel-body1 p-3">
+                    <div class="panel-body panel-body1">
+                      <div class="d-flex table-area mt-3">
+                        <div class="table-responsive table-box">
+                                <table class="table table-striped table-box">
+                                    <thead>
+                                        <tr>
+                                            <th>	{{'Notification No' | translate}}</th>
+                                            <th>{{'Notification Type' | translate}}</th>
+                                            <th>{{'Description' | translate}}</th>
+                                            <th>{{'Published Date' | translate}}</th>
+                                            <th>{{'Action' | translate}}</th>
+                                            <th>{{'Read?' | translate}}</th>
+                                            <th> {{'Read Date' | translate}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let notifyDocDetails of publishedNotifyDocDtlsList">
+                                            <td [attr.data-title]="'Notification No' | translate"> <span>{{notifyDocDetails?.notf_NO}}</span></td>
+                                            <td [attr.data-title]="'Notification Type' | translate"> <span>{{notifyDocDetails?.notf_TYPE}}</span></td>
+                                            <td [attr.data-title]="'Description' | translate"> <span>{{notifyDocDetails?.doc_DESC}}</span></td>
+                                            <td [attr.data-title]="'Published Date' | translate"> <span>{{notifyDocDetails?.publish_DT}}</span></td>
+                                            <td [attr.data-title]="'Action' | translate"><a (click)="downloadDocument(notifyDocDetails?.docName)"> <i class="fa fa-download ft-blue"></i></a></td>
+                                            <td [attr.data-title]="'Read?' | translate"> <i *ngIf="notifyDocDetails?.is_READ==1" class="fa fa-check ft-green"></i></td>
+                                            <td [attr.data-title]="'Read Date' | translate"> {{notifyDocDetails?.publish_DT}}</td>
+                                        </tr>
+                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                      </div>
+                
+              </div>
+            </div>
+          </div>
+
+           
+   
+  </div>
+  <section id="pagination" class="pagination-area mb-5">
+    <div class="d-flex">
+      <span class="mr-auto">&nbsp;</span>
+        <a routerLink="/public-tenders"><button  type="submit" class="clear-btn"> 	{{'BACK' | translate}} </button></a> 
+        <!-- <a routerLink="/public-tenders"><button  type="submit" class="page-link save ml-4"> ADD ROW </button></a> 
+        <button  type="submit" data-toggle="modal" data-target="#receipt"  class="page-link save"> SUBMIT QUERIES </button> -->
+       
+        </div>
+</section>
+
+    <app-model-window></app-model-window>
+
+

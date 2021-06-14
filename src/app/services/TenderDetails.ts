@@ -1,0 +1,48 @@
+import { AwardedContracts } from './AwardedContracts';
+import { AwardedContractDocDetails } from './AwardedContractsDocDetails';
+import { BidBondDetails } from './BidBondDetails';
+import { BOQDetails } from './BOQDetails';
+import { RfpDocuments } from './RfpDocuments';
+import { TenderDoc } from './TenderDoc';
+import { TenderMaster } from './TenderMaster';
+import { TenderSubmissionDtls } from './TenderSubmissionDtls';
+import { TenderVendorMapping } from './TenderVendorMapping';
+
+export class TenderDetails {
+    alphanumeric: boolean;
+    altProposalReq: string;
+    awardedContractDocList:AwardedContractDocDetails[];
+    awardedContracts: AwardedContracts;
+    berchnlinSteps: Map<string,boolean>;
+    bidBond: BidBondDetails;
+    bidBondCheck: string;
+    bidBondStatus: string;
+    boqDeatilsCheck: string;
+    boqDetailsList: BOQDetails[];
+    boqProjectCost: number;
+    isAlphanumeric: boolean;
+    isEdmsExpOccured: boolean;
+    isNegativeValue: boolean;
+    isPrequalified: boolean;
+    isScopeOne: boolean;
+    isValidBigdecimal: boolean;
+    isValidExcel: boolean;
+    mandDocUploadCheck: string;
+    mappingExist: string;
+    ndaCheck: string;
+    negativeValue: boolean;
+    optDocUploadCheck: string;
+    preQuaStatus: string;
+    pymtTxnId: string;
+    refNo: string;
+    rfpDocList: RfpDocuments[];
+    subscribeCheck: string;
+    tenderId: string;
+    tenderMandDocList: TenderDoc[];    
+    tenderOptDocList: TenderDoc[];
+    tenderSubmissionDtls: TenderSubmissionDtls;
+    tenderVendorMapping: TenderVendorMapping;
+    tenderVendorStatusName: string;
+    validExcel: boolean;
+    tenderMaster:TenderMaster;
+  }

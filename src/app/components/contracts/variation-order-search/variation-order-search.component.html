@@ -1,0 +1,101 @@
+
+  <!-- --------------- breadcrumb ---------------- -->
+
+  <div class="col-sm-12">
+    <div class="row ">
+    <div class="col-sm-6 pr-0 pl-0 ">
+      <nav aria-label="breadcrumb" id="breadcrumb">
+        <ol class="breadcrumb pl-0 mt-0">
+          <li class="breadcrumb-item active" aria-current="page">{{'Validation Order Details' | translate}}</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col-sm-6 pr-0 pl-0 pt-2 expand-collapse"> 
+      <div class="col-xl-12 pr-0 pull-right">
+        <a routerLink="" class="pull-right"> <button type="button"
+          class="clear-btn pull-right ml-3">{{'CLEAR ALL FILTER' | translate}}</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- ----------------- table ------------------------- -->
+  <div class="d-flex table-area">
+    <div class="table-responsive">
+
+
+      <form>
+
+        <table class="table table-striped" id="variationOrderSearchTable">
+          <thead>
+            <tr>
+              <th  (click)="sortTable(0)">{{'Validation Order Numner' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(1)">{{'Validation Order Description' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(2)">{{'Contract Number' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(3)">{{'Contract Description' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(4)">{{'Validation Order Amount' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(5)">{{'Status' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+            </tr>
+            <!-- <tr class="form-container form-group">
+              <td><input type="text" class="form-control" id="Address" placeholder="Variation Order Number"></td>
+              <td><input type="text" class="form-control" id="Address" placeholder="Variation Order Description"></td>
+              <td><input type="text" class="form-control" id="Address" placeholder="Contract Number"></td>
+              <td><input type="text" class="form-control" id="Address" placeholder="Contract Description"></td>
+              <td><input type="text" class="form-control" id="Address" placeholder="Variation Order Amount"></td>
+              <td>
+                <select class="form-control" id="status" placeholder="status">
+                  <option></option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select></td>
+            </tr> -->
+          </thead>
+          <tbody>
+            <tr *ngFor="let vo of variationOrderSearchList">
+              <!-- <th ><a (click)="getContractDetails(contractList)" routerLink="/contract-information" class="pr-2 ft-green">{{contractList.contractNumber}}</a> -->
+              <!-- <td>
+          <ngb-highlight [result]="contractList.contractNumber" [term]="service.searchTerm"></ngb-highlight> -->
+              <!-- {{ contractList.contractNumber }} -->
+              <!-- </td> -->
+              <td [attr.data-title]="'Validation Order Numner' | translate"><a (click)="getVariationOrderDetails(vo)" routerLink="/validation-order-details"
+                  class="pr-2 ft-green">
+                  {{ vo.variationOrderNumber }}</a></td>
+              <td [attr.data-title]="'Validation Order Description' | translate">{{ vo.variationOrderDesc }}</td>
+              <td [attr.data-title]="'Contract Number' | translate">{{ vo.contractNumber }}</td>
+              <td [attr.data-title]="'Contract Description' | translate">{{ vo.contractDesc }}</td>
+              <td [attr.data-title]="'Validation Order Amount' | translate" align="right">{{ vo.variationOrderAmount| mask: 'separator':',' }}.00</td>
+              <td [attr.data-title]="'Status' | translate">{{ vo.status }}</td>
+
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- <div class="d-flex justify-content-between p-2">
+    <app-pagination-record-count></app-pagination-record-count>
+      <ngb-pagination
+      [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
+    </ngb-pagination>
+    </div> -->
+
+        <div class="d-flex table-area mt-5">
+          <div class="table-responsive table-box">
+
+            <div *ngIf="masterData.length>0" class="d-flex justify-content-between p-2">
+              <app-pagination-record-count [totalRec]="totalRecordsCount" (selectedGridCount)="selectedGridCountChange($event)">
+              </app-pagination-record-count>
+              <!-- <app-pagination></app-pagination> -->
+              <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount" [recordsPerPage]="recCount"
+                (onPageChange)="displayActivePage($event)">
+              </app-pagination>
+            </div>
+          </div>
+        </div>
+      </form>
+  

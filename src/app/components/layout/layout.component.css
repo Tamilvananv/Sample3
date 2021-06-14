@@ -1,0 +1,5 @@
+/* No CSS *//*# sourceMappingURL=layout.component.css.map */
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}

@@ -1,0 +1,39 @@
+<div class="data-details">
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top">
+        <div class="col-sm-3">
+            <span>{{'Variation Order Number' | translate}}</span><br>
+            <strong>{{variationOrderDtl.variationOrderNumber}}</strong>
+        </div>
+        <div class="col-sm-9">
+            <span>{{'Variation Order Description' | translate}}</span><br>
+            <strong>{{variationOrderDtl.variationOrderDesc}}</strong>
+        </div>
+        
+    </div>
+
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top even-row-bg">
+        <div class="col-sm-3">
+            <span>{{'Variation Order Approved Date' | translate}}</span><br>
+            <strong>{{variationOrderDtl.orderApprovedDate}}</strong>
+        </div>
+        <div class="col-sm-3">
+            <span>{{'Variation Order Type' | translate}}</span><br>
+            <strong>{{variationOrderDtl.orderType}}</strong>
+        </div>
+        <div class="col-sm-6">
+            <span>{{'Variation Order Status' | translate}}</span><br>
+            <strong>{{variationOrderDtl.status}}</strong>
+        </div>
+    </div>
+
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top ">
+        <div class="col-sm-3">
+            <span>{{'Total Variation Order Time' | translate}}</span><br>
+            <strong>{{variationOrderDtl.totalOrderTime}}</strong>
+        </div>
+        <div class="col-sm-9">
+            <span>{{'Total Variation Order Amount (AED)' | translate}}</span><br>
+            <strong>AED {{variationOrderDtl.variationOrderAmount}}	</strong>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "claim-edit.component.scss"
+    ],
+    "names": [],
+    "file": "claim-edit.component.css"
+}

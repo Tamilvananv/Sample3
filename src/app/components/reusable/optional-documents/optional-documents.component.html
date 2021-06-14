@@ -1,0 +1,31 @@
+<div class="margin-b">
+<div class="form-container form-group box-shadow-none">
+   <table class="table  table-align-left mb-0">
+    <tbody>
+        <tr class="border-bottom">
+            <td class="tendertable ">
+                <span> {{'Document Type' | translate}}</span> <br>
+                <select  class="form-control" [(ngModel)]="documentType" name="documentType" >
+                  <option> {{'Select Document Type' | translate}}</option>
+                  <option *ngFor="let docType  of optDocTypes"
+                  value="{{docType.lovId}}">{{docType.lovName}}</option>
+                </select>
+            <td class="tendertable ">
+                <span> {{'Document Description' | translate}}</span> <br>
+                <input type="text" class="form-control" [(ngModel)]="documentDesc" name="documentDesc" required>
+            </td>
+            <td class="tendertable ">
+                <span> {{'Action' | translate}}</span> <br>
+                <div class="attach-btn file">
+                  <span class="btn btn-secondary">{{'Select files here to upload' | translate}}</span>
+                  <input type="file" name="file"  
+                  (change)="uploadOptDocument($event,documentType,documentDesc,'Optional Document uploaded successfully','Information','Ok','Oops Something went Wrong. Please try again !')" />
+              </div>
+            </td>
+        </tr>        
+    </tbody>
+</table>  
+
+</div>
+      
+</div>

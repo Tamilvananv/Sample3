@@ -1,0 +1,47 @@
+<div class="data-details">
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top">
+        <div class="col-sm-3">
+            <span>{{'Claim Number' | translate}}</span><br>
+            <strong>{{claimDetails.claimNo}}</strong>
+        </div>
+        <div class="col-sm-9">
+            <span>{{'Claim Description' | translate}}</span><br>
+            <strong>{{claimDetails.justification}}</strong>
+        </div>
+        
+    </div>
+
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top even-row-bg">
+        <div class="col-sm-3">
+            <span>{{'Claim Submitted Date' | translate}}</span><br>
+                <strong>{{claimDetails.submittedDate}}</strong>
+        </div>
+        <div class="col-sm-3">
+            <span>{{'Claim Category' | translate}}</span><br>
+            <strong>{{claimDetails.claimCategory}}</strong>
+        </div>
+        <div class="col-sm-6">
+            <span>{{'Priority' | translate}}</span><br>
+            <strong>{{claimDetails.priority}}</strong>
+        </div>
+    </div>
+
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top ">
+        <div class="col-sm-3">
+            <span>{{'Claim Type' | translate}}</span><br>
+            <strong>{{claimDetails.claimType}}</strong>
+        </div>
+        <div class="col-sm-3">
+            <span>{{'Total Claimed Time (Calendar Days)' | translate}}</span><br>
+            <strong>{{claimDetails.claimedTime}}</strong>
+        </div>
+        <div class="col-sm-3">
+            <span>{{'Total Claimed Amount (AED)' | translate}}</span><br>
+            <strong>AED {{claimDetails.claimedAmount}}</strong>
+        </div>
+        <div class="col-sm-3">
+            <span>{{'Claim Status' | translate}}</span><br>
+            <strong>{{claimDetails.status}}</strong>
+        </div>
+    </div>
+</div>

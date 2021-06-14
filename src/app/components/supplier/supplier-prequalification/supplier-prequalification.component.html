@@ -1,0 +1,60 @@
+
+
+    <!-- -----------------------breadcrumb ------------------------ -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb pl-0 mt-2">
+        <li class="breadcrumb-item active" aria-current="page">{{'Supplier Pre-Qualification' | translate}}</li>
+
+      </ol>
+    </nav>
+
+    <!-- -----------------------table ------------------------ -->
+    <div class="d-flex table-area">
+      <div class="table-responsive table-box">
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th >{{'Application-Ref' | translate}} <img class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th >{{'Submitted-Date' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th >{{'Company Name' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th >{{'Submission-Classification' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png">
+              </th>
+              <th >{{'Status' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th >{{'Action' | translate}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let supplierData of suppliers">
+
+              <td [attr.data-title]="'Application-Ref' | translate"> {{supplierData.referenceNo}} </td>
+              <td [attr.data-title]="'Submitted-Date' | translate"> {{supplierData.submittedDate}} </td>
+              <td [attr.data-title]="'Company Name' | translate"> {{supplierData.supplierNameInEnglish}} </td>
+              <td [attr.data-title]="'Submission-Classification' | translate"> {{supplierData.submissionClassification}} </td>
+              <td [attr.data-title]="'Status' | translate"> {{supplierData.submissionStatus}} </td>
+              <td [attr.data-title]="'Action' | translate">
+                <a (click)="getSupplierDetails(supplierData)" class="mr-2"><img src="assets/img/eye.png"></a>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+
+
+        <div class="d-flex table-area mt-5">
+          <div class="table-responsive table-box">
+
+            <div *ngIf="masterData.length>0" class="d-flex justify-content-between p-2">
+              <app-pagination-record-count [totalRec]="totalRecordsCount"
+                (selectedGridCount)="selectedGridCountChange($event)">
+              </app-pagination-record-count>
+              <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount" [recordsPerPage]="recCount"
+                (onPageChange)="displayActivePage($event)">
+              </app-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

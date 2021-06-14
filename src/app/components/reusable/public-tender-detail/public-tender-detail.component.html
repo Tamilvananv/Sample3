@@ -1,0 +1,54 @@
+<div class="d-flex table-area">
+    <div class="table-responsive table-box">
+
+      <table class="table table-striped">
+    <thead>
+        <tr class="border-bottom">
+            <th>{{'Tender Number' | translate}}
+            </th>
+            <th class="text-center">{{'Subscribed' | translate}}
+            </th>
+            <th>{{'Published Date' | translate}}
+            </th>
+            <th>{{'Submission Due Date' | translate}}
+            </th>
+            <th>{{'Tender Fee' | translate}}
+            </th>
+            <th class="text-center">{{'RFP Downloded' | translate}}</th>
+            <th>{{'Response Reference No' | translate}}
+            </th>
+            <th>{{'Status' | translate}}
+            </th>
+            <th class="text-center">{{'Notification' | translate}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="border-bottom">
+            <td [attr.data-title]="'Tender Number' | translate">
+                <a>{{tenderMasterDtl?.tender_no}}</a>
+            </td>
+            <td class="text-center" [attr.data-title]="'Subscribed' | translate">
+                <i class="fa fa-check-circle-o"></i>
+            </td>
+
+            <td [attr.data-title]="'Published Date' | translate">
+                {{tenderMasterDtl?.tender_publish_dt}}</td>
+            <td [attr.data-title]="'Submission Due Date' | translate">
+                {{tenderMasterDtl?.tender_submission_dt}}
+            </td>
+            <td [attr.data-title]="'Tender Fee' | translate">
+                {{tenderMasterDtl?.rfp_fee}} AED</td>
+            <td class="text-center" [attr.data-title]="'RFP Downloded' | translate"><i class="fa fa-check-circle-o"></i></td>
+            <td [attr.data-title]="'Response Reference No' | translate">
+                {{tenderMasterDtl?.referenceNumber}}</td>
+            <td [attr.data-title]="'Status' | translate" >
+                {{tenderMasterDtl?.tender_status}}</td>
+            <td [attr.data-title]="'Notification' | translate" class="text-center">
+                <i class="fa fa-bell"></i><sup>{{tenderMasterDtl?.ntf_count==null?0:tenderMasterDtl?.ntf_count}}</sup>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>

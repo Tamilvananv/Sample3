@@ -1,0 +1,45 @@
+
+   
+
+      <div class="d-flex table-area">
+        <div class="table-responsive">
+    <form>
+  
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>{{'Name' | translate}}</th>
+            <th>{{'Description' | translate}}</th>
+            <th >{{'Downloaded By' | translate}}</th>
+            <th >{{'Downloaded Date & Time' | translate}}</th>
+            <th class="text-custom-center" >{{'Action' | translate}}</th>
+          </tr>
+          <!-- <tr class="form-container form-group"> 
+            <td class="pr-3">Contract PDF</td>
+            <td class="pr-3">Details about contracts</td>
+            <td class="pr-3">James</td>
+            <td class="pr-3">12-June-2017 03:30 PM</td>
+            <td class="pr-3 text-center"><i class="fa fa-download ft-blue"></i></td>
+          </tr>
+          <tr class="form-container form-group"> 
+            <td class="pr-3">BOQ Excel</td>
+            <td class="pr-3">Details about BOQ</td>
+            <td class="pr-3">James</td>
+            <td class="pr-3">12-June-2017 03:30 PM</td>
+            <td class="pr-3 text-center"><i class="fa fa-download ft-blue"></i></td>
+          </tr> -->
+          <tr *ngFor="let attachment of supplierAttachmentSectionList">
+            <td [attr.data-title]="'Name' | translate">{{attachment.docName}}</td>        
+          <td [attr.data-title]="'Description' | translate" class="pr-3">{{ attachment.docDesc}}</td>
+          <td [attr.data-title]="'Downloaded By' | translate" class="pr-3">{{ attachment.docDownloadedBy }}</td>
+          <td [attr.data-title]="'Downloaded Date & Time' | translate" class="pr-3">{{ attachment.docDownloadTime }}</td>
+          <td [attr.data-title]="'Action' | translate" class="pr-3 text-center">
+            <a>
+                <!-- <a (click)="downloadDoc(attachment.variationOrderDownLoadDocsDtlId,attachment.docName)"> -->
+              <i class="fa fa-download ft-blue"></i></a></td>
+        </thead>
+      </table>
+    
+    </form>
+</div>
+</div>

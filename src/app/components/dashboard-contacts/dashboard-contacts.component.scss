@@ -1,0 +1,109 @@
+@import "../../../assets/scss/variables.scss";
+
+.menu-items-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .menu-item{
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        width: 200px;
+        height: 180px;
+        margin: 25px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 30px;
+        box-sizing: border-box;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        //border: 5px solid white;
+        &:hover{
+            background: #02b993;
+            transform: scale(1.2);
+            transition: all 150ms ease-in-out;
+            .icon-Variation-Order .path1:before,
+            .icon-Variation-Order .path2:before,
+            .icon-Variation-Order .path3:before,   
+            .icon-Claims .path1:before,  
+            .icon-Claims .path2:before,  
+            .icon-Claims .path3:before,  
+            .icon-Claims .path4:before,  
+            .icon-Claims .path5:before,  
+            .icon-Claims .path6:before,  
+            .icon-Claims .path7:before,  
+            .icon-Claims .path8:before,  
+            .icon-Claims .path9:before,  
+            .icon-Claims .path10:before,  
+            .icon-Claims .path11:before,  
+            .icon-Claims .path12:before,  
+            .icon-Claims .path13:before,  
+            .icon-Claims .path14:before,  
+            .icon-Contracts .path1:before,  
+            .icon-Contracts .path2:before,  
+            .icon-Contracts .path3:before,  
+            .icon-Contracts .path4:before,  
+            .icon-Contracts .path5:before,  
+            .icon-Contracts .path6:before,  
+            .icon-Contracts .path7:before    
+            {
+            color: #fff !important ;
+            }
+            .menu-name {
+                color: white;
+            }
+        }
+       
+    }
+    .icon-container {
+        display: block;
+        text-align: center;
+        margin-top: 50px;
+        width: 100%;        
+        .icon-Variation-Order .path1:before,
+        .icon-Variation-Order .path2:before,
+        .icon-Variation-Order .path3:before,   
+        .icon-Claims .path1:before,  
+        .icon-Claims .path2:before,  
+        .icon-Claims .path3:before,  
+        .icon-Claims .path4:before,  
+        .icon-Claims .path5:before,  
+        .icon-Claims .path6:before,  
+        .icon-Claims .path7:before,  
+        .icon-Claims .path8:before,  
+        .icon-Claims .path9:before,  
+        .icon-Claims .path10:before,  
+        .icon-Claims .path11:before,  
+        .icon-Claims .path12:before,  
+        .icon-Claims .path13:before,  
+        .icon-Claims .path14:before,  
+        .icon-Contracts .path1:before,  
+        .icon-Contracts .path2:before,  
+        .icon-Contracts .path3:before,  
+        .icon-Contracts .path4:before,  
+        .icon-Contracts .path5:before,  
+        .icon-Contracts .path6:before,  
+        .icon-Contracts .path7:before
+         {
+           color: #02b993 !important ;
+           font-size: 40px;
+        }
+    }
+    .menu-name {
+        font-size: 14px;
+        line-height: 18px;
+        color: #898989;
+        padding: 10px 35px;
+        &:hover {
+            color: white; 
+        }
+    }
+    a:hover {
+        text-decoration: none !important;
+        color: white;
+    }
+  }
+  
+ 
+
+ 

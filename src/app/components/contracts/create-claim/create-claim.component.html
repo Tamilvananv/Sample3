@@ -1,0 +1,148 @@
+<div class="d-flex">
+    <div class="col-sm-6 pr-0 pl-0 ">
+        <nav aria-label="breadcrumb" id="breadcrumb">
+            <ol class="breadcrumb pl-0 mt-0">
+                <li class="breadcrumb-item active" aria-current="page">{{'Create Claim' | translate}}</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="col-sm-6 pr-0 pl-0 pt-2 expand-collapse">
+        <app-collapse-expand-btn class="pull-right"></app-collapse-expand-btn>
+    </div>
+</div>
+
+<!-- --------------- Alert area ---------------- -->
+
+
+<div class="panel-group " id="accordion">
+
+    <!-- ------------------- Contract Details ----------------------------            -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+                    style="text-decoration: none;"><img class="icon25" src="assets/img/Contract-Information.png">
+                    {{'Contract Details' | translate}}</a>
+            </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse in show">
+            <div class="panel-body panel-body1">
+                <div id="no-more-tables">
+                    <app-contract-information-details></app-contract-information-details>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- --------------- Alert area ---------------- -->
+    <div id="msgAlert"></div>
+    <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+    <!-- ---------------------- company details ------------------------------ -->
+    <!-----------------   Claim Details ------------------------------ -->
+    <!-- <div class="panel-default"> -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse4"
+                    style="text-decoration: none;"><img class="icon25 mr-2" src="assets/img/details-icon.png">
+                    {{'Claim Details' | translate}}</a>
+            </h4>
+        </div>
+        <div id="collapse4" class="panel-collapse collapse in show">
+            <div class="panel-body panel-body1 p-3">
+                <div class="form-container bg-none box-shadow-none">
+                    <div class="row mt-4 mb-2 align-items-center">
+
+                        <div class="col-sm-3">
+                            <span style="line-height: 20px;">{{'Claim Number' | translate}}</span>
+                            <input type="text" [(ngModel)]="claimDtl.claimNo" class="form-control" placeholder="">
+                        </div>
+                        <div class="col-sm-3">
+
+                            <span style="line-height: 20px;">{{'Claim submitted Date' | translate}}</span>
+                            <input type="text" [(ngModel)]="claimDtl.submittedDate" class="form-control"
+                                onclick="(this.type='date')" #claimDate
+                                (click)="claimDate.setAttribute('type','date');changeClaimsSubmittedDateFormat($event)"
+                                (blur)="claimDate.setAttribute('type','text');changeClaimsSubmittedDateFormat($event)"
+                                placeholder="">
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-control" [(ngModel)]="claimDtl.claimCategory">
+                                <option [ngValue]="null" [disabled]="true">Claim Category</option>
+                                <option *ngFor="let type  of claimCategories" value="{{type.lovId}}">{{type.lovName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-control" [(ngModel)]="claimDtl.priority">
+                                <option [ngValue]="null" [disabled]="true">Priority</option>
+                                <option *ngFor="let type  of priorities" value="{{type.lovId}}">{{type.lovName}}
+                                </option> -->
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="row mt-4 mb-2 align-items-center">
+                        <div class="col-sm-4 invoice-comp-align">
+                            <select class="form-control" [(ngModel)]="claimDtl.claimType">
+                                <option [ngValue]="null" [disabled]="true">Claim Type</option>
+                                <option *ngFor="let type  of claimTypes" value="{{type.lovId}}">{{type.lovName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 ">
+                            <span style="line-height: 20px;">{{'Total Claimed Time (Calendar Days)' | translate}}</span>
+                            <input type="text" [(ngModel)]="claimDtl.claimedTime" class="form-control" placeholder="">
+                        </div>
+                        <div class="col-sm-4">
+                            <span style="line-height: 20px;">{{'Total Claimed Amount (AED)' | translate}}</span>
+                            <input type="text" mask="separator" thousandSeparator="," suffix=".00"
+                                [(ngModel)]="claimDtl.claimedAmount" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="row mt-4 mb-2 align-items-center">
+                        <div class="col-sm-9">
+                            <!-- <span style="line-height: 20px;">{{'Claim Number' | translate}}</span> -->
+                            <textarea class="form-control" [(ngModel)]="claimDtl.justification"
+                                placeholder="Claim Justification"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!----------------- Attachments------------------------------ -->
+    <!-- <div class="panel-default"> -->
+    <div class="panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse2"
+                    style="text-decoration: none;"><img class="icon25" src="assets/img/Attachments-icon.png">
+                    {{'Attachments' | translate}}
+                </a>
+            </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse in show">
+            <div class="panel-body panel-body1">
+                <div id="no-more-tables table-box">
+                    <div class="table-responsive p-3 table-area ">
+                        <app-attach-section [moduleName]="moduleName" [moduleTxnId]="moduleTxnId"></app-attach-section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<section id="pagination" class="pagination-area mt-1">
+    <div class="d-flex">
+        <span class="mr-auto">&nbsp;</span>
+        <a><button type="submit" (click)="saveClaimDetails()" class="save-btn ml-3 mr-3"> {{'SUBMIT' | translate}}
+            </button></a>
+        <a><button class="clear-btn "> {{'BACK' | translate}}</button></a>
+    </div>
+</section>

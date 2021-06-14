@@ -1,0 +1,14 @@
+.attach-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.attach-btn .btn-secondary {
+  font-size: 12px;
+  padding: 6px 10px;
+}
+
+.table-header {
+  font-size: 20px;
+}
+/*# sourceMappingURL=contract-information.component.css.map */

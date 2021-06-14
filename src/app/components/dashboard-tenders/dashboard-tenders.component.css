@@ -1,0 +1,146 @@
+.page-header {
+  margin-left: 150px;
+}
+
+.menu-items-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 5%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.menu-items-container .menu-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 175px;
+  height: 250px;
+  margin: 25px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background: #17a9e5;
+  background: -webkit-gradient(linear, left top, left bottom, from(#1fd3a6), color-stop(59%, white), to(white));
+  background: linear-gradient(180deg, #1fd3a6 0%, white 59%, white 100%);
+}
+
+.menu-items-container .menu-item:hover {
+  background: #17a9e5;
+  background: -webkit-gradient(linear, left bottom, left top, from(#1fd3a6), color-stop(50%, white), to(white));
+  background: linear-gradient(0deg, #1fd3a6 0%, white 50%, white 100%);
+}
+
+.menu-items-container .icon-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 30px;
+  border-radius: 100px;
+  width: 100%;
+  height: 60px;
+}
+
+.menu-items-container .icon-box .icon-Address-Details .path1:before,
+.menu-items-container .icon-box .icon-Address-Details .path2:before,
+.menu-items-container .icon-box .icon-Address-Details .path3:before,
+.menu-items-container .icon-box .icon-Address-Details .path4:before,
+.menu-items-container .icon-box .icon-Address-Details .path5:before,
+.menu-items-container .icon-box .icon-Attachment-Section .path1:before,
+.menu-items-container .icon-box .icon-Attachment-Section .path2:before,
+.menu-items-container .icon-box .icon-Attachment-Section .path3:before,
+.menu-items-container .icon-box .icon-Bank-Details:before,
+.menu-items-container .icon-box .icon-Category--Scope:before,
+.menu-items-container .icon-box .icon-Contact-Details:before,
+.menu-items-container .icon-box .icon-Final-View:before,
+.menu-items-container .icon-box .icon-Financial--Business .path1:before,
+.menu-items-container .icon-box .icon-Financial--Business .path2:before,
+.menu-items-container .icon-box .icon-Financial--Business .path3:before,
+.menu-items-container .icon-box .icon-Financial--Business .path4:before,
+.menu-items-container .icon-box .icon-Financial--Business .path5:before,
+.menu-items-container .icon-box .icon-Financial--Business .path6:before,
+.menu-items-container .icon-box .icon-Financial--Business .path7:before,
+.menu-items-container .icon-box .icon-Financial--Business .path8:before,
+.menu-items-container .icon-box .icon-Financial--Business .path9:before,
+.menu-items-container .icon-box .icon-Financial--Business .path10:before,
+.menu-items-container .icon-box .icon-Financial--Business .path11:before,
+.menu-items-container .icon-box .icon-Financial--Business .path12:before,
+.menu-items-container .icon-box .icon-Supplier-Information .path1:before,
+.menu-items-container .icon-box .icon-Supplier-Information .path2:before,
+.menu-items-container .icon-box .icon-Supplier-Information .path3:before,
+.menu-items-container .icon-box .icon-Supplier-Information .path4:before,
+.menu-items-container .icon-box .icon-contact-us:before,
+.menu-items-container .icon-box .icon-hamburger:before,
+.menu-items-container .icon-box .icon-logout:before,
+.menu-items-container .icon-box .icon-Contract:before,
+.menu-items-container .icon-box .icon-Dashboard .path1:before,
+.menu-items-container .icon-box .icon-Dashboard .path2:before,
+.menu-items-container .icon-box .icon-Dashboard .path3:before,
+.menu-items-container .icon-box .icon-Dashboard .path4:before,
+.menu-items-container .icon-box .icon-Dashboard .path5:before,
+.menu-items-container .icon-box .icon-Dashboard .path6:before,
+.menu-items-container .icon-box .icon-Dashboard .path7:before,
+.menu-items-container .icon-box .icon-Milestone .path1:before,
+.menu-items-container .icon-box .icon-Milestone .path2:before,
+.menu-items-container .icon-box .icon-Milestone .path3:before,
+.menu-items-container .icon-box .icon-Milestone .path4:before,
+.menu-items-container .icon-box .icon-Notifications:before,
+.menu-items-container .icon-box .icon-Supplier .path1:before,
+.menu-items-container .icon-box .icon-Supplier .path2:before,
+.menu-items-container .icon-box .icon-Supplier .path3:before,
+.menu-items-container .icon-box .icon-Supplier .path4:before,
+.menu-items-container .icon-box .icon-Tender .path1:before,
+.menu-items-container .icon-box .icon-Tender .path2:before,
+.menu-items-container .icon-box .icon-Tender .path3:before,
+.menu-items-container .icon-box .icon-Tender .path4:before,
+.menu-items-container .icon-box .icon-Tender .path5:before,
+.menu-items-container .icon-box .icon-Tender .path6:before,
+.menu-items-container .icon-box .icon-Tender .path7:before,
+.menu-items-container .icon-box .icon-Tender .path8:before,
+.menu-items-container .icon-box .icon-Tender .path9:before,
+.menu-items-container .icon-box .fa-bell:before {
+  font-size: 45px !important;
+  color: #000;
+}
+
+.menu-items-container .menu-name {
+  font-size: 18px;
+  line-height: 22px;
+  color: #000;
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.menu-items-container .menu-desc {
+  font-size: 12px;
+  line-height: 18px;
+  color: #000;
+  padding: 10px 20px;
+}
+
+.menu-items-container a:hover {
+  text-decoration: none !important;
+}
+
+.fa-users:before,
+.fa-lock:before,
+.fa-info-circle:before {
+  color: #000;
+  font-size: 45px !important;
+}
+/*# sourceMappingURL=dashboard-tenders.component.css.map */

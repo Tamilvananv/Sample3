@@ -1,0 +1,149 @@
+<div class="container-fluid">
+    <div class="col-sm-12 col-md-12 pt-4">
+        <div class="row">
+            <h1 class="ft-size18 ft-blue p-2 mr-auto">{{'BACK' | translate}}</h1>
+        </div>
+    </div>
+    <div class="d-flex mt-2">
+      <!-- <app-add-form></app-add-form> -->
+      <div class="form-container">
+        <div class="col-sm-12 col-md-12 pt-4">
+            <div class="row">
+                <h1 class="ft-size12 ft-black p-2 pl-5 mr-auto">{{'Profile Update' | translate}}</h1>
+            </div>
+        </div>
+        <div class="d-flex">
+            <div class="col-md-12 pl-5 pr-5 pb-2">
+                <form [formGroup]="addUserForm" autocomplete="off" (ngSubmit)="addNewUser()">
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="floating-label">
+                                <input type="text" class="form-control floating-input" placeholder=" "
+                                    onkeyup="this.setAttribute('value', this.value);" name="addUserLoginId"
+                                    autocomplete="off" formControlName="addUserLoginId" />
+                                <span class="highlight"></span>
+                                <label>{{'Email Id' | translate}}<sup>*</sup></label>
+                                <div
+                                    [hidden]="this.addUserForm.controls['addUserLoginId'].valid || this.addUserForm.controls['addUserLoginId'].pristine">
+    
+                                    <span class="validation-msg validation-msg-position"
+                                        *ngIf="this.addUserForm.controls['addUserLoginId'].errors?.required">Please
+                                        enter {{'Email Id' | translate}}</span>                             
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="floating-label">
+                                <input type="text" class="form-control floating-input" placeholder=" "
+                                    onkeyup="this.setAttribute('value', this.value);" name="addUserMobileNumber"
+                                    autocomplete="off" formControlName="addUserMobileNumber" mask="000-00-000000"
+                                    prefix="+" [showMaskTyped]="true" />
+    
+                                <span class="highlight"></span>
+                                <label>{{'Mobile Number' | translate}}</label>
+                                <div
+                                    [hidden]="this.addUserForm.controls['addUserMobileNumber'].valid || this.addUserForm.controls['addUserMobileNumber'].pristine">
+                                    <span class="validation-msg validation-msg-position"
+                                        *ngIf="this.addUserForm.controls['addUserMobileNumber'].errors?.required">Please
+                                        enter {{'Mobile Number' | translate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="floating-label">
+                                <input type="text" class="form-control floating-input" placeholder=" "
+                                    onkeyup="this.setAttribute('value', this.value);" name="addUserMobileNumber"
+                                    autocomplete="off" formControlName="addUserMobileNumber" mask="000-00-000000"
+                                    prefix="+" [showMaskTyped]="true" />
+    
+                                <span class="highlight"></span>
+                                <label>{{'Phone Number' | translate}}</label>
+                                <div
+                                    [hidden]="this.addUserForm.controls['addUserMobileNumber'].valid || this.addUserForm.controls['addUserMobileNumber'].pristine">
+                                    <span class="validation-msg validation-msg-position"
+                                        *ngIf="this.addUserForm.controls['addUserMobileNumber'].errors?.required">Please
+                                        enter {{'Phone Number' | translate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>               
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="floating-label">
+                                <input type="date" class="form-control floating-input" placeholder=" "
+                                    onkeyup="this.setAttribute('value', this.value);" name="addUserLoginId"
+                                    autocomplete="off" formControlName="addUserLoginId" />
+                                <span class="highlight"></span>
+                                <label>{{'DOB' | translate}}<sup>*</sup></label>                               
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="floating-label">
+                                <select class="form-control floating-select"
+                                    onclick="this.setAttribute('value', this.value);" value="" onblur=""
+                                    name="addUserPSP" formControlName="addUserPSP">
+    
+                                    <option></option>
+                                    <option>Question 1 </option>
+                                    <option>Question 2 </option>
+                                </select>
+                                <span class="highlight"></span>
+                                <label>{{'Hint Question' | translate}}<sup>*</sup></label>                                
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="floating-label">
+                                <input type="text" class="form-control floating-input" placeholder=" "
+                                    onkeyup="this.setAttribute('value', this.value);" name="addUserLoginId"
+                                    autocomplete="off" formControlName="addUserLoginId" />
+                                <span class="highlight"></span>
+                                <label>{{'Hint Answer' | translate}}<sup>*</sup></label>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-6 col-lg-3">
+                            <div class="floating-label">
+                                <select class="form-control floating-select"
+                                    onclick="this.setAttribute('value', this.value);" value="" onblur=""
+                                    name="addUserTitle" formControlName="addUserTitle">
+    
+                                    <option></option>
+                                    <option>Active </option>
+                                    <option>Active </option>
+                                    <option>Active </option>
+    
+                                </select>
+                                <span class="highlight"></span>
+                                <label>{{'Status' | translate}}<sup>*</sup></label>
+                                <div
+                                    [hidden]="this.addUserForm.controls['addUserTitle'].valid || this.addUserForm.controls['addUserTitle'].pristine">
+    
+                                    <span class="validation-msg validation-msg-position"
+                                        *ngIf="this.addUserForm.controls['addUserTitle'].errors?.required">Please
+                                        select {{'Status' | translate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                   
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+
+    
+    <section id="pagination" class="pagination-area mt-5">
+        <div class="d-flex">
+            <button type="submit" [disabled]="!addUserForm.valid" class="page-link save mr-3"> {{'SAVE' | translate}}</button>
+            <button type="button" class="page-link save mr-3" (click)="addUserForm.reset()"> {{'RESET' | translate}}</button>
+        </div>
+    </section>
+
+    <!-- <p>
+        Form Status: {{ addUserForm.status }}
+    </p> -->
+</div>

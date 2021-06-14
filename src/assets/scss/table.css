@@ -1,0 +1,58 @@
+@media only screen and (max-width: 800px){
+    #no-more-tables td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        /* padding-left: 50%; */
+        white-space: normal;
+        text-align: center !important;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    #no-more-tables table, #no-more-tables thead, #no-more-tables tbody, #no-more-tables th, #no-more-tables td, #no-more-tables tr {
+        display: block;
+    }
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 6px;
+    line-height: 21px !important;
+    vertical-align: middle;
+    border-top: 1px solid #ddd;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 0px;
+    line-height: 14px !important;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+.tendertable>tbody>tr>td, .tendertable>tbody>tr>th, .tendertable>tfoot>tr>td, .tendertable>tfoot>tr>th, .tendertable>thead>tr>td, .tendertable>thead>tr>th {
+    font-size: 12px;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+.tdborder {
+    border-left: 1px solid #ddd;
+}
+
+
+
+.tendertable {
+    text-align: center;
+}
+
+/* .tendertable span{
+   line-height:30px;
+} */
+
+.table-align-left .tendertable
+ {
+  text-align: left !important;
+  font-size: 12px;
+  vertical-align: top;
+}

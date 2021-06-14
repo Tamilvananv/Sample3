@@ -1,0 +1,111 @@
+
+<div class="col-sm-12 ">
+  <div class="row">
+    <div class="col-sm-6 pr-0 pl-0 ">
+      <nav aria-label="breadcrumb" id="breadcrumb">
+        <ol class="breadcrumb pl-0 mt-0">
+          <li class="breadcrumb-item active" aria-current="page">{{'Completion Certificate Search' | translate}}</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col-sm-6 pr-0 pl-0 pt-2 expand-collapse"> 
+      <div class="col-xl-12 pr-0 pull-right">
+        <button type="button" class="clear-btn pull-right ml-3 mr-3">{{'CLEAR ALL FILTER' | translate}}</button>
+        <a routerLink="/milestone-completion-search" class="mr-2"><button type="button"
+          class="save-btn pull-right">{{'CREATE NEW' | translate}}</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="d-flex table-area">
+    <div class="table-responsive">
+
+      <form>
+
+
+        <table class="table table-striped" id="completionCertificateSearchTable">
+          <thead>
+            <tr>
+
+              <th  (click)="sortTable(0)">
+                {{'Completion Certificate Number' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(1)">
+                {{'Completion Certificate Description' | translate}}<img class="pl-2" src="assets/img/filter-icon.png">
+              </th>
+              <th  (click)="sortTable(2)">{{'Contract Number' | translate}}<img
+                  class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(3)">{{'Contract Description' | translate}}<img
+                  class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(4)">{{'Revision Number' | translate}}</th>
+              <th  (click)="sortTable(5)">{{'Status' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+            </tr>
+            <!-- <tr class="form-container form-group">    
+      <td>  <input type="text" class="form-control" id="Address" placeholder="Completion Certificate Number"></td>
+      <td>  <input type="text" class="form-control" id="Address" placeholder="Completion Certificate Description"></td>
+      <td>  <input type="text" class="form-control" id="Address" placeholder="Contract Number"></td>
+      <td>  <input type="text" class="form-control" id="Address" placeholder="Contract Description"></td>
+      <td>  <input type="text" class="form-control" id="Address" placeholder="Revision Number"></td>
+      <td> 
+          <select class="form-control" id="country">
+          <option>Status</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+      </select></td>
+      
+  </tr> -->
+          </thead>
+          <tbody>
+            <!-- <tr *ngFor="let country of countries$ | async">
+      <th ><a routerLink="/milestone-completion-details">{{ country.id }}</a></th>
+      <td>      
+        <ngb-highlight [result]="country.name" [term]="service.searchTerm"></ngb-highlight>
+      </td>
+      <td>      
+        <ngb-highlight [result]="country.name" [term]="service.searchTerm"></ngb-highlight>
+      </td>
+      <td>      
+        <ngb-highlight [result]="country.name" [term]="service.searchTerm"></ngb-highlight>
+      </td>
+      <td><ngb-highlight [result]="country.area | number" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="country.population | number" [term]="service.searchTerm"></ngb-highlight></td>
+    </tr> -->
+            <tr *ngFor="let completionCertificate of completionCertificateSearch">
+              <td [attr.data-title]="'Completion Certificate Number' | translate"><a routerLink="/milestone-completion-view"
+                  (click)="onClickCompletionCertificateNumber(completionCertificate.cc_ref_no,completionCertificate.contract_no)">{{completionCertificate.cc_ref_no}}</a>
+              </td>
+              <td [attr.data-title]="'Completion Certificate Description' | translate"> {{ completionCertificate.work_desc }}</td>
+              <td [attr.data-title]="'Contract Number' | translate">{{ completionCertificate.contract_no }}</td>
+              <td [attr.data-title]="'Contract Description' | translate">{{ completionCertificate.contract_desc }}</td>
+              <td [attr.data-title]="'Revision Number' | translate">{{ completionCertificate.revision_no }}</td>
+              <td [attr.data-title]="'Status' | translate">{{ completionCertificate.cc_status }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <!-- <div class="d-flex justify-content-between p-2">
+          <app-pagination-record-count></app-pagination-record-count>
+          <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
+          </ngb-pagination>
+        </div> -->
+
+        <div class="d-flex table-area mt-5">
+          <div class="table-responsive table-box">
+
+            <div *ngIf="masterData.length>0" class="d-flex justify-content-between p-2">
+              <app-pagination-record-count [totalRec]="totalRecordsCount" (selectedGridCount)="selectedGridCountChange($event)">
+              </app-pagination-record-count>
+              <!-- <app-pagination></app-pagination> -->
+              <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount" [recordsPerPage]="recCount"
+                (onPageChange)="displayActivePage($event)">
+              </app-pagination>
+            </div>
+          </div>
+        </div>
+      </form>
+   

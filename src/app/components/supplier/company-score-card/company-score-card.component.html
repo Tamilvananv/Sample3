@@ -1,0 +1,141 @@
+<!-- --------------- Progress bar ---------------- -->
+<app-pre-qualification-progress-bar [supplierTabName]="pageTitle"></app-pre-qualification-progress-bar>
+<!-- <div class="progress-area">
+  <div class="progress-container">
+
+    <div class="progress-box">
+      <div class="progress-inner-box">
+        <a routerLink="/company-score-card">
+          <div class="circle bg-blue">
+            <span class="icon-Supplier-Registration"></span>
+          </div>
+        </a>
+      </div>
+      <div class="progress">
+        <div class="progress-bar " role="progressbar" style="width: 50%" aria-valuenow="100" aria-valuemin="0"
+          aria-valuemax="100"></div>
+      </div>
+      <span class="info-text ft-blue">Summary</span>
+    </div>
+
+    <div class="progress-box">
+      <div class="progress-inner-box">
+        <a routerLink="/supplier-score-card-summary">
+          <div class="circle bg-gray">
+            <span class="icon-Preview"></span>
+          </div>
+        </a>
+      </div>
+
+      <span class="info-text ft-blue">PreQualification Scorecard</span>
+    </div>
+
+  </div>
+</div> -->
+
+<div class="company-score-card">
+  <!-- --------------- breadcrumb ---------------- -->
+
+
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-sm-6">
+      <h1 class="pb-2" >{{'Prequalification Summary' | translate}}
+      </h1>
+    </div>
+ 
+  
+     
+        <div class="col-sm-3">
+          <div class="input-checkbox" >
+          <input type="checkbox" (click)="updateTime($event.target.checked)" data-group-cls="btn-group-sm" [(ngModel)]="isReviewedTime"
+          name="isReviewedTime"> <span class="check-space">{{'Reviewed' | translate}} </span>
+        <span class="check-space">{{ reviewedTime }}</span>
+        </div>       
+    </div>
+    <div class="col-sm-3">
+      <app-collapse-expand-btn class="pull-right"></app-collapse-expand-btn>
+    </div>
+  </div>
+ 
+    </div>
+
+
+ 
+  <div class="score-card">
+    <app-preview [pageTitle]="pageTitle"></app-preview>
+  </div>
+
+  <section id="pagination" class="pagination-area mt-0">
+      <div class="d-flex">
+        <span class="mr-auto">&nbsp;</span>
+        <a (click)="saveReviewedTime()"><button type="submit" class="page-link save">
+            {{'PROCEED' | translate}} </button></a>
+    </div>
+  </section>
+  <app-model-window></app-model-window>
+</div>
+
+<div class="modal fade table-model" id="attachmentsModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{'Testimonial' | translate}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+        <h1 class="model-header">{{'Success Stories' | translate}}</h1>
+        <div class="table-responsive table-box table-area">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>{{'File Uploaded' | translate}}</th>
+              <th>{{'Uploaded Date' | translate}}</th>
+              <th>{{'Uploaded By' | translate}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="successStories && successStories.length!=0">
+              <td [attr.data-title]="'File Uploaded' | translate"> {{successStories[0].docName }}</td>
+              <td [attr.data-title]="'Uploaded Date' | translate">{{ successStories[0].uploadedDate }}</td>
+              <td [attr.data-title]="'Uploaded By' | translate"> {{ username }} </td>
+              <!-- <td>th.jpg</td>
+                      <td>05-Jul-2020</td>
+                      <td>companytest</td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+      <div class="modal-body mt-0 ">
+        <h1 class="model-header">{{'Specialized Profiles' | translate}}</h1>
+        <div class="d-flex table-area">
+          <div class="table-responsive table-box">
+    
+        <table class="table table-striped">
+          <thead>
+            <tr>
+
+              <th>{{'File Uploaded' | translate}}</th>
+              <th>{{'Uploaded Date' | translate}}</th>
+              <th>{{'Uploaded By' | translate}}</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="specializedProfiles && specializedProfiles.length!=0">
+              <td [attr.data-title]="'File Uploaded' | translate"> {{specializedProfiles[0].docName }}</td>
+              <td [attr.data-title]="'Uploaded Date' | translate">{{ specializedProfiles[0].uploadedDate }}</td>
+              <td [attr.data-title]="'Uploaded By' | translate">{{ username }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>

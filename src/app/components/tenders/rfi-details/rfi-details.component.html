@@ -1,0 +1,213 @@
+<div class="container-fluid">
+  <div class="container">
+      <div class="row ">
+          <h1 class="page-header pt-3 pb-2">{{'Request For Information Details' | translate}}</h1>
+      </div>
+
+      <!-- --------------- Alert area ---------------- -->
+
+      <div class="d-flex m-2">
+          <div class="col-xl-12 pr-0">
+              <app-collapse-expand-btn class="pull-right"></app-collapse-expand-btn>
+          </div>
+        </div>
+<div class="panel-group " id="accordion">
+
+  <!-----------------  Bus on Demand  ------------------------------ -->
+  <!-- <div class="panel-default"> -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+            <div class="row">
+                <div class="col-sm-12">
+                  <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+                  style="text-decoration: none;">
+                  <span>{{'Request For Information' | translate}}</span>
+                </a>
+                </div>
+            </div>
+        
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in show">
+        <div class="panel-body panel-body1 p-3">
+          <div id="no-more-tables">
+              <div class="panel-body panel-body1 table-box">
+                 <app-rfi-info></app-rfi-info>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ <!-----------------  Technical Assessment of Building Life Cycle Expectancy  ------------------------------ -->
+  <!-- <div class="panel-default"> -->
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+                <div class="row">
+                   
+                    <div class="col-sm-12">
+                      <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse2"
+                      style="text-decoration: none;">
+                      <span>{{'Contact-Details' | translate}}</span>
+                    </a>
+                    </div>
+                </div>
+            
+            </h4>
+          </div>
+          <div id="collapse2" class="panel-collapse collapse in show">
+            <div class="panel-body panel-body1 p-3">
+              <div id="no-more-tables">
+                  <div class="panel-body panel-body1 table-box">
+                      <app-rfi-contact-detail></app-rfi-contact-detail>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <!-----------------  Traffic Engineering System  ------------------------------ -->
+  <!-- <div class="panel-default"> -->
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+                <div class="row">
+                   
+                    <div class="col-sm-12">
+                      <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse3"
+                      style="text-decoration: none;">
+                      <span>{{'Bid Bond Details' | translate}}</span>
+                    </a>
+                    </div>
+                </div>
+            
+            </h4>
+          </div>
+          <div id="collapse3" class="panel-collapse collapse in show">
+            <div class="panel-body panel-body1 p-3">
+              <div id="no-more-tables">
+                  <div class="panel-body panel-body1 table-box">
+                     <app-rfi-bid-bond></app-rfi-bid-bond>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+                 <!----------------- Expo TVM and TOM  ------------------------------ -->
+  <!-- <div class="panel-default"> -->
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+                <div class="row">                      
+                    <div class="col-sm-12">
+                      <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse4"
+                      style="text-decoration: none;">
+                      <span>{{'Tender Timelines' | translate}}</span>
+                    </a>
+                    </div>
+                </div>
+            
+            </h4>
+          </div>
+          <div id="collapse4" class="panel-collapse collapse in show">
+            <div class="panel-body panel-body1 p-3">
+              <div id="no-more-tables">
+                  <div class="panel-body panel-body1 table-box">
+                     <app-rfi-tender-timeline></app-rfi-tender-timeline>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                          <!----------------- Expo TVM and TOM ------------------------------ -->
+  <!-- <div class="panel-default"> -->
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+                <div class="row">                     
+                    <div class="col-sm-12">
+                      <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse5"
+                      style="text-decoration: none;">
+                      <span>{{'RFP Document' | translate}}</span>
+                    </a>
+                    </div>
+                </div>
+            
+            </h4>
+          </div>
+          <div id="collapse5" class="panel-collapse collapse in show">
+            <div class="panel-body panel-body1 p-3">
+       
+                  <div class="panel-body panel-body1 table-box">
+                      <div class="table-responsive table-area">
+                          <table class="table table-striped">
+                              <thead>
+                                  <tr>
+                                      <th>{{'S.No' | translate}}</th>
+                                      <th width="400">{{'Name' | translate}}</th>
+                                      <th>{{'Description' | translate}}</th>
+                                      <th>{{'Type' | translate}}</th>
+                                      <th>{{'Size' | translate}}</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td [attr.data-title]="'S.No' | translate"> <h4>1</h4></td>
+                                      <td [attr.data-title]="'Name' | translate"> <h4>Appendix D- RTA Form of Contract (Contractual Terms and Conditions for the Winning Bidder).pdf</h4></td>
+                                      <td [attr.data-title]="'Description' | translate"> <h4>CONTRACT</h4></td>
+                                      <td [attr.data-title]="'Type' | translate"> <h4>pdf</h4></td>                                      
+                                      <td [attr.data-title]="'Size' | translate"> <h4>0.19MB</h4></td>
+                                  </tr>
+                                  <tr>
+                                    <td [attr.data-title]="'S.No' | translate"> <h4>2</h4></td>
+                                    <td [attr.data-title]="'Name' | translate"> <h4>Appendix D- RTA Form of Contract (Contractual Terms and Conditions for the Winning Bidder).pdf</h4></td>
+                                    <td [attr.data-title]="'Description' | translate"> <h4>CONTRACT</h4></td>
+                                    <td [attr.data-title]="'Type' | translate"> <h4>pdf</h4></td>                                      
+                                    <td [attr.data-title]="'Size' | translate"> <h4>0.19MB</h4></td>
+                                  </tr>
+                                  <tr>
+                                    <td [attr.data-title]="'S.No' | translate"> <h4>3</h4></td>
+                                    <td [attr.data-title]="'Name' | translate"> <h4>Appendix D- RTA Form of Contract (Contractual Terms and Conditions for the Winning Bidder).pdf</h4></td>
+                                    <td [attr.data-title]="'Description' | translate"> <h4>CONTRACT</h4></td>
+                                    <td [attr.data-title]="'Type' | translate"> <h4>pdf</h4></td>                                      
+                                    <td [attr.data-title]="'Size' | translate"> <h4>0.19MB</h4></td>
+                                  </tr>
+                                  <tr>
+                                    <td [attr.data-title]="'S.No' | translate"> <h4>4</h4></td>
+                                    <td [attr.data-title]="'Name' | translate"> <h4>Appendix D- RTA Form of Contract (Contractual Terms and Conditions for the Winning Bidder).pdf</h4></td>
+                                    <td [attr.data-title]="'Description' | translate"> <h4>CONTRACT</h4></td>
+                                    <td [attr.data-title]="'Type' | translate"> <h4>pdf</h4></td>                                      
+                                    <td [attr.data-title]="'Size' | translate"> <h4>0.19MB</h4></td>
+                                  </tr>
+                                  <tr>
+                                    <td [attr.data-title]="'S.No' | translate"> <h4>5</h4></td>
+                                    <td [attr.data-title]="'Name' | translate"> <h4>Appendix D- RTA Form of Contract (Contractual Terms and Conditions for the Winning Bidder).pdf</h4></td>
+                                    <td [attr.data-title]="'Description' | translate"> <h4>CONTRACT</h4></td>
+                                    <td [attr.data-title]="'Type' | translate"> <h4>pdf</h4></td>                                      
+                                    <td [attr.data-title]="'Size' | translate"> <h4>0.19MB</h4></td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+  
+                  </div>
+             
+            </div>
+          </div>
+        </div>
+   
+</div>
+<section id="pagination" class="pagination-area mt-1">
+  <div class="container">
+      <div class="d-flex">
+      <span class="mr-auto">&nbsp;</span>
+      <a routerLink="/tenders-dashboard"><button  type="submit" class="clear-btn"> {{'BACK' | translate}} </button></a> 
+      </div>
+  </div>
+</section>
+  </div>
+</div>
+

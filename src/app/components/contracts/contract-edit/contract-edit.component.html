@@ -1,0 +1,84 @@
+<div class="container contract-info">
+
+    <!-- --------------- breadcrumb ---------------- -->
+ <nav aria-label="breadcrumb">
+   <ol class="breadcrumb pl-0 mt-3">
+     <li class="breadcrumb-item active" aria-current="page">Contract Edit</li>
+   </ol>
+ </nav>
+ <div class="d-flex m-2">
+    <div class="col-xl-12 pr-0">
+        <app-collapse-expand-btn class="pull-right"></app-collapse-expand-btn>
+    </div>
+  </div>
+   <div class="panel-group " id="accordion">
+       <!-- <div class="panel-default"> -->
+
+<!-- ------------------- Contract Details ----------------------------            -->
+       <div class="panel panel-default">
+           <div class="panel-heading">
+               <h4 class="panel-title">
+                   <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+                       style="text-decoration: none;"><img class="icon25"
+                           src="assets/img/details-icon.png">
+                       Contract Details </a>
+               </h4>
+           </div>
+           <div id="collapse1" class="panel-collapse collapse in show">
+               <div class="panel-body panel-body1">
+                <div id="no-more-tables">
+                    <app-contract-information-details></app-contract-information-details>
+                   </div>
+               </div>
+           </div>
+       </div>
+<!-- ------------------- Contract Details ----------------------------            -->
+       <div class="panel-default">
+           <div class="panel-heading">
+               <h4 class="panel-title">
+                   <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse2"
+                       style="text-decoration: none;"><img class="icon25"
+                           src="assets/img/Attachments-icon.png">
+                           Attachments
+                       </a>
+               </h4>
+           </div>
+           <div id="collapse2" class="panel-collapse collapse in show">
+               <div class="panel-body panel-body1">
+                <div id="no-more-tables table-box">
+                    <div class="table-responsive p-3 table-area ">
+                       <app-attach-section></app-attach-section>
+                   </div>
+                </div>
+               </div>
+           </div>
+       </div>
+       <div class=" panel-default">
+           <div class="panel-heading">
+               <h4 class="panel-title">
+                   <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse5"
+                       style="text-decoration: none;"><img class="icon25"
+                           src=".assets/img/BOQ-Payment-Milestone-icon.png"> Payment
+                       Milestone / BOQ </a> </h4>
+           </div>
+           <div id="collapse5" class="panel-collapse collapse in show">
+               <div class="panel-body panel-body1 table-area">
+                <div id="no-more-tables">
+                    <app-payment-milestone-boq></app-payment-milestone-boq>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+    
+
+       <div class="d-flex pull-right">
+           <button type="button" class="save-btn mr-2">AGREE</button>
+           <button type="button" class="clear-btn">Back</button>
+       </div>
+
+
+
+       <!-- </div> -->
+   </div>
+</div>

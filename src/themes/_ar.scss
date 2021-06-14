@@ -1,0 +1,267 @@
+
+   .base-align { 
+    direction: rtl;
+ 
+   .currentTheme {
+       display: none;
+   }
+   .translate {
+       display: block;
+   }
+
+   .icon-logout:before,
+   .icon-contact-us:before,
+   .icon-home3:before,
+   .icon-hamburger:before {
+    padding-left: 10px;
+}
+
+@media (max-width: 780px){
+    .justify-content-start {
+        justify-content:  right !important;
+    }
+}
+
+a {
+    cursor: pointer;
+}
+
+.floating-label {
+	position: absolute;
+	pointer-events: none;
+	right: 15px;
+	top: 8px;
+	transition: 0.2s ease all;
+	color:#666666;
+    
+  }
+  .form-container h1 {
+    text-align: right;
+}
+
+}
+
+.msg-title {
+    text-align: right;
+}
+
+.module-container .module-box .icon-container {
+    margin-right: 20px;
+}
+
+.progress {
+    position: absolute !important;
+    left: -30% !important;
+    width: 89px;
+    top: 24px;
+    z-index: -1;
+    height: 4px;
+}
+
+
+.btn-space {
+    margin-right: 20px;
+}
+.btn-space-left {
+    margin-left: 20px;
+}
+
+.base-align .floating-label {
+    pointer-events: all !important;
+}
+
+.table-area .table thead th {    
+    text-align: right;
+}
+
+.table th, .table td {   
+    text-align: right;
+}
+
+
+
+sup{
+	color:red
+}
+
+.form-control .label-selectcolor{
+	font-size: 12px !important;
+	color: #656565 !important;
+}
+
+.alert-success,
+.alert-danger,
+.alert-primary,
+.alert-secondary,
+.alert-danger,
+.alert-warning,
+.alert-info,
+.alert-light,
+.alert-dark {   
+    text-align: right;
+}
+
+.alert .close {
+    display: none;
+}
+
+.expand-collapse .pull-right{
+    float: left !important;
+  }
+
+  .breadcrumb {    
+    padding-right: 0;
+}
+
+.input-checkbox span {
+    padding-left: 10px;
+}
+
+.check-space {
+    padding-right:5px;
+  }
+
+.margin-b .form-group {
+    margin-bottom: 0px !important; 
+}
+.margin-b2 .form-group {
+    margin-bottom: 50px !important; 
+}
+
+.margin-b2 .form-group {
+    margin-bottom: 00px !important; 
+}
+
+.bg-light-gray span {
+	text-align: right;
+}
+
+.ar-align {
+	text-align: right;
+}
+
+.arabic-align{
+	float: left !important;
+}
+
+.panel-title{
+	text-align: right;
+}
+
+.panel-heading .accordion-toggle:after {   
+    float: left;
+}
+
+.breadcrumb .pull-right{
+	float: left;
+}
+
+.bg-blue .icon-Preview:before,
+.bg-green .icon-Preview:before,
+.bg-green .icon-Supplier-Registration:before,
+.bg-green .icon-Supplier-Registration:before{
+  color: #fff !important;
+}
+
+.preview .panel {
+	text-align: right;
+}
+
+.table-align-left .tendertable {
+    text-align: right !important;
+}
+
+.ar-padL15{
+	padding-left: 15px;
+}
+
+.panel-default > .panel-heading a {
+    padding-right: 15px;
+}
+
+.auction .floating-label {
+    width: 91% !important;
+}
+
+.dash-contract .page-header {
+    padding-right: 222px !important;
+}
+
+.dash-mgmt .page-header {
+    padding-right: 221px !important;
+}
+
+.dash .page-header {
+    padding-right: 100px !important;
+}
+
+.data-details {
+	text-align: right;
+}
+
+.ar-btn-pull-left {
+	float: left;
+}
+
+.inner-dash .page-header {
+    padding-right: 0px !important;
+}
+
+.ar-r-align20{
+	padding-right: 20px;
+}
+
+.attach-btn {
+    text-align: right;
+}
+
+label {
+   text-align: right;
+    width: 87%;
+}
+
+.attach-row{
+  text-align: right;
+  }
+
+  .modal-header {
+    position: relative;
+    .close {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+    }
+}
+.login100-form_title h1 {
+    text-align: right;
+    padding-right: 38px;
+}
+
+.login100-form .mar-area {
+    padding: 20px 12px 0 15px;
+    text-align: right;
+}
+.login100-form .label-text {
+    padding-right: 0 !important;
+}
+
+.wrapmain-login100 {
+    width: 400px;
+    text-align: right;
+}
+
+.login100-form .login100-form-btn {
+    margin-left: 50px;
+}
+
+@media (max-width: 780px){
+    .table-area .table tbody td {  
+        text-align: right !important;
+       
+    }
+    .table-area .table tbody td:before {
+        padding-left: 10px;
+    }
+
+}
+

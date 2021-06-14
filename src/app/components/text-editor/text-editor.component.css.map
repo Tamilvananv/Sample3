@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "text-editor.component.scss"
+    ],
+    "names": [],
+    "file": "text-editor.component.css"
+}

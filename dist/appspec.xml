@@ -1,0 +1,16 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/html/Procure360
+    overwrite: true
+hooks:
+  BeforeInstall:
+    - location: /stopapplication
+      timeout: 300
+  ApplicationStart:
+    - location: /write_codedeploy_config.sh
+    - location: /startapplication
+      timeout: 300
+  ValidateService:
+    - location: /basic_health_check.sh

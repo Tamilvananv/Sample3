@@ -1,0 +1,192 @@
+@import "../../../../assets/scss/variables.scss";
+
+.dashboard-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.module-container {
+    position: relative;
+    margin-top: 90px;
+    & a:hover{
+        background: #00a1e2;
+        .module-box{
+            background: #00a1e2;
+        }
+    }
+    .module-box{
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top:-50px;
+        display: flex;
+        width: 75%;
+        margin-left: 10px;
+        height: 100px;
+        background: #626262;
+        border-radius: 5px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        z-index: 1;
+        .icon-container{
+            margin-left: 20px;
+        }
+        .icon-Supplier-Information .path1:before,
+        .icon-Supplier-Information .path2:before,
+        .icon-Supplier-Information .path3:before,
+        .icon-Supplier-Information .path4:before,
+        .icon-Tender .path1:before,
+        .icon-Tender .path2:before,
+        .icon-Tender .path3:before,
+        .icon-Tender .path4:before,
+        .icon-Tender .path5:before,
+        .icon-Tender .path6:before,
+        .icon-Tender .path7:before,
+        .icon-Tender .path8:before,
+        .icon-Tender .path9:before,
+        .icon-Contract:before,
+        .icon-Milestone .path1:before,
+        .icon-Milestone .path2:before,
+        .icon-Milestone .path3:before,
+        .icon-Milestone .path4:before,
+        .icon-Payment:before,
+        .icon-Notifications,
+        .icon-Invoice--Payments:before,
+        .icon-Tender-Management:before,
+        .icon-Notifications:before {
+            font-size: 45px !important;
+            color: white !important;
+        }
+        h5 {
+            color: white;
+            font-size: 20px;
+            padding-left: 25px;
+        }
+    }
+    .data-box {
+        width: 100%;
+        height: 200px;
+        display: block;
+        background: white;
+       text-align: center;
+       border-radius: 5px;
+       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+       &_inner-container{
+           box-sizing: border-box;
+            padding-top: 25%;
+       }
+    }
+}
+
+.menu-items-container {
+    display: flex;
+    margin: 0 10%;   
+    justify-content: center;
+    flex-wrap: wrap;
+    .menu-item{
+        background: #0291da;
+        display: flex;
+        justify-content: center;
+        width: 175px;
+        height: 200px;
+        margin: 10px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 30px;
+        border-radius: 5px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        //border: 5px solid white;
+        &:hover{
+            background: #111188;
+        }
+    }
+    .circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;       
+        border-radius: 100px;
+        width: 75px;
+        height: 75px;
+        box-shadow: inset 1px 0px 4px #000;
+        background: $white;
+        
+        .icon-Address-Details .path1:before,
+        .icon-Address-Details .path2:before,
+        .icon-Address-Details .path3:before,
+        .icon-Address-Details .path4:before,
+        .icon-Address-Details .path5:before,
+        .icon-Attachment-Section .path1:before,
+        .icon-Attachment-Section .path2:before,
+        .icon-Attachment-Section .path3:before,
+        .icon-Bank-Details:before,
+        .icon-Category--Scope:before,
+        .icon-Contact-Details:before,
+        .icon-Final-View:before,
+        .icon-Financial--Business .path1:before,
+        .icon-Financial--Business .path2:before,
+        .icon-Financial--Business .path3:before,
+        .icon-Financial--Business .path4:before,
+        .icon-Financial--Business .path5:before,
+        .icon-Financial--Business .path6:before,
+        .icon-Financial--Business .path7:before,
+        .icon-Financial--Business .path8:before,
+        .icon-Financial--Business .path9:before,
+        .icon-Financial--Business .path10:before,
+        .icon-Financial--Business .path11:before,
+        .icon-Financial--Business .path12:before,
+        .icon-Supplier-Information .path1:before,
+        .icon-Supplier-Information .path2:before,
+        .icon-Supplier-Information .path3:before,
+        .icon-Supplier-Information .path4:before ,
+        .icon-contact-us:before,
+        .icon-hamburger:before,
+        .icon-logout:before,
+        .icon-Contract:before ,
+        .icon-Dashboard .path1:before,
+        .icon-Dashboard .path2:before,
+        .icon-Dashboard .path3:before,
+        .icon-Dashboard .path4:before,
+        .icon-Dashboard .path5:before,
+        .icon-Dashboard .path6:before,
+        .icon-Dashboard .path7:before,
+        .icon-Milestone .path1:before,
+        .icon-Milestone .path2:before,
+        .icon-Milestone .path3:before,
+        .icon-Milestone .path4:before,
+        .icon-Notifications:before,
+        .icon-Supplier .path1:before,
+        .icon-Supplier .path2:before,
+        .icon-Supplier .path3:before,
+        .icon-Supplier .path4:before,
+        .icon-Tender .path1:before,
+        .icon-Tender .path2:before,
+        .icon-Tender .path3:before,
+        .icon-Tender .path4:before,
+        .icon-Tender .path5:before,
+        .icon-Tender .path6:before,
+        .icon-Tender .path7:before,
+        .icon-Tender .path8:before,
+        .icon-Tender .path9:before,
+        .fa-bell:before,
+        .icon-Invoice--Payments:before
+         {         
+                font-size: 36px !important;
+                color: #02b993;
+            }
+    }
+    .menu-name {
+        font-size: $ft-size6 *3 ;
+        line-height:22px;
+        color:$ft-white ;
+        padding: 10px 20px;
+    }
+    a:hover {
+        text-decoration: none !important;
+    }
+  }
+  
+ 
+
+ 

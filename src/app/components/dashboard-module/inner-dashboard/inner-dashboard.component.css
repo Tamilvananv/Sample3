@@ -1,0 +1,229 @@
+.dashboard-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.module-container {
+  position: relative;
+  margin-top: 90px;
+}
+
+.module-container a:hover {
+  background: #00a1e2;
+}
+
+.module-container a:hover .module-box {
+  background: #00a1e2;
+}
+
+.module-container .module-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: -50px;
+  display: flex;
+  width: 75%;
+  margin-left: 10px;
+  height: 100px;
+  background: #626262;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.module-container .module-box .icon-container {
+  margin-left: 20px;
+}
+
+.module-container .module-box .icon-Supplier-Information .path1:before,
+.module-container .module-box .icon-Supplier-Information .path2:before,
+.module-container .module-box .icon-Supplier-Information .path3:before,
+.module-container .module-box .icon-Supplier-Information .path4:before,
+.module-container .module-box .icon-Tender .path1:before,
+.module-container .module-box .icon-Tender .path2:before,
+.module-container .module-box .icon-Tender .path3:before,
+.module-container .module-box .icon-Tender .path4:before,
+.module-container .module-box .icon-Tender .path5:before,
+.module-container .module-box .icon-Tender .path6:before,
+.module-container .module-box .icon-Tender .path7:before,
+.module-container .module-box .icon-Tender .path8:before,
+.module-container .module-box .icon-Tender .path9:before,
+.module-container .module-box .icon-Contract:before,
+.module-container .module-box .icon-Milestone .path1:before,
+.module-container .module-box .icon-Milestone .path2:before,
+.module-container .module-box .icon-Milestone .path3:before,
+.module-container .module-box .icon-Milestone .path4:before,
+.module-container .module-box .icon-Payment:before,
+.module-container .module-box .icon-Notifications,
+.module-container .module-box .icon-Invoice--Payments:before,
+.module-container .module-box .icon-Tender-Management:before,
+.module-container .module-box .icon-Notifications:before {
+  font-size: 45px !important;
+  color: white !important;
+}
+
+.module-container .module-box h5 {
+  color: white;
+  font-size: 20px;
+  padding-left: 25px;
+}
+
+.module-container .data-box {
+  width: 100%;
+  height: 200px;
+  display: block;
+  background: white;
+  text-align: center;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.module-container .data-box_inner-container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 25%;
+}
+
+.menu-items-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 10%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.menu-items-container .menu-item {
+  background: #0291da;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 175px;
+  height: 200px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.menu-items-container .menu-item:hover {
+  background: #111188;
+}
+
+.menu-items-container .circle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 30px;
+  border-radius: 100px;
+  width: 75px;
+  height: 75px;
+  -webkit-box-shadow: inset 1px 0px 4px #000;
+          box-shadow: inset 1px 0px 4px #000;
+  background: white;
+}
+
+.menu-items-container .circle .icon-Address-Details .path1:before,
+.menu-items-container .circle .icon-Address-Details .path2:before,
+.menu-items-container .circle .icon-Address-Details .path3:before,
+.menu-items-container .circle .icon-Address-Details .path4:before,
+.menu-items-container .circle .icon-Address-Details .path5:before,
+.menu-items-container .circle .icon-Attachment-Section .path1:before,
+.menu-items-container .circle .icon-Attachment-Section .path2:before,
+.menu-items-container .circle .icon-Attachment-Section .path3:before,
+.menu-items-container .circle .icon-Bank-Details:before,
+.menu-items-container .circle .icon-Category--Scope:before,
+.menu-items-container .circle .icon-Contact-Details:before,
+.menu-items-container .circle .icon-Final-View:before,
+.menu-items-container .circle .icon-Financial--Business .path1:before,
+.menu-items-container .circle .icon-Financial--Business .path2:before,
+.menu-items-container .circle .icon-Financial--Business .path3:before,
+.menu-items-container .circle .icon-Financial--Business .path4:before,
+.menu-items-container .circle .icon-Financial--Business .path5:before,
+.menu-items-container .circle .icon-Financial--Business .path6:before,
+.menu-items-container .circle .icon-Financial--Business .path7:before,
+.menu-items-container .circle .icon-Financial--Business .path8:before,
+.menu-items-container .circle .icon-Financial--Business .path9:before,
+.menu-items-container .circle .icon-Financial--Business .path10:before,
+.menu-items-container .circle .icon-Financial--Business .path11:before,
+.menu-items-container .circle .icon-Financial--Business .path12:before,
+.menu-items-container .circle .icon-Supplier-Information .path1:before,
+.menu-items-container .circle .icon-Supplier-Information .path2:before,
+.menu-items-container .circle .icon-Supplier-Information .path3:before,
+.menu-items-container .circle .icon-Supplier-Information .path4:before,
+.menu-items-container .circle .icon-contact-us:before,
+.menu-items-container .circle .icon-hamburger:before,
+.menu-items-container .circle .icon-logout:before,
+.menu-items-container .circle .icon-Contract:before,
+.menu-items-container .circle .icon-Dashboard .path1:before,
+.menu-items-container .circle .icon-Dashboard .path2:before,
+.menu-items-container .circle .icon-Dashboard .path3:before,
+.menu-items-container .circle .icon-Dashboard .path4:before,
+.menu-items-container .circle .icon-Dashboard .path5:before,
+.menu-items-container .circle .icon-Dashboard .path6:before,
+.menu-items-container .circle .icon-Dashboard .path7:before,
+.menu-items-container .circle .icon-Milestone .path1:before,
+.menu-items-container .circle .icon-Milestone .path2:before,
+.menu-items-container .circle .icon-Milestone .path3:before,
+.menu-items-container .circle .icon-Milestone .path4:before,
+.menu-items-container .circle .icon-Notifications:before,
+.menu-items-container .circle .icon-Supplier .path1:before,
+.menu-items-container .circle .icon-Supplier .path2:before,
+.menu-items-container .circle .icon-Supplier .path3:before,
+.menu-items-container .circle .icon-Supplier .path4:before,
+.menu-items-container .circle .icon-Tender .path1:before,
+.menu-items-container .circle .icon-Tender .path2:before,
+.menu-items-container .circle .icon-Tender .path3:before,
+.menu-items-container .circle .icon-Tender .path4:before,
+.menu-items-container .circle .icon-Tender .path5:before,
+.menu-items-container .circle .icon-Tender .path6:before,
+.menu-items-container .circle .icon-Tender .path7:before,
+.menu-items-container .circle .icon-Tender .path8:before,
+.menu-items-container .circle .icon-Tender .path9:before,
+.menu-items-container .circle .fa-bell:before,
+.menu-items-container .circle .icon-Invoice--Payments:before {
+  font-size: 36px !important;
+  color: #02b993;
+}
+
+.menu-items-container .menu-name {
+  font-size: 18px;
+  line-height: 22px;
+  color: white;
+  padding: 10px 20px;
+}
+
+.menu-items-container a:hover {
+  text-decoration: none !important;
+}
+/*# sourceMappingURL=inner-dashboard.component.css.map */

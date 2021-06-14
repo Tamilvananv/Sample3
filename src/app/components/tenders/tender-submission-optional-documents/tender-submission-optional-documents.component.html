@@ -1,0 +1,136 @@
+<div class="panel-body panel-body1 table-box">
+    <div class="table-responsive table-area">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{{'Category' | translate}}</th>
+                    <th width="400">{{'Document Name' | translate}}</th>
+                    <th>{{'Description' | translate}}</th>
+                    <th>{{'Upload Status' | translate}}</th>
+                    <th>{{'Upload Date & Time' | translate}}</th>
+                    <th>{{'Uploaded By' | translate}}</th>
+                    <!-- <th class="text-center">{{'Action' | translate}}</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let optDoc of tenderDtls.tenderOptDocList;index as i">
+                    <td [attr.data-title]="'Category' | translate"> <span>{{optDoc.docCategory}}</span></td>
+                    <td [attr.data-title]="'Document Name' | translate" *ngIf="optDoc.docName != null && optDoc.docName != 'BidBond'"> <span>{{optDoc.docName}}</span>
+                    
+                        <div class="pull-right" 
+                        *ngIf="tenderDtls.tenderMaster.tenderSubmissionStatusId != '3001' && tenderDtls.tenderMaster.tender_status != '8023'">
+                        <a  
+                            (click)="downloadDoc(optDoc.docId,optDoc.docName,optDoc.docFileType,optDoc.docType)"><i
+                            class="fa fa-download"
+                            aria-hidden="true"></i>
+                        </a>
+                            &nbsp;&nbsp;&nbsp;
+                        <a 
+                            (click)="deleteDoc(optDoc.docId,optDoc.docType,optDoc.docFlag,'opt',optDoc.docDesc)"><i
+                            class="fa fa-trash"
+                            aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    </td>
+
+                    <td [attr.data-title]="'File Upload' | translate" *ngIf="isPrequalified == true && isScopeOne == false && tenderMode == 8012 && optDoc.docType == 'M' "
+                        >                        
+                        <div class="dropzone" 
+                            data-target="#showPopup2"
+                            data-toggle="modal">&nbsp; 
+                            {{'Select files here to upload'| translate}}
+                            </div>
+                    </td>
+                    <td  [attr.data-title]="'Upload Status' | translate"
+                        
+                        *ngIf="(isPrequalified == false && isScopeOne == false && tenderMode == 8012)&&(optDoc.docName == null && 
+                        tenderDtls.tenderMaster.tender_status != '8023' && tenderDtls.tenderMaster.dateCheckFlag==true)">
+                        <div class="dropzone" href=""
+                            data-target="#showPopup3"
+                            data-toggle="modal">&nbsp;
+                            {{'Select files here to upload'| translate}}
+                            </div>
+                    </td>
+                    <td [attr.data-title]="'File Upload' | translate"
+                       
+                        *ngIf="(isPrequalified == true && isScopeOne == true && tenderMode == 8012 && isInvited == false) && (optDoc.docName == null && tenderDtls.tenderMaster.tender_status != '8023' && tenderDtls.tenderMaster.dateCheckFlag==true)">
+                        <div class="dropzone" href=""
+                            data-target="#showPopup4"
+                            data-toggle="modal">&nbsp; 
+                            {{'Select files here to upload'| translate}}
+                            </div>
+                    </td>
+<!-- need to check whether the below td with condition is required or not--- need to know what is subdate
+                    <td data-title="File Upload"
+			*ngIf="tenderDoc.docName == null && tender.tenderMaster.tender_status != '8023' && subDate < today"></td> -->
+                    <td [attr.data-title]="'File Upload' | translate"
+                        *ngIf="optDoc.docName == null && tenderDtls.tenderMaster.tender_status == '8023'">
+                    </td>
+                    <td [attr.data-title]="'File Upload' | translate"> <span>{{optDoc.docDesc}}</span></td>
+                    <!-- <td> <span>{{optDoc.docStatus}}</span></td> -->
+                    <td> 
+                        <button type="button" class="btn btn-success">{{optDoc?.docStatus}}</button></td>
+                    <td [attr.data-title]="'File Upload' | translate"> <span>{{optDoc.uploadedDate}}</span></td>                                      
+                    <td [attr.data-title]="'File Upload' | translate"> <span>{{optDoc.uploadedBy}}</span></td>
+                    <td [attr.data-title]="'Action' | translate" class="text-center">
+                        <!-- <a (click)="downloadDocument(rfpDoc.docName)"> <i class="fa fa-download ft-blue"></i></a> -->
+                    </td>
+
+                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal fade table-model" id="showPopup2" tabindex="-1" role="dialog" aria-labelledby="titlePopup2" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <div class="modal-title">{{'Information' | translate}}</div>
+        </div>
+        <div class="modal-body">
+            <span>{{'mesg1' | translate}}</span><br><br>
+            <span>{{'mesg2' | translate}}</span><br><br>
+            <span>{{'mesg3' | translate}}</span>
+        </div>
+        <div class="modal-footer">
+            <button  data-dismiss="modal" aria-label="Close"  type="submit" class="clear-btn ml-3"> {{'Ok' | translate}} </button>
+        </div>
+        
+    </div>
+    </div>
+</div>
+<div class="modal fade table-model" id="showPopup3" tabindex="-1" role="dialog" aria-labelledby="titlePopup3" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <div class="modal-title">{{'Information' | translate}}</div>
+        </div>
+        <div class="modal-body">
+            <span>{{'mesg8' | translate}}</span><br><br>
+            <span>{{'mesg9' | translate}}</span><br><br>
+            <span>{{'mesg10' | translate}}</span>
+            
+        </div>
+        <div class="modal-footer">
+            <button  data-dismiss="modal" aria-label="Close"  type="submit" class="clear-btn ml-3"> {{'Ok' | translate}} </button>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="modal fade table-model" id="showPopup4" tabindex="-1" role="dialog" aria-labelledby="titlePopup4" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <div class="modal-title">{{'Information' | translate}}</div>
+        </div>
+        <div class="modal-body">
+            <span>{{'mesg4' | translate}}</span><br><br>
+            <span>{{'mesg5' | translate}}</span>                  
+        </div>
+        <div class="modal-footer">
+            <button  data-dismiss="modal" aria-label="Close"  type="submit" class="clear-btn ml-3"> {{'Ok'|translate}} </button>
+        </div>
+    </div>
+    </div>
+</div>

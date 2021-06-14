@@ -1,0 +1,213 @@
+<header id="header" class="header-top top-shadow ">
+    <div class="container pt-3 pb-3">
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+            <!-- Navbar brand -->
+            <div class="logo mr-2">
+                <a><img routerLink="/dashboard" src="assets/img/Procure360-logo.png" alt="" class="img-fluid"></a>
+            </div>
+
+            <!-- Collapse button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <span class="mr-auto">&nbsp;</span>
+                <ul class="navbar-nav">
+                    <li *ngIf="isLoginMenu" class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" tabindex="0" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="menuBarClick()"> <span class="icon-hamburger pr-1"></span> {{'menu' | translate}}
+                        </a>
+                        <ul class="dropdown-menu">
+
+                            <ng-container *ngIf="menuList.length>0">
+                                <li *ngFor="let menus of menuList">
+                                    <ng-template [ngIf]="menus.submenu.length>0" [ngIfElse]="firstSubMenus">
+                                        <a class="dropdown-item"> {{menus.menuName | translate}}
+                                    &raquo; 
+                                </a>
+
+                                    </ng-template>
+                                    <ng-template #firstSubMenus>
+                                        <a class="dropdown-item" routerLink="{{menus.menuUrl}}" href="">{{menus.menuName | translate}}</a>
+                                    </ng-template>
+                                    <ng-container *ngIf="menus.submenu">
+                                        <ul class="submenu dropdown-menu">
+
+                                            <li *ngFor="let subMenus of menus.submenu">
+                                                <ng-template [ngIf]="subMenus.submenu.length>0" [ngIfElse]="secondSubMenus">
+                                                    <a class="dropdown-item"> {{subMenus.menuName | translate}}
+                                            &raquo;
+                                        </a>
+
+                                                </ng-template>
+                                                <ng-template #secondSubMenus>
+                                                    <a class="dropdown-item" routerLink="{{subMenus.menuUrl}}" href="">{{subMenus.menuName | translate}}</a>
+                                                </ng-template>
+                                                <ng-container *ngIf="subMenus.submenu">
+                                                    <ul *ngFor="let secondSubMenu of subMenus.submenu" class="submenu dropdown-menu">
+                                                        <li><a class="dropdown-item" routerLink="{{secondSubMenu.menuUrl}}">{{secondSubMenu.menuName |
+                                                            translate}}</a>
+                                                        </li>
+                                                    </ul>
+                                                </ng-container>
+                                            </li>
+                                        </ul>
+                                    </ng-container>
+                                </li>
+
+
+                            </ng-container>
+
+
+                            <!-- <li><a class="dropdown-item"> {{'supplier-registration' | translate}}
+                                            &raquo;
+                                        </a>
+                                        <ul class="submenu dropdown-menu">
+                                            <li><a class="dropdown-item" routerLink="/supplier-info"
+                                                    href="">{{'Manage-Supplier-Registration' | translate}}</a>
+                                            </li>
+                                            <li><a class="dropdown-item" [class.disabled]="!qualifiedStatus"
+                                                    (click)="profileUpdateSupplierTabs()"> {{'Profile Updates' |
+                                                    translate}}
+                                                </a></li>
+                                            <li><a class="dropdown-item" [class.disabled]="!qualifiedStatus"
+                                                    (click)="addRemoveScopeSupplierTabs()">
+                                                    {{'Add/Remove Scope' | translate}}
+                                                </a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a class="dropdown-item" routerLink="/tenders-dashboard">
+                                            {{'Tender-Management'
+                                            | translate}}
+                                            &raquo; </a>
+                                        <ul class="submenu dropdown-menu">
+
+                                            <li><a class="dropdown-item" routerLink="/public-tenders" href="">{{'Public
+                                                    Tenders' | translate}}/{{'Open Tenders' | translate}}
+                                                </a></li>
+                                            <li><a class="dropdown-item" routerLink="/limited-tenders"
+                                                    href="">{{'Limited
+                                                    Tenders' | translate}}</a></li>
+                                            <li><a class="dropdown-item" routerLink="/rfi" href="">{{'RFI' |
+                                                    translate}}</a></li>
+                                            <li><a class="dropdown-item" routerLink="/auction" href="">{{'Auction /
+                                                    Reverse Auction' | translate}}</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item" routerLink="/contract-">{{'Contract-Management'
+                                            |
+                                            translate}}&raquo;
+                                        </a>
+                                        <ul class="submenu dropdown-menu">
+                                            <li><a class="dropdown-item" routerLink="/contract-search" href="">
+                                                    {{'Contracts' | translate}} &raquo;</a>
+                                                <ul class="submenu dropdown-menu">
+                                                    <li><a class="dropdown-item">{{'Revenue Contract' |
+                                                            translate}}</a>
+                                                    </li>
+                                                    <li><a class="dropdown-item">{{'Expense-Contract' |
+                                                            translate}}</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li><a class="dropdown-item" routerLink="/claim-search"
+                                                    href="">{{'Contract-Claims' | translate}}</a>
+                                            </li>
+                                            <li><a class="dropdown-item" routerLink="/variation-order-search"
+                                                    href="">{{'Contract-Variations' | translate}}</a>
+                                            </li>
+                                            <li><a class="dropdown-item" routerLink="/temp-create" href="">{{'Contract
+                                                    Template' | translate}}</a></li>
+                                            <li><a class="dropdown-item" href="" routerLink="/linking-contract">{{'Link
+                                                    Template' | translate}}</a></li>
+                                                    <li><a class="dropdown-item" href="" routerLink="/template-respository">
+                                                        {{'Template Respository' | translate}}</a></li>
+                                                        <li><a class="dropdown-item" href="" routerLink="/contract-creation">
+                                                            {{'Contract Creation' | translate}}</a></li>
+                                            <li><a class="dropdown-item" href=""
+                                                    routerLink="/link-temp-contract">{{'Assign Contract' |
+                                                    translate}}</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a class="dropdown-item" routerLink="/milestone-completion"
+                                            href="">{{'Milestone-Completion' | translate}}</a></li>
+                                    <li><a class="dropdown-item" routerLink="/payment" href="">{{'Invoice-and-Payments'
+                                            | translate}}</a>
+                                    </li>
+                                    <li><a class="dropdown-item" routerLink="/inner-dashboard" href="">{{'Analytics'
+                                            |
+                                            translate}}</a>
+                                    </li>
+                                    <li><a class="dropdown-item" routerLink="/notification" href="">{{'Notifications' |
+                                            translate}}</a>
+                                    </li>
+                                    <li><a class="dropdown-item" routerLink="/customer-vendor-collabration"
+                                            href="">{{'Customer-Vendor-Collabration' | translate}}</a>
+                                    </li>
+                                    <li><a class="dropdown-item">{{'Others' | translate}} &raquo;</a>
+                                        <ul class="submenu dropdown-menu">
+                                            <li><a class="dropdown-item" routerLink="/customer-dashboard" href="">
+                                                    {{'Others' | translate}}</a></li>
+
+                                            <li><a class="dropdown-item"> {{'Text Editor' | translate}}&raquo;
+                                                </a>
+                                                <ul class="submenu dropdown-menu">
+                                                    <li><a class="dropdown-item" href="">{{'Menu Level 2' |
+                                                            translate}}
+                                                            &raquo; </a>
+                                                        <ul class="submenu dropdown-menu">
+                                                            <li><a class="dropdown-item" routerLink="/text-editor"
+                                                                    href="">{{'Text
+                                                                    Editor' | translate}} </a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="dropdown-item" routerLink="/entity-assignment"
+                                                    href="">{{'Entity
+                                                    Assignment' | translate}}</a>
+                                            </li>
+
+                                        </ul>
+                                    </li> -->
+                        </ul>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link " tabindex="1" routerLink="/dashboard" href="#"><span
+                                        class="icon-home3 pr-1"></span> {{'home' | translate}}
+                                    <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" tabindex="2"><span
+                                        class="icon-contact-us pr-1"></span>{{'contactus' |
+                                    translate}}</a>
+                    </li>
+                    <li class="nav-item" *ngIf="isLoginMenu">
+                        <a class="nav-link" (click)="onLogout()" tabindex="3"><span
+                                        class="icon-logout pr-1"></span>{{'logout' |
+                                    translate}}</a>
+                    </li>
+                    <li class="nav-item sep-hide">
+                        <span style="color:#ddd; margin-right:5px">|</span>
+                    </li>
+                    <li class="nav-item">
+                        <div *ngIf="currDiv == 'A'" class="lang-btn">
+                            <a tabindex="4" (click)="useLanguage('ar'); ShowDiv('B')"><span class="hrcAhc"
+                                            lang="ar">العربية</span></a>
+
+                        </div>
+                        <div *ngIf="currDiv == 'B'" class="lang-btn">
+                            <a tabindex="4" (click)="useLanguage('en'); ShowDiv('A')" class="pr-3">English</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- navbar-collapse.// -->
+        </nav>
+    </div>
+</header>

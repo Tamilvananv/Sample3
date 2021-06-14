@@ -1,0 +1,55 @@
+<div class="panel-body panel-body1 table-box">
+    <div class="table-responsive table-area">
+        <div class="d-flex table-area mt-2">
+            <div class="table-responsive table-box">
+            
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>{{'S.No' | translate}}</th>
+                      <th>{{'Category' | translate}}</th>
+                      <th>{{'RFP Document Reference' | translate}}</th>
+                      <th>{{'Questions' | translate}}</th>
+                      <th>{{'Reference Document' | translate}}</th>
+                      <th>{{'Submitted Date' | translate}}</th>
+                      <th>{{'Submitted By' | translate}}</th>
+                    </tr>
+                    <tr *ngFor="let postQueryNotification of postQueriesNotificationList; let i=index ">
+                        <td [attr.data-title]="'S.No' | translate"><span>{{i+1}}</span></td>
+                        <td [attr.data-title]="'Category' | translate"><span>{{postQueryNotification?.queryCategory}}</span></td>
+                        <td [attr.data-title]="'RFP Document Reference' | translate"><span>{{postQueryNotification?.repDocumentRefNo}}</span></td>
+                        <td [attr.data-title]="'Questions' | translate"><span>{{postQueryNotification?.question}}</span></td>
+                        <td [attr.data-title]="'Reference Document' | translate"><span>{{postQueryNotification?.docFileName}}</span></td>
+                        <td [attr.data-title]="'Submitted Date' | translate"><span>{{postQueryNotification?.submittedDate}}</span></td>
+                        <td [attr.data-title]="'Submitted By' | translate"><span>{{postQueryNotification?.submittedBy}}</span></td>
+                    </tr>
+                   <!--  <tr>
+                        <td><span>2</span></td>
+                        <td><span>Contractual</span></td>
+                        <td><span>3456</span></td>
+                        <td><span>Question To Ven 58</span></td>
+                        <td><span></span></td>
+                        <td><span>10-NOV-2017 00:00:00</span></td>
+                        <td><span>VendorUser</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>3</span></td>
+                        <td><span>Contractual</span></td>
+                        <td><span>3456</span></td>
+                        <td><span>Question To Ven 58</span></td>
+                        <td><span></span></td>
+                        <td><span>10-NOV-2017 00:00:00</span></td>
+                        <td><span>VendorUser</span></td>
+                    </tr> -->
+          
+                    </thead>
+              
+                  </table>
+          
+                
+              </div>   
+            </div>
+           
+    </div>
+
+</div>

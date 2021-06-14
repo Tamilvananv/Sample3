@@ -1,0 +1,149 @@
+<form>
+    <div class="temp-create">
+
+
+        <!-- --------------- breadcrumb ---------------- -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb pl-0 mt-0">
+                <li class="breadcrumb-item active" aria-current="page">{{'Template Contract' | translate}}</li>
+            </ol>
+        </nav>
+
+        <!-- --------------- Alert area ---------------- -->
+        <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+
+        <!-- ---------------------- Contract Template Creation ------------------------------ -->
+
+
+        <div class="d-flex">
+            <div class="form-container">
+                <div class="col-sm-12">
+                    <h1 class="pt-3">{{'Contract Template Creation' | translate}}</h1>
+                </div>
+                <div class="col-sm-12 form-group">
+                    <div class="row row-gap">
+                        <div class="col-sm-4 column-gap">
+                            <div class="">
+                                <input type="text" class="form-control floating-input" placeholder=" "
+                                    onkeyup="this.setAttribute('value', this.value);" autocomplete="off" />
+                                <span class="highlight"></span>
+                                <label>{{'Template ID' | translate}}<sup>*</sup></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 column-gap">
+                            <div class="">
+                                <input type="text" class="form-control floating-input" name="Template Start Date"
+                                    placeholder=" " bsDatepicker>
+                                <span class="highlight"></span>
+                                <label>{{'Template Start Date' | translate}}<sup>*</sup></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 column-gap">
+                            <div class="">
+                                <input type="text" class="form-control floating-input" name="Template Start Date"
+                                    placeholder=" " bsDatepicker>
+                                <span class="highlight"></span>
+                                <label>{{'Template End Date' | translate}}<sup>*</sup></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-gap">
+                        <div class="col-sm-4 column-gap">
+                            <div class="">
+                                <input type="text" class="form-control floating-input" placeholder=" "
+                                    onkeyup="this.setAttribute('value', this.value);" autocomplete="off" />
+                                <span class="highlight"></span>
+                                <label>{{'Template Short Name' | translate}}</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 column-gap">
+                            <div class="">
+                                <input type="text" class="form-control floating-input" placeholder=" "
+                                    onkeyup="this.setAttribute('value', this.value);" autocomplete="off" />
+                                <span class="highlight"></span>
+                                <label>{{'Template Version' | translate}}</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 column-gap">
+                            <div class="">
+                                <input type="text" class="form-control floating-input" name="RFI Submission Date"
+                                    placeholder=" " bsDatepicker>
+                                <span class="highlight"></span>
+                                <label>{{'Template Amend Date' | translate}}<sup>*</sup></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-gap">
+                        <div class="col-sm-12 column-gap">
+                            <div class="">
+                                <input type="text" class="form-control floating-input" placeholder=" "
+                                    onkeyup="this.setAttribute('value', this.value);" autocomplete="off" />
+                                <span class="highlight"></span>
+                                <label>{{'Template Long Name' | translate}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-gap">
+                        <div class="col-sm-4 column-gap">
+                            <div class="">
+                                <select class="form-control floating-select"
+                                    onclick="this.setAttribute('value', this.value);" name="contract type"
+                                    autocomplete="off" required>
+                                    <option hidden="true" value=""></option>
+                                    <option default="true" value="">{{'Select' | translate}}</option>
+                                    <option value="dummy">dummy </option>
+                                </select>
+                                <span class="highlight"></span>
+                                <label>{{'Contract Type' | translate}}</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 column-gap">
+                            <div class="">
+                                <select class="form-control floating-select"
+                                    onclick="this.setAttribute('value', this.value);" name="contract type"
+                                    autocomplete="off" required>
+                                    <option hidden="true" value=""></option>
+                                    <option default="true" value="">{{'Select' | translate}}</option>
+                                    <option value="dummy">dummy </option>
+                                </select>
+                                <span class="highlight"></span>
+                                <label>{{'Contract Nature' | translate}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="pt-3 sub-header">{{'Create Contract Content' | translate}}</h1>
+                </div>
+            </div>
+        </div>
+       
+            <div class="row">
+            <div class="col-sm-12">
+                <textarea cols="50" rows="5"> </textarea>
+                <!-- <ejs-richtexteditor id='defaultRTE' [toolbarSettings]='tools'>
+                    <ng-template #valueTemplate>
+                        {{'Enter your text here' | translate}}
+                    </ng-template>
+                </ejs-richtexteditor> -->
+                </div>
+            </div>
+
+
+
+        <!-- --------------- save and navigation ---------------- -->
+
+        <section id="pagination" class="pagination-area mt-2">
+            <div class="d-flex">
+                <span class="mr-auto">&nbsp;</span>
+                <button type="button" class="save-btn">{{'DRAFT' | translate}} </button>
+                <button type="button" class="save-btn  ml-4 mr-4">{{'SAVE' | translate}} </button>
+                <button type="button" class="save-btn">{{'ASIGN CATEGORY SCOPE' | translate}} </button>
+            </div>
+        </section>
+    </div>
+</form>

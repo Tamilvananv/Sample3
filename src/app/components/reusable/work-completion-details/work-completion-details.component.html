@@ -1,0 +1,92 @@
+<div class="data-details">
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top">
+        <div class="col-sm-2">
+         
+            <span> {{'Work Completed Date' | translate}}</span>
+            <!-- <strong>{{workCompletionDetails.workCompletionDate}}</strong> -->
+        </div>
+        <div class="col-sm-3">
+            <div class="form-container bg-none box-shadow-none">
+                <input #wcDate (click)="wcDate.setAttribute('type','date');changeFormat($event)" (blur)="wcDate.setAttribute('type','text');changeFormat($event)"
+                    class="form-control" placeholder="" name=""
+                [(ngModel)]="workCompletionDetails.workCompletionDate"  
+                 autocomplete="off" />
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+            <span>{{'Work Completion %' | translate}}</span>
+            <!-- <strong>{{workCompletionDetails.completionPercent}}</strong> -->
+        </div>
+        <div class="col-sm-3" >
+            <div class="form-container bg-none box-shadow-none">
+                <input type="email" class="form-control" [(ngModel)]="workCompletionDetails.completionPercent" placeholder="" name=""
+                    value="{{workCompletionDetails.completionPercent}}" autocomplete="off" />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top even-row-bg">
+        <div class="col-sm-2">
+            <span>{{'Number of Days' | translate}}</span>
+            <!-- <strong>{{workCompletionDetails.noOfDays}}</strong> -->
+        </div>
+        <div class="col-sm-3" >
+            <div class="form-container bg-none box-shadow-none">
+                <input type="email" class="form-control bg-none" 
+                [(ngModel)]="workCompletionDetails.noOfDays"  placeholder="" name=""
+                    value="{{workCompletionDetails.noOfDays}}" autocomplete="off" />
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+            <span>{{'Total Items Delivered' | translate}}</span>
+            <!-- <strong>{{workCompletionDetails.itemsDelivered}}</strong> -->
+        </div>
+        <div class="col-sm-3" >
+            <div class="form-container bg-none box-shadow-none">
+                <input type="email" class="form-control bg-none" [(ngModel)]="workCompletionDetails.itemsDelivered"   placeholder="" name=""
+                    value="{{workCompletionDetails.itemsDelivered}}" autocomplete="off" />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top ">
+        <!-- <div class="col-sm-6" *ngIf="workCompletionDetails">
+            <span>{{'Total Items Delivered' | translate}}</span><br>
+            <strong>{{workCompletionDetails.itemsDelivered}}</strong>
+        </div> -->
+        <div class="col-sm-2">
+            <span>{{'VAT Amount (AED)' | translate}}</span>
+            <!-- <strong>{{workCompletionDetails.vatAmt}}</strong> -->
+        </div>
+        <div class="col-sm-2">
+            <div class="form-container bg-none box-shadow-none">
+                <input [(ngModel)]="workCompletionDetails.vatAmt"  class="form-control bg-none" placeholder="" name=""
+                    value="{{workCompletionDetails.vatAmt}}" autocomplete="off" />
+            </div>
+        </div>
+        <!-- <div class="col-sm-2" *ngIf="workCompletionDetails">
+            <span>VAT Amount (AED)</span>
+        </div>
+        <div class="col-sm-2" *ngIf="workCompletionDetails">
+            <div class="form-container bg-none box-shadow-none">
+                <input type="email" class="form-control bg-none" placeholder="" name=""
+                    value="{{workCompletionDetails.vatAmt}}" autocomplete="off" />
+            </div>
+        </div> -->
+        <div class="col-sm-2">
+            <span>{{'Total Amount (AED)' | translate}}</span>
+            <!-- <strong>{{workCompletionDetails.totalAmt}}</strong> -->
+        </div>
+        <div class="col-sm-2" >
+            <div class="form-container bg-none box-shadow-none">
+                <input type="email" class="form-control bg-none" 
+                [(ngModel)]="workCompletionDetails.totalAmt"  placeholder="" name=""
+                    value="{{workCompletionDetails.totalAmt}}" autocomplete="off" />
+            </div>
+        </div>
+    </div>
+</div>

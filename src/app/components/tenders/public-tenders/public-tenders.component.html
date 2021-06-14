@@ -1,0 +1,56 @@
+<div class="d-flex">
+  <div class="col-sm-6 pr-0 pl-0 ">
+    <nav aria-label="breadcrumb" id="breadcrumb">
+      <ol class="breadcrumb pl-0 mt-0">
+        <li class="breadcrumb-item active" aria-current="page">{{'Public Tenders' | translate}}</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="col-sm-6 pr-0 pl-0 pt-2 expand-collapse">
+    <app-collapse-expand-btn class="pull-right"></app-collapse-expand-btn>
+  </div>
+</div>
+<!-- --------------- Alert area ---------------- -->
+<div class="panel-group " id="accordion">
+  <div class="panel panel-default" *ngFor="let tenderMaster of tenderMasterList">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <div class="row">
+          <div class="col-sm-4">
+            <a (click)=cacheTenderMaster(tenderMaster) routerLink="/tender-details">
+              {{tenderMaster?.tender_no}}
+            </a>
+          </div>
+          <div class="col-sm-8">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+              style="text-decoration: none;">
+              <strong class="pl-3">{{tenderMaster?.tender_name}}</strong>
+            </a>
+          </div>
+        </div>
+
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in show">
+      <div class="panel-body panel-body1 p-3">        
+          <div class="panel-body panel-body1 table-box">
+            <app-public-tender-detail [tenderMasterDtl]="tenderMaster"></app-public-tender-detail>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<div class="d-flex table-area mt-5">
+  <div class="table-responsive table-box">
+
+    <div *ngIf="masterData.length>0" class="d-flex justify-content-between p-2">
+      <app-pagination-record-count [totalRec]="totalRecordsCount" (selectedGridCount)="selectedGridCountChange($event)">
+      </app-pagination-record-count>
+      <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount" [recordsPerPage]="recCount"
+        (onPageChange)="displayActivePage($event)">
+      </app-pagination>
+    </div>
+  </div>
+</div>

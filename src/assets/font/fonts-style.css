@@ -1,0 +1,264 @@
+@font-face {
+    font-family: 'Hero';
+    src: url('Hero.eot');
+    src: url('Hero.eot?#iefix') format('embedded-opentype'),
+        url('Hero.woff2') format('woff2'),
+        url('Hero.woff') format('woff'),
+        url('Hero.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-Medium.eot');
+    src: url('HeroNew-Medium.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-Medium.woff2') format('woff2'),
+        url('HeroNew-Medium.woff') format('woff'),
+        url('HeroNew-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New Hairline';
+    src: url('HeroNew-HairlineItalic.eot');
+    src: url('HeroNew-HairlineItalic.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-HairlineItalic.woff2') format('woff2'),
+        url('HeroNew-HairlineItalic.woff') format('woff'),
+        url('HeroNew-HairlineItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-BoldItalic.eot');
+    src: url('HeroNew-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-BoldItalic.woff2') format('woff2'),
+        url('HeroNew-BoldItalic.woff') format('woff'),
+        url('HeroNew-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-UltraLight.eot');
+    src: url('HeroNew-UltraLight.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-UltraLight.woff2') format('woff2'),
+        url('HeroNew-UltraLight.woff') format('woff'),
+        url('HeroNew-UltraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-MediumItalic.eot');
+    src: url('HeroNew-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-MediumItalic.woff2') format('woff2'),
+        url('HeroNew-MediumItalic.woff') format('woff'),
+        url('HeroNew-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-RegularItalic.eot');
+    src: url('HeroNew-RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-RegularItalic.woff2') format('woff2'),
+        url('HeroNew-RegularItalic.woff') format('woff'),
+        url('HeroNew-RegularItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero';
+    src: url('Hero-Light.eot');
+    src: url('Hero-Light.eot?#iefix') format('embedded-opentype'),
+        url('Hero-Light.woff2') format('woff2'),
+        url('Hero-Light.woff') format('woff'),
+        url('Hero-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-UltraLightItalic.eot');
+    src: url('HeroNew-UltraLightItalic.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-UltraLightItalic.woff2') format('woff2'),
+        url('HeroNew-UltraLightItalic.woff') format('woff'),
+        url('HeroNew-UltraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-ExtraBold.eot');
+    src: url('HeroNew-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-ExtraBold.woff2') format('woff2'),
+        url('HeroNew-ExtraBold.woff') format('woff'),
+        url('HeroNew-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-Thin.eot');
+    src: url('HeroNew-Thin.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-Thin.woff2') format('woff2'),
+        url('HeroNew-Thin.woff') format('woff'),
+        url('HeroNew-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-Regular.eot');
+    src: url('HeroNew-Regular.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-Regular.woff2') format('woff2'),
+        url('HeroNew-Regular.woff') format('woff'),
+        url('HeroNew-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-SemiBoldItalic.eot');
+    src: url('HeroNew-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-SemiBoldItalic.woff2') format('woff2'),
+        url('HeroNew-SemiBoldItalic.woff') format('woff'),
+        url('HeroNew-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-LightItalic.eot');
+    src: url('HeroNew-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-LightItalic.woff2') format('woff2'),
+        url('HeroNew-LightItalic.woff') format('woff'),
+        url('HeroNew-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-Bold.eot');
+    src: url('HeroNew-Bold.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-Bold.woff2') format('woff2'),
+        url('HeroNew-Bold.woff') format('woff'),
+        url('HeroNew-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New Super';
+    src: url('HeroNew-Super.eot');
+    src: url('HeroNew-Super.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-Super.woff2') format('woff2'),
+        url('HeroNew-Super.woff') format('woff'),
+        url('HeroNew-Super.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New Hairline';
+    src: url('HeroNew-Hairline.eot');
+    src: url('HeroNew-Hairline.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-Hairline.woff2') format('woff2'),
+        url('HeroNew-Hairline.woff') format('woff'),
+        url('HeroNew-Hairline.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New Super';
+    src: url('HeroNew-SuperItalic.eot');
+    src: url('HeroNew-SuperItalic.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-SuperItalic.woff2') format('woff2'),
+        url('HeroNew-SuperItalic.woff') format('woff'),
+        url('HeroNew-SuperItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-Light.eot');
+    src: url('HeroNew-Light.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-Light.woff2') format('woff2'),
+        url('HeroNew-Light.woff') format('woff'),
+        url('HeroNew-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-SemiBold.eot');
+    src: url('HeroNew-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-SemiBold.woff2') format('woff2'),
+        url('HeroNew-SemiBold.woff') format('woff'),
+        url('HeroNew-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-ThinItalic.eot');
+    src: url('HeroNew-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-ThinItalic.woff2') format('woff2'),
+        url('HeroNew-ThinItalic.woff') format('woff'),
+        url('HeroNew-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hero New';
+    src: url('HeroNew-ExtraBoldItalic.eot');
+    src: url('HeroNew-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('HeroNew-ExtraBoldItalic.woff2') format('woff2'),
+        url('HeroNew-ExtraBoldItalic.woff') format('woff'),
+        url('HeroNew-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+

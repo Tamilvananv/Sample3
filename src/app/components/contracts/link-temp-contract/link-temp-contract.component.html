@@ -1,0 +1,210 @@
+<form>
+  <div class="container">
+
+    <!-- --------------- breadcrumb ---------------- -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb pl-0 mt-0">
+        <li class="breadcrumb-item active" aria-current="page">{{'Linking Template' | translate}}</li>
+      </ol>
+    </nav>
+
+    <!-- --------------- Alert area ---------------- -->
+    <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+
+    <!-- ---------------------- Add Category Information ------------------------------ -->
+    <div class="d-flex">
+      <div class="form-container">
+        <div class="col-sm-12 col-md-12 pt-4">
+          <h1 class="p-3">{{'Linking Template' | translate}}</h1>
+        </div>
+        <div class="d-flex">
+          <div class="col-md-12 pl-5 pr-5 pb-3">
+            <form>
+              <div class="form-group row ">
+                <div class="col-sm-12 col-md-6 col-lg-3 pb-3">
+                  <select class="form-control">
+                    <option>{{'Template ID' | translate}}</option>
+                  </select>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-3 pb-3">
+                  <select class="form-control">
+                    <option>{{'Parent Category' | translate}}</option>
+                  </select>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-3 pb-3">
+                  <select class="form-control">
+                    <option>{{'Sub Category' | translate}}</option>
+                  </select>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-3 pb-3">
+                  <select class="form-control">
+                    <option>{{'Child Category' | translate}}</option>
+                  </select>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------------------- Documents ------------------------------ -->
+    <div class="d-flex mt-4">
+      <div class="form-container documents">
+        <div class="row p-4">
+          <div class="col-sm-6">
+            <div class="row">
+              <h1 class="p-3">{{'Mandatory Documents' | translate}}</h1>
+            </div>
+            <div class="row">
+
+              <div class="col-sm-6">
+                <select multiple id="select1">
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                  <option value="4">Option 4</option>
+                </select>
+                <a href="#" id="add" class="p-2">{{'add' | translate}} &gt;&gt;</a>
+              </div>
+              <div class="col-sm-6">
+                <select multiple id="select2"></select>
+                <a href="#" id="remove" class="p-2">&lt;&lt; {{'remove' | translate}}</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-sm-6">
+            <div class="row">
+              <h1 class="p-3">{{'Optional Documents' | translate}} </h1>
+            </div>
+            <div class="row">
+
+              <div class="col-sm-6">
+                <select multiple id="select1">
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                  <option value="4">Option 4</option>
+                </select>
+                <a href="#" id="add" class="p-2">{{'add' | translate}} &gt;&gt;</a>
+              </div>
+              <div class="col-sm-6">
+                <select multiple id="select2"></select>
+                <a href="#" id="remove" class="p-2">&lt;&lt; {{'remove' | translate}}</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 mt-4">
+        <section id="pagination" class="pagination-area">
+          <div class="container">
+            <div class="d-flex">
+              <span class="mr-auto">&nbsp;</span>
+              <a routerLink=""><button type="submit" class="page-link save mr-4"> {{'CLEAR' | translate}} </button></a>
+              <a routerLink=""><button type="submit" class="page-link save"> {{'SAVE' | translate}} </button></a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- --------------------- Table area -------------------------------- -->
+
+    <div class="d-flex table-area mt-2">
+      <div class="table-responsive table-box">
+
+        <table class="table table-striped" id="linkTempContractTable">
+          <thead>
+            <tr>
+              <th  (click)="sortTable(0)">{{'Template ID' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(1)">{{'Parent Category' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(2)">{{'Sub-Category' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(3)">{{'Child Category' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(4)">{{'Created By' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(5)">{{'Created Date' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th></th>
+            </tr>
+            <!-- <tr class="form-container form-group">
+              <td> <input type="text" class="form-control" id="Address" placeholder="Template_01"></td>
+              <td> <input type="text" class="form-control" id="Address" placeholder="Assest Management"></td>
+              <td> <input type="text" class="form-control" id="Address" placeholder="Supply of Hardware"></td>
+              <td> <input type="text" class="form-control" id="Address" placeholder="Data Mining"></td>
+              <td> <input type="text" class="form-control" id="Address" placeholder="Guru"></td>
+              <td> <input type="text" class="form-control" id="Address" placeholder="01-01-2018"></td>
+              <td> <input type="checkbox" name="bank" id="name"></td>
+            </tr> -->
+          </thead>
+          <tbody>
+            <tr>
+              <td [attr.data-title]="'Template ID' | translate">
+                <ngb-highlight></ngb-highlight>
+              </td>
+              <td [attr.data-title]="'Parent Category' | translate">
+                <ngb-highlight></ngb-highlight>
+              </td>
+              <td [attr.data-title]="'Sub-Category' | translate">
+                <ngb-highlight></ngb-highlight>
+              </td>
+              <td [attr.data-title]="'Child Category' | translate">
+                <ngb-highlight></ngb-highlight>
+              </td>
+              <td [attr.data-title]="'Created By' | translate">
+                <ngb-highlight></ngb-highlight>
+              </td>
+              <td [attr.data-title]="'Created Date' | translate">
+                <ngb-highlight></ngb-highlight>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <div class="d-flex table-area mt-5">
+          <div class="table-responsive table-box">
+
+            <div *ngIf="masterData.length>0" class="d-flex justify-content-between p-2">
+              <app-pagination-record-count 
+              [totalRec]="totalRecordsCount" (selectedGridCount)="selectedGridCountChange($event)">
+              </app-pagination-record-count>
+              <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount" [recordsPerPage]="recCount"
+                (onPageChange)="displayActivePage($event)">
+              </app-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- --------------- save and navigation ---------------- -->
+
+    <div class="row">
+      <div class="col-sm-12 border-top">
+        <section id="pagination" class="pagination-area pt-3">
+          <div class="container">
+            <div class="d-flex">
+              <span class="mr-auto">&nbsp;</span>
+              <a routerLink=""><button type="submit" class="page-link save mr-4"> {{'UPDATE' | translate}}</button></a>
+              <a routerLink=""><button type="submit" class="page-link save"> {{'DELETE' | translate}} </button></a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</form>

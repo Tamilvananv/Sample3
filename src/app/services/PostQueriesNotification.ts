@@ -1,0 +1,61 @@
+export class PostQueriesNotification{
+    notificationType:string;
+	queryDeadLineFromDate:string;
+	queryDeadLineToDate:string;
+	tender_no:string;
+	tender_name:string;
+	latestNotificationFromDate:string;
+	latestNotificationToDate:string;
+	queryDeadLineDate:string;
+	tenderId:string;
+	serialNo:string;
+	repDocumentRefNo:string;
+	queryCategory:string;
+	question:string;
+	submittedDate:string;
+	submittedBy:string;
+	answer:string;
+	checkDates:boolean;
+	berchnlinSteps:Map<String, Boolean>;
+    rfpType:string;
+    mappingExist:string;
+    vendorId:string;
+    refDocument:string;
+    docSize:string;
+    docFileName:string;
+    resRefDocument:string;
+    docType:string;
+	docRefId:string;
+	
+	constructor(){
+		this.notificationType="";
+		this.queryDeadLineFromDate="";
+		this.queryDeadLineToDate="";
+		this.tender_no="";
+		this.tender_name="";
+		this.latestNotificationFromDate="";
+		this.latestNotificationToDate="";
+		this.queryDeadLineDate="";
+		this.tenderId="";
+		this.serialNo="";
+		this.repDocumentRefNo="";
+		this.queryCategory="";
+		this.question="";
+		this.submittedDate="";
+		this.submittedBy="";
+		this.answer="";
+		this.checkDates=null;
+		this.berchnlinSteps=null;
+		this.rfpType="";
+		this.mappingExist="";
+		this.vendorId="";
+		this.refDocument="";
+		this.docSize="";
+		this.docFileName="";
+		this.resRefDocument="";
+		this.docType="";
+		this.docRefId="";
+
+	}
+
+}

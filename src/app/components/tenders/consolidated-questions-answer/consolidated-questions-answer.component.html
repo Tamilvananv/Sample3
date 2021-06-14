@@ -1,0 +1,119 @@
+   
+<!-- --------------------- progress bar --------------------- -->
+
+
+        <!-- --------------- Alert area ---------------- -->
+      <!-- --------------- breadcrumb ---------------- -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb pl-0 mt-0">
+          <li class="breadcrumb-item active" aria-current="page">{{'Consolidated Questions and Answers' | translate}}</li>
+        </ol>
+      </nav>
+
+     
+        <div class="pagination-area">
+            <div class="d-flex mb-3">
+            <span class="mr-auto">&nbsp;</span>
+         <span><a href="javascript:void(0);" [ngClass]="{'selected':viewResponseModeAll}"  (click)=setViewResponseMode(true) >{{'All Responses' | translate}}</a> | <a href="javascript:void(0);" [ngClass]="{'selected':!viewResponseModeAll}" (click)=setViewResponseMode(false) > {{'Only My Q&A' | translate}} </a></span> 
+            </div>
+        </div>
+  
+
+<div class="panel-group " id="accordion">
+
+    <!-----------------  Bus on Demand  ------------------------------ -->
+    <!-- <div class="panel-default"> -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+              <div class="row">
+                  <div class="col-sm-12">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+                    style="text-decoration: none;">
+                    <span>{{'Consolidated Questions and Answers' | translate}}</span>
+                  </a>
+                  </div>
+              </div>
+          
+          </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse in show">
+          <div class="panel-body panel-body1 p-3">
+                <div class="panel-body panel-body1 table-box">
+                    <div class="table-responsive table-area">
+                        <div class="d-flex table-area mt-2">
+                            <div class="table-responsive table-box">
+                            
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                      <th>{{'S.No' | translate}}</th>
+                                      <th>{{'RFP Document Reference' | translate}}</th>
+                                      <th>{{'Questions' | translate}}</th>
+                                      <th>{{'Answer' | translate}}</th>
+                                      <th>{{'Response Date' | translate}}</th>
+                                      <th>{{'RFP Response Reference' | translate}}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let res of postQueriesResponseList;index as i">
+                                        <td [attr.data-title]="'S.No' | translate">
+                                          <span>{{i+1}}</span>
+                                        </td>
+                                        <td [attr.data-title]="'RFP Document Reference' | translate"><span>
+                                          {{res.repDocumentRefNo}}
+                                        </span></td>
+                                        <td [attr.data-title]="'Questions' | translate"><span>
+                                          {{res.question}}
+                                        </span></td>
+                                        <td [attr.data-title]="'Answer' | translate"><span>
+                                          {{res.answer}}
+                                        </span></td>
+                                        <td [attr.data-title]="'Response Date' | translate"><span>
+                                          {{res.submittedDate}}
+                                        </span></td>
+                                        <td [attr.data-title]="'RFP Response Reference' | translate"><span>
+                                          {{res.resRefDocument}}
+                                        </span></td>
+                                    </tr>
+                                    
+                                    </tbody>
+                                    <!-- <tr>
+                                        <td><span>1</span></td>
+                                        <td><span>Contractual</span></td>
+                                        <td><span>3456</span></td>
+                                        <td><span>VendorUser</span></td>
+                                        <td><span>10-NOV-2017 00:00:00</span></td>
+                                        <td><span>VendorUser</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>1</span></td>
+                                        <td><span>Contractual</span></td>
+                                        <td><span>3456</span></td>
+                                        <td><span>VendorUser</span></td>
+                                        <td><span>10-NOV-2017 00:00:00</span></td>
+                                        <td><span>VendorUser</span></td>
+                                    </tr> -->
+                          
+                                  </table>
+                          
+                                
+                              </div>   
+                            </div>
+                           
+                    </div>
+                
+                </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <section id="pagination" class="pagination-area mb-5">
+    <div class="d-flex">
+      <span class="mr-auto">&nbsp;</span>
+        <a routerLink="/public-tenders"><button  type="submit" class="page-link save ml-4 mr-4"> {{'BACK' | translate}} </button></a> 
+        <a routerLink="/public-tenders"><button  type="submit" class="page-link save "> {{'DOWNLOAD' | translate}} / {{'PRINT' | translate}} </button></a>       
+       
+        </div>
+</section>
+  

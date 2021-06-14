@@ -1,0 +1,134 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <h4 class="panel-title">
+          <div class="row">
+              <div class="col-sm-12">
+                  <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion"
+                      href="#collapse5" style="text-decoration: none;">
+                      <span> {{'Completion Certificate' | translate}} </span>
+                  </a>
+              </div>
+          </div>
+
+      </h4>
+  </div>
+  <div id="collapse5" class="panel-collapse collapse in show" *ngFor="let inv of completionCertificateDetails;let i=index">
+      <div class="panel-body panel-body1 p-3">
+              <div class="d-flex table-area">    
+                  <div class="table-responsive table-box">                                
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th style="min-width: 60px;">   
+                              
+                      </th>
+                          <th  style="min-width: 60px;">{{'CC No' | translate}}</th>
+                          <th  style="min-width: 250px;"> {{'CC Description' | translate}}</th>
+                          <th >{{'CC Date' | translate}}</th>
+                          <th >{{'CC Amount' | translate}}</th>
+                          <th >{{'Status' | translate}}</th>
+                          <th  style="min-width: 60px; text-align: center;">select</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="bg-white create-invoice">
+                          <td> <div class="panel-heading">
+                              <h4 class="panel-title">
+                                  <div class="row">
+                                      <div class="col-sm-3">
+                                          <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+                                              href="#ccCollapse{{i}}" style="text-decoration: none; font-size: 24px; font-weight: bold; padding-left: 25px;">
+                                          </a>
+                                      </div>
+                                  </div>
+          
+                              </h4>
+                          </div></td>
+                          <td [attr.data-title]="'CC No' | translate"> {{inv.ccNo}}</td>
+                          <td [attr.data-title]="'CC Description' | translate"> {{inv.ccDescription}}</td>
+                          <td [attr.data-title]="'CC Date' | translate">{{inv.ccDate}}</td>
+                          <td [attr.data-title]="'CC Amount' | translate"> {{inv.ccAmount}}</td>
+                          <td [attr.data-title]="'CC No' | translate"> {{inv.ccNo}}</td>
+                          <td [attr.data-title]="'Status' | translate" ><input type="checkbox"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                                          
+                  </div>
+                </div>
+      </div>
+      <div id="ccCollapse{{i}}" class="panel-collapse collapse in ">
+          <div class="panel-body panel-body1 p-3">
+              <div id="no-more-tables ">
+                  <h4 class="pb-2 ft-18 ft-b">Payment Milestone/BOQ</h4>
+                  <div class="data-details">
+                      <div class="row ml-2 mr-2 pt-2 pb-2 border-top">
+                          <div class="col-sm-3">
+                              <span>Summary</span><br>
+                              <strong>{{inv.paymentMileStoneOrBOQ.summary}}</strong>
+                          </div>
+                          <div class="col-sm-6">
+                              <span>Milestone Description</span><br>
+                              <strong>{{inv.paymentMileStoneOrBOQ.description}}</strong>
+                          </div>
+                          <div class="col-sm-3">
+                              <span>Units of Measure</span><br>
+                              <strong>{{inv.paymentMileStoneOrBOQ.unitOfMeasure}}</strong>
+                          </div>
+                         
+                      </div>
+                  
+                      <div class="row ml-2 mr-2 pt-2 pb-2 border-top even-row-bg">
+                          <div class="col-sm-3">
+                              <span>Quantity</span><br>
+                                  <strong>{{inv.paymentMileStoneOrBOQ.quantity}}</strong>
+                          </div>
+                          <div class="col-sm-6">
+                              <span>Rate</span><br>
+                              <strong>AED {{inv.paymentMileStoneOrBOQ.rate| mask: 'separator':',' }}.00</strong>
+                          </div>
+                          <div class="col-sm-3">
+                              <span>Total Value</span><br>
+                              <strong>AED {{inv.paymentMileStoneOrBOQ.totalValue| mask: 'separator':',' }}.00</strong>
+                          </div>
+                      </div>
+                     
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- <div class="d-flex table-area mt-2">
+
+    <div class="table-responsive table-box">
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th >{{'CC No' | translate}}</th>
+            <th > {{'CC Description' | translate}}</th>
+            <th >{{'CC Date' | translate}}</th>
+            <th >{{'CC Amount' | translate}}</th>
+            <th >{{'Status' | translate}}</th>
+           <th >{{'Select' | translate}}</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white" *ngIf="completionCertificateDetails">
+            <td> {{completionCertificateDetails.invoiceNo}}</td>
+            <td> {{completionCertificateDetails.description}}</td>
+            <td> {{completionCertificateDetails.invoiceDate}}</td>
+            <td> {{completionCertificateDetails.invoiceAmount}}</td>
+            <td> {{completionCertificateDetails.status}}</td>
+             <td> {{6}}</td> 
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  </div> -->

@@ -1,0 +1,82 @@
+[
+    {
+      "empid": 1,
+      "name": "Sivakumar",
+      "dob": "10-06-2000",
+      "doj": "10-06-2000",
+      "dept": "Marcom",
+      "desig": "UI/UX"
+    },
+     {
+      "empid": 2,   
+      "name": "Sivakumar",
+      "dob": "10-06-2000",
+      "doj": "10-06-2000",
+      "dept": "Marcom",
+      "desig": "UI/UX"
+    },
+     {
+      "empid": 3,   
+      "name": "Sivakumar",
+      "dob": "10-06-2000",
+      "doj": "10-06-2000",
+      "dept": "Marcom",
+      "desig": "UI/UX"
+    },
+     {
+      "empid": 4,   
+      "name": "Sivakumar",
+      "dob": "10-06-2000",
+      "doj": "10-06-2000",
+      "dept": "Marcom",
+      "desig": "UI/UX"
+    },
+     {
+      "empid": 5,   
+      "name": "Sivakumar",
+      "dob": "10-06-2000",
+      "doj": "10-06-2000",
+      "dept": "Marcom",
+      "desig": "UI/UX"
+    },
+    {
+      "empid": 6,   
+      "name": "Sivakumar",
+      "dob": "10-06-2000",
+      "doj": "10-06-2000",
+      "dept": "Marcom",
+      "desig": "UI/UX"
+    },
+    {
+      "empid": 7,   
+      "name": "Sivakumar",
+      "dob": "10-06-2000",
+      "doj": "10-06-2000",
+      "dept": "Marcom",
+      "desig": "UI/UX"
+    },
+      {
+      "empid": 8,   
+      "name": "Sivakumar",
+      "dob": "10-06-2000",
+      "doj": "10-06-2000",
+      "dept": "Marcom",
+      "desig": "UI/UX"
+    },
+    {
+      "empid": 9,   
+      "name": "Sivakumar",
+      "dob": "10-06-2000",
+      "doj": "10-06-2000",
+      "dept": "Marcom",
+      "desig": "UI/UX"
+    },
+      {
+      "empid": 10,   
+      "name": "Sivakumar",
+      "dob": "10-06-2000",
+      "doj": "10-06-2000",
+      "dept": "Marcom",
+      "desig": "UI/UX"
+    }
+   ]

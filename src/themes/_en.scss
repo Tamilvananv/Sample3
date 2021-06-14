@@ -1,0 +1,49 @@
+p{
+    color:blue;
+   }
+   
+   .base-align { 
+     direction: ltr;
+   }
+
+   .currentTheme {
+    display: block;
+}
+.translate {
+    display: none;
+}
+a {
+  cursor: pointer;
+}
+
+
+
+sup{
+	color:red
+}
+
+.form-control .label-selectcolor{
+	font-size: 12px !important;
+	color: #656565 !important;
+}
+
+.check-space {
+  padding-left:5px;
+}
+
+.bg-blue .icon-Preview:before,
+.bg-green .icon-Preview:before,
+.bg-green .icon-Supplier-Registration:before,
+.bg-green .icon-Supplier-Registration:before{
+  color: #fff !important;
+}
+
+.ar-btn-pull-left {
+	float: right;
+}
+
+.en-l-align20{
+	padding-left: 20px;
+}
+
+

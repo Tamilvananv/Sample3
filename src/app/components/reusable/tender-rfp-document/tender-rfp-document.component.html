@@ -1,0 +1,67 @@
+<div class="panel-body panel-body1 table-box">
+    <div class="table-responsive table-area">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{{'S.No' | translate}}</th>
+                    <th width="400">{{'Document Name' | translate}}</th>
+                    <th>{{'Description' | translate}}</th>
+                    <!-- <th>{{'Type' | translate}}</th> -->
+                    <th>{{'Size' | translate}}</th>
+                    <th class="text-center">{{'Action' | translate}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rfpDoc of rfpDocList;index as i">
+                    <td [attr.data-title]="'S.No' | translate"> <span>{{i+1}}</span></td>
+                    <td [attr.data-title]="'Document Name' | translate"> <span>{{rfpDoc.docName}}</span></td>
+                    <td [attr.data-title]="'Description' | translate"> <span>{{rfpDoc.docDesc}}</span></td>
+                    <!-- <td> <span>{{rfpDoc.docTpe}}</span></td>                                       -->
+                    <td [attr.data-title]="'Size' | translate"> <span>{{rfpDoc.docSize}}</span></td>
+                    <td [attr.data-title]="'Action' | translate" class="text-center"><a (click)="downloadDocument(rfpDoc.docName)"> <i class="fa fa-download ft-blue"></i></a></td>
+
+                    <!-- <td> <span>1</span></td>
+                    <td> <span>Appendix D- RTA Form of Contract (Contractual Terms and Conditions for the Winning Bidder).pdf</span></td>
+                    <td> <span>CONTRACT</span></td>
+                    <td> <span>pdf</span></td>                                      
+                    <td> <span>0.19MB</span></td>
+                    <td class="text-center"> <i class="fa fa-download ft-blue"></i></td> 
+
+                </tr>
+                <tr>
+                    <td> <span>2</span></td>
+                    <td> <span>Appendix D- RTA Form of Contract (Contractual Terms and Conditions for the Winning Bidder).pdf</span></td>
+                    <td> <span>CONTRACT</span></td>
+                    <td> <span>pdf</span></td>                                      
+                    <td> <span>0.19MB</span></td>
+                    <td class="text-center"> <i class="fa fa-download ft-blue"></i></td>
+                </tr>
+                <tr>
+                    <td> <span>3</span></td>
+                    <td> <span>Appendix D- RTA Form of Contract (Contractual Terms and Conditions for the Winning Bidder).pdf</span></td>
+                    <td> <span>CONTRACT</span></td>
+                    <td> <span>pdf</span></td>                                      
+                    <td> <span>0.19MB</span></td>
+                    <td class="text-center"> <i class="fa fa-download ft-blue"></i></td>
+                </tr>
+                <tr>
+                    <td> <span>4</span></td>
+                    <td> <span>Appendix D- RTA Form of Contract (Contractual Terms and Conditions for the Winning Bidder).pdf</span></td>
+                    <td> <span>CONTRACT</span></td>
+                    <td> <span>pdf</span></td>                                      
+                    <td> <span>0.19MB</span></td>
+                    <td class="text-center"> <i class="fa fa-download ft-blue"></i></td>
+                </tr>
+                <tr>
+                    <td> <span>5</span></td>
+                    <td> <span>Appendix D- RTA Form of Contract (Contractual Terms and Conditions for the Winning Bidder).pdf</span></td>
+                    <td> <span>CONTRACT</span></td>
+                    <td> <span>pdf</span></td>                                      
+                    <td> <span>0.19MB</span></td>
+                    <td class="text-center"> <i class="fa fa-download ft-blue"></i></td>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

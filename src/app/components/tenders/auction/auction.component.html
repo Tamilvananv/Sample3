@@ -1,0 +1,244 @@
+<div class="auction">
+    <form #auctionSearchForm="ngForm">
+
+        <!-- --------------- breadcrumb ---------------- -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb pl-0 mt-0">
+                <li class="breadcrumb-item active" aria-current="page">{{'Auction' | translate}}</li>
+            </ol>
+        </nav>
+
+        <!-- --------------- Alert area ---------------- -->
+        <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+
+        <!-- ---------------------- company details ------------------------------ -->
+        <div class="d-flex">
+   
+                <div class="form-container">
+                    <div class="col-sm-12">
+                      <h1 class="pt-3 pb-1">{{'Auction Search' | translate}}</h1>
+                    </div>
+                    <div class="col-sm-12 form-group">
+                        <div class="row row-gap ">
+                            <div class="col-sm-4 pb-3">
+                                <div class="">
+                                <input type="text" class="form-control floating-input" name="auction-number"
+                                    placeholder=" " [(ngModel)]="tenderAuctionDetails.auctionNumber"
+                                    #TenderAuctionNumber="ngModel" required>
+                                    <span class="highlight"></span>
+                                    <label>{{'Auction Number' | translate}}<sup>*</sup></label>
+                                <!-- <span class="">{{'Auction Number' | translate}}<sup>*</sup></span> -->
+                                <div [hidden]="TenderAuctionNumber.valid || TenderAuctionNumber.pristine">
+                                    <span class="validation-msg validation-msg-position">
+                                        {{'Please enter the Auction number' | translate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-4 pb-3">
+                                <div class="">
+                                <input type="text" class="form-control floating-input" name="auction-name"
+                                    [(ngModel)]="tenderAuctionDetails.auctionName" placeholder=" "
+                                    #TenderAuctionName="ngModel" required>
+                                    <span class="highlight"></span>
+                                    <label>{{'Auction Name' | translate}}<sup>*</sup></label>
+                                <!-- <span class="">{{'Auction Name' | translate}}<sup>*</sup></span> -->
+                                <div [hidden]="TenderAuctionName.valid || TenderAuctionName.pristine">
+                                    <span class="validation-msg validation-msg-position">
+                                        {{'Please enter the Auction name' | translate}}</span>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-sm-4 pb-3">
+                                <div class="">
+                                <select class="form-control floating-select" id="auction-type" onclick="this.setAttribute('value', this.value);" value=" "
+                                    [(ngModel)]="tenderAuctionDetails.auctionType" name="auctionType"
+                                    #TenderAuctionType="ngModel" required>
+                                    <option [ngValue]="null" [disabled]="true">
+                                        {{'Auction Type' | translate}}</option>
+                                    <option>Open for submission</option>
+                                </select>
+                                <span class="highlight"></span>
+                                <label> {{'Auction Type' | translate}}<sup>*</sup></label>
+                                <div [hidden]="TenderAuctionType.valid || TenderAuctionType.pristine">
+                                    <span class="validation-msg validation-msg-position">
+                                        {{'Please select Auction type' | translate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                
+                    <div class="d-flex">
+                        <div class="col-md-12 pl-4 pr-4 margin-b">
+                            <div class="form-group row ">
+                                <div class="col-sm-4">
+                                    <div class="d-flex bg-light-gray">
+                                        <span class="p-1">{{'Auction Publish Date' | translate}}<br> </span>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-sm-6">
+                                            <div>
+                                                <input type="date" name="RFISubmissionFromDate"
+                                                    [(ngModel)]="tenderAuctionDetails.auctionPublishFromDate"
+                                                    placeholder="From Date" class="form-control"
+                                                    #rfiPublishFromDate="ngModel" required onkeydown="return false">
+                                                <div [hidden]="rfiPublishFromDate.valid || rfiPublishFromDate.pristine">
+                                                    <span class="validation-msg validation-msg-position">
+                                                        {{'Please select From Date' | translate}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div>
+                                                <input type="date" name="RFISubmissionToDate"
+                                                    [(ngModel)]="tenderAuctionDetails.auctionPublishToDate"
+                                                    placeholder="To Date" class="form-control" required
+                                                    #rfiPublishToDate="ngModel" onkeydown="return false">
+                                                <div [hidden]="rfiPublishFromDate.valid || rfiPublishFromDate.pristine">
+                                                    <span class="validation-msg validation-msg-position">
+                                                        {{'Please selectTo Date' | translate}} </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <span class="validation-msg">This field should not be empty</span> -->
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="d-flex bg-light-gray">
+                                        <span class="p-1">{{'Auction Start Date' | translate}}<br> </span>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div>
+                                                <input type="date" name="AuctionStartFromDate" placeholder="From Date"
+                                                    class="form-control"
+                                                    [(ngModel)]="tenderAuctionDetails.auctionStartFromDate"
+                                                    name="auctionStartFromDate" #auctionStartFromDate="ngModel"
+                                                    required onkeydown="return false">
+                                                <div
+                                                    [hidden]="auctionStartFromDate.valid || auctionStartFromDate.pristine">
+                                                    <span class="validation-msg validation-msg-position">
+                                                        {{'Please select To Date' | translate}} </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div>
+                                                <input type="date" name="auctionStartToDate" placeholder="To Date"
+                                                    class="form-control"
+                                                    [(ngModel)]="tenderAuctionDetails.auctionStartToDate"
+                                                    #auctionStartToDate="ngModel" required onkeydown="return false">
+                                                <div [hidden]="auctionStartToDate.valid || auctionStartToDate.pristine">
+                                                    <span class="validation-msg validation-msg-position">
+                                                        {{'Please select To Date' | translate}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="d-flex bg-light-gray">
+                                        <span class="p-1">{{'Auction End Date' | translate}}<br> </span>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div>
+                                                <input type="date" name="auctionEndFromDate" placeholder="From Date"
+                                                    class="form-control"
+                                                    [(ngModel)]="tenderAuctionDetails.auctionEndFromDate"
+                                                    #auctionEndFromDate="ngModel" required onkeydown="return false">
+                                                <div [hidden]="auctionEndFromDate.valid || auctionEndFromDate.pristine">
+                                                    <span class="validation-msg validation-msg-position">
+                                                        {{'Please select From Date' | translate}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div>
+                                                <input type="date" name="auctionEndToDate" placeholder="To Date"
+                                                    [(ngModel)]="tenderAuctionDetails.auctionEndToDate"
+                                                    class="form-control" #auctionEndToDate="ngModel" required onkeydown="return false">
+                                                <div [hidden]="auctionEndToDate.valid || auctionEndToDate.pristine">
+                                                    <span class="validation-msg validation-msg-position">
+                                                        {{'Please Select the To Date' | translate}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-md-12 pl-3 pr-5">
+                            <div class="buttons-box justify-content-start pr-0 pb-3">
+                            <input type="checkbox" data-group-cls="btn-group-sm" name="tenderAuctionDetails.subscribed"
+                                [(ngModel)]="tenderAuctionDetails.subscribed"> <span
+                                class="ml-3 mr-3">{{'Subscribed' | translate}}</span>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-md-12 pl-3 pr-3">
+                        <div class="buttons-box justify-content-end pr-0 pb-3">
+                            <button type="submit" class="clear-btn ml-3 mr-3" (click)="auctionSearchForm.reset()">
+                                {{'CLEAR' | translate}}</button>
+                            <button type="submit" (click)="saveAuctionDetails()" class="save-btn ml-2">
+                                {{'SAVE' | translate}} </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex table-area mt-5">
+            <div class="table-responsive">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th > {{'Auction Number' | translate}}</th>
+                            <th >{{'Auction Name' | translate}}</th>
+                            <th >{{'Auction Publish Date' | translate}}</th>
+                            <th >{{'Auction Start Date' | translate}}</th>
+                            <th >{{'Auction End Date' | translate}}</th>
+                            <th >{{'Auction Type' | translate}}</th>
+                            <th >{{'Auction Status' | translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let auctionList of tenderAuctionDetailsList">
+                            <td [attr.data-title]="'Auction Number' | translate"> <a routerLink="/auction-details">{{auctionList.auctionNumber}}</a></td>
+                            <td [attr.data-title]="'Auction Name' | translate">{{auctionList.auctionName}}</td>
+                            <td [attr.data-title]="'Auction Publish Date' | translate"> {{auctionList.auctionPublishFromDate}}</td>
+                            <td [attr.data-title]="'Auction Start Date' | translate">{{auctionList.auctionStartFromDate}}</td>
+                            <td [attr.data-title]="'Auction End Date' | translate">{{auctionList.auctionEndFromDate}}</td>
+                            <td [attr.data-title]="'Auction Type' | translate">{{auctionList.notificationType}}</td>
+                            <td [attr.data-title]="'Auction Status' | translate">{{auctionList.auctionStatus}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+        <div class="d-flex table-area mt-5">
+            <div class="table-responsive table-box">
+
+                <div *ngIf="masterData.length>0" class="d-flex justify-content-between p-2">
+                    <app-pagination-record-count [totalRec]="totalRecordsCount" (selectedGridCount)="selectedGridCountChange($event)">
+                    </app-pagination-record-count>
+                    <!-- <app-pagination></app-pagination> -->
+                    <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount"
+                        [recordsPerPage]="recCount" (onPageChange)="displayActivePage($event)">
+                    </app-pagination>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

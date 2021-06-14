@@ -1,0 +1,66 @@
+<div class="container">
+
+    <div class="d-flex mt-4">
+        <span class="mr-auto">&nbsp;</span>
+        <a href="#" routerLink="/supplier-info" class="btn btn-dark">{{'BACK' | translate}}</a>
+    </div>
+    <div class="d-flex mt-2">
+        <div class="form-container">
+            <div class="col-sm-12 col-md-12 pt-4">
+                <div class="row">
+                    <h1 class="p-3 mr-auto">{{'Add Supplier Details' | translate}}</h1>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="col-md-12 pl-5 pr-5 pb-5">
+                    <form [formGroup]="form" (ngSubmit)="submit()">
+                        <div class="form-group row ">
+                            <div class="col-sm-12 col-md-6 col-lg-3 pb-3">
+                                <input type="text" class="form-control" formControlName="appno" id="appno"
+                                    placeholder="Application Number*">
+                                <div *ngIf="f.appno.touched && f.appno.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.appno.errors.required">{{'Application Number required' | translate}}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-3 pb-3">
+                                <input type="text" class="form-control" formControlName="scopeofwork" id="scopeofwork"
+                                    placeholder="Scope of Work*">
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-3 pb-3">
+                                <input type="text" class="form-control" formControlName="subcategory" id="subcategory"
+                                    placeholder="Sub Category*">
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-3 pb-3">
+                                <input type="text" class="form-control" formControlName="childcategory"
+                                    id="childcategory" placeholder="Child Category*">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-6 col-lg-3 pb-3">
+                                <input type="date" class="form-control" formControlName="submiteddate" id="submiteddate"
+                                    placeholder="Submitted Date*" onkeydown="return false">
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-3 pb-3">
+                                <select class="form-control" id="status" formControlName="status">
+                                    <option>{{'Select Status' | translate}}</option>
+                                    <option>Active</option>
+                                    <option>Closed</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="d-flex mt-5">
+        <span class="mr-auto">&nbsp;</span>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">{{'SUBMIT' | translate}}</button>
+    </div>
+
+</div>

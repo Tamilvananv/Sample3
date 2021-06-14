@@ -1,0 +1,119 @@
+
+
+    <!-- --------------- breadcrumb ---------------- -->
+
+    <div class="col-sm-12">
+        <div class="row ">
+        <div class="col-sm-6 pr-0 pl-0 ">
+          <nav aria-label="breadcrumb" id="breadcrumb">
+            <ol class="breadcrumb pl-0 mt-0">
+              <li class="breadcrumb-item active" aria-current="page">{{'Variation Order Details' | translate}}</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="col-sm-6 pr-0 pl-0 pt-2 expand-collapse"> 
+          <div class="col-xl-12 pr-0 pull-right">
+            <app-collapse-expand-btn class="pull-right"></app-collapse-expand-btn>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-group " id="accordion">
+
+        <!-- 
+       -----------------------  claim Details  ------------------------------ -->
+        <!-- <div class="panel-default"> -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion"
+                        href="#collapse4" style="text-decoration: none;"><img class="icon25 mr-2"
+                            src="assets/img/auctionIP.png">
+                            {{'Variation Order Details' | translate}} </a>
+                </h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse in show">
+                <div class="panel-body panel-body1 p-3">
+                    <div id="no-more-tables">
+                        <app-variation-details></app-variation-details>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 
+       -----------------------  Contract Details  ------------------------------ -->
+        <!-- <div class="panel-default"> -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion"
+                        href="#collapse1" style="text-decoration: none;"><img class="icon25 mr-2"
+                            src="assets/img/Contract-Information.png">
+                            {{'Contract Information' | translate}} </a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in show">
+                <div class="panel-body panel-body1 p-3">
+                    <div id="no-more-tables">
+                        <app-contract-information-details></app-contract-information-details>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 
+       -----------------------  attachment section  ------------------------------ -->
+     
+        <div class=" panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion"
+                        href="#collapse5" style="text-decoration: none;"><img class="icon25 mr-2"
+                            src="assets/img/BOQ-Payment-Milestone-icon.png">   {{'Payment
+                            Milestone / BOQ' | translate}}</a> </h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse in show">
+                <div class="panel-body panel-body1 p-3">
+                    <div class="d-flex table-area mt-3">
+                        <div class="table-responsive table-box">
+                        <app-payment-milestone-boq [boqDtlList]="paymentMilestoneBOQ"></app-payment-milestone-boq>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Attachment section -->
+
+        <div class="panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion"
+                        href="#collapse2" style="text-decoration: none;"><img class="icon25 mr-2"
+                            src="assets/img/download-center.png">
+                            {{'Download Center' | translate}}
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse in show">
+                <div class="panel-body panel-body1 p-3">
+                    <div class="d-flex table-area mt-3">
+                        <div class="table-responsive table-box">
+                        <app-download-center></app-download-center>
+                    </div>
+                </div>
+                </div>
+            </div>
+           
+        </div>
+
+     
+        <div class="d-flex pt-3 ar-btn-pull-left mb-4">
+            <button *ngIf="agreeStatus==false" (click)="onAgreeClick()" type="button" class="save-btn ml-3 mr-3"> {{'AGREE' | translate}}</button>
+                <a routerLink="/variation-order-search"><button type="button" class="clear-btn">{{'BACK' | translate}}</button></a>
+        </div>
+
+        <!-- </div> -->
+    </div>

@@ -1,0 +1,79 @@
+<div class="data-details" *ngIf="contractInformation">
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top">
+        <div class="col-sm-3">
+            <span>{{'Contract Number' | translate}}</span><br>
+            <strong>{{contractInformation.contractNumber}}</strong>
+        </div>
+        <div class="col-sm-6">
+            <span>Contract Status</span><br>
+            <strong>{{contractInformation.contractStatus}}</strong>
+        </div>
+        <div class="col-sm-3" align="right">
+            <span>{{'Contract Total Value' | translate}}</span><br>
+            <strong>{{contractInformation.awardedContractValue | mask: 'separator':',' }}.00</strong>
+        </div>
+       
+    </div>
+
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top even-row-bg">
+        <div class="col-sm-3">
+            <span>{{'Revision Number' | translate}}</span><br>
+                <strong>{{contractInformation.revisionNumber}}</strong>
+        </div>
+        <div class="col-sm-6">
+            <span>{{'Contract Description' | translate}}</span><br>
+            <strong>{{contractInformation.contractDesc}}</strong>
+        </div>
+        <div class="col-sm-3">
+            <span>{{'Contract Award Date' | translate}}</span><br>
+            <strong>{{contractInformation.awardedContractDate}}</strong>
+        </div>
+    </div>
+
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top ">
+        <div class="col-sm-3">
+            <span>{{'Contract Commencement Date' | translate}}</span><br>
+            <strong>{{contractInformation.awardedContractFromDate}}</strong>
+        </div>
+        <div class="col-sm-6">
+            <span>{{'Expiry Date' | translate}}</span><br>
+            <strong>{{contractInformation.awardedContractToDate}}</strong>
+        </div>
+        <div class="col-sm-1">
+            <span>{{'Duration' | translate}}</span><br>
+            <strong>{{contractInformation.contractPeriod}}</strong>
+        </div>
+        <div class="col-sm-2">
+            <span>{{'Contract Co-ordinator' | translate}}</span><br>
+            <strong>{{contractInformation.coordinator}}</strong>
+        </div>
+    </div>
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top  even-row-bg">
+        <div class="col-sm-3">
+            <span>{{'RTA Liaison Officer' | translate}}</span><br>
+            <strong>{{contractInformation.rtaLiaisonOfficer}}</strong>
+        </div>
+        <div class="col-sm-6">
+            <span>{{'Contract Main Type' | translate}}</span><br>
+            <strong>{{contractInformation.mainType}}</strong>
+        </div>
+        <div class="col-sm-3">
+            <span>{{'Contract Sub Type' | translate}}</span><br>
+            <strong>{{contractInformation.subType}}</strong>
+        </div>
+    </div>
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top ">
+        <div class="col-sm-3">
+            <span>{{'Agency' | translate}}</span><br>
+            <strong>{{contractInformation.agency}}</strong>
+        </div>
+        <div class="col-sm-6">
+            <span>{{'Department' | translate}}</span><br>
+            <strong>{{contractInformation.department}}</strong>
+        </div>
+        <div class="col-sm-3">
+            <span>{{'Section' | translate}}</span><br>
+            <strong>{{contractInformation.section}}</strong>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,176 @@
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb pl-0 mt-2">
+          <li class="breadcrumb-item active" aria-current="page">{{'inner-das-title' | translate}}</li>
+  
+        </ol>
+      </nav>
+
+    <div class="row justify-content-start form-container bg-none box-shadow-none mt-4">
+        <div class="col-sm-3 pb-3">
+            <div class="l">
+                <input type="text" onclick="(this.type='date')"  name="fromdate" 
+                placeholder=" " class="form-control floating-input bg-none" required >
+              <span class="highlight"></span>
+              <label>{{'From Date' | translate}}</label>
+            </div>
+        </div>
+        <div class="col-sm-3 pb-3">
+            <div class="l">
+                <input type="text" onclick="(this.type='date')"  name="todate" 
+                placeholder=" " class="form-control floating-input bg-none" required >
+              <span class="highlight"></span>
+              <label>{{'To Date' | translate}}</label>
+            </div>
+        </div>
+        <div class="col-sm-3 pb-3">
+            <div class="d-flex">
+                <span class="mr-auto">&nbsp;</span>
+            <button class="save-btn">{{'Apply' | translate}}</button>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-sm-3 col-sm-12 ">
+            <div class="module-container">
+                <a routerLink="/supplier-info">
+                <div class="module-box">
+                    <div class="icon-container">
+                        <span class="icon-Supplier-Information"><span class="path1"></span><span
+                        class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+                    </div>
+                   <h5>{{'Tender Participation' | translate}}</h5>
+                </div>
+                </a>
+                <div class="data-box">
+                    <div class="data-box_inner-container">
+                    <img src="../../../assets/img/dashboard/supplier-registration.png" alt="">
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-3 col-sm-12  ">
+            <div class="module-container">
+                <a routerLink="/tenders-dashboard">
+                <div class="module-box">
+                    <div class="icon-container">
+                        <span class="icon-Tender-Management"></span>
+                    </div>
+                  <h5>{{'Tender Participation' | translate}}</h5>
+                </div>
+                </a>
+                <div class="data-box">
+                    <div class="data-box_inner-container">
+                    <img src="../../../assets/img/dashboard/tender.png" alt="">
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-3 col-sm-12  ">
+            <div class="module-container">
+                <a routerLink="/dashboard-contacts">
+                <div class="module-box">
+                    <div class="icon-container">
+                        <span class="icon-Contract"></span>
+                    </div>
+                   <h5>{{'Invoices' | translate}}</h5>
+                </div>
+                </a>
+                <div class="data-box">
+                    <div class="data-box_inner-container">
+                    <img src="../../../assets/img/dashboard/contract.png" alt="">
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-3 col-sm-12  ">
+            <div class="module-container">
+                <a routerLink="/milestone-completion">
+                <div class="module-box">
+                    <div class="icon-container">
+                        <span class="icon-Milestone"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+                    </div>
+                   <h5>{{'Prequalification Scope' | translate}}</h5>
+                </div>
+                </a>
+                <div class="data-box">
+                    <div class="data-box_inner-container">
+                    <img src="../../../assets/img/dashboard/milestone.png" alt="">
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-3 col-sm-12  ">
+            <div class="module-container">
+                <a routerLink="/payment">
+                <div class="module-box">
+                    <div class="icon-container">
+                        <span class="icon-Invoice--Payments"></span>
+                    </div>
+                   <h5>{{'Approved Change Order' | translate}}</h5>
+                </div>
+                </a>
+                <div class="data-box">
+                    <div class="data-box_inner-container">
+                    <img src="../../../assets/img/dashboard/payment.png" alt="">
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-3 col-sm-12  ">
+            <div class="module-container">
+                <a routerLink="/notification">
+                <div class="module-box">
+                    <div class="icon-container">
+                        <span class="icon-Notifications"></span>
+                    </div>
+                   <h5>{{'Suggestions' | translate}}</h5>
+                </div>
+                </a>
+                <div class="data-box">
+                    <div class="data-box_inner-container">
+                    <img src="../../../assets/img/dashboard/notification.png" alt="">
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="row justify-content-start form-container bg-none box-shadow-none mt-4">
+        <div class="col-sm-12 col-md-12 pt-2 pb-2">
+            <h1 class="p-2">{{'Chart' | translate}}</h1>
+          </div>
+  
+    
+        <div class="row">
+
+            <div class="col-sm-12 border mt-2 ml-4 mr-4  p-3">
+                <img src="./assets/img/chart-new.png" width="90%"/> 
+           
+            </div>
+            
+        </div>
+
+        <div class="row form-container bg-none box-shadow-none mt-4">
+            <div class="col-sm-12">
+                <h1>{{'Details' | translate}}</h1>
+                 <span class="pull-right">{{'Export to Excel' | translate}} <a href=""><i class="fa fa-file-excel-o ft-blue pl-3" aria-hidden="true"></i></a></span> 
+              </div>
+        </div>
+        
+        
+    </div>
+    <div class="row form-container bg-none box-shadow-none mt-3">            
+        <div class="col-sm-6">
+            <div class="l">
+                <input type="text" onclick="(this.type='date')"  name="search" 
+                placeholder=" " class="form-control floating-input bg-none" required >
+              <span class="highlight"></span>
+              <label>{{'Search' | translate}}</label>
+            </div>
+        </div>      
+        <div class="col-sm-3">
+           <a href=""><i class="fa fa-search ft-blue" aria-hidden="true"></i></a>
+        </div>
+    </div>

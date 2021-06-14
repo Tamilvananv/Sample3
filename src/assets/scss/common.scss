@@ -1,0 +1,1125 @@
+body{ 
+  display:flex; 
+  flex-direction:column; 
+}
+
+html, body{ height:100%; margin:0; }
+
+body {
+ font-family: "Open Sans", sans-serif !important;
+  color: #333333;
+  background: #f6f6f6 !important;
+}
+
+.supplier-dashboard{
+  .page-header {
+    font-size: 22px;
+    color: #666666;
+    font-weight: 700;
+    text-align: left;
+    line-height: 38px;
+    padding: 25px 97px 0 95px;
+  }
+}
+
+.tender-dashboard{
+  .page-header {
+    font-size: 22px;
+    color: #666666;
+    font-weight: 700;
+    text-align: left;
+    line-height: 38px;
+    padding: 25px 146px 0 146px;
+  }
+}
+.contract-dashboard{
+  .page-header {
+    font-size: 22px;
+    color: #666666;
+    font-weight: 700;
+    text-align: left;
+    line-height: 38px;
+    padding: 25px 219px 0 146px;
+  }
+}
+
+.sub-header {
+  color: #323232;
+  font-size: 15px;
+  font-weight: 700;
+  display: block;
+}
+
+a:focus {
+  outline:none !important ;
+  border: none !important;
+}
+
+.custom-dashboard{
+  .page-header {
+    font-size: 22px;
+    color: #666666;
+    font-weight: 700;
+    text-align: left;
+    line-height: 38px;
+    padding: 25px 219px 0 215px;
+  }
+}
+.sub-heading {
+  font-size: 28px;
+  color:#444346;
+  font-size: 600;
+}
+.page-title {
+  font-size: 18px;
+  color:#00a1e4;
+  font-size: 900;
+}
+.content {
+ min-height: 600px;
+ height: auto;
+ position: relative;
+ padding-bottom: 70px;
+}
+
+/*--------------------------------------------------------------
+# Table
+--------------------------------------------------------------*/
+.table-area {
+  font-size: 12px;
+}
+
+.table-area .table thead th {
+  color: #000000;
+  border-top: 1px solid #19bd9d;
+  border-bottom: 1px solid #19bd9d;
+  /* min-width:150px; */
+}
+.table-area .table thead th:last-child {
+ min-width: 75px;
+}
+
+.table-area .table thead td {  
+  min-width:100px;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table-area .table-striped tbody tr:nth-of-type(odd) {
+  background-color: #eff4f3;
+}
+
+.table-area .table-striped tbody tr:nth-of-type(even) {
+  background-color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+# Breadscrumb
+--------------------------------------------------------------*/
+
+.breadcrumb {
+  background: transparent !important;
+  font-size: 14px;
+  margin-bottom: 0 !important;
+}
+
+.breadcrumb-item.active {
+  color: #00a1e4 !important;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+.form-container {
+  background: white;
+   font-size: 12px;
+   width: 100%;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+ }
+ 
+ .form-container h1{
+   color: #00a1e4;
+    font-size: 16px;
+    font-weight: 700;
+  }
+ .form-container .form-control {
+   border:none;
+   border-bottom: 1px solid #ced4da;
+   font-size: 12px;
+ }
+
+ .attach-btn {
+  position: relative;
+  overflow: hidden;  
+  .btn-secondary { 
+    font-size: 12px;
+    padding: 2px 10px;
+}
+  input {
+    position: absolute;
+    
+    opacity: 0;
+    right: 0;
+    top: 0;
+  }
+}
+
+ 
+/*--------------------------------------------------------------
+# Pagination
+--------------------------------------------------------------*/
+
+.pagination-area {
+  font-size: 12px;
+}
+.pagination-area .navigation{
+  float: right;
+}
+
+
+.pagination-area .save, .pagination-area .save:hover {
+  background: #00cc99;
+  color:white;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.pagination-area .next-btn, .pagination-area .prev-btn  {
+  background: #666666;
+  color:white;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.pagination-area .next-btn:hover, .pagination-area .prev-btn:hover  {
+  background: #007bff;
+}
+
+.page-item.active .page-link {
+  background-color: #19bd9d !important;
+}
+
+
+
+// -------------- progress -------------------------
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #333333;
+  background: #f6f6f6;
+}
+
+a {
+  color: #00a0e4;
+}
+
+a:hover {
+  color: #e6573f;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# color value
+--------------------------------------------------------------*/
+
+.bg-white {
+  background: white;
+}
+
+.bg-blue {
+  background: #00a1e4;
+}
+
+.bg-green {
+  background: #19bd9d;
+}
+
+.bg-gray {
+  background: #dedede;
+}
+
+
+.bg-light-gray {
+  background: #f4f4f4;
+}
+
+
+
+.ft-white {
+  color: white;
+}
+
+.ft-blue {
+  color: #00a1e4;
+}
+
+.ft-green {
+  color: #19bd9d;
+}
+
+.ft-black {
+  color: #000;
+}
+
+.ft-size12 {
+  font-size: 12px;
+}
+
+.ft-size14 {
+  font-size: 14px;
+}
+
+
+.m-lr {
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+
+
+/*--------------------------------------------------------------
+# Progress Section
+--------------------------------------------------------------*/
+.progress-area {
+  display: block; 
+  width: 100%;
+  overflow-x: auto;
+  margin: 15px 0;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: center;
+  width: 1110px;
+  flex-direction: row;
+  overflow-x: auto;
+}
+
+
+.progress-container .progress-box {
+  position: relative;
+  width:140px;
+  display: block;
+ text-align: center;
+}
+
+.progress-container .progress-box .progress-inner-box{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.progress-container .progress-box .info-text{
+ font-size: 12px;
+ margin-top: 20px;
+ display: block;
+}
+
+
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+.circle:hover {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+
+
+.progress {
+  position: absolute;
+  left: 68%;
+  width: 89px;
+  top: 24px;
+  z-index: -1;
+  height: 4px !important ;
+}
+
+.progress  .progress-bar {
+  height: 4px;
+}
+.progress-bar {
+  width: 0px;
+  box-shadow: none;
+  height: 4px;
+}
+
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+.form-container {
+ background: white;
+  font-size: 12px;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.form-container h1{
+  color: #323232;
+   font-size: 15px;
+   font-weight: 700;
+ }
+.form-container .form-control {
+  border:none;
+  border-bottom: 1px solid #ced4da;
+  font-size: 12px;
+  padding-left: 0 !important;
+  background: transparent;
+}
+
+
+/*--------------------------------------------------------------
+# Table
+--------------------------------------------------------------*/
+.table-area {
+  font-size: 12px;
+}
+
+.table-area .table thead th {
+  color: #000000;
+  border-top: 1px solid #19bd9d;
+  border-bottom: 2px solid #19bd9d;
+  min-width: 150px;
+  padding-top: 13px;
+  padding-bottom: 10px;
+}
+.table-area .table thead th:last-child {
+ min-width: 75px;
+}
+
+.table-area .table thead td {  
+  min-width:100px;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table-area .table-striped tbody tr:nth-of-type(odd) {
+  background-color: #eff4f3;
+}
+
+.table-area .table-striped tbody tr:nth-of-type(even) {
+  background-color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+# Data Table
+--------------------------------------------------------------*/
+.table-area {
+  font-size: 12px;
+}
+.table-area .table thead th {
+  color: #000000;
+  border-top: 1px solid #19bd9d;
+  border-bottom: 1px solid #19bd9d;
+  /* min-width:150px; */
+  // background: white;
+  padding: 10px 5px;
+}
+.table-area .table thead th:last-child {
+ min-width:120px;
+}
+.table-area .table thead td {    
+  min-width:100px;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.table-area .table-striped tbody tr:nth-of-type(odd) {
+ 
+  background-color: #ffffff;
+}
+.table-area .table-striped tbody tr:nth-of-type(even) {
+  // background-color: #ffffff;
+  background-color: #eff4f3;
+}
+.table-area .form-container th {
+  color: #000000;
+  border-top: 1px solid #19bd9d;
+  border-bottom: 1px solid #19bd9d;
+  /* min-width:150px; */
+  background: #d1f2eb !important;
+  padding: 0px 5px;
+}
+.table-area .form-container input, 
+.table-area .form-container select  {
+  background: transparent;
+  border-bottom: 1px solid #ccc;
+  color: black;
+  border-radius: 0px !important;
+}
+.table-responsive .form-container {
+  box-shadow: none !important;
+}
+
+/*--------------------------------------------------------------
+# Pagination
+--------------------------------------------------------------*/
+
+.pagination-area {
+  font-size: 12px;
+}
+.pagination-area .navigation{
+  float: right;
+}
+
+
+.pagination-area .save {
+  background: #00cc99;
+  color:white;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+}
+
+.pagination-area .save:disabled {
+  background: #ccc;
+  cursor: default;
+}
+
+
+.pagination-area .next-btn, .pagination-area .prev-btn  {
+  background: #666666;
+  color:white;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+section {
+  padding: 0 0 20px 0;
+}
+
+.section-bg {
+  background-color: white;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  font-family: "Open Sans", sans-serif;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #00a0e4;
+  bottom: 0;
+  left: calc(50% - 25px);
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+.fa-check-circle-o:before   {         
+  font-size: 18px !important;
+  color: #666666;
+  font-weight: lighter;
+}
+
+.progress-inner-box a:hover {
+  text-decoration: none;
+}
+
+
+// -------------------------------   toggle -------------
+
+.panel-default > .panel-heading {
+  background-color: #baebe1 !important;  
+  padding-left: 5px;
+  border-radius: 0px;
+}
+.panel-default > .panel-heading a {
+  color: #333333 !important;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+
+.accordion .card-header:after {
+  font-family: 'FontAwesome';  
+  content: "\f068";
+  float: right; 
+}
+.accordion .card-header.collapsed:after {
+  /* symbol for "collapsed" panels */
+  content: "\f067"; 
+}
+
+.card-header {
+  background-color: #4477dd !important;
+  border:1px solid white
+}
+
+.input-group-addon {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color: #555;
+  text-align: center;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  padding: 6px;
+  line-height: 21px !important;
+  vertical-align: middle;
+  border-top: 1px solid #ddd;
+}
+
+.form-group.required .control-label:after { 
+  color: #d00;
+  content: "*";
+  position: absolute;
+  margin-left: 8px;
+  top:7px;
+}
+input::placeholder:after {
+  color: red;
+  content: "*";
+  opacity: 1;
+}
+
+.table-header h1 {
+  color: #00a1e4;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+// -------------------------------   button -------------
+.filter-btn {
+  font-size: 12px;
+  color:#494949;
+  background: white;
+  border: 1px solid #494949;;
+  padding: 5px 15px;
+}
+.upload-btn {
+  font-size: 12px;
+  color:#ffff;
+  background: #494949;
+  border: 1px solid #494949;;
+  padding: 0px 15px;
+  width: 200px;
+}
+.add-new-btn {
+  font-size: 12px;
+  color:white;
+  background: #00a0e4;
+  border: 1px solid #00a0e4;
+  padding: 5px 15px;
+}
+.view-btn {
+  font-size: 12px;
+  color:white;
+  background: #00a0e4;
+  border: 1px solid #00a0e4;
+  padding: 5px 15px;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: white !important;
+}
+
+.alert {
+  padding: 5px 15px !important;
+  font-size: 14px;
+  color:black;
+}
+
+.alert-dismissible .close { 
+  padding: 3px 1.25rem !important;
+}
+
+
+.input-icons i { 
+float: right;
+  // top:0;
+  // right:0;
+  margin-top: -25px;
+  z-index: -1;
+} 
+
+
+.icon { 
+  padding: 15px;
+} 
+
+.input-icons input { 
+  padding: 10px;
+  z-index: 9;
+  background: transparent !important;
+} 
+
+.bg-none {
+  background: transparent !important;
+}
+
+.shadow-none{
+  box-shadow: transparent !important;
+}
+// .input-icons input:before { 
+//   content: "\f073";
+// } 
+
+
+.noti-info {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.noti-info span{
+  font: 25px;
+  font-weight: bold;
+}
+
+
+.total-noti{
+ border: 1px solid #19bc9d;
+ display: flex;
+ margin-right: 20px;
+}
+
+.total-noti-left{
+background: #19bc9d;
+padding: 5px 10PX;
+color: white;
+ }
+ .total-noti-right{
+  background: #fff;
+  padding: 5px 10PX;
+  color:#19bc9d;
+ }
+
+ .unread-noti{
+  border: 1px solid #00a1e5;
+  margin-right: 20px;
+  display: flex;
+ }
+ 
+ .unread-noti-left{
+ background: #00a1e5;
+ padding: 5px 10PX;
+ color: white;
+  }
+  .unread-noti-right{
+   background: #fff;
+   padding: 5px 10PX;
+   color: #00a1e5;
+  }
+
+  .read-noti{
+    border: 1px solid #b5b5b5;
+    display: flex;
+   }
+   
+   .read-noti-left{
+   background: #b5b5b5;
+   padding: 5px 10PX;
+   color: white;
+    }
+    .read-noti-right{
+     background: #fff;
+     padding: 5px 10PX;
+     color: #b5b5b5;
+    }
+
+  .buttons-box {
+    display: flex;
+    width: 100%;
+  }
+
+  .search-btn {
+    background: #00a1e4;
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border: 0;
+    outline: 0;
+  }
+  .clear-btn {
+    background: #666666;
+    color: white;
+    font-size:12px;
+    padding: 5px 10px;
+    border: 0;
+    outline: 0;
+  }
+
+  .save-btn {
+    background: #00cc99;
+    color: white;
+    font-size:12px;
+    padding: 5px 10px;
+    border: 0;
+    outline: 0;
+  }
+  
+
+  .page-box {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+
+  .page-box label{
+   font-size: 14px;
+   padding-right: 10px;
+  }
+
+  // --------------------------- input focus label ----------
+
+
+  input {
+    font-size: 14px;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    &:focus{
+      border-bottom: 1px solid #d12926;
+
+    }
+    }
+
+    input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.form-control:focus{
+  box-shadow: none !important;
+}
+
+.input-checkbox input[type=checkbox], input[type=radio] { 
+  width: auto;
+}
+
+.pt30 {
+  padding-top: 30px;
+}
+
+.form-container-table h1 {
+  color: #000;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.table-responsive th img{
+  height: 9px;
+  margin-top: -6px;
+}
+
+.table-box h1 {
+  color: #000;
+    font-size: 15px;
+    font-weight: 900;
+  }
+  .table-box h4 {
+    color: #000;
+      font-size: 12px;
+      font-weight: 900;
+    }
+  
+    .table-box .fa-check-circle-o:before {
+      color: green;
+        font-size: 15px;
+      }
+
+.table-box .fa-bell:before {
+        color: orange;
+          font-size: 15px;
+        }
+
+      .table-box sup{
+        font-size: 12px;
+      }
+
+.model-header 
+{
+  color: #000;
+    font-size: 15px;
+    font-weight: 900;
+  }
+.table-box .table-striped tbody tr:nth-child(odd) {
+  background-color: #eff4f3 !important;
+}
+
+.table-box .table-striped tbody tr:nth-of-type(even) {
+  background-color: #ffffff;
+}
+
+.company-score-card input, .company-score-card select{
+  border:0 !important;
+  font-size: 12px;
+  border-bottom: 1px solid #ced4da !important;
+  background: transparent;
+}
+
+.company-score-card .form-control:disabled, .company-score-card .form-control[readonly] {
+  background: none !important;
+}
+
+.company-score-card .input-icons {
+  background: none !important;
+}
+
+.company-score-card select:after {
+  display: none;
+
+}
+// .company-score-card .field {
+//  height: 0 !important;
+// }
+
+.remarks  input, .remarks select{
+  border-bottom:1px solid #ccc !important;
+  font-size: 12px;
+}
+
+.page-nav {
+  font-size: 12px;
+}
+
+.tender-search input[type=checkbox], input[type=radio] {
+  width: auto !important;
+}
+
+.rti input[type=checkbox], input[type=radio] {
+  width: auto !important;
+}
+
+.auction input[type=checkbox], input[type=radio] {
+  width: auto !important;
+}
+
+.text-editor input {
+  background: white !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+
+.subscribe-input input{
+  width: auto;
+}
+
+.box-shadow-none {
+  box-shadow: none !important;
+}
+
+.validation-msg {
+  font-size: 12px;
+  color:red;
+ 
+}
+.validation-msg-position
+{
+  position: absolute;
+  bottom: -20px;
+  left:15px
+}
+
+.preview label {
+  display: none;
+}
+.form-control{
+  color:black !important;
+  font-weight:600 !important;
+} 
+
+.form-control:disabled{
+  background:  transparent !important;
+}
+
+.company-score-card {
+  .progress-area, .pagination, #breadcrumb {
+    display:none 
+  }
+}
+
+.data-details span,
+.data-details strong{
+  font-size: 12px,;
+}
+
+.even-row-bg {
+  background: #f0f5f5;
+}
+
+.text-custom-center {
+  text-align: center !important;
+}
+
+.panel-align-box {
+  display: flex;
+}
+
+.panel-heading-area {
+  padding: 15px 50px 0 50px;
+  // display: flex;
+  background-color: #baebe1 !important;
+  height: 75px;
+}
+
+.invoice-comp-align{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.invoice-comp-align span{
+  display: flex;
+  width: 140px;
+  margin-left: 10px;
+  padding-top: 15px;
+ align-items: baseline;
+}
+
+.invoice-comp-align input{
+  width: 150px;
+  margin-left: 10px;
+}
+
+.invoice-comp-align1{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.invoice-comp-align1 span{
+  display: flex;
+  width: 160px;
+  margin-left: 10px;
+  padding-top: 15px;
+ align-items: baseline;
+}
+
+.invoice-comp-align1 input{
+  width: 100px;
+  margin-left: 10px;
+}
+.ft-18 {
+  font-size: 18px;
+}
+.ft-b{
+  font-weight: bold;
+}
+
+.create-invoice .panel-heading .accordion-toggle:after {
+float: none !important;
+}
+
+.entity ul {
+  width: 100%; height:200px; overflow: auto;
+  border:1px solid #ccc;
+  padding-left: 0;
+}
+
+.entity ul li {
+ list-style: none;
+  padding:5px 5px 5px 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.form-group {
+  margin-bottom: 0 !important;
+}
+
+.modal-dialog .table tr th,
+.modal-dialog .table tr td{
+  font-size: 12px !important;
+}
+
+.table-model .modal-dialog {
+  max-width: 800px !important;
+  margin: 1.75rem auto;
+}
+@media (min-width: 576px){
+  
+}
+.score-card .expand-collapse{
+  display: none !important;
+}
+
+
+.margin-b {
+  margin-bottom: 25px;
+}
+.align-vertical {
+  display: flex;
+  align-items: center;
+  width: 100px !important;
+
+}
+
+.border-r {
+  border-right: 1px solid #000!important;
+}
+
+.border-l {
+  border-left: 1px solid #000!important;
+}
+
+.row-gap {
+  margin:15px 15px 0 15px;
+}
+
+.column-gap {
+  margin-bottom: 15px;
+}
+
+.attach-row{
+  background:#dee2e6;
+   padding: 5px 10px
+}
+.tab-content {
+  min-height: 75px !important;
+  height: auto !important;
+}
+
+.fa-user-circle:before {
+  content: "\f2bd";
+  font-size: 30px;
+}

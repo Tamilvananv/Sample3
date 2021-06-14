@@ -1,0 +1,45 @@
+<div class="data-details">
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top">
+        <div class="col-sm-4" *ngIf="workCompletionDetails">
+            <span> {{'Work Completed Date' | translate}}</span><br>
+            <strong>{{workCompletionDetails.workCompletionDate}}</strong>
+        </div>
+     
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" *ngIf="workCompletionDetails">
+            <span>{{'Work Completion %' | translate}}</span><br>
+            <strong>{{workCompletionDetails.completionPercent}}</strong>
+        </div>       
+    </div>
+
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top even-row-bg">
+        <div class="col-sm-4" *ngIf="workCompletionDetails">
+            <span>{{'Number of Days' | translate}}</span><br>
+            <strong>{{workCompletionDetails.noOfDays}}</strong>
+        </div>
+       
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" *ngIf="workCompletionDetails">
+            <span>{{'Total Items Delivered' | translate}}</span><br>
+            <strong>{{workCompletionDetails.itemsDelivered}}</strong>
+        </div>
+    </div>
+
+    <div class="row ml-2 mr-2 pt-2 pb-2 border-top ">
+        <div class="col-sm-4" *ngIf="workCompletionDetails">
+            <span>{{'Total Items Delivered' | translate}}</span><br>
+            <strong>{{workCompletionDetails.itemsDelivered}}</strong>
+        </div>
+        
+        <div class="col-sm-4" *ngIf="workCompletionDetails">
+            <span>VAT Amount (AED)</span><br>
+            <strong>{{workCompletionDetails.vatAmt}}</strong>
+        </div>
+        
+        <div class="col-sm-4" *ngIf="workCompletionDetails">
+            <span>{{'Total Amount (AED)' | translate}}</span><br>
+            <strong>{{workCompletionDetails.totalAmt}}</strong>
+        </div>
+       
+    </div>
+</div>

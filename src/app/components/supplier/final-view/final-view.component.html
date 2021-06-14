@@ -1,0 +1,52 @@
+<form #supplierFinalDataForm="ngForm" (ngSubmit)="submitFinalSupplierDetails()">
+
+
+    <!-- ----------------------- Progress bar -------------------- -->
+
+    <app-progress-bar [isAlreadySaved]="isAlreadySaved" [disableTab]="disableProgressTab" [supplierTabName]="tabName">
+    </app-progress-bar>
+
+    <ngb-alert class="col-sm-12 col-md-12 pt-4" *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+
+    <!-- --------------- breadcrumb ---------------- -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb pl-0 mt-0">
+        <li class="breadcrumb-item active" aria-current="page">{{'Undertaking' | translate}}</li>
+      </ol>
+    </nav>
+    <!-- ---------------------- company details ------------------------------ -->
+    <div class="d-flex">
+
+      <div class="form-container">
+        <div class="col-sm-12 col-md-12 pt-4">
+          <h5 class="p-3 ft-size12 msg-title">{{'info1' | translate}} {{'info2' | translate}}</h5>
+        </div>
+
+        <div class="row input-checkbox ar-align">
+          <div class="col-md-12 pb-4 pr-5 pl-5">
+            <input type="checkbox" [(ngModel)]="agreeTerms" name="agreeTerms" data-group-cls="btn-group-sm"> 
+            <span
+              class="ml-1 check-space">
+              {{'msg1' | translate}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- --------------- save and navigation ---------------- -->
+    <section id="pagination" class="pagination-area mt-1">     
+      <div class="d-flex">
+        <span class="mr-auto">&nbsp;</span>
+          <nav class="navigation pull-right">
+            <ul class="pagination ">
+              <li class="page-item"><a class="page-link prev-btn" (click)="goToPreviousComponent()"><img
+                    src="./assets/img/arrow-left.png"> </a></li>
+              <button type="submit" class="page-link save"
+                [disabled]="agreeTerms==false || disableButtons==true || isSupplierDataUpdated==false"> {{'Submit' |
+                translate}}</button>
+            </ul>
+          </nav>
+        </div>
+    </section>
+
+</form>

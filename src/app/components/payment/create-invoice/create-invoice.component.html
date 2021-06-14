@@ -1,0 +1,323 @@
+
+        <div class="d-flex">
+            <div class="col-sm-6 pr-0 pl-0 ">
+                <nav aria-label="breadcrumb" id="breadcrumb">
+                    <ol class="breadcrumb pl-0 mt-0">
+                        <li class="breadcrumb-item active" aria-current="page">{{'Create Invoice' | translate}}</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-sm-6 pr-0 pl-0 pt-2 expand-collapse">
+                <app-collapse-expand-btn class="pull-right"></app-collapse-expand-btn>
+            </div>
+        </div>
+        <div class="panel-group " id="accordion">
+
+            <!-----------------  Bus on Demand  ------------------------------ -->
+            <!-- <div class="panel-default"> -->
+            <div class="panel panel-default contract-info">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion"
+                                    href="#collapse1" style="text-decoration: none;">
+                                    <span> {{'Contract Information' | translate}}</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in show">
+                    <div class="panel-body panel-body1 p-3">
+                        <div id="no-more-tables ">
+                            <app-contract-information-details></app-contract-information-details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!----------------- Expo TVM and TOM ------------------------------ -->
+            <!-- <div class="panel-default"> -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion"
+                                    href="#collapse5" style="text-decoration: none;">
+                                    <span> {{'Completion Certificate' | translate}} </span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse in show"
+                    *ngFor="let inv of invoiceDetails;let i=index">
+                    <div class="panel-body panel-body1 p-3">
+                            <div class="d-flex table-area">
+                                <div class="table-responsive table-box">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th style="min-width: 60px;">
+
+                                                </th>
+                                                <th  style="min-width: 60px;">{{'CC No' | translate}}</th>
+                                                <th  style="min-width: 250px;"> {{'CC Description' |
+                                                    translate}}</th>
+                                                <th >{{'CC Date' | translate}}</th>
+                                                <th >{{'CC Amount' | translate}}</th>
+                                                <th >{{'Status' | translate}}</th>
+                                                <th  style="min-width: 60px; text-align: center;">select</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="bg-white create-invoice">
+                                                <td>
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <div class="row">
+                                                                <div class="col-sm-3">
+                                                                    <a class="accordion-toggle collapsed"
+                                                                        data-toggle="collapse" data-parent="#accordion"
+                                                                        href="#ccCollapse{{i}}"
+                                                                        style="text-decoration: none; font-size: 24px; font-weight: bold; padding-left: 25px;">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+
+                                                        </h4>
+                                                    </div>
+                                                </td>
+                                                <td [attr.data-title]="'CC No' | translate"> {{inv.ccNo}}</td>
+                                                <td [attr.data-title]="'CC Description' | translate"> {{inv.ccDescription}}</td>
+                                                <td [attr.data-title]="'CC Date' | translate">{{inv.ccDate}}</td>
+                                                <td [attr.data-title]="'CC Amount' | translate"> {{inv.ccAmount | mask: 'separator':','}}.00</td>                                             
+                                                <td [attr.data-title]="'Status' | translate" class="text-center"><input *ngIf="inv.invoiceStatus!=='9621'"
+                                                        type="checkbox" [(ngModel)]="inv.selected">
+                                                    <i *ngIf="inv.invoiceStatus=='9621'" class="fa fa-check-square"></i>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                    </div>
+                    <div id="ccCollapse{{i}}" class="panel-collapse collapse in ">
+                        <div class="panel-body panel-body1 p-3">
+                            <div id="no-more-tables ">
+                                <div class="col-sm-12 ar-align">
+                                <h4 class="pb-2 ft-18 ft-b">{{'Payment Milestone/BOQ' | translate}}</h4>
+                                </div>
+                                <div class="data-details">
+                                    <div class="row ml-2 mr-2 pt-2 pb-2 border-top">
+                                        <div class="col-sm-3">
+                                            <span>{{'Summary' | translate}}</span><br>
+                                            <strong>{{inv.paymentMileStoneOrBOQ.summary}}</strong>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span>{{'Milestone Description' | translate}}</span><br>
+                                            <strong>{{inv.paymentMileStoneOrBOQ.description}}</strong>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <span>{{'Units of Measure' | translate}}</span><br>
+                                            <strong>{{inv.paymentMileStoneOrBOQ.unitOfMeasure}}</strong>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row ml-2 mr-2 pt-2 pb-2 border-top even-row-bg">
+                                        <div class="col-sm-3">
+                                            <span>{{'Quantity' | translate}}</span><br>
+                                            <strong>{{inv.paymentMileStoneOrBOQ.quantity}}</strong>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span>{{'Rate' | translate}}</span><br>
+                                            <strong>AED {{inv.paymentMileStoneOrBOQ.rate| mask: 'separator':','
+                                                }}.00</strong>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <span>{{'Total Value' | translate}</span><br>
+                                            <strong>AED {{inv.paymentMileStoneOrBOQ.totalValue| mask: 'separator':','
+                                                }}.00</strong>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- --------------- Alert area ---------------- -->
+            <div id="msgAlert"></div>
+            <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+            <!-- ---------------------- company details ------------------------------ -->
+
+            <!-----------------  Technical Assessment of Building Life Cycle Expectancy  ------------------------------ -->
+            <!-- <div class="panel-default"> -->
+            <div class="panel panel-default contract-info">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <div class="row">
+
+                            <div class="col-sm-12">
+                                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion"
+                                    href="#collapse2" style="text-decoration: none;">
+                                    <span> {{'Invoice Details' | translate}}</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse in show">
+                    <div class="panel-body panel-body1 p-3">
+                        <div id="no-more-tables contract-info">
+                            <div class="panel-body panel-body1 table-box">
+                                <div class="form-container bg-none box-shadow-none">
+                                    <div class="form-group row ">
+                                        <div class="col-sm-4">
+                                            <div class="floating-label">
+                                                <input type="text" class="form-control floating-input" [(ngModel)]="invoiceDtls.invoiceNo"
+                                                placeholder=" ">
+                                                <span class="highlight"></span>
+                                                <label>{{'Vendor Invoice Number' | translate}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="floating-label">
+                                                <input type="text" class="form-control floating-input" onclick="(this.type='date')"
+                                                #invDate
+                                                (click)="invDate.setAttribute('type','date');changeInvFormat($event)"
+                                                (blur)="invDate.setAttribute('type','text');changeInvFormat($event)"
+                                                [(ngModel)]="invoiceDtls.invoiceDate" placeholder=" ">
+                                                <span class="highlight"></span>
+                                                <label>{{'Invoice Date' | translate}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="floating-label">
+                                                <select class="form-control floating-select" [(ngModel)]="invoiceDtls.finalPayment" onclick="this.setAttribute('value', this.value);"
+                                                value=" ">
+                                                    <option [ngValue]="null" [disabled]="true"></option>
+                                                    <option *ngFor="let ftype  of finalPaymentList" value="{{ftype.lovId}}">
+                                                        {{ftype.lovName}}</option>
+                                                </select>
+                                                <span class="highlight"></span>
+                                                <label>{{'Final Payment' | translate}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row ">
+                                        <div class="col-sm-4">
+                                            <div class="floating-label">
+                                                <input type="text" class="form-control floating-input"
+                                                [(ngModel)]="invoiceDtls.description" placeholder=" ">
+                                                <span class="highlight"></span>
+                                                <label>{{'Invoice Description' | translate}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="floating-label">
+                                                <input type="text" class="form-control floating-input" #wcDate
+                                                (click)="wcDate.setAttribute('type','date');changeWcFormat($event)"
+                                                (blur)="wcDate.setAttribute('type','text');changeWcFormat($event)"
+                                                [(ngModel)]="invoiceDtls.workCompletedDate" placeholder=" ">
+                                                <span class="highlight"></span>
+                                                <label>{{'Work Completed Date' | translate}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="floating-label">
+                                                <select class="form-control floating-input" [(ngModel)]="invoiceDtls.paymentType" onclick="this.setAttribute('value', this.value);"
+                                                value=" ">
+                                                    <option [ngValue]="null" [disabled]="true"></option>
+                                                    <option *ngFor="let ptype  of paymentTypeList" value="{{ptype.lovId}}">
+                                                        {{ptype.lovName}}</option>
+                                                </select>
+                                                <span class="highlight"></span>
+                                                <label>{{'Payment Type' | translate}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row ">
+                                        <div class="col-sm-4">
+                                            <div class="floating-label">
+                                                <input type="text" class="form-control floating-input" mask="separator"
+                                                thousandSeparator="," suffix=".00"
+                                                [(ngModel)]="invoiceDtls.invoiceAmount" placeholder=" ">
+                                                <span class="highlight"></span>
+                                                <label>{{'Invoice Amount (AED)' | translate}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="floating-label">
+                                                <input type="text" class="form-control floating-input" mask="separator"
+                                                thousandSeparator="," suffix=".00" [(ngModel)]="invoiceDtls.vatAmount"
+                                                placeholder=" ">
+                                                <span class="highlight"></span>
+                                                <label>{{'VAT Amount (AED)' | translate}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="floating-label">
+                                                <input type="text" class="form-control floating-input" mask="separator"
+                                                thousandSeparator="," suffix=".00" [(ngModel)]="invoiceDtls.totalAmount"
+                                                placeholder=" ">
+                                                <span class="highlight"></span>
+                                                <label>{{'Total Amount (AED)' | translate}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Attachment section -->
+
+            <div class=" panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse6"
+                            style="text-decoration: none;"><img class="icon25 pr-2"
+                                src="assets/img/Attachments-icon.png"> {{'Attachment Section' | translate}} </a>
+                    </h4>
+                </div>
+                <div id="collapse6" class="panel-collapse collapse in show">
+                    <div class="panel-body panel-body1 pt-3 pb-1 pl-3 pr-3">
+                        <div id="no-more-tables margin-b">
+                            <app-attach-section [moduleName]="moduleName" [moduleTxnId]="moduleTxnId">
+                            </app-attach-section>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        <section id="pagination" class="pagination-area mt-1">
+                <div class="d-flex">
+                    <span class="mr-auto">&nbsp;</span>
+
+                    <a><button type="submit" class="save-btn" (click)="saveInvoiceDetails()">
+                            {{'SAVE' | translate}} </button></a>
+                    <a><button type="submit" class="save-btn ml-4 mr-4">
+                            {{'SUBMIT' | translate}}</button></a>
+                    <a><button type="submit" class="clear-btn">
+                            {{'BACK' | translate}} </button></a>
+                </div>
+        </section>

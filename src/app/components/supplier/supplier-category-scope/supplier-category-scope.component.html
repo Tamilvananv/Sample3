@@ -1,0 +1,333 @@
+<form #categoryDetailsForm="ngForm" (ngSubmit)="saveCategoryDetails(categoryDetailsForm)">
+
+    <!-- ----------------------- Progress bar -------------------- -->
+
+    <app-progress-bar [isAlreadySaved]="isAlreadySaved" [disableTab]="disableProgressTab" [supplierTabName]="tabName">
+    </app-progress-bar>
+
+    <!-- --------------- breadcrumb ---------------- -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb pl-0 mt-0">
+        <li class="breadcrumb-item active" aria-current="page"> {{'Category Scope' | translate}}</li>
+      </ol>
+    </nav>
+
+    <!-- --------------- Alert area ---------------- -->
+    <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+
+    <!-- ---------------------- Add Category Information ------------------------------ -->
+
+    <div class="d-flex">
+      <div class="form-container">
+        <div class="col-sm-12">
+          <h1 class="pt-3 pb-2">{{'Add Category Information' | translate}}</h1>
+        </div>
+
+
+        <div class="col-sm-12 form-group">
+          <div class="row row-gap ">
+            <div class="col-sm-4 column-gap">
+              <div class="">
+                <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);" onblur=""
+                  name="parentCategory" [(ngModel)]="parentCategory" #supplierCategoryParent="ngModel" required>
+                  <option hidden="true" value=""></option>
+                  <option disabled=" disabled" default="true" value="">{{'Select' | translate}}</option>
+                  <option *ngFor="let type1  of parentLovMaster" value="{{type1.lovId}}">{{type1.lovName}}</option>
+                </select>
+                <span class="highlight"></span>
+                <label>{{'Parent category' | translate}}<sup>*</sup></label>
+                <div [hidden]="supplierCategoryParent.valid || supplierCategoryParent.pristine">
+                  <span class="validation-msg" *ngIf="supplierCategoryParent.errors?.required">
+                    {{'Please select the parent category' | translate}}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4 column-gap">
+              <div class="">
+                <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);" onblur=""
+                  name="subCategory" [(ngModel)]="subCategory" #supplierCategorySubCategory="ngModel" required>
+                  <option hidden="true" value=""></option>
+                  <option disabled=" disabled" default="true" value="">{{'Select' | translate}}</option>
+                  <option *ngFor="let type2  of childsubLovMaster" value="{{type2.lovId}}">{{type2.lovName}}
+                  </option>
+                </select>
+                <span class="highlight"></span>
+                <label>{{'Sub category' | translate}}<sup>*</sup></label>
+                <div [hidden]="supplierCategorySubCategory.valid || supplierCategorySubCategory.pristine">
+                  <span class="validation-msg" *ngIf="supplierCategorySubCategory.errors?.required">
+                    {{'Please select the Sub category' | translate}}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4 column-gap">
+              <div class="">
+                <span></span>
+                <select class="form-control floating-select" onclick="this.setAttribute('value', this.value);" onblur=""
+                  name="childCategory" [(ngModel)]="childCategory" #supplierCategoryChildCategory="ngModel" required>
+                  <option hidden="true" value=""></option>
+                  <option disabled=" disabled" default="true" value="">{{'Select' | translate}}</option>
+                  <option *ngFor="let type3  of childLovMaster" value="{{type3.lovId}}">{{type3.lovName}}</option>
+                </select>
+                <span class="highlight"></span>
+                <label> {{'Child category' | translate}}<sup>*</sup></label>
+                <div [hidden]="supplierCategoryChildCategory.valid || supplierCategoryChildCategory.pristine">
+                  <span class="validation-msg" *ngIf="supplierCategoryChildCategory.errors?.required">
+                    {{'Please select the Sub category' | translate}}Please select the child category</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ---------------------- Add Scope Information ------------------------------ -->
+    <div class="d-flex mt-3">
+      <div class="form-container">
+        <div class="col-sm-12">
+          <h1 class="pt-3 pb-3">{{'Attach Supporting Documents' | translate}}</h1>
+        </div>
+        <form>
+          <div class="col-sm-12 form-group">
+            <div class="row row-gap pb-3 pl-3 pr-3">
+              <div class="col-sm-4 p-0 ">
+                <div class="attach-row">
+                  <span><strong>{{'DocumentsType' | translate}}</strong></span>
+                </div>
+                <div *ngIf="supplierInformationDropdownList" class="p-2">
+                  <select [(ngModel)]="docCategory" name="docCategory" class="form-control"
+                    placeholder="Select Document Type">
+                    <option hidden="true" value=""></option>
+                    <option disabled=" disabled" default="true" value="">{{'Select' | translate}}</option>
+                    <option *ngFor="let type  of documentTypeDropdown" value="{{type.lovId}}">{{type.lovName}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+                <div class="col-sm-4 p-0 ">
+                  <div class="attach-row">
+                    <span><strong> {{'Document Description' | translate}}</strong></span>
+                  </div>
+                  <div class="p-2">
+                    <input [(ngModel)]="docDesc" name="docDesc" type="text" class="form-control"
+                      placeholder=" {{'Document Description' | translate}}">
+                  </div>
+                </div>
+                <div class="col-sm-4 p-0">
+                  <div class="attach-row">
+                    <span><strong>{{'Action' | translate}}</strong></span>
+                  </div>
+                  <div class="p-2">
+                    <div class="attach-btn file mt-2">
+                      <span class="btn btn-secondary">{{'Select files here to upload' | translate}}<sup>*</sup></span>
+                      <input type="file" name="file"
+                        (change)="uploadDocument($event,supplierId,docDesc,docCategory,parentCategory,subCategory,childCategory,loginUserID,categoryDetailsForm)"
+                        [class.disabled]="disableButtons==true" />
+                    </div>
+                  </div>
+                </div>
+             
+            </div>
+          </div>
+
+
+
+        </form>
+
+        <!-- --------------------- Category files attachment Table area -------------------------------- -->
+
+        <div class="d-flex table-area mt-3" *ngIf="attachmentDocList!=null && attachmentDocList.length>0">
+          <div class="table-responsive table-box">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th >{{'Document Type' | translate}}<img class="pl-2" src="assets/img/filter-icon.png">
+                  </th>
+                  <th >{{'File Uploaded' | translate}}<img class="pl-2" src="assets/img/filter-icon.png">
+                  </th>
+                  <th >{{'Uploaded Date' | translate}}<img class="pl-2" src="assets/img/filter-icon.png">
+                  </th>
+                  <th >{{'Uploaded By' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+                  <th >{{'Action' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let doc of attachmentDocList">
+                  <td [attr.data-title]="'Document Type' | translate"> {{doc.documentCategoryName}} </td>
+                  <td [attr.data-title]="'File Uploaded' | translate"> {{doc.documentName }}</td>
+                  <td [attr.data-title]="'Uploaded Date' | translate">{{ doc.uploadDate }}</td>
+                  <td [attr.data-title]="'Uploaded By' | translate"> {{ doc.userName }} </td>
+                  <td [attr.data-title]="'Action' | translate"><a style="color: #1daeec" (click)="deleteCategoryAttachment(doc.documentId,doc.moduleTxnId)"
+                      [class.disabled]="disableButtons==true"><i class="fa fa-trash"></i></a> </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- --------------------- Category Table area -------------------------------- -->
+
+    <div class="d-flex table-area mt-3">
+      <div class="table-responsive table-box">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th  class="ar-r-align20 en-l-align20">{{'S.No' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th >{{'Parent Category' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th >{{'Sub Category' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th >{{'Child Category' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th >{{'Qualification-Status' | translate}}<img class="pl-2" src="assets/img/filter-icon.png">
+              </th>
+              <th >{{'Testimonial' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th  class="text-center">{{'Action' | translate}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let supplierinfo of supplierCategoryDetails;let i=index">
+              <td [attr.data-title]="'S.No' | translate" class="ar-r-align20 en-l-align20">{{i+1}}</td>
+              <td [attr.data-title]="'Parent Category' | translate">{{ supplierinfo.parentCategoryName }}</td>
+              <td [attr.data-title]="'Sub Category' | translate">{{ supplierinfo.subCategoryName }}</td>
+              <td [attr.data-title]="'Child Category' | translate">{{ supplierinfo.childCategoryName }}</td>
+              <td [attr.data-title]="'Qualification-Status' | translate">{{ supplierinfo.qualificationStatusName}}</td>
+              <td [attr.data-title]="'Testimonial' | translate">
+                <div class="attach-btn file ">
+                  <span class="btn btn-secondary" (click)="openAttachment(supplierinfo)">{{'View' | translate}}</span>
+                </div>
+              </td>
+              <td class="text-center" [attr.data-title]="'Action' | translate">
+                <a (click)="editDetails($event, supplierinfo)" class="mr-2" [class.disabled]="disableButtons==true"><img
+                    class="pl-2" src="assets/img/edit.png"></a>
+                <a (click)="callFunction($event, supplierinfo)" [class.disabled]="disableButtons==true"><i
+                    class="fa fa-trash"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="d-flex table-area mt-3">
+          <div class="table-responsive table-box">
+
+            <div *ngIf="masterData.length>0" class="d-flex justify-content-between p-2">
+              <app-pagination-record-count [totalRec]="totalRecordsCount"
+                (selectedGridCount)="selectedGridCountChange($event)">
+              </app-pagination-record-count>
+              <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount" [recordsPerPage]="recCount"
+                (onPageChange)="displayActivePage($event)">
+              </app-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- --------------- save and navigation ---------------- -->
+
+
+    <section id="pagination" class="pagination-area mt-1">     
+      <div class="d-flex">
+        <span class="mr-auto">&nbsp;</span>
+            <nav class="navigation pull-right">
+              <ul class="pagination ">
+                <li class="page-item"><a class="page-link prev-btn" (click)="goToPreviousComponent()"><img
+                      src="./assets/img/arrow-left.png"> </a></li>
+                <button type="submit" class="page-link save"
+                  [disabled]="categoryDetailsForm.invalid  || !categoryDetailsForm.dirty || !categoryDetailsForm.touched || disableButtons==true">
+                  {{'Save' | translate}}</button>
+                <li class="page-item" *ngIf="isAlreadySaved==true"><a class="page-link next-btn"
+                    (click)="goToNextComponent()"> <img src="./assets/img/arrow-right.png">
+                  </a></li>
+              </ul>
+            </nav>
+        </div>
+      </section>
+  
+  
+</form>
+
+<div class="modal fade table-model" id="attachmentsModel" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{'Testimonial' | translate}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mt-0">
+        <h1 class="model-header">{{'Success Stories' | translate}}</h1>
+        <div class="d-flex table-area">
+          <div class="table-responsive table-box">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>{{'File Uploaded' | translate}}</th>
+              <th>{{'Uploaded Date' | translate}}</th>
+              <th>{{'Uploaded By' | translate}}</th>
+              <th>{{'Action' | translate}}</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="successStories">
+            <tr *ngFor="let doc of successStories">
+              <td [attr.data-title]="'File Uploaded' | translate"> {{doc.documentName }}</td>
+              <td [attr.data-title]="'Uploaded Date' | translate">{{ doc.uploadDate }}</td>
+              <td [attr.data-title]="'Uploaded By' | translate"> {{ doc.userName }} </td>
+              <td [attr.data-title]="'Action' | translate" class="text-center">
+                <a (click)="deleteAttachmentStories($event, doc)" [class.disabled]="disableButtons==true" class="close"
+                  data-dismiss="modal"><i class="fa fa-trash"></i></a>
+              </td>
+            </tr>
+          </tbody>
+
+          <tbody *ngIf="attachmentDataNotRetrievedMsg && successStories.length==0">
+            <tr>
+              <td colspan="4" class="center">{{ attachmentDataNotRetrievedMsg }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+      <div class="modal-body mt-0">
+        <h1 class="model-header">{{'Specialized Profiles' | translate}}</h1>
+        <div class="d-flex table-area">
+        <div class="table-responsive table-box">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>{{'File Uploaded' | translate}}</th>
+              <th>{{'Uploaded Date' | translate}}</th>
+              <th>{{'Uploaded By' | translate}}</th>
+              <th>{{'Action' | translate}}</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="specializedProfiles">
+            <tr *ngFor="let doc of specializedProfiles">
+              <td [attr.data-title]="'File Uploaded' | translate"> {{doc.documentName }}</td>
+              <td [attr.data-title]="'Uploaded Date' | translate">{{ doc.uploadDate }}</td>
+              <td [attr.data-title]="'Uploaded By' | translate"> {{ doc.userName }} </td>
+              <td [attr.data-title]="'Action' | translate" class="text-center">
+                <a (click)="deleteAttachmentStories($event, doc)" [class.disabled]="disableButtons==true" class="close"
+                  data-dismiss="modal"><i class="fa fa-trash"></i></a>
+              </td>
+            </tr>
+          </tbody>
+
+          <tbody *ngIf="attachmentDataNotRetrievedMsg && specializedProfiles.length==0">
+            <tr>
+              <td colspan="4" class="center">{{ attachmentDataNotRetrievedMsg }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>

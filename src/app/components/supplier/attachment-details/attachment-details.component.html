@@ -1,0 +1,139 @@
+  <!-- ----------------------- Progress bar -------------------- -->
+
+  <app-progress-bar [isAlreadySaved]="isAlreadySaved" [disableTab]="disableProgressTab" [supplierTabName]="tabName">
+  </app-progress-bar>
+
+  <!-- --------------- breadcrumb ---------------- -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb pl-0 mt-0">
+      <li class="breadcrumb-item active" aria-current="page">{{'Supplier Attachments' | translate}}</li>
+    </ol>
+  </nav>
+
+  <!-- --------------- Alert area ---------------- -->
+
+  <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+  <!-- ---------------------- company details ------------------------------ -->
+    <div class="form-container">
+      <div class="col-sm-12">
+        <h1 class="pt-3 pb-3">{{'Attach Supporting Documents' | translate}}</h1>
+      </div>
+
+          <form #supplierAttachmentForm="ngForm">
+            <div class="col-sm-12 form-group">
+              <div class="row row-gap pb-3 pl-3 pr-3">
+                <div class="col-sm-4 p-0 ">
+                  <div class="attach-row">
+                    <span><strong>{{'DocumentsType' | translate}}</strong></span>
+                  </div>
+                  <div *ngIf="supplierInformationDropdownList" class="p-2">
+                    <select class="form-control" [(ngModel)]="docsCategory" name="docsCategory"
+                      #supplierAttachmentDocCategory="ngModel" required>
+                      <option hidden="true" value=""></option>
+                      <option disabled=" disabled" default="true" value="">{{'Select' | translate}}</option>
+                      <option *ngFor="let type  of supplierInformationDropdownList.attachmentSectionDocCategory"
+                        value="{{type.lovId}}">{{type.lovName}}</option>
+                      <option value="Others">{{'Others' | translate}}</option>
+                    </select>
+                    <div [hidden]="supplierAttachmentDocCategory.valid || supplierAttachmentDocCategory.pristine">
+                      <span class="validation-msg">{{'Please select the document category' | translate}}</span>
+                    </div>
+                  </div>
+                </div>
+                  <div class="col-sm-4 p-0 ">
+                    <div class="attach-row">
+                      <span><strong> {{'Document Description' | translate}}</strong></span>
+                    </div>
+                    <div class="p-2">
+                      <input class="form-control inputText" [(ngModel)]="docsDesc" name="docsDesc" type="text"
+                      #supplierAttachmentDocumentDesc="ngModel" required>
+                    <div [hidden]="supplierAttachmentDocumentDesc.valid || supplierAttachmentDocumentDesc.pristine">
+                      <span class="validation-msg">{{'Please select the document description' | translate}}</span>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 p-0">
+                    <div class="attach-row">
+                      <span><strong>{{'Action' | translate}}</strong></span>
+                    </div>
+                    <div class="p-2">
+                      <div class="attach-btn file ">
+                        <span class="btn btn-secondary pt-1 pb-1">{{'Select files here to upload' | translate}}</span>
+                        <input type="file" name="file"
+                          (change)="uploadDocument($event,docsDesc,docsCategory,supplierAttachmentForm)"
+                          [disabled]="disableButtons==true || (!docsCategory || !docsDesc)" />
+                      </div>
+      
+                      <div>
+                        {{ fileName }}
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </form>
+        </div>
+    
+
+
+  <!-- --------------------- Table area -------------------------------- -->
+
+  <div class="d-flex table-area mt-5">
+    <div class="table-responsive table-box">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th >{{'Document Type' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+            <th >{{'Description' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+            <th   class="text-left"> {{'File Name' | translate}}<img class="pl-2" src="assets/img/filter-icon.png">
+            </th>
+            <th >{{'Uploaded By' | translate}}<img class="pl-2" src="assets/img/filter-icon.png">
+            </th>
+            <th >{{'Uploaded Date' | translate}}<img class="pl-2" src="assets/img/filter-icon.png"></th>
+          </tr>
+        </thead>
+        <tbody *ngIf="supplierAttachmentSection">
+          <tr *ngFor="let supplierinfo of supplierAttachmentSection">
+            <td [attr.data-title]="'Document Type' | translate">{{ supplierinfo.docCategoryName }}</td>
+            <td [attr.data-title]="'Description' | translate">{{ supplierinfo.documentDescription}}</td>
+            <td [attr.data-title]="'File Name' | translate" class="text-left">
+              <a style="color: #1daeec; padding-right: 20px;" (click)="downloadDocument(supplierinfo.documentName)"
+                [class.disabled]="disableButtons==true">{{ supplierinfo.documentName }}</a>
+              <a style="color: #1daeec" (click)="deleteSelectedAttachmentDetails($event, supplierinfo)"
+                [class.disabled]="disableButtons==true"><i class="fa fa-trash"></i></a>
+            </td>
+            <td [attr.data-title]="'Uploaded By' | translate">{{ supplierinfo.userName }}</td>
+            <td [attr.data-title]="'Uploaded Date' | translate">{{ supplierinfo.uploadDate }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="d-flex table-area mt-2">
+    <div class="table-responsive table-box">
+
+      <div *ngIf="masterData && masterData.length>0" class="d-flex justify-content-between p-2">
+        <app-pagination-record-count [totalRec]="totalRecordsCount"
+          (selectedGridCount)="selectedGridCountChange($event)">
+        </app-pagination-record-count>
+        <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount" [recordsPerPage]="recCount"
+          (onPageChange)="displayActivePage($event)">
+        </app-pagination>
+      </div>
+    </div>
+  </div>
+
+  <section id="pagination" class="pagination-area mt-1">     
+    <div class="d-flex">
+      <span class="mr-auto">&nbsp;</span>
+        <nav class="navigation pull-right">
+          <ul class="pagination ">
+            <li class="page-item"><a class="page-link prev-btn" (click)="goToPreviousComponent()"><img
+                  src="./assets/img/arrow-left.png"> </a></li>
+            <li class="page-item"><a class="page-link next-btn" (click)="goToNextComponent()"> <img
+                  src="./assets/img/arrow-right.png"> </a></li>
+          </ul>
+        </nav>
+      </div>
+  </section>

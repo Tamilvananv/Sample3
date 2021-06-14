@@ -1,0 +1,486 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #333333;
+    background: #f6f6f6;
+  }
+  
+  a {
+    color: #00a0e4;
+  }
+  
+  a:hover {
+    color: #e6573f;
+    text-decoration: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway", sans-serif;
+  }
+  
+  /*--------------------------------------------------------------
+  # color value
+  --------------------------------------------------------------*/
+  
+  .bg-white {
+    background: white;
+  }
+  
+  .bg-blue {
+    background: #00a1e4;
+  }
+  
+  .bg-green {
+    background: #19bd9d;
+  }
+  
+  .bg-gray {
+    background: #dedede;
+  }
+  
+  .ft-white {
+    color: white;
+  }
+  
+  .ft-blue {
+    color: #00a1e4;
+  }
+  
+  .ft-green {
+    color: #19bd9d;
+  }
+  
+  .ft-black {
+    color: #000;
+  }
+  
+  .ft-size14 {
+    font-size: 14px;
+  }
+  
+ 
+  
+  
+ 
+  
+  /*--------------------------------------------------------------
+  # Progress Section
+  --------------------------------------------------------------*/
+  .progress-area {
+    display: block; 
+    width: 100%;
+    overflow-x: auto;
+    margin: 40px 0 15px 0;
+  }
+  
+  .progress-container {
+    display: flex;
+    justify-content: center;
+    // width: 1110px;
+    width: 1075px;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  
+  
+  .progress-container .progress-box {
+    position: relative;
+    width:140px;
+    display: block;
+   text-align: center;
+  }
+  
+  .progress-container .progress-box .progress-inner-box{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .progress-container .progress-box .info-text{
+   font-size: 12px;
+   margin-top: 20px;
+   display: block;
+  }
+  
+  
+  
+  .circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+  }
+  
+  
+  
+  .progress {
+    position: absolute;
+    left: 68%;
+    width: 89px;
+    top: 24px;
+    z-index: -1;
+    height: 4px;
+  }
+  
+  .progress  .progress-bar {
+    height: 4px;
+  }
+  .progress-bar {
+    width: 0px;
+    box-shadow: none;
+    height: 4px;
+  }
+  
+  
+  /*--------------------------------------------------------------
+  # Forms
+  --------------------------------------------------------------*/
+  .form-container {
+   background: white;
+    font-size: 12px;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+  
+  .form-container h1{
+    color: #00a1e4;
+     font-size: 20px;
+     font-weight: 700;
+   }
+  .form-container .form-control {
+    border:none;
+    border-bottom: 1px solid #ced4da;
+    font-size: 12px;
+  }
+  
+  /*--------------------------------------------------------------
+  # Table
+  --------------------------------------------------------------*/
+  .table-area {
+    font-size: 12px;
+  }
+  
+  .table-area .table thead th {
+    color: #000000;
+    border-top: 1px solid #19bd9d;
+    border-bottom: 1px solid #19bd9d;
+    /* min-width:150px; */
+  }
+  .table-area .table thead th:last-child {
+   min-width: 75px;
+  }
+  
+  .table-area .table thead td {  
+    min-width:100px;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .table-area .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #eff4f3;
+  }
+  
+  .table-area .table-striped tbody tr:nth-of-type(even) {
+    background-color: #ffffff;
+  }
+  
+  /*--------------------------------------------------------------
+  # Pagination
+  --------------------------------------------------------------*/
+  
+  .pagination-area {
+    font-size: 12px;
+  }
+  .pagination-area .navigation{
+    float: right;
+  }
+  
+  
+  .pagination-area .save {
+    background: #00cc99;
+    color:white;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .pagination-area .next-btn, .pagination-area .prev-btn  {
+    background: #666666;
+    color:white;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  
+  section {
+    padding: 0 0 20px 0;
+  }
+  
+  .section-bg {
+    background-color: white;
+  }
+  
+  .section-title {
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  
+  .section-title h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .section-title h2::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #00a0e4;
+    bottom: 0;
+    left: calc(50% - 25px);
+  }
+  
+  .section-title p {
+    margin-bottom: 0;
+  }
+  
+ 
+  .custom-control-label {   
+    padding-top: 3px;
+}
+
+.icon-Address-Details .path1:before,
+.icon-Address-Details .path2:before,
+.icon-Address-Details .path3:before,
+.icon-Address-Details .path4:before,
+.icon-Address-Details .path5:before,
+.icon-Attachment-Section .path1:before,
+.icon-Attachment-Section .path2:before,
+.icon-Attachment-Section .path3:before,
+.icon-Bank-Details:before,
+.icon-Category--Scope:before,
+.icon-Contact-Details:before,
+.icon-Final-View:before,
+.icon-Financial--Business .path1:before,
+.icon-Financial--Business .path2:before,
+.icon-Financial--Business .path3:before,
+.icon-Financial--Business .path4:before,
+.icon-Financial--Business .path5:before,
+.icon-Financial--Business .path6:before,
+.icon-Financial--Business .path7:before,
+.icon-Financial--Business .path8:before,
+.icon-Financial--Business .path9:before,
+.icon-Financial--Business .path10:before,
+.icon-Financial--Business .path11:before,
+.icon-Financial--Business .path12:before,
+.icon-Supplier-Information .path1:before,
+.icon-Supplier-Information .path2:before,
+.icon-Supplier-Information .path3:before,
+.icon-Supplier-Information .path4:before ,
+.icon-contact-us:before,
+.icon-hamburger:before,
+.icon-logout:before,
+.icon-Contracts .path1:before,
+.icon-Contracts .path2:before,
+.icon-Contracts .path3:before,
+.icon-Contracts .path4:before,
+.icon-Contracts .path5:before,
+.icon-Contracts .path6:before,
+.icon-Contracts .path7:before ,
+.icon-Dashboard .path1:before,
+.icon-Dashboard .path2:before,
+.icon-Dashboard .path3:before,
+.icon-Dashboard .path4:before,
+.icon-Dashboard .path5:before,
+.icon-Dashboard .path6:before,
+.icon-Dashboard .path7:before,
+.icon-Milestone .path1:before,
+.icon-Milestone .path2:before,
+.icon-Milestone .path3:before,
+.icon-Milestone .path4:before,
+.icon-Notifications:before,
+.icon-Supplier .path1:before,
+.icon-Supplier .path2:before,
+.icon-Supplier .path3:before,
+.icon-Supplier .path4:before,
+.icon-Tender .path1:before,
+.icon-Tender .path2:before,
+.icon-Tender .path3:before,
+.icon-Tender .path4:before,
+.icon-Tender .path5:before,
+.icon-Tender .path6:before,
+.icon-Tender .path7:before,
+.icon-Tender .path8:before,
+.icon-Tender .path9:before,
+.fa-bell:before,
+.icon-Preview:before,
+.icon-Supplier-Registration:before
+    {         
+        font-size: 24px !important;
+        color: #000;
+    }
+ 
+    .icon-Supplier-Information .path1:before,
+        .icon-Supplier-Information .path2:before,
+        .icon-Supplier-Information .path3:before,
+        .icon-Supplier-Information .path4:before,
+        .icon-Supplier-Registration:before   {
+            font-size: 24px !important;
+            color: white !important;
+        }
+  
+.bg-blue .icon-Address-Details .path1:before,
+.bg-blue .icon-Address-Details .path2:before,
+.bg-blue .icon-Address-Details .path3:before,
+.bg-blue .icon-Address-Details .path4:before,
+.bg-blue .icon-Address-Details .path5:before,
+.bg-blue .icon-Attachment-Section .path1:before,
+.bg-blue .icon-Attachment-Section .path2:before,
+.bg-blue .icon-Attachment-Section .path3:before,
+.bg-blue .icon-Bank-Details:before,
+.bg-blue .icon-Category--Scope:before,
+.bg-blue .icon-Contact-Details:before,
+.bg-blue .icon-Final-View:before,
+.bg-blue .icon-Financial--Business .path1:before,
+.bg-blue .icon-Financial--Business .path2:before,
+.bg-blue .icon-Financial--Business .path3:before,
+.bg-blue .icon-Financial--Business .path4:before,
+.bg-blue .icon-Financial--Business .path5:before,
+.bg-blue .icon-Financial--Business .path6:before,
+.bg-blue .icon-Financial--Business .path7:before,
+.bg-blue .icon-Financial--Business .path8:before,
+.bg-blue .icon-Financial--Business .path9:before,
+.bg-blue .icon-Financial--Business .path10:before,
+.bg-blue .icon-Financial--Business .path11:before,
+.bg-blue .icon-Financial--Business .path12:before,
+.bg-blue .icon-Supplier-Information .path1:before,
+.bg-blue .icon-Supplier-Information .path2:before,
+.bg-blue .icon-Supplier-Information .path3:before,
+.bg-blue .icon-Supplier-Information .path4:before ,
+.bg-blue .icon-contact-us:before,
+.bg-blue .icon-hamburger:before,
+.bg-blue .icon-logout:before,
+.bg-blue .icon-Contracts .path1:before,
+.bg-blue .icon-Contracts .path2:before,
+.bg-blue .icon-Contracts .path3:before,
+.bg-blue .icon-Contracts .path4:before,
+.bg-blue .icon-Contracts .path5:before,
+.bg-blue .icon-Contracts .path6:before,
+.bg-blue .icon-Contracts .path7:before ,
+.bg-blue .icon-Dashboard .path1:before,
+.bg-blue .icon-Dashboard .path2:before,
+.bg-blue .icon-Dashboard .path3:before,
+.bg-blue .icon-Dashboard .path4:before,
+.bg-blue .icon-Dashboard .path5:before,
+.bg-blue .icon-Dashboard .path6:before,
+.bg-blue .icon-Dashboard .path7:before,
+.bg-blue .icon-Milestone .path1:before,
+.bg-blue .icon-Milestone .path2:before,
+.bg-blue .icon-Milestone .path3:before,
+.bg-blue .icon-Milestone .path4:before,
+.bg-blue .icon-Notifications:before,
+.bg-blue .icon-Supplier .path1:before,
+.bg-blue .icon-Supplier .path2:before,
+.bg-blue .icon-Supplier .path3:before,
+.bg-blue .icon-Supplier .path4:before,
+.bg-blue .icon-Tender .path1:before,
+.bg-blue .icon-Tender .path2:before,
+.bg-blue .icon-Tender .path3:before,
+.bg-blue .icon-Tender .path4:before,
+.bg-blue .icon-Tender .path5:before,
+.bg-blue .icon-Tender .path6:before,
+.bg-blue .icon-Tender .path7:before,
+.bg-blue .icon-Tender .path8:before,
+.bg-blue .icon-Tender .path9:before,
+.bg-blue .fa-bell:before,
+.bg-blue .icon-Preview:before,
+.bg-blue .icon-Supplier-Registration:before
+    {         
+        font-size: 24px !important;
+        color: #fff !important;
+    }
+
+.bg-green .icon-Address-Details .path1:before,
+.bg-green .icon-Address-Details .path2:before,
+.bg-green .icon-Address-Details .path3:before,
+.bg-green .icon-Address-Details .path4:before,
+.bg-green .icon-Address-Details .path5:before,
+.bg-green .icon-Attachment-Section .path1:before,
+.bg-green .icon-Attachment-Section .path2:before,
+.bg-green .icon-Attachment-Section .path3:before,
+.bg-green .icon-Bank-Details:before,
+.bg-green .icon-Category--Scope:before,
+.bg-green .icon-Contact-Details:before,
+.bg-green .icon-Final-View:before,
+.bg-green .icon-Financial--Business .path1:before,
+.bg-green .icon-Financial--Business .path2:before,
+.bg-green .icon-Financial--Business .path3:before,
+.bg-green .icon-Financial--Business .path4:before,
+.bg-green .icon-Financial--Business .path5:before,
+.bg-green .icon-Financial--Business .path6:before,
+.bg-green .icon-Financial--Business .path7:before,
+.bg-green .icon-Financial--Business .path8:before,
+.bg-green .icon-Financial--Business .path9:before,
+.bg-green .icon-Financial--Business .path10:before,
+.bg-green .icon-Financial--Business .path11:before,
+.bg-green .icon-Financial--Business .path12:before,
+.bg-green .icon-Supplier-Information .path1:before,
+.bg-green .icon-Supplier-Information .path2:before,
+.bg-green .icon-Supplier-Information .path3:before,
+.bg-green .icon-Supplier-Information .path4:before ,
+.bg-green .icon-contact-us:before,
+.bg-green .icon-hamburger:before,
+.bg-green .icon-logout:before,
+.bg-green .icon-Contracts .path1:before,
+.bg-green .icon-Contracts .path2:before,
+.bg-green .icon-Contracts .path3:before,
+.bg-green .icon-Contracts .path4:before,
+.bg-green .icon-Contracts .path5:before,
+.bg-green .icon-Contracts .path6:before,
+.bg-green .icon-Contracts .path7:before ,
+.bg-green .icon-Dashboard .path1:before,
+.bg-green .icon-Dashboard .path2:before,
+.bg-green .icon-Dashboard .path3:before,
+.bg-green .icon-Dashboard .path4:before,
+.bg-green .icon-Dashboard .path5:before,
+.bg-green .icon-Dashboard .path6:before,
+.bg-green .icon-Dashboard .path7:before,
+.bg-green .icon-Milestone .path1:before,
+.bg-green .icon-Milestone .path2:before,
+.bg-green .icon-Milestone .path3:before,
+.bg-green .icon-Milestone .path4:before,
+.bg-green .icon-Notifications:before,
+.bg-green .icon-Supplier .path1:before,
+.bg-green .icon-Supplier .path2:before,
+.bg-green .icon-Supplier .path3:before,
+.bg-green .icon-Supplier .path4:before,
+.bg-green .icon-Tender .path1:before,
+.bg-green .icon-Tender .path2:before,
+.bg-green .icon-Tender .path3:before,
+.bg-green .icon-Tender .path4:before,
+.bg-green .icon-Tender .path5:before,
+.bg-green .icon-Tender .path6:before,
+.bg-green .icon-Tender .path7:before,
+.bg-green .icon-Tender .path8:before,
+.bg-green .icon-Tender .path9:before,
+.bg-green .fa-bell:before,
+.bg-green .icon-Preview:before,
+.bg-green .icon-Supplier-Registration:before
+    {         
+        font-size: 24px !important;
+        color: #fff !important;
+    }

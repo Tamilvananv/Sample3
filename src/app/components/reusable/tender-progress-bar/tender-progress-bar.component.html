@@ -1,0 +1,256 @@
+<div class="progress-area">
+  <div class="progress-container">
+
+    <div class="progress-box">
+      <!-- <a routerLink="/public-tender-details"> -->
+      <a routerLink="/tender-details">
+        <div class="progress-inner-box">
+
+          <div *ngIf="id==1" class="circle bg-blue">
+            <!-- <span class="icon-Supplier-Registration"></span> -->
+            <span class="ft-white">1</span>
+          </div>
+          <!-- <div *ngIf="id<1" class="circle bg-gray">
+            <span class="ft-white">1</span> 
+          </div>-->
+          <div *ngIf="id>1" class="circle bg-green">
+            <span class="ft-white">1</span>
+          </div>
+        </div>
+        <div class="progress">
+          <!-- <div class="progress-bar " role="progressbar" style="width: 50%" aria-valuenow="100" aria-valuemin="0"
+            aria-valuemax="100"></div> -->
+          <div *ngIf="id===1" class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="0"
+            aria-valuemin="0" aria-valuemax="100">
+          </div>
+          <div *ngIf="id>1" class="progress-bar" role="progressbar" style="width: 100%; background: #19bd9d;"
+            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          </div>
+          <div *ngIf="id<1" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100">
+          </div>
+        </div>
+        <!-- <span class="info-text ft-blue">{{'Subscribe' | translate}}</span> -->
+        <span *ngIf="id===1" class="info-text ft-blue"> {{'Subscribe' | translate}} </span>
+        <span *ngIf="id<1" class="info-text ft-black"> {{'Subscribe' | translate}} </span>
+        <span *ngIf="id>1" class="info-text ft-green"> {{'Subscribe' | translate}} </span>
+      </a>
+    </div>
+
+    <div class="progress-box">
+      <a routerLink="/public-tender-details">
+        <div class="progress-inner-box">
+
+          <!-- <div class="circle bg-gray">
+            <span>2</span>
+          </div> -->
+          <div *ngIf="id==2" class="circle bg-blue">
+            <span class="ft-white">2</span>
+          </div>
+          <div *ngIf="id<2" class="circle bg-gray">
+            <span class="ft-black">2</span>
+          </div>
+          <div *ngIf="id>2" class="circle bg-green">
+            <span class="ft-white">2</span>
+          </div>
+
+        </div>
+        <div class="progress">
+          <!-- <div class="progress-bar bg-info" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+            aria-valuemax="100"></div> -->
+          <div *ngIf="id===2" class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="0"
+            aria-valuemin="0" aria-valuemax="100">
+          </div>
+          <div *ngIf="id>2" class="progress-bar" role="progressbar" style="width: 100%; background: #19bd9d;"
+            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          </div>
+          <div *ngIf="id<2" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100">
+          </div>
+        </div>
+        <!-- <span class="info-text ft-black">{{'Pay RFP Fee' | translate}}</span> -->
+        <span *ngIf="id===2" class="info-text ft-blue"> {{'Pay RFP Fee' | translate}} </span>
+        <span *ngIf="id<2" class="info-text ft-black"> {{'Pay RFP Fee' | translate}} </span>
+        <span *ngIf="id>2" class="info-text ft-green"> {{'Pay RFP Fee' | translate}} </span>
+      </a>
+    </div>
+
+    <div class="progress-box">
+      <div class="progress-inner-box">
+        <!-- routerLink="/supplier-information" -->
+        <a>
+          <div class="circle bg-gray">
+            <span class="ft-black">3</span>
+          </div>
+          <!-- <div *ngIf="id==3" class="circle bg-blue">
+              <span class="ft-white">3</span>
+            </div>
+            <div *ngIf="id<3" class="circle bg-gray">
+              <span class="ft-black">3</span>
+            </div>
+            <div *ngIf="id>3" class="circle bg-green">
+              <span class="ft-white">3</span>
+            </div> -->
+        </a>
+      </div>
+      <div class="progress">
+        <div class="progress-bar bg-upcoming" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+          aria-valuemax="100"></div>
+        <!-- <div *ngIf="id===3" class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="0"
+            aria-valuemin="0" aria-valuemax="100">
+          </div>
+          <div *ngIf="id>3" class="progress-bar" role="progressbar" style="width: 100%; background: #19bd9d;"
+            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          </div>
+          <div *ngIf="id<3" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100">
+          </div> -->
+      </div>
+      <span class="info-text ft-black">{{'Download RFP' | translate}}</span>
+      <!-- <span *ngIf="id===3" class="info-text ft-blue"> {{'Download RFP' | translate}} </span>
+      <span *ngIf="id<3" class="info-text ft-black"> {{'Download RFP' | translate}} </span>
+      <span *ngIf="id>3" class="info-text ft-green"> {{'Download RFP' | translate}} </span> -->
+    </div>
+
+    <div class="progress-box">
+      <a routerLink="/post-queries">
+        <div class="progress-inner-box">
+
+          <!-- <div class="circle bg-gray">
+            <span>4</span>
+          </div> -->
+          <div *ngIf="id==4" class="circle bg-blue">
+              <span class="ft-white">4</span>
+            </div>
+            <div *ngIf="id<4" class="circle bg-gray">
+              <span class="ft-black">4</span>
+            </div>
+            <div *ngIf="id>4" class="circle bg-green">
+              <span class="ft-white">4</span>
+            </div>
+        </div>
+        <div class="progress">
+          <!-- <div class="progress-bar bg-upcoming" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"></div> -->
+            <div *ngIf="id===4" class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="0"
+            aria-valuemin="0" aria-valuemax="100">
+          </div>
+          <div *ngIf="id>4" class="progress-bar" role="progressbar" style="width: 100%; background: #19bd9d;"
+            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          </div>
+          <div *ngIf="id<4" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100">
+          </div>
+        </div>
+        <!-- <span class="info-text ft-black">{{'Post Queries' | translate}}</span> -->
+        <span *ngIf="id===4" class="info-text ft-blue"> {{'Post Queries' | translate}} </span>
+        <span *ngIf="id<4" class="info-text ft-black"> {{'Post Queries' | translate}} </span>
+        <span *ngIf="id>4" class="info-text ft-green"> {{'Post Queries' | translate}} </span>
+      </a>
+    </div>
+
+
+    <div class="progress-box">
+      <a routerLink="/published-notifications-detail">
+        <div class="progress-inner-box">
+
+<!-- 
+          <div class="circle bg-gray">
+            <span>5</span>
+          </div> -->
+          <div *ngIf="id==5" class="circle bg-blue">
+              <span class="ft-white">5</span>
+            </div>
+            <div *ngIf="id<5" class="circle bg-gray">
+              <span class="ft-black">5</span>
+            </div>
+            <div *ngIf="id>5" class="circle bg-green">
+              <span class="ft-white">5</span>
+            </div>
+
+        </div>
+        <div class="progress">
+          <!-- <div class="progress-bar bg-upcoming" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"></div> -->
+            <div *ngIf="id===5" class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="0"
+            aria-valuemin="0" aria-valuemax="100">
+          </div>
+          <div *ngIf="id>5" class="progress-bar" role="progressbar" style="width: 100%; background: #19bd9d;"
+            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          </div>
+          <div *ngIf="id<5" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100">
+          </div>
+        </div>
+        <!-- <span class="info-text ft-black">{{'View Notifications' | translate}}</span> -->
+        <span *ngIf="id===5" class="info-text ft-blue"> {{'View Notifications' | translate}} </span>
+        <span *ngIf="id<5" class="info-text ft-black"> {{'View Notifications' | translate}} </span>
+        <span *ngIf="id>5" class="info-text ft-green"> {{'View Notifications' | translate}} </span>
+
+      </a>
+    </div>
+
+    <div class="progress-box">
+      <a>
+      <!-- <a routerLink="/tender-submission"> -->
+        <div class="progress-inner-box">
+          <div class="circle bg-gray">
+            <span>6</span>
+          </div>
+          <!-- <div *ngIf="id==6" class="circle bg-blue">
+              <span class="ft-white">6</span>
+            </div>
+            <div *ngIf="id<6" class="circle bg-gray">
+              <span class="ft-black">6</span>
+            </div>
+            <div *ngIf="id>6" class="circle bg-green">
+              <span class="ft-white">6</span>
+            </div> -->
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-upcoming" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"></div>
+            <!-- <div *ngIf="id===6" class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="0"
+            aria-valuemin="0" aria-valuemax="100">
+          </div>
+          <div *ngIf="id>6" class="progress-bar" role="progressbar" style="width: 100%; background: #19bd9d;"
+            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          </div>
+          <div *ngIf="id<6" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100">
+          </div> -->
+        </div>
+        <span class="info-text ft-black">{{'Create Response' | translate}}</span>
+        <!-- <span *ngIf="id===6" class="info-text ft-blue"> {{'Create Response' | translate}} </span>
+        <span *ngIf="id<6" class="info-text ft-black"> {{'Create Response' | translate}} </span>
+        <span *ngIf="id>6" class="info-text ft-green"> {{'Create Response' | translate}} </span> -->
+
+      </a>
+    </div>
+
+    <div class="progress-box">
+      <a routerLink="/tender-submission">
+        <div class="progress-inner-box">
+<!-- 
+          <div class="circle bg-gray">
+            <span>7</span>
+          </div> -->
+          <div *ngIf="id==6" class="circle bg-blue">
+              <span class="ft-white">7</span>
+            </div>
+            <div *ngIf="id<6" class="circle bg-gray">
+              <span class="ft-black">7</span>
+            </div>
+            <div *ngIf="id>6" class="circle bg-green">
+              <span class="ft-white">7</span>
+            </div>
+
+        </div>
+        <!-- <span class="info-text ft-black">{{'Submit Proposal' | translate}}</span> -->
+        <span *ngIf="id===6" class="info-text ft-blue"> {{'Submit Proposal' | translate}} </span>
+        <span *ngIf="id<6" class="info-text ft-black"> {{'Submit Proposal' | translate}} </span>
+        <span *ngIf="id>6" class="info-text ft-green"> {{'Submit Proposal' | translate}} </span>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+.modal-header {
+ 
+    padding: .5rem 1rem;
+    background: #00a1e4;
+}
+
+.modal-footer {
+    
+    padding:.375rem .75rem;
+    background: #f4f4f4;
+}
+
+@media (min-width: 576px){
+    .modal-dialog {
+        max-width: 1400px;
+        margin: 1.75rem auto;
+    }
+}
+
+
+.modal-btn {
+    color: #fff;
+    background-color: #19bd9d;
+    padding: 6px 16px;
+    font-size: 14px;
+    border: 1px solid #19bd9d;
+}
+
+.modal-btn:hover {
+    color: #19bd9d;
+    background-color: #fff;
+    border: 1px solid #19bd9d;
+    padding: 6px 16px;
+}
+
+.modal-title {
+    color: white !important;
+}
+
+.table th, .table td {
+    font-size: 12px;
+}
+

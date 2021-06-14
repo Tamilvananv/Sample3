@@ -1,0 +1,38 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install -y npm@latest
+      - npm install -g @angular/cli
+      - npm install bootstrap
+      - npm install jquery
+      - npm install moment
+    pre_build:
+      commands:
+      - npm install
+  build:
+    commands:
+      - echo Build started 
+      - ng build --base-href /Procure360/
+      - ls -lrt dist/procure360Webapp/
+artifacts:
+  files:
+      - appspec.yml
+      - scripts/*
+      - procure360Webapp/*
+      - procure360Webapp/assets/*
+      - procure360Webapp/assets/css/*
+      - procure360Webapp/assets/font/*
+      - procure360Webapp/assets/fonts/*
+      - procure360Webapp/assets/img/*
+      - procure360Webapp/assets/js/*
+      - procure360Webapp/assets/lang/*
+      - procure360Webapp/assets/scss/*
+  base-directory: 'dist*'
+cache:
+    paths:
+    - '/root/.npm/**/*'

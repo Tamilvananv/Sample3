@@ -1,0 +1,124 @@
+  <!-- --------------- breadcrumb ---------------- -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb pl-0 mt-3">
+      <li class="breadcrumb-item active" aria-current="page">{{'Notification' | translate}}</li>
+
+    </ol>
+  </nav>
+
+  <form class="mt-2">
+    <div class="form-container bg-none shadow-none">
+      <div class="row ">
+        <div class="col-sm-4 pb-2">
+          <div class="input-group">
+            <input class="form-control bg-none" placeholder="Enter Media, press release">
+          </div>
+        </div>
+        <div class="col-sm-3 pb-2">
+          <div class="input-icons">
+            <input type="text" placeholder="Daterangepicker" class="form-control ar-r-align20" bsDaterangepicker>
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <div class="noti-info">
+            <div class="total-noti mb-2">
+              <div class="total-noti-left">
+                <span>{{'TOTAL RECORDS' | translate}}</span>
+              </div>
+              <div class="total-noti-right">
+                <span>179</span>
+              </div>
+            </div>
+            <div class="unread-noti ml-4 mr-4 mb-2">
+              <div class="unread-noti-left">
+                <span>{{'UNREAD' | translate}}</span>
+              </div>
+              <div class="unread-noti-right">
+                <span>154</span>
+              </div>
+            </div>
+            <div class="read-noti mb-2">
+              <div class="read-noti-left">
+                <span>{{'READ' | translate}}</span>
+              </div>
+              <div class="read-noti-right">
+                <span>25</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </form>
+
+  <div class="d-flex table-area mt-4">
+    <div class="table-responsive">
+
+      <form>
+
+
+        <table class="table table-striped" id="notificationComponentTable">
+          <thead>
+            <tr>
+              <th  (click)="sortTable(0)">{{'No' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(1)">{{'Published Date' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th width="450"  (click)="sortTable(2)">{{'Subject' | translate}}<img
+                  class="pl-2" src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(3)">{{'Location' | translate}}<img class="pl-2"
+                  src="assets/img/filter-icon.png"></th>
+              <th  (click)="sortTable(4)"> {{'Read' | translate}} / {{'Unread' | translate}}</th>
+              <th class="text-center"  (click)="sortTable(5)">{{'Action' | translate}}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let country of countries$ | async">
+              <td [attr.data-title]="'No' | translate">1</td>
+              <td [attr.data-title]="'Published Date' | translate">
+                <ngb-highlight [result]="country.name" [term]="service.searchTerm"></ngb-highlight>
+              </td>
+              <td [attr.data-title]="'Subject' | translate">
+                <!-- <a routerLink="/milestone-completion-details">{{ country.id }}</a> -->
+                <a >{{ country.id }}</a>
+              </td>
+              <td [attr.data-title]="'Location' | translate">
+                <ngb-highlight [result]="country.name" [term]="service.searchTerm"></ngb-highlight>
+              </td>
+              <td [attr.data-title]="'Read' | translate">
+                <ngb-highlight [result]="country.area | number" [term]="service.searchTerm"></ngb-highlight>
+              </td>
+              <td [attr.data-title]="'Action' | translate" class="text-center">
+                <a href=""><i class="fa fa-trash"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <!-- <div class="d-flex justify-content-between p-2">
+              <app-pagination-record-count></app-pagination-record-count>
+              <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
+              </ngb-pagination>
+            </div> -->
+
+        <div class="d-flex table-area mt-5">
+          <div class="table-responsive table-box">
+
+            <div *ngIf="masterData.length>0" class="d-flex justify-content-between p-2">
+              <app-pagination-record-count [totalRec]="totalRecordsCount" (selectedGridCount)="selectedGridCountChange($event)">
+              </app-pagination-record-count>
+              <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount" [recordsPerPage]="recCount"
+                (onPageChange)="displayActivePage($event)">
+              </app-pagination>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>

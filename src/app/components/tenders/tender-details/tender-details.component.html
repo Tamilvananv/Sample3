@@ -1,0 +1,350 @@
+
+
+    <!-- --------------------- progress bar --------------------- -->
+
+    <app-tender-progress-bar [tabName]="tabName"></app-tender-progress-bar>
+    <!-- --------------- Alert area ---------------- -->
+    <!-- --------------- breadcrumb ---------------- -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb pl-0 mt-0">
+        <li class="breadcrumb-item active" aria-current="page">{{'Tenders Details' | translate}}</li>
+      </ol>
+    </nav>
+
+
+    <div class="row pb-2">
+
+      <div class="col-sm-3 ar-align d-inline subscribe-input">
+
+        <!-- needs to be added in the below line --- ng-click="clickSubscribe(tender.tenderVendorMapping.subscription_flag,0)" -->
+        <div
+          *ngIf="(tenderDtls?.tenderMaster?.tender_status != 8023 && tenderDtls?.tenderMaster?.dateCheckFlag==true && isPrequalified == true && isScopeOne == true && tenderMode == 8012 && isInvited == true)
+            || (tenderDtls?.tenderMaster?.tender_status != 8023 && tenderDtls?.tenderMaster?.dateCheckFlag==true && tenderMode == 8011 && isScopeOne == true)">
+          <span class="ft-size12 check-space pr-2 pl-2">{{'Subscribe' | translate}}</span>
+          <input type="checkbox" [(ngModel)]="tenderDtls.tenderVendorMapping.subscription_flag"
+            (click)="clickSubscribe(tenderDtls.tenderVendorMapping.subscription_flag,0)"
+            [checked]="tenderDtls.tenderVendorMapping.subscription_flag==true" data-group-cls="btn-group-sm">
+        </div>
+
+        <!-- ng-click="clickSubscribe(tender.tenderVendorMapping.subscription_flag,1)" -->
+        <div
+          *ngIf="(tenderDtls?.tenderMaster?.tender_status != 8023 && tenderDtls?.tenderMaster?.dateCheckFlag==true && isPrequalified == true && isScopeOne == false && tenderMode == 8012 && isInvited == true)">
+          <span class="pr-2 ft-size12 check-space">{{'Subscribe' | translate}}</span>
+          <input type="checkbox" [(ngModel)]="tenderDtls.tenderVendorMapping.subscription_flag"
+            (click)="clickSubscribe(tenderDtls.tenderVendorMapping.subscription_flag,1)"
+            [checked]="tenderDtls.tenderVendorMapping.subscription_flag==true">
+        </div>
+
+        <!-- ng-click="uncheckSubscribe()" -->
+        <div
+          *ngIf="(tenderDtls?.tenderMaster?.tender_status != 8023 && tenderDtls?.tenderMaster?.dateCheckFlag==true && isPrequalified == false && isScopeOne == false && tenderMode == 8012 && isInvited == true)">
+          <span class="pr-2 ft-size12 check-space pl-2">{{'Subscribe' | translate}}</span>
+          <input type="checkbox" [(ngModel)]="tenderDtls.tenderVendorMapping.subscription_flag"
+            data-target="#showPopup3" data-toggle="modal"
+            [checked]="tenderDtls.tenderVendorMapping.subscription_flag==true">
+        </div>
+
+        <!-- ng-click="uncheckSubscribe()" -->
+        <div
+          *ngIf="(tenderDtls?.tenderMaster?.tender_status != 8023 && tenderDtls?.tenderMaster?.dateCheckFlag==true && isInvited == false && tenderMode == 8012)">
+          <span class="pr-2 ft-size12 check-space">{{'Subscribe' | translate}}</span>
+          <input type="checkbox" [(ngModel)]="tenderDtls.tenderVendorMapping.subscription_flag"
+            [checked]="tenderDtls.tenderVendorMapping.subscription_flag==true" data-target="#showPopup4"
+            data-toggle="modal" data-group-cls="btn-group-sm">
+        </div>
+
+
+      </div>
+      <div class="col-sm-3 ar-align">
+        <span class="ft-size12 check-space"> {{'Pre-Qualified' | translate}}</span>
+        <span class="ft-size12 check-space"> <strong>{{tenderDtls?.isPrequalified==true?'Yes':'No'}}</strong></span>
+      </div>
+      <div class="col-sm-6">
+        <div class="expand-collapse">
+          <app-collapse-expand-btn class="pull-right"></app-collapse-expand-btn>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-group " id="accordion">
+
+      <!-----------------  Bus on Demand  ------------------------------ -->
+      <!-- <div class="panel-default"> -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <div class="row">
+              <div class="col-sm-12">
+                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+                  style="text-decoration: none;">
+                  <span>{{'Tender Basic Information' | translate}}</span>
+                </a>
+              </div>
+            </div>
+
+          </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse in show">
+          <div class="panel-body panel-body1 p-3">
+            <div id="no-more-tables">
+              <app-tender-basic-information [tenderMaster]="tenderDtls?.tenderMaster"></app-tender-basic-information>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-----------------  Technical Assessment of Building Life Cycle Expectancy  ------------------------------ -->
+      <!-- <div class="panel-default"> -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <div class="row">
+
+              <div class="col-sm-12">
+                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse2"
+                  style="text-decoration: none;">
+                  <span>{{'Contact-Details' | translate}}</span>
+                </a>
+              </div>
+            </div>
+
+          </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse in show">
+          <div class="panel-body panel-body1 p-3">
+            <div id="no-more-tables">
+              <app-tender-contact-details [tenderContact]="tenderDtls?.tenderMaster"></app-tender-contact-details>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-----------------  Traffic Engineering System  ------------------------------ -->
+      <!-- <div class="panel-default"> -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <div class="row">
+
+              <div class="col-sm-12">
+                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse3"
+                  style="text-decoration: none;">
+                  <span>{{'Bid Bond Details' | translate}}</span>
+                </a>
+              </div>
+            </div>
+
+          </h4>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse in show">
+          <div class="panel-body panel-body1 p-3">
+            <div id="no-more-tables" *ngIf="tenderDtls">
+              <app-tender-bid-bond-details [bidBondDetails]="tenderDtls.bidBond"></app-tender-bid-bond-details>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!----------------- Expo TVM and TOM  ------------------------------ -->
+      <!-- <div class="panel-default"> -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <div class="row">
+              <div class="col-sm-12">
+                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse4"
+                  style="text-decoration: none;">
+                  <span> {{'Tender Timelines' | translate}}</span>
+                </a>
+              </div>
+            </div>
+
+          </h4>
+        </div>
+        <div id="collapse4" class="panel-collapse collapse in show">
+          <div class="panel-body panel-body1 p-3">
+            <div id="no-more-tables">
+              <app-tender-timelines [tenderDtls]="tenderDtls"></app-tender-timelines>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!----------------- Expo TVM and TOM ------------------------------ -->
+      <!-- <div class="panel-default"> -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <div class="row">
+              <div class="col-sm-12">
+                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse5"
+                  style="text-decoration: none;">
+                  <span>{{'RFP Document' | translate}}</span>
+                </a>
+              </div>
+            </div>
+
+          </h4>
+        </div>
+        <div id="collapse5" class="panel-collapse collapse in show">
+          <div class="panel-body panel-body1 p-3">
+
+            <div class="table-responsive" *ngIf="tenderDtls">
+              <app-tender-rfp-document [rfpDocList]="tenderDtls.rfpDocList"></app-tender-rfp-document>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <section id="pagination" class="pagination-area mt-2">     
+      <div class="d-flex">
+        <span class="mr-auto">&nbsp;</span>
+          <button type="submit" data-toggle="modal" data-target="#receipt" class="save-btn ml-3 mr-3"> {{'PAY' |
+            translate}} </button>
+          <a routerLink="/public-tenders"><button type="submit" class="clear-btn "> {{'BACK' | translate}} </button></a>
+        </div>
+    </section>
+
+  <app-model-window></app-model-window>
+
+
+<!--modals-->
+<div id="showPopup2" class="modal fade table-model">
+  <div align="center" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-title">{{'Information' | translate}}</div>
+      </div>
+
+      <div class="modal-body  ">
+        <span>{{'mesg1' | translate}}</span><br><br>
+        <span>{{'mesg2' | translate}}</span><br><br>
+        <span>{{'mesg3' | translate}}</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="" data-dismiss="modal" aria-hidden="true">{{'Ok'|translate}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="showPopup3" class="modal fade table-model">
+  <div align="center" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-title">{{'Information'|translate}}</div>
+      </div>
+
+      <div class="modal-body  ">
+        <span>{{'mesg4' | translate}}</span>
+        <br><br>
+        <span>{{'mesg5' | translate}}</span>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="" data-dismiss="modal" aria-hidden="true">{{'Ok'|translate}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="showPopup4" class="modal fade table-model">
+  <div align="center" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-title">{{'Information'|translate}}</div>
+      </div>
+
+      <div class="modal-body  ">
+        <span>{{'mesg6' | translate}}</span>
+        <br><br>
+        <span>{{'mesg7' | translate}}</span>
+        <!-- Not shortlisted to participate in this Tender.<br><br>                   
+                     Please contact Vendor affairs section [VAS] for further information. -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="" data-dismiss="modal" aria-hidden="true">
+          {{'Ok'|translate}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Added by maniraj.K on 23 March 2018-->
+<div id="showPopupChk" class="modal fade table-model">
+  <div align="center" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" id="close" data-dismiss="modal">&times;</button>
+        <div class="modal-title"> {{'Pardon Remark'|translate}}</div>
+      </div>
+
+      <div class="modal-body  ">
+        <div id="error" class="alert alert-danger" style="display: none;"></div>
+        <span id="successMsg" *ngIf="successMsg" style="display: none;color: green;">
+          {{'Pardon Remark Details Saved Successfully'|translate}}
+        </span>
+
+        <div class="list_table_mod">
+          <div class="rowmod margin-top-10" data-ng-init="getPardonReason()">
+            <div class="col-sm-12 rowspace">
+              <div class="form-group">
+                <label class="control-label col-sm-4"> {{'Reason'|translate}}
+                </label>
+                <div class="col-sm-8" *ngIf="tenderDtls?.tenderMaster?.pardonReason">
+                  <select id="pardonReason" [(ngModel)]="tenderDtls.tenderMaster.pardonReason" class="form-control">
+                    <option value=""> {{'select'|translate}}</option>
+                    <option *ngFor="let reason of pardonReason" value="{{reason.lovId}}">{{reason.lovName}}</option>
+                  </select>
+
+                </div>
+
+                <span id="errMsg" *ngIf="errMsg" style="display: none;color: red;">
+                  {{'Please select atleast one Reason'|translate}}
+                </span>
+
+              </div>
+            </div>
+          </div>
+          <div class="rowmod margin-top-10">
+            <div class="col-sm-12 rowspace">
+              <div class="form-group">
+                <label class="control-label col-sm-4">
+                  {{'Pardon Remark'|translate}}
+                </label>
+                <div class="col-sm-8" *ngIf="tenderDtls?.tenderMaster?.pardonRemark">
+                  <textarea maxlength="499" class="pardonRemarks"
+                    [(ngModel)]="tenderDtls.tenderMaster.pardonRemark"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <span id="errMsgRemark" *ngIf="errMsgRemark" style="display: none;color: red;">
+              {{'If Others is selected,Pardon Remark is mandatory'|translate}}
+            </span>
+          </div>
+
+
+          <div class="clearfix"></div>
+
+        </div>
+
+
+      </div>
+      <div class="modal-footer" *ngIf="pardonSubmit">
+        <button type="button" id="pardonSubmit" (click)="savePardonDetails('Pardon Remark Details Saved Successfully','Information',
+                                                         'Ok')">
+          {{'SAVE'|translate}}
+        </button>
+        <button type="button" id="closePopUp" class="UnscbCheckBox" aria-hidden="true"> {{'CLOSE'|translate}} </button>
+      </div>
+    </div>
+  

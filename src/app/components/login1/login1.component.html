@@ -1,0 +1,112 @@
+
+    <div class="fixed-container">
+        <!-- <div class="blur"></div> -->
+        <div class="container">
+            <div class="container-login100 ">
+                <div class="wrapmain-login100">
+                    <img class="login100-form_logo" src="assets/img/Procure360-logo-new.png">
+                    <div class="login100-form">
+                    <div class="wrap-login100 ">
+                    <ng-container *ngIf="loginFormStep1">
+                        
+                        <form #loginDetailsForm="ngForm">
+                           
+                            <div class="login100-form_title">
+                                <h1 class=" pt-5">Sign in</h1>
+                            </div>
+                            <div class="mt-4 mb-4 ml-5 mr-5">
+                            <div class="wrap-input100 m-b-26 mb-4 mt-3">
+                                <div class="floating-label">
+                                    <input type="text" class="floating-input"  placeholder=" " name="loginInfoVO.username" [(ngModel)]="loginInfoVO.username"  value="" autocomplete="off"/>
+                                    <span class="highlight"></span>
+                                    <label>Name</label>
+                                  </div>
+                            </div>
+                            <div class="flex-sb-m w-full ">
+                                <div class="d-flex contact100-form-checkbox ">
+                                    <span class="label-text mr-auto mt-0 mb-3">
+                                        No Account?
+                                            <a routerLink="/create-new-registration" >
+                                            Create now!
+                                        </a>
+                                    </span>
+                                </div>
+                                <div *ngIf="loginInfoVO.username" class="d-flex justify-content-end  mb-4 link-anchor">
+                                    <a (click)="sendUserName($event,loginInfoVO.username)">
+                                        <button type="submit" class="login100-form-btn">
+                                            NEXT
+                                        </button>
+                                    </a>
+                                    <!-- <button type="submit"> Sign in </button> -->
+                                </div>
+                                <span *ngIf="errorMsg"><sup>{{ errorMsg }}</sup></span>
+                            </div>
+                        </div>
+                      </form> 
+                       
+                    </ng-container>
+
+<ng-container *ngIf="loginFormStep2">
+<div class="login100-form_title">
+
+                            <h1 class=" pt-5">Enter Password</h1>
+                        </div>
+                        <div class="d-flex justify-content-start ">
+                            <span *ngIf="errorMsg"><sup>{{ errorMsg }}</sup></span>
+                        </div>
+                        <form #login2DetailsForm="ngForm" (ngSubmit)="onSubmit()">
+                            <div class="mt-4 mb-4 ml-5 mr-5">
+                            <div class="d-flex justify-content-start ">
+                                <a (click)="displayLoginStep()">
+                                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                                </a>
+
+                                <span class="label-text1 ">
+                                    User name
+                                </span>
+                            </div>
+                            <!-- <h1 class="login100-form_title pt-1">Enter password</h1> -->
+
+                            <div class="wrap-input100 m-b-26">
+                                <div class="floating-label">
+                                    <input type="password" class="floating-input" placeholder=" "
+                                        name="loginInfoVO.password" [(ngModel)]="loginInfoVO.password"
+                                        autocomplete="off" />
+                                    <span class="highlight"></span>
+                                    <label>Enter password</label>
+                                </div>
+
+                                <div class="d-flex mt-3">
+                                    <div class="keep-box">
+                                        <div class="keep-box-inner">
+                                            <input type="checkbox" data-group-cls="btn-group-sm">
+                                            <span class="keep-me ml-1">Keep me signed in</span>
+                                        </div>
+                                        <!-- <span>Forgot Password?</span> -->
+                                        <a routerLink="#">
+                                            Forgot Password?
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-sb-m w-full mt-4">
+                                <div class="d-flex justify-content-end  mb-4">
+                                    <!--  <a routerLink="/dashboard" routerLinkActive="active"> -->
+                                    <button type="submit" class="login100-form-btn">
+                                        SIGN IN
+                                    </button>
+                                    <!--  </a> -->
+                                </div>
+                            </div>
+
+                        </div>
+                        </form>
+</ng-container>	
+</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    

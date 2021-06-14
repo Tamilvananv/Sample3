@@ -1,0 +1,42 @@
+<table class="table  table-align-left">
+    <tbody>
+        <tr class="border-bottom">
+            <td class="tendertable ">
+                <span> {{'Published Date' | translate}}</span> <br>
+                <strong>{{tenderDtls?.tenderMaster?.tender_publish_dt}}</strong>
+            </td>
+            <td class="tendertable ">
+                <span>{{'Last Date for Raising Queries' | translate}}</span> <br>
+                <!-- <strong>28-Jun-2017</strong> -->
+                <strong>{{tenderDtls?.tenderMaster?.queryRaisingDate}}</strong>
+            </td>
+            <td class="tendertable ">
+                <span>{{'Pre Bid Meeting Date' | translate}}</span> <br>
+                <!-- <strong>20-Jul-2017</strong> -->
+                <strong>{{tenderDtls?.tenderVendorMapping?.preBidMeetingDate}}</strong>
+            </td>
+            <td class="tendertable ">
+                <span>{{'Last Date for Query Response' | translate}}</span> <br>
+                <!-- <strong>15-Jul-2017</strong> -->
+                <strong>{{tenderDtls?.tenderMaster?.queryResponseDate}}</strong>
+            </td>
+        </tr>   
+        <tr class="border-bottom">
+            <td class="tendertable ">
+                <span> {{'Submission Due Date' | translate}}</span> <br>
+                <!-- <strong>28-Apr-2017</strong> -->
+                <strong>{{tenderDtls?.tenderMaster?.tender_submission_dt}}</strong>
+            </td>
+            <td class="tendertable ">
+                <span>{{'Technical Proposal Opening Date' | translate}}</span> <br>
+                <!-- <strong>28-Jun-2017</strong> -->
+                <strong>{{tenderDtls?.tenderMaster?.technicalProposalDate}}</strong>
+            </td>
+            <td class="tendertable " colspan="2">
+                <span>{{'Commercial Proposal Opening Date' | translate}}</span> <br>
+                <!-- <strong>20-Jul-2017</strong> -->
+                <strong>{{tenderDtls?.tenderMaster?.financialProposalDate}}</strong>
+            </td>
+        </tr>                
+    </tbody>
+</table>  

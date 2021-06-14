@@ -1,0 +1,216 @@
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb pl-0 mt-0">
+          <li class="breadcrumb-item active" aria-current="page">{{'Limited Tenders' | translate}}</li>
+        </ol>
+      </nav>
+      <!-- --------------- Alert area ---------------- -->
+<div class="row">
+  <div class="col-lg-12">
+      <!-- Info Alert -->
+      <div class="alert alert-info alert-dismissible fade show">
+          <strong><i class="fa fa-info-circle" aria-hidden="true"></i></strong>{{'limit-msg' | translate}} 
+          <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+      </div>
+  </div>
+</div>
+<div class="d-flex m-2">
+  <div class="col-xl-12 pr-0">
+      <app-collapse-expand-btn class="pull-right"></app-collapse-expand-btn>
+  </div>
+</div>
+<div class="panel-group " id="accordion">
+
+  <!-----------------  Bus on Demand  ------------------------------ -->
+  <!-- <div class="panel-default"> -->
+    <div class="panel panel-default" *ngFor="let tenderMaster of tenderMasterList">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+            <div class="row">
+                <div class="col-sm-4">
+                    <a (click)=cacheTenderMaster(tenderMaster) routerLink="/tender-details">
+                      {{tenderMaster?.tender_no}}
+                  </a>
+                </div>
+                <div class="col-sm-8">
+                  <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+                  style="text-decoration: none;">
+                  <span class="pl-3">{{tenderMaster?.tender_name}}</span>
+                </a>
+                </div>
+            </div>
+        
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in show">
+        <div class="panel-body panel-body1 p-3">
+          <div id="no-more-tables">
+              <div class="panel-body panel-body1 table-box">
+                  <div id="no-more-tables">
+                      <div class="panel-body panel-body1 table-box">
+                          <app-public-tender-detail [tenderMasterDtl]="tenderMaster"></app-public-tender-detail>  
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ <!-----------------  Technical Assessment of Building Life Cycle Expectancy  ------------------------------ -->
+  <!-- <div class="panel-default"> -->
+      <!-- <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <a routerLink="/tender-search">
+                          CASS/BUF/56434_7092
+                      </a>
+                    </div>
+                    <div class="col-sm-8">
+                      <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse2"
+                      style="text-decoration: none;">
+                      <span class="pl-3">Website content management</span>
+                    </a>
+                    </div>
+                </div>
+            
+            </h4>
+          </div>
+          <div id="collapse2" class="panel-collapse collapse in show">
+            <div class="panel-body panel-body1 p-3">
+              <div id="no-more-tables">
+                  <div class="panel-body panel-body1 table-box">
+                      <div id="no-more-tables">
+                          <div class="panel-body panel-body1 table-box">
+                              <app-public-tender-detail></app-public-tender-detail>  
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+          <!-----------------  Traffic Engineering System  ------------------------------ -->
+  <!-- <div class="panel-default"> -->
+      <!-- <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <a routerLink="/tender-search">
+                          CTSS/IT/61469
+                      </a>
+                    </div>
+                    <div class="col-sm-8">
+                      <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse3"
+                      style="text-decoration: none;">
+                      <span class="pl-3">Enterprise Accident Claim Management System</span>
+                    </a>
+                    </div>
+                </div>
+            
+            </h4>
+          </div>
+          <div id="collapse3" class="panel-collapse collapse in show">
+            <div class="panel-body panel-body1 p-3">
+              <div id="no-more-tables">
+                  <div class="panel-body panel-body1 table-box">
+                      <div id="no-more-tables">
+                          <div class="panel-body panel-body1 table-box">
+                              <app-public-tender-detail></app-public-tender-detail>  
+                          </div>
+                      </div>
+  
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+                 <!----------------- Expo TVM and TOM  ------------------------------ -->
+  <!-- <div class="panel-default"> -->
+      <!-- <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <a routerLink="/tender-search">
+                          RTA/SM/59561-12
+                      </a>
+                    </div>
+                    <div class="col-sm-8">
+                      <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse4"
+                      style="text-decoration: none;">
+                      <span class="pl-3">RTA Unified Security Governance Framework</span>
+                    </a>
+                    </div>
+                </div>
+            
+            </h4>
+          </div>
+          <div id="collapse4" class="panel-collapse collapse in show">
+            <div class="panel-body panel-body1 p-3">
+              <div id="no-more-tables">
+                  <div class="panel-body panel-body1 table-box">
+                      <div id="no-more-tables">
+                          <div class="panel-body panel-body1 table-box">
+                              <app-public-tender-detail></app-public-tender-detail>  
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+                          <!----------------- Expo TVM and TOM ------------------------------ -->
+  <!-- <div class="panel-default"> -->
+      <!-- <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <a routerLink="/tender-search">
+                          RTA/SM/59561-12
+                      </a>
+                    </div>
+                    <div class="col-sm-8">
+                      <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse5"
+                      style="text-decoration: none;">
+                      <span class="pl-3">RTA Unified Security Governance Framework</span>
+                    </a>
+                    </div>
+                </div>
+            
+            </h4>
+          </div>
+          <div id="collapse5" class="panel-collapse collapse in show">
+            <div class="panel-body panel-body1 p-3">
+              <div id="no-more-tables">
+                  <div class="panel-body panel-body1 table-box">
+                      <div id="no-more-tables">
+                          <div class="panel-body panel-body1 table-box">
+                              <app-public-tender-detail></app-public-tender-detail>  
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+   
+</div>
+<div class="d-flex table-area mt-5">
+    <div class="table-responsive table-box">
+
+        <div *ngIf="masterData.length>0" class="d-flex justify-content-between p-2">
+            <app-pagination-record-count [totalRec]="totalRecordsCount" (selectedGridCount)="selectedGridCountChange($event)">
+            </app-pagination-record-count>
+            <app-pagination *ngIf="totalRecordsCount" [totalRecords]="totalRecordsCount"
+                [recordsPerPage]="recCount" (onPageChange)="displayActivePage($event)">
+            </app-pagination>
+        </div>
+    </div>
+</div>
+

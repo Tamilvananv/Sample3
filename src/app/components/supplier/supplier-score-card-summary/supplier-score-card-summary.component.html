@@ -1,0 +1,277 @@
+<!-- --------------- Progress bar ---------------- -->
+<app-pre-qualification-progress-bar [supplierTabName]="pageTitle"></app-pre-qualification-progress-bar>
+
+<div class="company-score-card">
+  <!-- --------------- breadcrumb ---------------- -->
+  <div class="d-flex">
+    <div class="col-sm-6 pr-0 pl-0 ">
+        <nav aria-label="breadcrumb" id="breadcrumb">
+            <ol class="breadcrumb pl-0 mt-0">
+                <li class="breadcrumb-item active" aria-current="page">{{'Prequalification Score card' | translate}}</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="col-sm-6 pr-0 pl-0 pt-2 expand-collapse">
+        <app-collapse-expand-btn class="pull-right"></app-collapse-expand-btn>
+    </div>
+</div>
+  
+  <div class="panel-group " id="accordion">
+    <!-- --------------- Alert area ---------------- -->
+    <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+    <!-------------------------  Pre Qualification Scorecard ------------------------------ -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse0"
+          style="text-decoration: none;"><span class="icon-Supplier-Information"><span class="path1"></span><span
+              class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+                <span class="pl-2 pr-2 check-space">{{'Prequalification Score card' | translate}}</span>
+          </a>
+        </h4>
+      </div>
+      <div id="collapse0" class="panel-collapse collapse show">
+        <div class="panel-body panel-body1 p-3">
+            <!-- ---------------------- company details ------------------------------ -->
+
+            <div class="d-flex table-area mt-3">
+              <div class="table-responsive table-box">
+
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th >{{'Supplier Name' | translate}}</th>
+                      <th >{{'Trade License Number' | translate}}</th>
+                      <th >{{'Submission-Classification' | translate}}<sup>*</sup></th>
+                      <th >{{'Submitted Date' | translate}}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngIf="supplierScoreCardSummary">
+                      <td [attr.data-title]="'Supplier Name' | translate"> {{ supplierScoreCardSummary[0].supplierName }} </td>
+                      <td [attr.data-title]="'Trade License Number' | translate">{{ supplierScoreCardSummary[0].tradelicenseno }} </td>
+                      <td [attr.data-title]="'Submission-Classification' | translate">{{ supplierScoreCardSummary[0].submissionClassification }} </td>
+                      <td [attr.data-title]="'Submitted Date' | translate">{{ supplierScoreCardSummary[0].submittedDate }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!------------------------- Categories  ------------------------------ -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+          style="text-decoration: none;">
+          <span class="icon-Category--Scope"></span>
+            <span class="pl-2 pr-2 check-space">{{'Categories' | translate}}</span> </a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse show">
+        <div class="panel-body panel-body1 p-3">
+         
+            <!-- --------------------- Table area -------------------------------- -->
+
+            <div class="d-flex table-area mt-0">
+              <div class="table-responsive table-box">
+
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th >{{'Parent Category' | translate}}</th>
+                      <th >{{'Sub-Category' | translate}}</th>
+                      <th >{{'Sub-Category' | translate}}</th>
+                      <th >{{'Score' | translate}} <sup>*</sup></th>
+                      <th class="text-center">{{'Status' | translate}} <sup>*</sup></th>
+                      <th class="text-center">{{'Note to Supplier' | translate}}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let scoreCardData of supplierScoreCardSummary;">
+                      <td [attr.data-title]="'Parent Category' | translate"> {{scoreCardData.parentCategoryName}} </td>
+                      <td [attr.data-title]="'Sub-Category' | translate"> {{scoreCardData.subCategoryName}} </td>
+                      <td [attr.data-title]="'Child-Category' | translate"> {{scoreCardData.childCategoryName}}</td>
+                      <td [attr.data-title]="'Score' | translate">
+                        <div class="d-flex">
+                          <input type="text" class="form-control text-right" placeholder=""
+                            [(ngModel)]="scoreCardData.score" name="scoreCardData.score" (keyup)="setAggregateScore()">
+                          <span>/10</span>
+                        </div>
+                      </td>
+                      <td [attr.data-title]="'Status' | translate">
+                        <select class="form-control" (change)="updateQualificationStatus(scoreCardData)"
+                          [(ngModel)]="scoreCardData.status" name="scoreCardData.status">
+                          <option [ngValue]="null" [disabled]="true">Status</option>
+                          <option *ngFor="let status of statusDropdown" value="{{status.lovId}}">
+                            {{status.lovName}}</option>
+                        </select></td>
+                      <td [attr.data-title]="'Note to Supplier' | translate"> <input type="text" class="form-control" [(ngModel)]="scoreCardData.note"
+                          name="scoreCardData.note"></td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!----------------------- Table area Description---------------------------------->
+
+            <div class="d-flex table-area mt-3">
+              <div class="table-responsive table-box">
+
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th style="width:70%" >{{'Description' | translate}}</th>
+                      <th style="width:10%" >{{'Weightage' | translate}}</th>
+                      <th style="width:10%" >{{'Given Score' | translate}}<sup>*</sup></th>
+                      <th style="width:10%" >{{'Applicable Score' | translate}}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let weightageData of preQualificationScorecardDtlList;let i=index;">
+                      <td [attr.data-title]="'Description' | translate" > {{ weightageData.description }} </td>
+                      <td [attr.data-title]="'Weightage' | translate" align="right" >
+                        {{ weightageData.weightage }} </td>
+                      <td [attr.data-title]="'Given Score' | translate" style="width:10%" *ngIf="weightageData"> <input type="text" class="form-control text-right"
+                          [(ngModel)]="weightageData.givenScore" name="weightageData.givenScore"
+                          (keyup)="calcTotalOnScoreChange()" /> </td>
+                      <td [attr.data-title]="'Applicable Score' | translate" align="right" >{{ weightageData.applicableScore }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+
+            <!-- --------------------- Remarks ------------------------------- -->
+            <div class="form-container margin-b2 box-shadow-none remarks">
+              <div class="form-group row ">
+                <div class="col-2 align-vertical">
+                  <span>{{'Aggregated Score' | translate}}</span>
+                </div>
+                <div class="col-2">
+                  <input type="number" class="form-control text-right" placeholder="" [(ngModel)]="totScore"
+                    name="totScore" onkeyup="this.setAttribute('value', this.value);" autocomplete="off" />
+                </div>
+
+              </div>
+
+              <div class="form-group row ">
+                <div class="col-2 align-vertical">
+                  <span>{{'Remarks' | translate}}</span>
+                </div>
+                <div class="col-5">
+                  <textarea class="form-control" maxlength="250" [(ngModel)]="remarks" name="remarks"></textarea>
+                </div>
+              </div>
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 
+    ----------------------- Segmentation- Spend Analytics ------------------------------ -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2"
+          style="text-decoration: none;">
+          <span class="icon-Contracts"><span class="path1"></span><span class="path2"></span><span
+          class="path3"></span><span class="path4"></span><span class="path5"></span><span
+          class="path6"></span><span class="path7"></span></span>
+              <span class="pl-2 pr-2 check-space">{{'Segmentation- Spend Analytics' | translate}}</span> </a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse show">
+      <div class="panel-body panel-body1 p-3">
+        <div id="no-more-tables">
+          <!-- --------------------- Remarks ------------------------------- -->
+          <div class="form-container margin-b box-shadow-none">
+            <div class="form-group row pb-3 ">
+
+              <div class="col-sm-2">
+                <span>{{'Cat-Label 1' | translate}} :</span>
+              </div>
+              <div class="col-sm-4">
+                <select class="form-control" id="country">
+                  <option>{{'Select Qualification Status' | translate}}</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+
+              <div class="col-sm-2">
+                <span>Cat-Label 2 :</span>
+              </div>
+              <div class="col-sm-4">
+                <select class="form-control" id="country">
+                  <option>{{'Select Qualification Status' | translate}}</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row margin-b">
+
+              <div class="col-sm-2">
+                <span>Cat-Label 3 :</span>
+              </div>
+              <div class="col-sm-4">
+                <select class="form-control" id="country">
+                  <option>{{'Select Qualification Status' | translate}}</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+  
+                <div class="col-sm-2">
+                    <span>Cat-Label 4 :</span>
+                </div>
+                <div class="col-sm-4">
+                  <select class="form-control" id="country">
+                    <option>{{'Select Qualification Status' | translate}}</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <section id="pagination" class="pagination-area mt-1 page-btn-area">
+        <div class="d-flex">
+        <span class="mr-auto mobile-hide">&nbsp;</span>
+        <button type="submit" class="page-link save mr-3" (click)="submitScoreCardDetails()"> {{'SAVE' | translate}}
+        </button>
+        <a routerLink="/supplier-score-card-summary" class="mr-3"><button type="submit" class="page-link save"> {{'CREATE ID' | translate}}</button></a>
+        <a routerLink="/supplier-score-card-summary" class="mr-3"><button type="submit" class="page-link save"> {{'NOTIFY SUPPLIER' | translate}}
+            
+          </button></a>
+        <a routerLink="/entity-assignment" class="mr-3">
+          <button class="page-link save">  {{'ENTITY ASSIGNMENT' | translate}}</button></a>
+    </div>
+  </section>
+  <app-model-window></app-model-window>

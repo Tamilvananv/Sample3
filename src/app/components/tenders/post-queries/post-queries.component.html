@@ -1,0 +1,170 @@
+
+
+    <!-- --------------------- progress bar --------------------- -->
+
+    <app-tender-progress-bar [tabName]="tabName"></app-tender-progress-bar>
+    <!-- --------------- Alert area ---------------- -->
+    <!-- --------------- breadcrumb ---------------- -->
+  
+    <div class="d-flex">
+      <div class="col-sm-6 pr-0 pl-0 ">
+        <nav aria-label="breadcrumb" id="breadcrumb">
+          <ol class="breadcrumb pl-0 mt-0">
+            <li class="breadcrumb-item active" aria-current="page">{{'Queries Details' | translate}}</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="col-sm-6 pr-0 pl-0 pt-2">
+        <div class="pagination-area expand-collapse">
+          <button type="submit" (click)="onClickViewResponse()" data-toggle="modal" data-target="#receipt"
+          class="page-link save pull-right"> {{'VIEW RESPONSE' | translate}} </button>
+      </div>
+    </div>
+    </div>      
+
+    <div class="panel-group " id="accordion">
+
+      <!-----------------  Bus on Demand  ------------------------------ -->
+      <!-- <div class="panel-default"> -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <div class="row">
+              <div class="col-sm-12">
+                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+                  style="text-decoration: none;">
+                  <span>{{'Queries Details' | translate}}</span>
+                </a>
+              </div>
+            </div>
+
+          </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse in show">
+          <div class="panel-body panel-body1 p-3">
+            <div id="no-more-tables">
+              <app-queries-detail [postQueriesTenderDtls]="postQueriesTenderDtls"></app-queries-detail>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-----------------  3  ------------------------------ -->
+      <!-- <div class="panel-default"> -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <div class="row">
+
+              <div class="col-sm-12">
+                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse3"
+                  style="text-decoration: none;">
+                  <span> {{'Queries Submitted' | translate}}</span>
+                </a>
+              </div>
+            </div>
+
+          </h4>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse in show">
+          <div class="panel-body panel-body1 p-3">
+            <div class="d-flex table-area mt-3">
+              <div class="table-responsive table-box">
+              <app-queries-submitted [postQueriesNotificationList]="postQueriesNotificationList">
+              </app-queries-submitted>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-----------------  3  ------------------------------ -->
+      <!-- <div class="panel-default"> -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <div class="row">
+
+              <div class="col-sm-12">
+                <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse2"
+                  style="text-decoration: none;">
+                  <span> {{'Post Queries' | translate}}</span>
+                </a>
+              </div>
+            </div>
+
+          </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse in show">
+          <div class="panel-body panel-body1 p-3">
+            <div class="table-responsive">
+              <!-- <app-post-queries-details></app-post-queries-details> -->
+              <div class="panel-body panel-body1 table-box">
+                <div class="table-responsive table-area">
+                  <div class="d-flex table-area mt-2">
+                    <div class="table-responsive table-box">
+
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>{{'S.No' | translate}}</th>
+                            <th> {{'Category' | translate}}</th>
+                            <th> {{'RFP Document Reference' | translate}}</th>
+                            <th>{{'Question' | translate}}</th>
+                            <th>{{'Reference Document' | translate}}</th>
+                            <th>{{'Action' | translate}}</th>
+                          </tr>
+                          <tr class="form-container form-group"
+                            *ngFor="let queryDetails of postQueriesDetails">
+                            <!-- <td  [(ngModel)]="queryDetails.serialNo" ngDefaultControl>{{i+1}}</td> -->
+                            <td [attr.data-title]="'S.No' | translate" >{{queryDetails.serialNo}}</td>
+                            <td [attr.data-title]="'Category' | translate"><select class="form-control" name="postQueriesCategory"
+                                [(ngModel)]="queryDetails.queryCategory">
+                                <option *ngFor="let type  of categoryDropdown" value="{{type.lovId}}">{{type.lovName}}
+                                </option>
+                              </select></td>
+                            <td [attr.data-title]="'RFP Document Reference' | translate"> <input type="text" class="form-control" placeholder="Supply of Hardware"
+                                name="postQueriesCategory" [(ngModel)]="queryDetails.repDocumentRefNo"></td>
+                            <td [attr.data-title]="'Question' | translate"> <input type="text" class="form-control" placeholder="Data Mining"
+                                name="postQueriesCategory" [(ngModel)]="queryDetails.question"></td>
+                            <td [attr.data-title]="'Claim' | translate" class="d-flex justify-content-lg-between" *ngIf="queryDetails.docFileName">
+                              {{ queryDetails.docFileName }}<a><i class="fa fa-download" aria-hidden="true"
+                                  (click)="downloadDocument(queryDetails.docFileName)"></i></a></td>
+                            <td [attr.data-title]="'Reference Document' | translate">
+                              <div class="attach-btn file " *ngIf="queryDetails.docFileName==null||queryDetails.docFileName==''">
+                                <span class="btn btn-secondary pt-2 pb-2">{{'Select files here to upload' | translate}}</span>
+                                <input type="file" name="file" 
+                                    (change)="uploadDocument($event,queryDetails,'Information','Ok','Oops Something went Wrong. Please try again !')" /> 
+                              </div>
+                            </td>
+                            <td [attr.data-title]="'Action' | translate"><a (click)="deleteSelectedQueryDetails($event, queryDetails)"> <i
+                                  class="fa fa-trash ft-blue"></i></a></td>
+                          </tr>
+
+                        </thead>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <section id="pagination" class="pagination-area mt-2">     
+      <div class="d-flex">
+        <span class="mr-auto">&nbsp;</span>
+          <a routerLink="/public-tenders"><button type="submit" class="clear-btn ar-padL15"> {{'BACK' | translate}} </button></a>
+          <!-- <a routerLink="/public-tenders"><button type="button" class="save-btn ml-4"> {{'ADD ROW' | translate}} -->
+              <button type="button" class="save-btn ml-4 mr-4" (click)="addItem()"> {{'ADD ROW' | translate}}  
+          </button>
+          <button type="submit" data-toggle="modal" (click)="submitPostQueries()" class="save-btn">
+            {{'SUBMIT QUERIES' | translate}} </button>
+      </div>
+    </section>
+
+  <app-model-window></app-model-window>

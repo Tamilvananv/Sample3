@@ -1,0 +1,130 @@
+.page-header {
+  padding-left: 100px !important;
+}
+
+.menu-items-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.menu-items-container .menu-item {
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 200px;
+  height: 180px;
+  margin: 25px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.menu-items-container .menu-item:hover {
+  background: #02b993;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+
+.menu-items-container .menu-item:hover .icon-Supplier-Registration:before,
+.menu-items-container .menu-item:hover .icon-Supplier-Pre-Qualification:before,
+.menu-items-container .menu-item:hover .icon-Tender-Management:before,
+.menu-items-container .menu-item:hover .icon-Contract-Management .path1:before,
+.menu-items-container .menu-item:hover .icon-Contract-Management .path2:before,
+.menu-items-container .menu-item:hover .icon-Contract-Management .path3:before,
+.menu-items-container .menu-item:hover .icon-Contract-Management .path4:before,
+.menu-items-container .menu-item:hover .icon-Contract-Management .path5:before,
+.menu-items-container .menu-item:hover .icon-Contract-Management .path6:before,
+.menu-items-container .menu-item:hover .icon-Contract-Management .path7:before,
+.menu-items-container .menu-item:hover .icon-Milestone-Completion:before,
+.menu-items-container .menu-item:hover .icon-Dashboard .path1:before,
+.menu-items-container .menu-item:hover .icon-Dashboard .path2:before,
+.menu-items-container .menu-item:hover .icon-Dashboard .path3:before,
+.menu-items-container .menu-item:hover .icon-Dashboard .path4:before,
+.menu-items-container .menu-item:hover .icon-Dashboard .path5:before,
+.menu-items-container .menu-item:hover .icon-Dashboard .path16:before,
+.menu-items-container .menu-item:hover .icon-Dashboard .path7:before,
+.menu-items-container .menu-item:hover .icon-Notifications1 .path1:before,
+.menu-items-container .menu-item:hover .icon-Notifications1 .path2:before,
+.menu-items-container .menu-item:hover .icon-Notifications1 .path3:before,
+.menu-items-container .menu-item:hover .icon-Notifications1 .path4:before,
+.menu-items-container .menu-item:hover .icon-Notifications1 .path5:before,
+.menu-items-container .menu-item:hover .icon-Notifications1 .path6:before,
+.menu-items-container .menu-item:hover .icon-Invoice--Payments:before {
+  color: #fff !important;
+}
+
+.menu-items-container .menu-item:hover .menu-name {
+  color: white;
+}
+
+.menu-items-container .icon-container {
+  display: block;
+  text-align: center;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.menu-items-container .icon-container .icon-Supplier-Registration:before,
+.menu-items-container .icon-container .icon-Supplier-Pre-Qualification:before,
+.menu-items-container .icon-container .icon-Tender-Management:before,
+.menu-items-container .icon-container .icon-Contract-Management .path1:before,
+.menu-items-container .icon-container .icon-Contract-Management .path2:before,
+.menu-items-container .icon-container .icon-Contract-Management .path3:before,
+.menu-items-container .icon-container .icon-Contract-Management .path4:before,
+.menu-items-container .icon-container .icon-Contract-Management .path5:before,
+.menu-items-container .icon-container .icon-Contract-Management .path6:before,
+.menu-items-container .icon-container .icon-Contract-Management .path7:before,
+.menu-items-container .icon-container .icon-Milestone-Completion:before,
+.menu-items-container .icon-container .icon-Dashboard .path1:before,
+.menu-items-container .icon-container .icon-Dashboard .path2:before,
+.menu-items-container .icon-container .icon-Dashboard .path3:before,
+.menu-items-container .icon-container .icon-Dashboard .path4:before,
+.menu-items-container .icon-container .icon-Dashboard .path5:before,
+.menu-items-container .icon-container .icon-Dashboard .path6:before,
+.menu-items-container .icon-container .icon-Dashboard .path7:before,
+.menu-items-container .icon-container .icon-Notifications1 .path1:before,
+.menu-items-container .icon-container .icon-Notifications1 .path2:before,
+.menu-items-container .icon-container .icon-Notifications1 .path3:before,
+.menu-items-container .icon-container .icon-Notifications1 .path4:before,
+.menu-items-container .icon-container .icon-Notifications1 .path5:before,
+.menu-items-container .icon-container .icon-Notifications1 .path6:before,
+.menu-items-container .icon-container .icon-Invoice--Payments:before {
+  color: #02b993 !important;
+  font-size: 40px;
+}
+
+.menu-items-container .menu-name {
+  font-size: 14px;
+  line-height: 18px;
+  color: #898989;
+  padding: 10px 35px;
+}
+
+.menu-items-container .menu-name:hover {
+  color: white;
+}
+
+.menu-items-container a:hover {
+  text-decoration: none !important;
+  color: white;
+}
+/*# sourceMappingURL=dashboard.component.css.map */

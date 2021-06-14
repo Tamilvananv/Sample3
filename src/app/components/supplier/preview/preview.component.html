@@ -1,0 +1,884 @@
+<div class="preview">
+  <!-- ----------------------- Progress bar -------------------- -->
+
+  <app-progress-bar *ngIf="pageTitle!='companyScoreCard'" [isAlreadySaved]="isAlreadySaved"
+    [disableTab]="disableProgressTab" [supplierTabName]="tabName"> </app-progress-bar>
+
+  <!-- <div class="progress-area">
+    <div class="progress-container">
+
+      <div class="progress-box">
+        <div class="progress-inner-box">
+          <a routerLink="/supplier-information">
+            <div class="circle bg-green">
+              <span class="icon-Supplier-Registration"></span>
+            </div>
+          </a>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 100% ; background: #19bd9d;" aria-valuenow="100"
+            aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <span class="info-text ft-green">{{'Supplier-Information' | translate}}</span>
+      </div>
+
+      <div class="progress-box">
+        <div class="progress-inner-box">
+          <a routerLink="/supplier-address-details">
+            <div class="circle bg-green">
+              <span class="icon-Address-Details"><span class="path1"></span><span class="path2"></span><span
+                  class="path3"></span><span class="path4"></span><span class="path5"></span></span>
+            </div>
+          </a>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-info" role="progressbar" style="width: 100% ; background: #19bd9d;"
+            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <span class="info-text ft-green">{{'Address-Details' | translate}}</span>
+      </div>
+
+      <div class="progress-box">
+        <div class="progress-inner-box">
+          <a routerLink="/supplier-contact-details">
+            <div class="circle bg-green">
+              <span class="icon-Contracts"><span class="path1"></span><span class="path2"></span><span
+                  class="path3"></span><span class="path4"></span><span class="path5"></span><span
+                  class="path6"></span><span class="path7"></span></span>
+            </div>
+          </a>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-upcoming" role="progressbar" style="width: 100% ; background: #19bd9d;"
+            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <span class="info-text ft-green">{{'Contact-Details' | translate}}</span>
+      </div>
+
+      <div class="progress-box">
+        <div class="progress-inner-box">
+          <a routerLink="/supplier-financial-business">
+            <div class="circle bg-green">
+              <span class="icon-Financial--Business"><span class="path1"></span><span class="path2"></span><span
+                  class="path3"></span><span class="path4"></span><span class="path5"></span><span
+                  class="path6"></span><span class="path7"></span><span class="path8"></span><span
+                  class="path9"></span><span class="path10"></span><span class="path11"></span><span
+                  class="path12"></span></span>
+            </div>
+          </a>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-upcoming" role="progressbar" style="width: 100% ; background: #19bd9d;"
+            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <span class="info-text ft-green">{{'Financial-Business' | translate}}</span>
+      </div>
+
+
+      <div class="progress-box">
+        <div class="progress-inner-box">
+          <a routerLink="/supplier-bank-details">
+            <div class="circle bg-green">
+              <span class="icon-Bank-Details"></span>
+            </div>
+          </a>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-upcoming" role="progressbar" style="width: 100% ; background: #19bd9d;"
+            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <span class="info-text ft-green">{{'Bank-Details' | translate}}</span>
+      </div>
+
+      <div class="progress-box">
+        <div class="progress-inner-box">
+          <a [routerLink]="!disableProgressTab ? '/supplier-category-scope' : null"
+            [routerLinkActive]="!disableProgressTab ? 'is_active' : 'is_disabled'">
+            <div class="circle bg-green">
+              <span class="icon-Category--Scope"></span>
+            </div>
+          </a>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-upcoming" role="progressbar" style="width: 100% ; background: #19bd9d;"
+            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <span class="info-text ft-green">{{'Category-Scope' | translate}}</span>
+      </div>
+
+      <div class="progress-box">
+        <div class="progress-inner-box">
+          <a routerLink="/attachment-section">
+            <div class="circle bg-green">
+              <span class="icon-Attachment-Section"><span class="path1"></span><span class="path2"></span><span
+                  class="path3"></span></span>
+            </div>
+          </a>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-upcoming" role="progressbar" style="width: 100% ; background: #19bd9d;"
+            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <span class="info-text ft-green">{{'Attachment-Section' | translate}}</span>
+      </div>
+      <div class="progress-box">
+        <div class="progress-inner-box">
+          <a routerLink="/preview">
+            <div class="circle bg-blue">
+              <span class="icon-Preview"></span>
+            </div>
+          </a>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-upcoming" role="progressbar" style="width: 50%;" aria-valuenow="0"
+            aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <span class="info-text ft-blue">{{'Preview' | translate}}</span>
+      </div>
+      <div class="progress-box">
+        <div class="progress-inner-box">
+          <a [routerLink]="!disableProgressTab ? '/final-view' : null"
+            [routerLinkActive]="!disableProgressTab ? 'is_active' : 'is_disabled'">
+            <div class="circle bg-gray">
+              <i class="fa fa-check-circle-o"></i>
+            </div>
+          </a>
+        </div>
+        <span class="info-text ft-black">{{'Final-Submission' | translate}}</span>
+      </div>
+
+    </div>
+  </div> -->
+
+  <!----------------- breadcrumb ---------------- -->
+ 
+  <div class="d-flex">
+    <div class="col-sm-6 pr-0 pl-0 ">
+      <nav aria-label="breadcrumb" id="breadcrumb">
+        <ol class="breadcrumb pl-0 mt-0">
+          <li class="breadcrumb-item active" aria-current="page">{{'Supplier Preview' | translate}}</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col-sm-6 pr-0 pl-0 pt-2 expand-collapse">
+      <app-collapse-expand-btn class="pull-right"></app-collapse-expand-btn>
+    </div>
+  </div>
+  <!--------------------message------------------------>
+  <ngb-alert *ngIf="type" [type]="type" (close)="close()">{{ message }}</ngb-alert>
+
+  <!-------------------message-------------------------->
+  <div class="panel-group " id="accordion">
+
+    <!-------------------------  Supplier Information  ------------------------------ -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse0"
+            style="text-decoration: none;"><span class="icon-Supplier-Information"><span class="path1"></span><span
+                class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+            <span class="pl-2 pr-2 check-space">{{'Supplier-Information' | translate}}</span>
+          </a>
+        </h4>
+      </div>
+      <div id="collapse0" class="panel-collapse collapse show">
+        <div class="panel-body panel-body1 p-2 margin-b">
+          <div id="no-more-tables">
+            <!-- ---------------------- company details ------------------------------ -->
+            <div class="d-flex">
+              <div class="form-container ">
+                <div class="col-sm-12 col-md-12 pt-1">
+                  <h1 class="p-2">{{'Company-Details' | translate}}</h1>
+                </div>
+
+                <div class="d-flex">
+                  <div class="col-sm-12 form-group p-3">
+
+                    <div class="row row-gap">
+                      <div class="col-sm-3 column-gap">
+                        <div *ngIf="supplierInfoVO" class="field">
+                          <span>{{'New company' | translate}}</span>
+                          <input disabled type="text" class="form-control" placeholder=""
+                            onkeyup="this.setAttribute('value', this.value);" name="supplierInfoVO.supplierNameEn"
+                            [(ngModel)]="supplierInfoVO.supplierNameEn" autocomplete="off" />
+                        </div>
+                      </div>
+                      <div class="col-sm-3 column-gap">
+                        <div *ngIf="supplierInfoVO" class="field">
+                          <span>{{'Company-name-Arabic' | translate}}</span>
+                          <input disabled type="text" class="form-control" placeholder=""
+                            onkeyup="this.setAttribute('value', this.value);" name="supplierInfoVO.supplierNameAr"
+                            [(ngModel)]="supplierInfoVO.supplierNameAr" autocomplete="off" />
+                        </div>
+                      </div>
+
+                      <div *ngIf="supplierInfoVO && supplierInformationDropdownList"
+                      class="col-sm-3 column-gap">
+                        <span>{{'Type-Ownership' | translate}}</span>
+                        <select disabled class="form-control" [(ngModel)]="supplierInfoVO.ownerType"
+                          name="ownerTypeValue">
+                          <option [ngValue]="null" [disabled]="true"></option>
+                          <option *ngFor="let type  of supplierInformationDropdownList.typeOfOwnership"
+                            value="{{type.lovId}}">
+                            {{type.lovName}}</option>
+                        </select>
+
+                      </div>
+                      <div *ngIf="supplierInfoVO && supplierInformationDropdownList"
+                      class="col-sm-3 column-gap">
+                        <span>{{'Supplier-Type' | translate}}</span>
+                        <select disabled class="form-control" [(ngModel)]="supplierInfoVO.qualAreaLevel"
+                          name="quadAreaValue">
+                          <option [ngValue]="null" [disabled]="true"></option>
+                          <option *ngFor="let type  of supplierInformationDropdownList.qualificationAreaLevel"
+                            value="{{type.lovId}}">{{type.lovName}}</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="row row-gap">
+                      <div class="col-sm-3 column-gap">
+                        <div *ngIf="supplierInfoVO" class="field">
+                          <span>{{'Organization-website' | translate}}</span>
+                          <input disabled type="text" class="form-control" placeholder=""
+                            onkeyup="this.setAttribute('value', this.value);" name="supplierInfoVO.website"
+                            [(ngModel)]="supplierInfoVO.website" autocomplete="off" />
+                        </div>
+                      </div>
+                      <div class="col-sm-3 column-gap">
+                        <div *ngIf="supplierInfoVO" class="input-icons">
+                          <span>{{'Establishment date' | translate}}</span>
+                          <input disabled type="date" name="supplierInfoVO.estdDate"
+                            [(ngModel)]="supplierInfoVO.estdDate" placeholder="Estabilishment Date"
+                            class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-sm-3 column-gap">
+                        <div *ngIf="supplierInfoVO" class="field">
+                          <span>{{'Parent-company-name' | translate}}</span>
+                          <input disabled type="text" class="form-control" placeholder=""
+                            onkeyup="this.setAttribute('value', this.value);" name="supplierInfoVO.parentCompName"
+                            [(ngModel)]="supplierInfoVO.parentCompName" autocomplete="off" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ---------------------- Trade licence details ------------------------------ -->
+            <div class="d-flex mt-4">
+              <div class="form-container">
+                <div class="col-sm-12 col-md-12 pt-2">
+                  <h1 class="p-3">{{'Trade-Licence-Details' | translate}}</h1>
+                </div>
+                <div class="d-flex">
+                  <div class="col-md-12 form-group p-3">
+                    <div class=" row row-gap">
+                      <div class="col-sm-2 column-gap">
+                        <div *ngIf="supplierInfoVO" class="field">
+                          <span>{{'License Number' | translate}}</span>
+                          <input disabled type="text" class="form-control" placeholder=""
+                            onkeyup="this.setAttribute('value', this.value);" name="supplierInfoVO.tradelicenseno"
+                            [(ngModel)]="supplierInfoVO.tradelicenseno" autocomplete="off" />
+                        </div>
+                      </div>
+                      <div class="col-sm-2 column-gap">
+                        <div *ngIf="supplierInfoVO" class="field">
+                          <span>{{'Issued-by' | translate}}</span>
+                          <input disabled type="text" class="form-control" placeholder=""
+                            onkeyup="this.setAttribute('value', this.value);" name="supplierInfoVO.issuedby"
+                            [(ngModel)]="supplierInfoVO.issuedby" autocomplete="off" />
+                        </div>
+                      </div>
+                      <div class="col-sm-2 column-gap">
+                        <div *ngIf="supplierInfoVO" class="input-icons">
+                          <span>{{'Issued Date' | translate}}</span>
+                          <input disabled type="date" name="supplierInfoVO.expirydate"
+                            [(ngModel)]="supplierInfoVO.issueddate" placeholder="Issued Date" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-sm-2 column-gap">
+                        <div *ngIf="supplierInfoVO" class="field">
+                          <span>{{'Location' | translate}}</span>
+                          <input disabled type="text" class="form-control" placeholder=""
+                            onkeyup="this.setAttribute('value', this.value);" name="supplierInfoVO.location"
+                            [(ngModel)]="supplierInfoVO.location" autocomplete="off" />
+                        </div>
+                      </div>
+                      <div class="col-sm-2 column-gap">
+                        <div *ngIf="supplierInfoVO" class="input-icons">
+                          <span>{{'Expiry Date' | translate}}</span>
+                          <input disabled type="date" name="supplierInfoVO.expirydate"
+                            [(ngModel)]="supplierInfoVO.expirydate" placeholder="Expiry Date" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ---------------------- Manager details ------------------------------ -->
+            <div class="d-flex mt-4">
+              <div class="form-container margin-b1">
+                <div class="col-sm-12 col-md-12 pt-2">
+                  <h1 class="p-3">{{'Manager Details' | translate}}</h1>
+                </div>
+
+                <div class="d-flex">
+                  <div class="col-md-12">
+                    <div class="form-group row p-3">
+                      <div class="col-sm-12 col-md-6 col-lg-3 pb-1">
+                        <div *ngIf="supplierInfoVO" class="field">
+                          <span>{{'Manager Name' | translate}}</span>
+                          <input disabled type="text" class="form-control" placeholder=""
+                            onkeyup="this.setAttribute('value', this.value);" name="supplierInfoVO.managerName"
+                            [(ngModel)]="supplierInfoVO.managerName" autocomplete="off" />
+                        </div>
+                      </div>
+                      <div class="col-sm-12 col-md-6 col-lg-3 pb-1">
+                        <div *ngIf="supplierInfoVO" class="field">
+                          <span>{{'Job-Title' | translate}}</span>
+                          <input disabled type="text" class="form-control" placeholder=""
+                            onkeyup="this.setAttribute('value', this.value);" name="supplierInfoVO.jobTitle"
+                            [(ngModel)]="supplierInfoVO.jobTitle" autocomplete="off" />
+                        </div>
+
+                      </div>
+                      <div class="col-sm-12 col-md-6 col-lg-3 pb-1">
+                        <div *ngIf="supplierInfoVO" class="field">
+                          <span>{{'Mobile Number' | translate}}</span>
+                          <input disabled type="text" class="form-control" placeholder=""
+                            onkeyup="this.setAttribute('value', this.value);" name="supplierInfoVO.mobile"
+                            [(ngModel)]="supplierInfoVO.mobile" autocomplete="off" />
+                        </div>
+
+                      </div>
+                      <div class="col-sm-12 col-md-6 col-lg-3 pb-1">
+                        <div *ngIf="supplierInfoVO" class="field">
+                          <span>{{'eMail' | translate}}</span>
+                          <input disabled type="email" class="form-control" placeholder=""
+                            onkeyup="this.setAttribute('value', this.value);" name="supplierInfoVO.email"
+                            [(ngModel)]="supplierInfoVO.email" autocomplete="off" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-------------------------  Address Details  -------------------------------->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+            style="text-decoration: none;"><span class="icon-Address-Details"><span class="path1"></span><span
+                class="path2"></span><span class="path3"></span><span class="path4"></span><span
+                class="path5"></span></span>
+                <span class="pl-2 pr-2 check-space">{{'Address-Details' | translate}}</span> </a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse show">
+        <div class="panel-body panel-body1 p-3">
+        
+            <!-- --------------------- Table area -------------------------------- -->
+
+            <div class="d-flex table-area mt-0">
+              <div class="table-responsive table-box">
+
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th >{{'Address / Site Name' | translate}}</th>
+                      <th >{{'Country' | translate}}</th>
+                      <th >{{'State' | translate}}</th>
+                      <th >{{'Address Line' | translate}}1</th>
+                      <th >{{'Address Line' | translate}}2</th>
+                      <th >{{'Address Line' | translate}}3</th>
+                      <th >{{'City' | translate}}</th>
+                      <th >{{'P.O.Box' | translate}}</th>
+                      <th >{{'Phone Number' | translate}}</th>
+                      <th >{{'eMail' | translate}}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let supplierinfo of supplierAddressDtl">
+                      <td [attr.data-title]="'Address / Site Name' | translate">{{supplierinfo.siteName}}</td>
+                      <td [attr.data-title]="'Country' | translate"> {{ supplierinfo.country }}</td>
+                      <td [attr.data-title]="'State' | translate"> {{ supplierinfo.state }}</td>
+                      <td [attr.data-title]="'Address Line' | translate">{{ supplierinfo.address1 }}</td>
+                      <td [attr.data-title]="'Address Line' | translate">{{ supplierinfo.address2 }}</td>
+                      <td [attr.data-title]="'Address Line' | translate">{{ supplierinfo.address3 }}</td>
+                      <td [attr.data-title]="'City' | translate">{{ supplierinfo.city}}</td>
+                      <td [attr.data-title]="'P.O.Box' | translate">{{ supplierinfo.poBox}}</td>
+                      <td [attr.data-title]="'Phone Number' | translate">{{ supplierinfo.phone}}</td>
+                      <td [attr.data-title]="'eMail' | translate">{{ supplierinfo.email}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-------------------------  Contact Details  ------------------------------ -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2"
+            style="text-decoration: none;">
+            <span class="icon-Contracts"><span class="path1"></span><span class="path2"></span><span
+                class="path3"></span><span class="path4"></span><span class="path5"></span><span
+                class="path6"></span><span class="path7"></span></span>
+                <span class="pl-2 pr-2 check-space">{{'Contact-Details' | translate}}</span> </a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse show">
+        <div class="panel-body panel-body1 p-3">
+            <!-- --------------------- Table area -------------------------------- -->
+
+            <div class="d-flex table-area mt-0">
+              <div class="table-responsive table-box">
+
+                <table class="table table-striped">
+                  <thead>
+
+                    <tr>
+                      <th >{{'First Name' | translate}}</th>
+                      <th >{{'Last Name' | translate}}</th>
+                      <th >{{'Job-Title' | translate}}</th>
+                      <th >{{'Role' | translate}}</th>
+                      <th > {{'eMail' | translate}}</th>
+                      <th >{{'Mobile-Number' | translate}}</th>
+                      <th >{{'Work Phone' | translate}}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let supplierinfo of supplierContactDetails">
+                      <td [attr.data-title]="'First Name' | translate"> {{ supplierinfo.firstName }}</td>
+                      <td [attr.data-title]="'Last Name' | translate">{{ supplierinfo.lastName }}</td>
+                      <td [attr.data-title]="'Job-Title' | translate">{{ supplierinfo.jobTitle }}</td>
+                      <td [attr.data-title]="'Role' | translate">{{ supplierinfo.keyRole}}</td>
+                      <td [attr.data-title]="'eMail' | translate">{{ supplierinfo.email}}</td>
+                      <td [attr.data-title]="'Mobile-Number' | translate">{{ supplierinfo.mobile}}</td>
+                      <td [attr.data-title]="'Work Phone' | translate">{{ supplierinfo.phone }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-------------------------  Financial & Business  ------------------------------ -->
+
+    <div class=" panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3"
+            style="text-decoration: none;">
+            <span class="icon-Financial--Business"><span class="path1"></span><span class="path2"></span><span
+                class="path3"></span><span class="path4"></span><span class="path5"></span><span
+                class="path6"></span><span class="path7"></span><span class="path8"></span><span
+                class="path9"></span><span class="path10"></span><span class="path11"></span><span
+                class="path12"></span></span>
+                <span class="pl-2 pr-2 check-space">{{'Financial-Business' | translate}}</span>
+          </a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse show">
+        <div class="panel-body panel-body1 p-3">
+          <!-- ---------------------- Business Capacity ------------------------------ -->
+          <div class="d-flex">
+            <div class="form-container">
+              <div class="col-sm-12 col-md-12 pt-2">
+                <h1 class="p-3 check-space">{{'Business Capability' | translate}}</h1>
+              </div>
+              <div class="d-flex table-area mt-3">
+                <div class="table-responsive table-box">
+
+                  <table class="table table-striped">
+
+                    <thead>
+                      <tr>
+                        <th  class="text-center border-left border-right"><strong>
+                            {{'Date Established' | translate}} </strong></th>
+                        <th  class="text-center border-left border-right">{{ 'Experience History - Locally' |
+                          translate}}
+                        </th>
+                        <th  class="text-center border-left border-right">{{'Total Value of Projects at Hand
+                          - Locally' | translate}}
+                        </th>
+                        <th  class="text-center border-left border-right">{{'Max Value of Projects that you
+                          can undertake' | translate}}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr *ngIf="supplierFinancialInfoVO && supplierFinancialInfoVO?.finDtl">
+                        <td [attr.data-title]="'Date Established' | translate"  class="text-center border-left border-right" style="padding-bottom: 20px">{{
+                          supplierFinancialInfoVO?.finDtl?.dateEstd}}</td>
+                        <td  [attr.data-title]="'Experience History - Locally' | translate" *ngIf="supplierInformationDropdownList">
+                          <select disabled class="form-control floating-select" value=""
+                            name="supplierFinancialInfoVO.finDtl.expHistory"
+                            [(ngModel)]="supplierFinancialInfoVO.finDtl.expHistory" placeholder="">
+                            <option *ngFor="let type of supplierInformationDropdownList.experienceHistory"
+                              value="{{type.lovId}}">
+                              {{type.lovName}}</option>
+                          </select>
+                        </td>
+                        <td [attr.data-title]="'Total Value of Projects at Hand - Locally' | translate" *ngIf="supplierInformationDropdownList">
+                          <input disabled type="text" mask="separator" thousandSeparator=","
+                            class="form-control text-right" id="address2" suffix=".00"
+                            name="supplierFinancialInfoVO.finDtl.totalProjectVal"
+                            [(ngModel)]="supplierFinancialInfoVO.finDtl.totalProjectVal" placeholder="">
+                        </td>
+                        <td [attr.data-title]="'Max Value of Projects that you can undertake' | translate" *ngIf="supplierInformationDropdownList">
+                          <input disabled type="text" mask="separator" thousandSeparator=","
+                            class="form-control text-right" id="pobox" suffix=".00"
+                            name="supplierFinancialInfoVO.finDtl.maxProjectVal"
+                            [(ngModel)]="supplierFinancialInfoVO.finDtl.maxProjectVal" placeholder="">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- --------------------- Table area Current & Pre Projects - Completed-------------------------------- -->
+
+          <div class="d-flex table-area mt-4">
+            <div class="table-responsive table-box">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th >{{'Current-Completed' | translate}}</th>
+                    <th >{{'Customer Name' | translate}}</th>
+                    <th >{{'Project Name' | translate}}</th>
+                    <th >{{'Location' | translate}}</th>
+                    <th >{{'Value in AED' | translate}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td > {{'Previous Project' | translate}}</td>
+                    <td [attr.data-title]="'Customer Name' | translate" *ngIf="supplierFinancialInfoVO && supplierFinancialInfoVO.finDtl && 
+                    supplierFinancialInfoVO.finDtl.financeProjectDtl[0]">
+                      {{supplierFinancialInfoVO.finDtl.financeProjectDtl[0].customerName}} </td>
+                    <td [attr.data-title]="'Project Name' | translate" *ngIf="supplierFinancialInfoVO && supplierFinancialInfoVO.finDtl && 
+                    supplierFinancialInfoVO.finDtl.financeProjectDtl[0]">
+                      {{supplierFinancialInfoVO.finDtl.financeProjectDtl[0].projectName}} </td>
+                    <td [attr.data-title]="'Location' | translate" *ngIf="supplierFinancialInfoVO && supplierFinancialInfoVO.finDtl && 
+                    supplierFinancialInfoVO.finDtl.financeProjectDtl[0]">
+                      {{supplierFinancialInfoVO.finDtl.financeProjectDtl[0].location}} </td>
+                    <td [attr.data-title]="'Value in AED' | translate" align="right" *ngIf="supplierFinancialInfoVO && supplierFinancialInfoVO.finDtl && 
+                    supplierFinancialInfoVO.finDtl.financeProjectDtl[0]">
+                      {{supplierFinancialInfoVO.finDtl.financeProjectDtl[0].value | mask: 'separator':','}}.00</td>
+                  </tr>
+                  <tr>
+                    <td > {{'Ongoing Project' | translate}}</td>
+                    <td [attr.data-title]="'Customer Name' | translate"
+                      *ngIf="supplierFinancialInfoVO && supplierFinancialInfoVO.finDtl && supplierFinancialInfoVO.finDtl.financeProjectDtl[1]">
+                      {{supplierFinancialInfoVO.finDtl.financeProjectDtl[1].customerName}} </td>
+                    <td [attr.data-title]="'Project Name' | translate"
+                      *ngIf="supplierFinancialInfoVO && supplierFinancialInfoVO.finDtl && supplierFinancialInfoVO.finDtl.financeProjectDtl[1]">
+                      {{supplierFinancialInfoVO.finDtl.financeProjectDtl[1].projectName}} </td>
+                    <td [attr.data-title]="'Location' | translate"
+                      *ngIf="supplierFinancialInfoVO && supplierFinancialInfoVO.finDtl && supplierFinancialInfoVO.finDtl.financeProjectDtl[1]">
+                      {{supplierFinancialInfoVO.finDtl.financeProjectDtl[1].location}} </td>
+                    <td align="right" [attr.data-title]="'Value in AED' | translate"
+                      *ngIf="supplierFinancialInfoVO && supplierFinancialInfoVO.finDtl && supplierFinancialInfoVO.finDtl.financeProjectDtl[1]">
+                      {{supplierFinancialInfoVO.finDtl.financeProjectDtl[1].value | mask: 'separator':','}}.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- --------------------- Table area Total Assets & Liabilities-------------------------------- -->
+
+          <div class="d-flex table-area mt-2">
+            <div class="table-responsive table-box">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th >{{'Total Assets and Liabilities' | translate}}</th>
+                    <th colspan="3">{{'Value in AED' | translate}}</th>
+                  </tr>
+                  <tr style="background: #fff !important;">
+                    <td ></td>
+                    <th  class="text-center" style="border-left:1px solid #ccc; border-right:1px solid #ccc; width:200px">{{'Year 1' | translate}}</th>
+                    <th   class="text-center" style="border-right:1px solid #ccc; width:200px">{{'Year 2' | translate}}</th>
+                    <th  class="text-center" style="width:200px">{{'Year 3' | translate}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td >{{'Total Assets' | translate}}</td>
+                    <td [attr.data-title]="'Year 1' | translate" align="right" style="border-left:1px solid #ccc; border-right:1px solid #ccc;"
+                      *ngIf="supplierFinancialInfoVO && supplierFinancialInfoVO.finDtl && supplierFinancialInfoVO.finDtl.financeAssetDtl[0]">
+                      {{supplierFinancialInfoVO.finDtl.financeAssetDtl[0].yearOne | mask: 'separator':','}}.00 </td>
+                    <td [attr.data-title]="'Year 2' | translate" align="right" style="border-left:1px solid #ccc; border-right:1px solid #ccc;"
+                      *ngIf="supplierFinancialInfoVO && supplierFinancialInfoVO.finDtl && supplierFinancialInfoVO.finDtl.financeAssetDtl[0]">
+                      {{supplierFinancialInfoVO.finDtl.financeAssetDtl[0].yearTwo | mask: 'separator':','}}.00 </td>
+                    <td [attr.data-title]="'Year 3' | translate" align="right"
+                      *ngIf="supplierFinancialInfoVO && supplierFinancialInfoVO.finDtl && supplierFinancialInfoVO.finDtl.financeAssetDtl[0]">
+                      {{supplierFinancialInfoVO.finDtl.financeAssetDtl[0].yearThree | mask: 'separator':','}}.00 </td>
+                  </tr>
+                  <tr>
+                    <td > {{'Total Liabilites' | translate}}</td>
+                    <td [attr.data-title]="'Year 1' | translate" align="right" style="border-left:1px solid #ccc; border-right:1px solid #ccc;"
+                      *ngIf="supplierFinancialInfoVO && supplierFinancialInfoVO.finDtl && supplierFinancialInfoVO.finDtl.financeAssetDtl[1]">
+                      {{supplierFinancialInfoVO.finDtl.financeAssetDtl[1].yearOne | mask: 'separator':','}}.00 </td>
+                    <td [attr.data-title]="'Year 2' | translate" align="right" style="border-left:1px solid #ccc; border-right:1px solid #ccc;"
+                      *ngIf="supplierFinancialInfoVO && supplierFinancialInfoVO.finDtl && supplierFinancialInfoVO.finDtl.financeAssetDtl[1]">
+                      {{supplierFinancialInfoVO.finDtl.financeAssetDtl[1].yearTwo | mask: 'separator':','}}.00 </td>
+                    <td [attr.data-title]="'Year 3' | translate" align="right"
+                      *ngIf="supplierFinancialInfoVO && supplierFinancialInfoVO.finDtl && supplierFinancialInfoVO.finDtl.financeAssetDtl[1]">
+                      {{supplierFinancialInfoVO.finDtl.financeAssetDtl[1].yearThree | mask: 'separator':','}}.00 </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+       -----------------------  Bank Details  ------------------------------ -->
+    <div class="panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse4"
+            style="text-decoration: none;">
+            <span class="icon-Bank-Details"></span>
+            <span class="pl-2 pr-2 check-space">{{'Bank-Details' | translate}}</span>
+          </a>
+        </h4>
+      </div>
+      <div id="collapse4" class="panel-collapse collapse show">
+        <div class="panel-body panel-body1 p-3">
+
+          <!-- --------------------- Table area -------------------------------- -->
+
+          <div class="d-flex table-area mt-0">
+            <div class="table-responsive table-box">
+
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th >{{'Bank Name' | translate}}</th>
+                    <th >{{'Branch' | translate}}</th>
+                    <th >{{'currency Code' | translate}}</th>
+                    <th >{{'City' | translate}}</th>
+                    <th >{{'Account Number' | translate}}</th>
+                    <th >{{'Swift Code' | translate}}</th>
+                    <th >{{'Bank Reference Identifier' | translate}}</th>
+                    <th >{{'Refrence Value' | translate}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngIf="supplierBankDetails">
+                    <td [attr.data-title]="'Bank Name' | translate"> {{ supplierBankDetails.bankName }}</td>
+                    <td [attr.data-title]="'Branch' | translate">{{ supplierBankDetails.branch }}</td>
+                    <td [attr.data-title]="'currency Code' | translate">{{ supplierBankDetails.currencyCode }}</td>
+                    <td [attr.data-title]="'City' | translate">{{ supplierBankDetails.city}}</td>
+                    <td [attr.data-title]="'Account Number' | translate">{{ supplierBankDetails.accountNumber }}</td>
+                    <td [attr.data-title]="'Swift Code' | translate">{{ supplierBankDetails.swiftCode }}</td>
+                    <td [attr.data-title]="'Bank Reference Identifier' | translate">{{ supplierBankDetails.bankRefNumName}}</td>
+                    <td [attr.data-title]="'Refrence Value' | translate">{{ supplierBankDetails.refNum}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-------------------------  Category & Scope  ------------------------------ -->
+    <div class="panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse5"
+            style="text-decoration: none;">
+            <span class="icon-Category--Scope"></span>
+            <span class="pl-2 pr-2 check-space">{{'Category Scope' | translate}}</span>
+          </a>
+        </h4>
+      </div>
+      <div id="collapse5" class="panel-collapse collapse show">
+        <div class="panel-body panel-body1 p-3">
+
+          <!-- --------------------- Table area -------------------------------- -->
+
+          <div class="d-flex table-area mt-0">
+            <div class="table-responsive table-box">
+
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th >{{'S.No' | translate}}</th>
+                    <th >{{'Parent Category' | translate}}</th>
+                    <th >{{'Sub category' | translate}}</th>
+                    <th >{{'Child Category' | translate}}</th>
+                    <th >{{'Qualification-Status' | translate}}</th>
+                    <th class="text-center">{{'Attachments' | translate}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let supplierinfo of supplierCategoryDetails;let i=index">
+                    <td [attr.data-title]="'S.No' | translate">{{i+1}}</td>
+                    <td [attr.data-title]="'Parent Category' | translate">{{ supplierinfo.parentCategoryName }}</td>
+                    <td [attr.data-title]="'Sub category' | translate">{{ supplierinfo.subCategoryName }}</td>
+                    <td [attr.data-title]="'Child Category' | translate">{{ supplierinfo.childCategoryName }}</td>
+                    <td [attr.data-title]="'Qualification-Status' | translate">{{ supplierinfo.qualificationStatusName}}</td>
+                    <td [attr.data-title]="'Attachments' | translate" class="text-center"> <a class="mr-2"><img src="assets/img/eye.png"
+                          (click)="openAttachment(supplierinfo)"></a> </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-------------------------  attachment section  ------------------------------ -->
+    <div class="panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse6"
+            style="text-decoration: none;"><img class="icon25" src="assets/img/Attachments-icon.png">
+            <span class="pl-2 pr-2 check-space">{{'Attachments' | translate}}</span>
+          </a>
+        </h4>
+      </div>
+      <div id="collapse6" class="panel-collapse collapse show">
+        <div class="panel-body panel-body1 p-3">
+
+          <!-- --------------------- Table area -------------------------------- -->
+
+          <div class="d-flex table-area mt-2">
+
+            <div class="table-responsive table-box">
+
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th >{{'Category' | translate}}</th>
+                    <th > {{'File Name' | translate}}</th>
+                    <th >{{'Uploaded By' | translate}}</th>
+                    <th >{{'Uploaded Date' | translate}}</th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="supplierAttachmentSection">
+
+                  <tr *ngFor="let supplierinfo of supplierAttachmentSection">
+                    <td [attr.data-title]="'Category' | translate">{{ supplierinfo.documentType }}</td>
+
+                    <td [attr.data-title]="'File Name' | translate" >{{ supplierinfo.documentName }}<a><i
+                          class="fa fa-download" (click)="downloadDocument(supplierinfo.documentName)"></i></a></td>
+                    <td [attr.data-title]="'Uploaded By' | translate"> {{ supplierinfo.userName }}</td>
+                    <td [attr.data-title]="'Uploaded Date' | translate">{{ supplierinfo.uploadDate }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="pagination" class="pagination-area mt-1">     
+    <div class="d-flex">
+      <span class="mr-auto">&nbsp;</span>
+
+        <nav class="navigation pull-right">
+          <ul class="pagination ">
+            <li class="page-item"><a class="page-link prev-btn" (click)="goToPreviousComponent()"><img
+                  src="./assets/img/arrow-left.png"> </a></li>
+
+            <li class="page-item" *ngIf="isAlreadySaved==true"><a class="page-link next-btn"
+                (click)="goToNextComponent()"> <img src="./assets/img/arrow-right.png"> </a></li>
+          </ul>
+        </nav>
+      </div>
+  </section>
+  <app-model-window></app-model-window>
+</div>
+
+<div class="modal fade table-model" id="attachmentsModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{'Testimonial' | translate}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h1 class="model-header">{{'Success Stories' | translate}}</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>{{'File Uploaded' | translate}}</th>
+              <th>{{'Uploaded Date' | translate}}</th>
+              <th>{{'Uploaded By' | translate}}</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="successStories">
+            <tr *ngFor="let doc of successStories">
+              <td [attr.data-title]="'File Uploaded' | translate"> {{doc.documentName }}</td>
+              <td [attr.data-title]="'Uploaded Date' | translate">{{ doc.uploadDate }}</td>
+              <td [attr.data-title]="'Uploaded By' | translate"> {{ doc.userName }} </td>
+            </tr>
+          </tbody>
+          <tbody *ngIf="attachmentDataNotRetrievedMsg && successStories.length==0">
+            <tr>
+              <td colspan="4" class="center">{{ attachmentDataNotRetrievedMsg }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal-body mt-0">
+        <h1 class="model-header">{{'Specialized Profiles' | translate}}</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>{{'File Uploaded' | translate}}</th>
+              <th>{{'Uploaded Date' | translate}}</th>
+              <th>{{'Uploaded By' | translate}}</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="specializedProfiles">
+            <tr *ngFor="let doc of specializedProfiles">
+              <td [attr.data-title]="'Uploaded By' | translate"> {{doc.documentName }}</td>
+              <td [attr.data-title]="'Uploaded By' | translate">{{ doc.uploadDate }}</td>
+              <td [attr.data-title]="'Uploaded By' | translate"> {{ doc.userName }} </td>
+            </tr>
+          </tbody>
+          <tbody *ngIf="attachmentDataNotRetrievedMsg && specializedProfiles.length==0">
+            <tr>
+              <td colspan="4" class="center">{{ attachmentDataNotRetrievedMsg }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

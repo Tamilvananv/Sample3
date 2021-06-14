@@ -1,0 +1,138 @@
+
+
+    <!-- --------------- breadcrumb ---------------- -->
+ 
+    <div class="col-sm-12">
+    <div class="row">
+        <div class="col-sm-6 pr-0 pl-0 ">
+          <nav aria-label="breadcrumb" id="breadcrumb">
+            <ol class="breadcrumb pl-0 mt-0">
+              <li class="breadcrumb-item active" aria-current="page">{{'Completion Certificate Details' | translate}}</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="col-sm-6 pr-0 pl-0 pt-2 expand-collapse">
+          <app-collapse-expand-btn class="pull-right"></app-collapse-expand-btn>
+        </div>
+      </div>  
+    </div>
+    <div class="panel-group " id="accordion">
+ <!-- 
+        -----------------------  Work Completion Details  ------------------------------ -->
+        <!-- <div class="panel-default"> -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion"
+                            href="#collapse4" style="text-decoration: none;"><img class="icon25 mr-2"
+                                src="assets/img/auctionIP.png">
+                                {{'Work Completion Details' | translate}}</a>
+                                
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse in show">
+                    <div class="panel-body panel-body1 p-3">
+                        <div id="no-more-tables">
+                            <app-work-completion-view #WorkCompletionViewComponent [workCompletionDetails]="workCompletionDetails"></app-work-completion-view>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- 
+      
+      -----------------------  Contract Details  ------------------------------ -->
+        <!-- <div class="panel-default"> -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion"
+                        href="#collapse1" style="text-decoration: none;"><img class="icon25 mr-2"
+                            src="assets/img/Contract-Information.png">
+                            {{'Contract Details' | translate}}</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in show">
+                <div class="panel-body panel-body1 p-3">
+                    <div id="no-more-tables">
+                        <app-contract-information-details></app-contract-information-details>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+
+        <!-- 
+       -----------------------  attachment section  ------------------------------ -->
+
+       <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="col-sm-12">
+                <div class="row">
+            <div class="col-sm-3">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion"
+                        href="#collapse5" style="text-decoration: none;"><img class="icon25 mr-2"
+                            src="assets/img/Contract-Information.png">
+                            {{'Payment Milestone / BOQ' | translate}} </a>
+                </h4>
+            </div>
+            <div class="col-sm-3 margin-b">
+                <form>
+                    <div class="form-container form-group box-shadow-none bg-none">
+                        <select class="form-control bg-none" [(ngModel)]="paymentMilestoneBOQ" style="width: 200px;">
+                            <option *ngFor="let milestone of boqList" [ngValue]="milestone">{{milestone.description}}</option>
+                            <!-- <option>Milestone 1</option>
+                            <option>Milestone 1</option> -->
+                        </select>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+            
+        </div>
+        <div id="collapse5" class="panel-collapse collapse in show">
+            <div class="panel-body panel-body1 p-3">
+                <div class="d-flex table-area mt-3">
+                    <div class="table-responsive table-box">
+                    <app-payment-milestone-boq [boqDtlList]="boqList"></app-payment-milestone-boq>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+     
+   
+
+        <!-- Attachment section -->
+
+        <div class=" panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapse6"
+                        style="text-decoration: none;"><img class="icon25 pr-2"
+                            src="assets/img/Attachments-icon.png"> {{'Attachment Section' | translate}} </a> </h4>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse in show">
+                <div class="panel-body panel-body1 pt-3 pb-1 pl-3 pr-3">
+                    <div class="d-flex table-area mt-2">
+                        <div class="table-responsive table-box">
+                     <app-attach-section [moduleName]="moduleName" [moduleTxnId]="moduleTxnId"></app-attach-section>
+                    </div>
+                </div>
+                </div>
+ 
+                </div>
+            </div> 
+            <section id="pagination" class="pagination-area mt-1 mb-5">
+                    <div class="d-flex">
+                    <span class="mr-auto">&nbsp;</span>
+                    <a routerLink="/claim-search"><button  type="submit" class="clear-btn"> 	{{'BACK' | translate}} </button></a> 
+                    <!-- <a routerLink="/public-tenders"><button  type="submit" class="page-link save ml-4"> ADD ROW </button></a> 
+                    <button  type="submit" data-toggle="modal" data-target="#receipt"  class="page-link save"> SUBMIT QUERIES </button> -->
+                   
+                    </div>
+            </section>
+      
+        <!-- </div> -->
+    </div>
